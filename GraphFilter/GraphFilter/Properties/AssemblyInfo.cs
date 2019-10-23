@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // As informações gerais sobre um assembly são controladas por
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
 // associadas a um assembly.
-[assembly: AssemblyTitle("GraphFilter")]
+[assembly: AssemblyTitle("FilterGraphs")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("GraphFilter")]
+[assembly: AssemblyProduct("FilterGraphs")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // O GUID a seguir será destinado à ID de typelib se este projeto for exposto para COM
-[assembly: Guid("aa09d195-d0bd-46df-bfe3-c64a1033c9c2")]
+[assembly: Guid("7b9ec511-3aba-494e-aa63-99ae4f588b2c")]
 
 // As informações da versão de um assembly consistem nos quatro valores a seguir:
 //
