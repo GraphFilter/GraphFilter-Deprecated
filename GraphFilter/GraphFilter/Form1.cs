@@ -15,12 +15,13 @@ namespace GraphFilter
     public partial class Form1 : Form
     {
         Stream fileG6In;
+        Stream fileG6Out;
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void ButtonOpen_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             
@@ -32,6 +33,8 @@ namespace GraphFilter
                     using (StreamReader reader = new StreamReader(ofd.FileName, Encoding.GetEncoding(CultureInfo.GetCultureInfo("pt-br").TextInfo.ANSICodePage)))
                     {
                         fileG6In = ofd.OpenFile();
+                        textoOrigem.Text = ofd.FileName;
+                        buttonSave.Enabled = true;
                     }
                 }
                 catch (Exception ex)
@@ -59,8 +62,10 @@ namespace GraphFilter
                 {
                     using (StreamWriter writer = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
                     {
-                        writer.Write(textoConteudo.Text);
+                        writer.Write(textoOrigem.Text);
                         writer.Flush();
+                        textDestino.Text = sfd.FileName;
+                        buttonSearch.Enabled = true;
                     }
                 }
                 catch (Exception ex)
@@ -101,12 +106,13 @@ namespace GraphFilter
 
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
-            using (StreamReader reader = new StreamReader(fileG6In))
-            {
-                textoConteudo.Text = reader.ReadToEnd();
-            }
+            string condicao = "N?????????????{?@~w";
+         
+        }
 
-            
+        private void TextDestino_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
