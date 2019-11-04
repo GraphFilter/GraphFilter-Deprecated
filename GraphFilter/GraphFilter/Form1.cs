@@ -15,7 +15,8 @@ namespace GraphFilter
     public partial class Form1 : Form
     {
         Stream fileG6In;
-        Stream fileG6Out;
+        int qtdLinhasIn;
+
         public Form1()
         {
             InitializeComponent();
@@ -33,6 +34,9 @@ namespace GraphFilter
                     using (StreamReader reader = new StreamReader(ofd.FileName, Encoding.GetEncoding(CultureInfo.GetCultureInfo("pt-br").TextInfo.ANSICodePage)))
                     {
                         fileG6In = ofd.OpenFile();
+                        qtdLinhasIn = File.ReadLines(ofd.FileName).Count();
+                        progressBar.Maximum = qtdLinhasIn;
+                        progressBar.Minimum = 0;
                         textoOrigem.Text = ofd.FileName;
                         buttonSave.Enabled = true;
                     }
@@ -87,30 +91,44 @@ namespace GraphFilter
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            checkedListProperties.Items.Add("Maximum Matching Set");
-            checkedListProperties.Items.Add("Maximum Matching Set");
-            checkedListProperties.Items.Add("Maximum Matching Set");
-            checkedListProperties.Items.Add("Maximum Matching Set");
-            checkedListProperties.Items.Add("Maximum Matching Set");
-            checkedListProperties.Items.Add("Maximum Matching Set");
-            checkedListProperties.Items.Add("Maximum Matching Set");
-            checkedListProperties.Items.Add("Maximum Matching Set");
-            checkedListProperties.Items.Add("Maximum Matching Set");
-            checkedListProperties.Items.Add("Maximum Matching Set");
-            checkedListProperties.Items.Add("Maximum Matching Set");
-            checkedListProperties.Items.Add("Maximum Matching Set");
-            checkedListProperties.Items.Add("Maximum Matching Set");
-            checkedListProperties.Items.Add("Maximum Matching Set");
-            checkedListProperties.Items.Add("Maximum Matching Set");
+         
         }
 
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
-            string condicao = "N?????????????{?@~w";
-         
+            string condicao1 = "R????A?O@?A?A?@??OCA?[??L?AC?_";
+            double numberOfGraphsIn = 0;
+            double numberOfGraphsOut = 0;
+            int indiceProgressBar = 1;
+            using (StreamReader leitor = new StreamReader(fileG6In))
+            {
+                using (StreamWriter gravador = new StreamWriter(textDestino.Text))
+                {
+                    String g6Atual = leitor.ReadLine();
+                    while (g6Atual != null)
+                    {
+                        progressBar.Value = indiceProgressBar;
+                        if (g6Atual.Contains(condicao1))
+                        {
+                            numberOfGraphsOut++;
+                            gravador.WriteLine(g6Atual);
+                        }
+                        numberOfGraphsIn++;
+                        g6Atual = leitor.ReadLine();
+                        indiceProgressBar++;
+                    }
+                }
+            }
+            double percentual = Math.Round((numberOfGraphsOut / numberOfGraphsIn) * 100, 2);
+            MessageBox.Show("Busca realizada com sucesso! \nO percentual de grafos escolhidos é: " + percentual + " %" + "\nO número de grafos escolhidos foi de: " + numberOfGraphsOut +  "\nO número total de grafos que foram lidos foi de: " + numberOfGraphsIn + ".");
         }
 
         private void TextDestino_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BackgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
 
         }
