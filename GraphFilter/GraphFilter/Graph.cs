@@ -45,9 +45,9 @@ namespace GraphFilter
         {
             List<int> seqDegree = new List<int>(this.order);
             int sumRow = 0;
-            for (int i = 0; i < g.order; i++)
+            for (int i = 0; i < this.order; i++)
             {
-                for (int j = 0; j < g.order; j++)
+                for (int j = 0; j < this.order; j++)
                 {
                     sumRow = sumRow + this.adjacencyMatrix[i, j];
                 }
@@ -57,6 +57,6 @@ namespace GraphFilter
             return seqDegree;
         }
 
-        bool 3*vovm -2cmvom
+        
     }
 }

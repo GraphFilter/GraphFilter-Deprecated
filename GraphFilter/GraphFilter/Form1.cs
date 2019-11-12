@@ -22,7 +22,7 @@ namespace GraphFilter
             InitializeComponent();
         }
 
-        private void ButtonOpen_Click(object sender, EventArgs e)
+        private void ButtonInput_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             
@@ -54,7 +54,7 @@ namespace GraphFilter
 
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void ButtonOutput_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "Arquivo texto | *.txt";
@@ -72,7 +72,7 @@ namespace GraphFilter
                         buttonSearch.Enabled = true;
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("Não foi possível salvar o seu arquivo.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -91,6 +91,8 @@ namespace GraphFilter
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            comboInv1.Items.Add("Order");
+
          
         }
 
@@ -129,6 +131,51 @@ namespace GraphFilter
         }
 
         private void BackgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label5_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ComboInv1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
