@@ -68,7 +68,7 @@ namespace GraphFilter
                     {
                         writer.Write(textoOrigem.Text);
                         writer.Flush();
-                        textDestino.Text = sfd.FileName;
+                        textOutPath.Text = sfd.FileName;
                         buttonSearch.Enabled = true;
                     }
                 }
@@ -96,25 +96,25 @@ namespace GraphFilter
 
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
-            string condicao1 = "R????A?O@?A?A?@??OCA?[??L?AC?_";
+            string condition1 = "R????A?O@?A?A?@??OCA?[??L?AC?_";
             double numberOfGraphsIn = 0;
             double numberOfGraphsOut = 0;
             int indiceProgressBar = 1;
-            using (StreamReader leitor = new StreamReader(fileG6In))
+            using (StreamReader stReaderIn = new StreamReader(fileG6In))
             {
-                using (StreamWriter gravador = new StreamWriter(textDestino.Text))
+                using (StreamWriter stWriterOut = new StreamWriter(textOutPath.Text))
                 {
-                    String g6Atual = leitor.ReadLine();
-                    while (g6Atual != null)
+                    String g6Line = stReaderIn.ReadLine();
+                    while (g6Line != null)
                     {
                         progressBar.Value = indiceProgressBar;
-                        if (g6Atual.Contains(condicao1))
+                        if (g6Line.Contains(condition1))
                         {
                             numberOfGraphsOut++;
-                            gravador.WriteLine(g6Atual);
+                            stWriterOut.WriteLine(g6Line);
                         }
                         numberOfGraphsIn++;
-                        g6Atual = leitor.ReadLine();
+                        g6Line = stReaderIn.ReadLine();
                         indiceProgressBar++;
                     }
                 }

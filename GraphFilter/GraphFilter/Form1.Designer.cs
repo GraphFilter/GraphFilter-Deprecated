@@ -33,7 +33,7 @@
             this.textoOrigem = new System.Windows.Forms.TextBox();
             this.checkedListProperties = new System.Windows.Forms.CheckedListBox();
             this.buttonSearch = new System.Windows.Forms.Button();
-            this.textDestino = new System.Windows.Forms.TextBox();
+            this.textOutPath = new System.Windows.Forms.TextBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
@@ -43,7 +43,7 @@
             this.buttonOpen.Name = "buttonOpen";
             this.buttonOpen.Size = new System.Drawing.Size(139, 30);
             this.buttonOpen.TabIndex = 0;
-            this.buttonOpen.Text = "Abrir Arquivo";
+            this.buttonOpen.Text = "Input File";
             this.buttonOpen.UseVisualStyleBackColor = true;
             this.buttonOpen.Click += new System.EventHandler(this.ButtonOpen_Click);
             // 
@@ -91,20 +91,20 @@
             this.buttonSearch.UseVisualStyleBackColor = true;
             this.buttonSearch.Click += new System.EventHandler(this.ButtonSearch_Click);
             // 
-            // textDestino
+            // textOutPath
             // 
-            this.textDestino.Enabled = false;
-            this.textDestino.Location = new System.Drawing.Point(157, 55);
-            this.textDestino.Name = "textDestino";
-            this.textDestino.Size = new System.Drawing.Size(440, 22);
-            this.textDestino.TabIndex = 5;
-            this.textDestino.TextChanged += new System.EventHandler(this.TextDestino_TextChanged);
+            this.textOutPath.Enabled = false;
+            this.textOutPath.Location = new System.Drawing.Point(157, 55);
+            this.textOutPath.Name = "textOutPath";
+            this.textOutPath.Size = new System.Drawing.Size(440, 22);
+            this.textOutPath.TabIndex = 5;
+            this.textOutPath.TextChanged += new System.EventHandler(this.TextDestino_TextChanged);
             // 
             // progressBar
             // 
             this.progressBar.Location = new System.Drawing.Point(157, 290);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(559, 30);
+            this.progressBar.Size = new System.Drawing.Size(631, 30);
             this.progressBar.TabIndex = 6;
             // 
             // Form1
@@ -113,7 +113,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.progressBar);
-            this.Controls.Add(this.textDestino);
+            this.Controls.Add(this.textOutPath);
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.checkedListProperties);
             this.Controls.Add(this.textoOrigem);
@@ -135,7 +135,7 @@
         private System.Windows.Forms.TextBox textoOrigem;
         private System.Windows.Forms.CheckedListBox checkedListProperties;
         private System.Windows.Forms.Button buttonSearch;
-        private System.Windows.Forms.TextBox textDestino;
+        private System.Windows.Forms.TextBox textOutPath;
         private System.Windows.Forms.ProgressBar progressBar;
     }
 }

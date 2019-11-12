@@ -42,5 +42,7 @@ namespace GraphFilter
             }
             return degree;
         }
+
+        bool 3*vovm -2cmvom
     }
 }
