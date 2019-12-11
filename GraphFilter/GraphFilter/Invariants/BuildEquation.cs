@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GraphFilter.Invariants
 {
-    public static class BuildEquation
+    public static class Build
     {
         //0: num de vértices
         //1: grau máximo
@@ -32,20 +32,27 @@ namespace GraphFilter.Invariants
             bool cond = 2 * Invariant(1, g) == 0;
         }
 
-        public static bool Condition(double param1, int comboInv1, double param2, int comboInv2, double param3, string relation, Graph g)
+        public static string[] ComboBox()
         {
+            return new string[] { "Order", "Max Degree", "Min Degree", "Avg Degree"};
+        }
+
+        public static bool Condition(string param1, int comboInv1, string param2, int comboInv2, string param3, string relation, Graph g)
+        {
+
             switch (relation)
             {
                 case "<":
-                    return param1 * Invariant(comboInv1, g) + param2 * Invariant(comboInv2, g) + param3 < 0;
+                    return Convert.ToDouble(param1) * Invariant(comboInv1, g) + Convert.ToDouble(param2) * Invariant(comboInv2, g) + Convert.ToDouble(param3) < 0;
+                case "=":
+                    double x = Convert.ToDouble(param3);
+                    return Convert.ToDouble(param1) * Invariant(comboInv1, g) + Convert.ToDouble(param2) * Invariant(comboInv2, g) + Convert.ToDouble(param3) == 0;
+                case "<=":
+                case "=<":
+                    return Convert.ToDouble(param1) * Invariant(comboInv1, g) + Convert.ToDouble(param2) * Invariant(comboInv2, g) + Convert.ToDouble(param3) <= 0;
                 default: return true;
+            }
         }
-
-            Form1 fm = new Form1();
-
-
-
-
-
     }
 }
+
