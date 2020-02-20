@@ -18,6 +18,7 @@ namespace GraphFilter
     public partial class Form1 : Form
     {
         Stream fileG6In;
+        StreamWriter fileG6Out;
         int qtdLinhasIn;
 
         public Form1()
@@ -29,7 +30,7 @@ namespace GraphFilter
         {
             OpenFileDialog ofd = new OpenFileDialog();
 
-            ofd.Filter = "Arquivo texto | *.g6";
+            ofd.Filter = "Arquivo g6 | *.g6";
             ofd.ShowDialog();
             if (string.IsNullOrEmpty(ofd.FileName) == false)
             {
@@ -57,7 +58,7 @@ namespace GraphFilter
         private void ButtonOutput_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "Arquivo texto | *.g6";
+            sfd.Filter = "Arquivo g6 | *.g6";
             sfd.ShowDialog();
 
             if (string.IsNullOrEmpty(sfd.FileName) == false)
@@ -70,6 +71,7 @@ namespace GraphFilter
                         writer.Flush();
                         textOutPath.Text = sfd.FileName;
                         buttonSearch.Enabled = true;
+                        this.fileG6Out = writer;
                     }
                 }
                 catch (Exception)
@@ -86,15 +88,16 @@ namespace GraphFilter
             comboInv2Eq1.Items.AddRange(Build.ComboBox());
             comboInv1Eq2.Items.AddRange(Build.ComboBox());
             comboInv2Eq2.Items.AddRange(Build.ComboBox());
-            comboInv1Eq3.Items.AddRange(Build.ComboBox());
-            comboInv2Eq3.Items.AddRange(Build.ComboBox());
 
         }
 
         #region Button Search
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
-
+            FilesFilter filesFilter = new FilesFilter(fileG6In, textOutPath.Text,this);
+            double[] retorno = filesFilter.Run();
+            MessageBox.Show("Busca realizada com sucesso! \nO percentual de grafos escolhidos é: " + retorno[2] + " %" + "\nO número de grafos escolhidos foi de: " + retorno[1] + "\nO número total de grafos que foram lidos foi de: " + retorno[0] + ".");
+/*
             string condition1 = "R????A?O@?A?A?@??OCA?[??L?AC?_";
             double numberOfGraphsIn = 0;
             double numberOfGraphsOut = 0;
@@ -120,6 +123,7 @@ namespace GraphFilter
             }
             double percentual = Math.Round((numberOfGraphsOut / numberOfGraphsIn) * 100, 2);
             MessageBox.Show("Busca realizada com sucesso! \nO percentual de grafos escolhidos é: " + percentual + " %" + "\nO número de grafos escolhidos foi de: " + numberOfGraphsOut + "\nO número total de grafos que foram lidos foi de: " + numberOfGraphsIn + ".");
+     */
         }
         #endregion
 
@@ -201,27 +205,6 @@ namespace GraphFilter
                 e.Handled = true;
             }
         }
-        private void Param1Eq3_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (AllowNumber(param1Eq3.Text, e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-        private void Param2Eq3_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (AllowNumber(param2Eq3.Text, e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-        private void Param3Eq3_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (AllowNumber(param3Eq3.Text, e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
         private void TextBox4_TextChanged(object sender, EventArgs e)
         {
             relationEq1.MaxLength = 2;
@@ -271,14 +254,6 @@ namespace GraphFilter
         private void RelationEq2_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (AllowRelation(relationEq2.Text, e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void RelationEq3_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (AllowRelation(relationEq3.Text, e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -388,29 +363,12 @@ namespace GraphFilter
                 relationEq2.Enabled = false;
             }
         }
-
-        private void EnableEq3_CheckedChanged(object sender, EventArgs e)
-        {
-            if (enableEq3.Checked == true)
-            {
-                param1Eq3.Enabled = true;
-                comboInv1Eq3.Enabled = true;
-                param2Eq3.Enabled = true;
-                comboInv2Eq3.Enabled = true;
-                param3Eq3.Enabled = true;
-                relationEq3.Enabled = true;
-            }
-            else
-            {
-                param1Eq3.Enabled = false;
-                comboInv1Eq3.Enabled = false;
-                param2Eq3.Enabled = false;
-                comboInv2Eq3.Enabled = false;
-                param3Eq3.Enabled = false;
-                relationEq3.Enabled = false;
-            }
-        }
         #endregion
+
+        private void param2Eq1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
