@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace GraphFilter
 {
-    static class Conversor
+    public static class Conversor
     {
+        /*
         public static string GraphToGraph6(int[,] adjMatrix)
         {
             int n = adjMatrix.Rank;
@@ -53,6 +54,7 @@ namespace GraphFilter
 
             return NtoASCII + adjVector_ASCII;
         }
+        */
 
         public static int[,] Graph6toAdjMatrix(string g6)
         {

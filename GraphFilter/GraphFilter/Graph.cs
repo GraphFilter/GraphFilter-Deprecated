@@ -14,10 +14,20 @@ namespace GraphFilter
 
         public List<int> sequenceDegree { get; private set; }
 
+        public string g6code { get; private set; }
+
         public Graph(string graph6code)
         {
             adjacencyMatrix = Conversor.Graph6toAdjMatrix(graph6code);
-            order = adjacencyMatrix.Rank;
+            order = (int) Math.Sqrt(adjacencyMatrix.Length);
+            sequenceDegree = SequenceDegree();
+            g6code = graph6code;
+        }
+
+        public Graph(int[,] adjMatrix)
+        {
+            adjacencyMatrix = adjMatrix;
+            order = (int)Math.Sqrt(adjacencyMatrix.Length);
             sequenceDegree = SequenceDegree();
         }
 
