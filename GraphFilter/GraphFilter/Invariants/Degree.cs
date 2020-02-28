@@ -22,5 +22,21 @@ namespace GraphFilter.Invariants
         {
             return g.sequenceDegree.Average();
         }
+
+        public static bool IsRegular(Graph g)
+        {
+            for (int i = 0; i < g.order - 1; i++)
+            {
+                if (g.sequenceDegree.ElementAt<int>(i) != g.sequenceDegree.ElementAt<int>(i + 1)) return false;
+            }
+            return true;
+        }
+
+        public static bool IsRegularWithDegree(Graph g, int k)
+        {
+            for (int i = 0; i < g.order - 1; i++)
+                if (g.sequenceDegree.ElementAt<int>(i) != k) return false;
+            return true;
+        }
     }
 }

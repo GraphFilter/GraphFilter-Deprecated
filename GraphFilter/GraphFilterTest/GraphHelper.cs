@@ -9,9 +9,23 @@ namespace GraphFilterTest.GraphHelper
 {
     public static class GraphHelper
     {
-        public static Graph Whell_6()
+        public static Graph Wheel_6()
         {
             int[,] adjMatrix = new int[6, 6] { { 0, 1, 1, 1, 1, 1 }, { 1, 0, 1, 0, 0, 1 }, { 1, 1, 0, 1, 0, 0 }, { 1, 0, 1, 0, 1, 0 }, { 1, 0, 0, 1, 0, 1 }, { 1, 1, 0, 0, 1, 0 } };
+            return new Graph(adjMatrix);
+        }
+
+        public static Graph Complete(int n)
+        {
+            int[,] adjMatrix = new int[n, n];
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (i == j) adjMatrix[i, j] = 0;
+                    else adjMatrix[i, j] = 1;
+                }              
+            }
             return new Graph(adjMatrix);
         }
     }

@@ -8,6 +8,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,12 +20,13 @@ namespace GraphFilter
     {
         Stream fileG6In;
         StreamWriter fileG6Out;
-        int qtdLinhasIn;
+        private Preloader preloader;
 
         public Form1()
         {
             InitializeComponent();
         }
+
         #region File Input and Output
         private void ButtonInput_Click(object sender, EventArgs e)
         {
@@ -39,9 +41,6 @@ namespace GraphFilter
                     using (StreamReader reader = new StreamReader(ofd.FileName, Encoding.GetEncoding(CultureInfo.GetCultureInfo("pt-br").TextInfo.ANSICodePage)))
                     {
                         fileG6In = ofd.OpenFile();
-                        qtdLinhasIn = File.ReadLines(ofd.FileName).Count();
-                        progressBar.Maximum = qtdLinhasIn;
-                        progressBar.Minimum = 0;
                         textoOrigem.Text = ofd.FileName;
                         buttonSave.Enabled = true;
 
@@ -88,42 +87,18 @@ namespace GraphFilter
             comboInv2Eq1.Items.AddRange(Build.ComboBox());
             comboInv1Eq2.Items.AddRange(Build.ComboBox());
             comboInv2Eq2.Items.AddRange(Build.ComboBox());
+            comboInv1Eq3.Items.AddRange(Build.ComboBox());
+            comboInv2Eq3.Items.AddRange(Build.ComboBox());
 
         }
 
         #region Button Search
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
-            FilesFilter filesFilter = new FilesFilter(fileG6In, textOutPath.Text,this);
+            FilesFilter filesFilter = new FilesFilter(fileG6In, textOutPath.Text, this, preloader);
             double[] retorno = filesFilter.Run();
             MessageBox.Show("Busca realizada com sucesso! \nO percentual de grafos escolhidos é: " + retorno[2] + " %" + "\nO número de grafos escolhidos foi de: " + retorno[1] + "\nO número total de grafos que foram lidos foi de: " + retorno[0] + ".");
-/*
-            string condition1 = "R????A?O@?A?A?@??OCA?[??L?AC?_";
-            double numberOfGraphsIn = 0;
-            double numberOfGraphsOut = 0;
-            int indiceProgressBar = 1;
-            using (StreamReader stReaderIn = new StreamReader(fileG6In))
-            {
-                using (StreamWriter stWriterOut = new StreamWriter(textOutPath.Text))
-                {
-                    String g6Line = stReaderIn.ReadLine();
-                    while (g6Line != null)
-                    {
-                        progressBar.Value = indiceProgressBar;
-                        if (Build.Condition(param1Eq1.Text, comboInv1Eq1.SelectedIndex, param2Eq1.Text, comboInv2Eq1.SelectedIndex, param3Eq1.Text, relationEq1.Text, new Graph(g6Line)))
-                        {
-                            numberOfGraphsOut++;
-                            stWriterOut.WriteLine(g6Line);
-                        }
-                        numberOfGraphsIn++;
-                        g6Line = stReaderIn.ReadLine();
-                        indiceProgressBar++;
-                    }
-                }
-            }
-            double percentual = Math.Round((numberOfGraphsOut / numberOfGraphsIn) * 100, 2);
-            MessageBox.Show("Busca realizada com sucesso! \nO percentual de grafos escolhidos é: " + percentual + " %" + "\nO número de grafos escolhidos foi de: " + numberOfGraphsOut + "\nO número total de grafos que foram lidos foi de: " + numberOfGraphsIn + ".");
-     */
+            Application.Restart();
         }
         #endregion
 
@@ -153,6 +128,26 @@ namespace GraphFilter
                     return true;
                 }
                 if (ch == 46 && textBox.IndexOf('.') != -1)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool AllowNaturalNumber(string textBox, char ch1)
+        {
+            char ch = ch1;
+            if (textBox.Length == 0)
+            {
+                if (!Char.IsDigit(ch) && ch != 8)
+                {
+                    return true;
+                }      
+            }
+            else
+            {
+                if (!Char.IsDigit(ch) && ch != 8)
                 {
                     return true;
                 }
@@ -191,16 +186,32 @@ namespace GraphFilter
                 e.Handled = true;
             }
         }
-        private void Param2Eq2_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void Param3Eq2_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (AllowNumber(param2Eq2.Text, e.KeyChar))
             {
                 e.Handled = true;
             }
         }
-        private void Param3Eq2_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void param1Eq3_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (AllowNumber(param3Eq2.Text, e.KeyChar))
+            if(AllowNumber(param1Eq3.Text, e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void param3Eq3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (AllowNumber(param2Eq3.Text, e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void paramRegularWithDegree_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (AllowNaturalNumber(paramRegularWithDegree.Text, e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -258,6 +269,16 @@ namespace GraphFilter
                 e.Handled = true;
             }
         }
+
+        private void relationEq3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (AllowRelation(relationEq3.Text, e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        
         #endregion
 
         #region Don't delete
@@ -348,24 +369,57 @@ namespace GraphFilter
             {
                 param1Eq2.Enabled = true;
                 comboInv1Eq2.Enabled = true;
-                param2Eq2.Enabled = true;
                 comboInv2Eq2.Enabled = true;
-                param3Eq2.Enabled = true;
+                param2Eq2.Enabled = true;
                 relationEq2.Enabled = true;
             }
             else
             {
                 param1Eq2.Enabled = false;
                 comboInv1Eq2.Enabled = false;
-                param2Eq2.Enabled = false;
                 comboInv2Eq2.Enabled = false;
-                param3Eq2.Enabled = false;
+                param2Eq2.Enabled = false;
                 relationEq2.Enabled = false;
             }
         }
+
+        private void enableEq3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (enableEq3.Checked == true)
+            {
+                param1Eq3.Enabled = true;
+                comboInv1Eq3.Enabled = true;
+                comboInv2Eq3.Enabled = true;
+                param2Eq3.Enabled = true;
+                relationEq3.Enabled = true;
+            }
+            else
+            {
+                param1Eq3.Enabled = false;
+                comboInv1Eq3.Enabled = false;
+                comboInv2Eq3.Enabled = false;
+                param2Eq3.Enabled = false;
+                relationEq3.Enabled = false;
+            }
+
+
+        }
+
+
         #endregion
 
         private void param2Eq1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void enableRegularDegree_CheckedChanged(object sender, EventArgs e)
+        {
+            if (enableRegularDegree.Checked == true) paramRegularWithDegree.Enabled = true;
+            else paramRegularWithDegree.Enabled = false;
+        }
+
+        private void paramRegularWithDegree_TextChanged(object sender, EventArgs e)
         {
 
         }

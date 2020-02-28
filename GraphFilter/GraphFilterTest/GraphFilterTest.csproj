@@ -52,6 +52,7 @@
     <Compile Include="ConversorTests.cs" />
     <Compile Include="GraphHelper.cs" />
     <Compile Include="GraphTests.cs" />
+    <Compile Include="Invariants\DegreeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
