@@ -12,7 +12,7 @@ namespace GraphFilter.Tests
     [TestClass()]
     public class GraphTests
     {
-        Graph wheel6 = GraphHelper.Wheel_6();
+        Graph wheel6 = GraphHelper.wheel_5();
         
         [TestMethod()]
         public void adjacentTest()

@@ -9,7 +9,7 @@ namespace GraphFilterTest.GraphHelper
 {
     public static class GraphHelper
     {
-        public static Graph Wheel_6()
+        public static Graph wheel_5()
         {
             int[,] adjMatrix = new int[6, 6] { { 0, 1, 1, 1, 1, 1 }, { 1, 0, 1, 0, 0, 1 }, { 1, 1, 0, 1, 0, 0 }, { 1, 0, 1, 0, 1, 0 }, { 1, 0, 0, 1, 0, 1 }, { 1, 1, 0, 0, 1, 0 } };
             return new Graph(adjMatrix);

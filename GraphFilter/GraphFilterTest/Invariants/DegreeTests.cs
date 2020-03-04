@@ -12,7 +12,7 @@ namespace GraphFilter.Invariants.Tests
     [TestClass()]
     public class DegreeTests
     {
-        Graph wheel_6 = GraphHelper.Wheel_6();
+        Graph wheel_6 = GraphHelper.wheel_5();
 
         [TestMethod()]
         public void MaxTest()
