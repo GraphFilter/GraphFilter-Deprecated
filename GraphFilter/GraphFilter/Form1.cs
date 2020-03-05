@@ -41,9 +41,13 @@ namespace GraphFilter
                     using (StreamReader reader = new StreamReader(ofd.FileName, Encoding.GetEncoding(CultureInfo.GetCultureInfo("pt-br").TextInfo.ANSICodePage)))
                     {
                         fileG6In = ofd.OpenFile();
+                        while(reader.ReadLine() != null)
+                        {
+                            progressBar.Maximum++;
+                        }
+                        progressBar.Maximum--;
                         textoOrigem.Text = ofd.FileName;
                         buttonSave.Enabled = true;
-
                     }
                 }
                 catch (Exception ex)
@@ -89,7 +93,8 @@ namespace GraphFilter
             comboInv2Eq2.Items.AddRange(Build.ComboBox());
             comboInv1Eq3.Items.AddRange(Build.ComboBox());
             comboInv2Eq3.Items.AddRange(Build.ComboBox());
-
+            progressBar.Minimum = 0;
+            progressBar.Maximum = 1;
         }
 
         #region Button Search
@@ -209,13 +214,15 @@ namespace GraphFilter
                 e.Handled = true;
             }
         }
-        private void paramRegularWithDegree_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void paramRegularWithDegree_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             if (AllowNaturalNumber(paramRegularWithDegree.Text, e.KeyChar))
             {
                 e.Handled = true;
             }
         }
+
         private void TextBox4_TextChanged(object sender, EventArgs e)
         {
             relationEq1.MaxLength = 2;
@@ -278,11 +285,35 @@ namespace GraphFilter
             }
         }
 
-        
+
         #endregion
 
         #region Don't delete
 
+        private void param2Eq1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void paramRegularWithDegree_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void enableRegular_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void enableRegular_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void progressBar_Click(object sender, EventArgs e)
+        {
+
+        }
         private void TextDestino_TextChanged(object sender, EventArgs e)
         {
         }
@@ -405,24 +436,14 @@ namespace GraphFilter
 
         }
 
-
-        #endregion
-
-        private void param2Eq1_TextChanged(object sender, EventArgs e)
+        private void enableRegularWithK_CheckedChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void enableRegularDegree_CheckedChanged(object sender, EventArgs e)
-        {
-            if (enableRegularDegree.Checked == true) paramRegularWithDegree.Enabled = true;
+            if (enableRegularWithK.Checked == true) paramRegularWithDegree.Enabled = true;
             else paramRegularWithDegree.Enabled = false;
         }
 
-        private void paramRegularWithDegree_TextChanged(object sender, EventArgs e)
-        {
 
-        }
+        #endregion   
     }
 }
 

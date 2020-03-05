@@ -68,8 +68,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.enableRegular = new System.Windows.Forms.CheckBox();
-            this.enableRegularDegree = new System.Windows.Forms.CheckBox();
+            this.enableRegularWithK = new System.Windows.Forms.CheckBox();
             this.paramRegularWithDegree = new System.Windows.Forms.TextBox();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -147,7 +148,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(85, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(20, 24);
+            this.label1.Size = new System.Drawing.Size(15, 18);
             this.label1.TabIndex = 1;
             this.label1.Text = "x";
             this.label1.Click += new System.EventHandler(this.Label1_Click);
@@ -170,7 +171,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(237, 31);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(21, 24);
+            this.label2.Size = new System.Drawing.Size(17, 18);
             this.label2.TabIndex = 3;
             this.label2.Text = "+";
             this.label2.Click += new System.EventHandler(this.Label2_Click);
@@ -193,7 +194,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(298, 31);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(20, 24);
+            this.label3.Size = new System.Drawing.Size(15, 18);
             this.label3.TabIndex = 5;
             this.label3.Text = "x";
             this.label3.Click += new System.EventHandler(this.Label3_Click);
@@ -227,7 +228,7 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(562, 30);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 24);
+            this.label6.Size = new System.Drawing.Size(0, 18);
             this.label6.TabIndex = 10;
             this.label6.Click += new System.EventHandler(this.Label6_Click);
             // 
@@ -260,7 +261,7 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(85, 63);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(20, 24);
+            this.label10.Size = new System.Drawing.Size(15, 18);
             this.label10.TabIndex = 13;
             this.label10.Text = "x";
             // 
@@ -281,7 +282,7 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(247, 64);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(15, 24);
+            this.label9.Size = new System.Drawing.Size(12, 18);
             this.label9.TabIndex = 15;
             this.label9.Text = "/";
             // 
@@ -323,7 +324,7 @@
             this.enableEq1.AutoSize = true;
             this.enableEq1.Location = new System.Drawing.Point(10, 34);
             this.enableEq1.Name = "enableEq1";
-            this.enableEq1.Size = new System.Drawing.Size(18, 17);
+            this.enableEq1.Size = new System.Drawing.Size(14, 13);
             this.enableEq1.TabIndex = 8;
             this.enableEq1.UseVisualStyleBackColor = true;
             this.enableEq1.CheckedChanged += new System.EventHandler(this.EnableEq1_CheckedChanged);
@@ -333,7 +334,7 @@
             this.enableEq2.AutoSize = true;
             this.enableEq2.Location = new System.Drawing.Point(10, 68);
             this.enableEq2.Name = "enableEq2";
-            this.enableEq2.Size = new System.Drawing.Size(18, 17);
+            this.enableEq2.Size = new System.Drawing.Size(14, 13);
             this.enableEq2.TabIndex = 34;
             this.enableEq2.UseVisualStyleBackColor = true;
             this.enableEq2.CheckedChanged += new System.EventHandler(this.EnableEq2_CheckedChanged);
@@ -396,7 +397,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(3, 18);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(98, 21);
+            this.checkBox1.Size = new System.Drawing.Size(92, 20);
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "checkBox1";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -407,7 +408,7 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(391, 97);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(16, 24);
+            this.label7.Size = new System.Drawing.Size(13, 18);
             this.label7.TabIndex = 46;
             this.label7.Text = ")";
             // 
@@ -417,7 +418,7 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(107, 97);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(16, 24);
+            this.label8.Size = new System.Drawing.Size(13, 18);
             this.label8.TabIndex = 45;
             this.label8.Text = "(";
             // 
@@ -426,7 +427,7 @@
             this.enableEq3.AutoSize = true;
             this.enableEq3.Location = new System.Drawing.Point(11, 103);
             this.enableEq3.Name = "enableEq3";
-            this.enableEq3.Size = new System.Drawing.Size(18, 17);
+            this.enableEq3.Size = new System.Drawing.Size(14, 13);
             this.enableEq3.TabIndex = 44;
             this.enableEq3.UseVisualStyleBackColor = true;
             this.enableEq3.CheckedChanged += new System.EventHandler(this.enableEq3_CheckedChanged);
@@ -470,7 +471,7 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(248, 99);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(17, 24);
+            this.label11.Size = new System.Drawing.Size(14, 18);
             this.label11.TabIndex = 40;
             this.label11.Text = "*";
             // 
@@ -491,7 +492,7 @@
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(86, 98);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(20, 24);
+            this.label12.Size = new System.Drawing.Size(15, 18);
             this.label12.TabIndex = 38;
             this.label12.Text = "x";
             // 
@@ -512,7 +513,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(390, 62);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(16, 24);
+            this.label5.Size = new System.Drawing.Size(13, 18);
             this.label5.TabIndex = 36;
             this.label5.Text = ")";
             // 
@@ -522,47 +523,58 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(106, 62);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(16, 24);
+            this.label4.Size = new System.Drawing.Size(13, 18);
             this.label4.TabIndex = 35;
             this.label4.Text = "(";
             // 
             // enableRegular
             // 
             this.enableRegular.AutoSize = true;
-            this.enableRegular.Location = new System.Drawing.Point(23, 269);
+            this.enableRegular.Location = new System.Drawing.Point(22, 264);
             this.enableRegular.Name = "enableRegular";
-            this.enableRegular.Size = new System.Drawing.Size(80, 21);
-            this.enableRegular.TabIndex = 8;
+            this.enableRegular.Size = new System.Drawing.Size(74, 20);
+            this.enableRegular.TabIndex = 47;
             this.enableRegular.Text = "Regular";
             this.enableRegular.UseVisualStyleBackColor = true;
+            this.enableRegular.CheckedChanged += new System.EventHandler(this.enableRegular_CheckedChanged_1);
             // 
-            // enableRegularDegree
+            // enableRegularWithK
             // 
-            this.enableRegularDegree.AutoSize = true;
-            this.enableRegularDegree.Location = new System.Drawing.Point(23, 296);
-            this.enableRegularDegree.Name = "enableRegularDegree";
-            this.enableRegularDegree.Size = new System.Drawing.Size(161, 21);
-            this.enableRegularDegree.TabIndex = 9;
-            this.enableRegularDegree.Text = "Regular with degree:";
-            this.enableRegularDegree.UseVisualStyleBackColor = true;
-            this.enableRegularDegree.CheckedChanged += new System.EventHandler(this.enableRegularDegree_CheckedChanged);
+            this.enableRegularWithK.AutoSize = true;
+            this.enableRegularWithK.Location = new System.Drawing.Point(23, 301);
+            this.enableRegularWithK.Name = "enableRegularWithK";
+            this.enableRegularWithK.Size = new System.Drawing.Size(139, 20);
+            this.enableRegularWithK.TabIndex = 48;
+            this.enableRegularWithK.Text = "Regular with Order:";
+            this.enableRegularWithK.UseVisualStyleBackColor = true;
+            this.enableRegularWithK.CheckedChanged += new System.EventHandler(this.enableRegularWithK_CheckedChanged);
             // 
             // paramRegularWithDegree
             // 
-            this.paramRegularWithDegree.Location = new System.Drawing.Point(186, 295);
+            this.paramRegularWithDegree.Enabled = false;
+            this.paramRegularWithDegree.Location = new System.Drawing.Point(171, 298);
+            this.paramRegularWithDegree.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.paramRegularWithDegree.Name = "paramRegularWithDegree";
-            this.paramRegularWithDegree.Size = new System.Drawing.Size(45, 22);
-            this.paramRegularWithDegree.TabIndex = 10;
-            this.paramRegularWithDegree.TextChanged += new System.EventHandler(this.paramRegularWithDegree_TextChanged);
-            this.paramRegularWithDegree.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.paramRegularWithDegree_KeyPress);
+            this.paramRegularWithDegree.Size = new System.Drawing.Size(37, 22);
+            this.paramRegularWithDegree.TabIndex = 49;
+            this.paramRegularWithDegree.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.paramRegularWithDegree_KeyPress_1);
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(171, 380);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(426, 40);
+            this.progressBar.TabIndex = 50;
+            this.progressBar.Click += new System.EventHandler(this.progressBar_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(732, 450);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.paramRegularWithDegree);
-            this.Controls.Add(this.enableRegularDegree);
+            this.Controls.Add(this.enableRegularWithK);
             this.Controls.Add(this.enableRegular);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textOutPath);
@@ -625,9 +637,10 @@
         public System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox enableRegular;
-        private System.Windows.Forms.CheckBox enableRegularDegree;
-        private System.Windows.Forms.TextBox paramRegularWithDegree;
+        public System.Windows.Forms.CheckBox enableRegular;
+        public System.Windows.Forms.CheckBox enableRegularWithK;
+        public System.Windows.Forms.TextBox paramRegularWithDegree;
+        public System.Windows.Forms.ProgressBar progressBar;
     }
 }
 

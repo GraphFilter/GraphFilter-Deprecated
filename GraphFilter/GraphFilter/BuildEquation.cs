@@ -31,8 +31,6 @@ namespace GraphFilter
                     return Degree.Average(g);
                 default: return 0; //tratar caso em que não há escolha
             }
-            //Seguir esse exemplo para a criação do booleano
-            bool cond = 2 * Invariant(1, g) == 0;
         }
 
         public static string[] ComboBox()
@@ -48,7 +46,6 @@ namespace GraphFilter
                 case "<":
                     return Convert.ToDouble(param1) * Invariant(comboInv1, g) + Convert.ToDouble(param2) * Invariant(comboInv2, g) < Convert.ToDouble(param3);
                 case "=":
-                    //double x = Convert.ToDouble(param2);
                     return Convert.ToDouble(param1) * Invariant(comboInv1, g) + Convert.ToDouble(param2) * Invariant(comboInv2, g) == Convert.ToDouble(param3);
                 case "<=":
                     return Convert.ToDouble(param1) * Invariant(comboInv1, g) + Convert.ToDouble(param2) * Invariant(comboInv2, g) <= Convert.ToDouble(param3);
@@ -84,6 +81,14 @@ namespace GraphFilter
                     return Convert.ToDouble(param1) * (Invariant(comboInv1, g) * Invariant(comboInv2, g)) <= Convert.ToDouble(param2);
                 default: return true;
             }
+        }
+        public static bool Condition1(Graph g)
+        {
+            return Degree.IsRegular(g);
+        }
+        public static bool Condition2(Graph g, int k)
+        {
+            return Degree.IsRegularWithDegree(g, k);
         }
         #endregion
     }
