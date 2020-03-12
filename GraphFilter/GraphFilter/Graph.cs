@@ -69,8 +69,8 @@ namespace GraphFilter
 
         public int[] Vertices()
         {
-            int[] vertices = new int[g.order];
-            for (int i = 0; i < g.order; i++)  vertices[i] = i;
+            int[] vertices = new int[this.order];
+            for (int i = 0; i < this.order; i++)  vertices[i] = i;
             return vertices;
         }
     }

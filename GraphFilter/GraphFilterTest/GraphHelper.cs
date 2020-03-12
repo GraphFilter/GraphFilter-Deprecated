@@ -28,5 +28,11 @@ namespace GraphFilterTest.GraphHelper
             }
             return new Graph(adjMatrix);
         }
+
+        public static Graph ExBronKerb_Wiki()
+        {
+            int[,] adjMatrix = new int[6, 6] { { 0,1,0,0,1,0 }, { 1,0,1,0,1,0 }, { 0,1,0,1,0,0 }, {0,0,1,0,1,1 }, { 1,1,0,1,0,0 }, { 0,0,0,1,0,0 } };
+            return new Graph(adjMatrix);
+        }
     }
 }

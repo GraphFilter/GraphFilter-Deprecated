@@ -6,26 +6,55 @@ using System.Threading.Tasks;
 
 namespace GraphFilter.Invariants
 {
-    public static class Clique
+    public class Clique
     {
-        public static int CliqueNumber(Graph g)
+        private List<HashSet<int>> maximalCliques = new List<HashSet<int>>();
+        private int maximumClique = 0;
+
+        public int CliqueNumber(Graph g)
         {
             HashSet<int> R = new HashSet<int>();
             HashSet<int> X = new HashSet<int>();
             HashSet<int> P = new HashSet<int>(g.Vertices());
-            BronKerbosch1(g, R, X, P);
+            BronKerbosch1(g, R, P, X);
+            return maximumClique;
+
         }
 
-        public static HashSet<int>[] BronKerbosch1(Graph g, HashSet<int> R, HashSet<int> X, HashSet<int> P)
+        private HashSet<int> BronKerbosch1(Graph g, HashSet<int> R, HashSet<int> P, HashSet<int> X)
         {
-            List<HashSet<int>> maximalCliques = new List<HashSet<int>>();
-            if (P.Count == 0 && X.Count == 0) maximalCliques.Add(R);
-            foreach (int v in P)
+            if (P.Count == 0 && X.Count == 0)
             {
-                BronKerbosch1(g, R.UnionWith(new HashSet<int>(v)), P.IntersectWith(new HashSet<int>(g.N(v))), X.IntersectWith(new HashSet<int>(g.N(v))));
-                P = P.IntersectWith(new HashSet<int>(v));
-                X = X.UnionWith(new HashSet<int>(v));
+                maximalCliques.Add(R);
+                if (R.Count > maximumClique) maximumClique = R.Count;
+                return R;
             }
+            if (P.Count != 0)
+            {
+                foreach (int v in P)
+                {
+                    BronKerbosch1(g, this.Union(R, new HashSet<int> { v }), this.Intersection(P, new HashSet<int>(g.N(v))), this.Intersection(X, new HashSet<int>(g.N(v))));
+                    //P.Remove(v);
+                    X.UnionWith(new HashSet<int>(v));
+                }
+            }
+            return null;
+        }
+
+        private HashSet<int> Union(HashSet<int> A, HashSet<int> B)
+        {
+            HashSet<int> aUb = new HashSet<int>(A);
+            foreach (int x in B)
+                if (!B.Contains(x)) aUb.Add(x);
+            return aUb;
+        }
+
+        private HashSet<int> Intersection(HashSet<int> A, HashSet<int> B)
+        {
+            HashSet<int> aIntb = new HashSet<int>();
+            foreach (int x in B)
+                if (A.Contains(x)) aIntb.Add(x);
+            return aIntb;
         }
     }
 }
