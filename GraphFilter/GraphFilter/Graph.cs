@@ -66,7 +66,37 @@ namespace GraphFilter
             }
             return seqDegree;
         }
+         public List<int[]> Edges()//falta testar
+        {
+            List <int[]> edges = new List<int[]>();
+            int[] e = new int[2];
+            for (int i = 0; i < this.order; i++)
+                for (int j = i+1; j < this.order; j++)
+                    if (adjacencyMatrix[i, j] == 1) edges.Add(new int[2] { i, j });
+            return edges;
+        }
 
-        
+        public bool insertEdge(int i, int j)
+        {
+            if (this.adjacencyMatrix[i, j] == 1) return false;
+            else 
+            {
+                this.adjacencyMatrix[i, j] = 1;
+                this.adjacencyMatrix[j, i] = 1;
+                return true;
+            }            
+        }
+
+        public bool removeEdge(int i, int j)
+        {
+            if (this.adjacencyMatrix[i, j] == 0) return false;
+            else
+            {
+                this.adjacencyMatrix[i, j] = 0;
+                this.adjacencyMatrix[j, i] = 0;
+                return true;
+            }
+        }
+
     }
 }
