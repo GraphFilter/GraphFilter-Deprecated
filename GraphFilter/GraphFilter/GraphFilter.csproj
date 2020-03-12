@@ -66,8 +66,10 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Graph.cs" />
+    <Compile Include="Invariants\Clique.cs" />
     <Compile Include="Invariants\Degree.cs" />
-    <Compile Include="BuildEquation.cs" />
+    <Compile Include="BuildLogic.cs" />
+    <Compile Include="Invariants\Distances.cs" />
     <Compile Include="Invariants\Spectral\Spectral.cs" />
     <Compile Include="Messages.cs" />
     <Compile Include="Preloader.cs">

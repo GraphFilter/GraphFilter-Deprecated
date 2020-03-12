@@ -38,7 +38,7 @@ namespace GraphFilter
             return new string[] {"None", "Order", "Max Degree", "Min Degree", "Avg Degree"};
         }
 
-        #region Equation
+        #region Equation and Conditon
         public static bool Equation1(string param1, int comboInv1, string param2, int comboInv2, string param3, string relation, Graph g)
         {
             switch (relation)

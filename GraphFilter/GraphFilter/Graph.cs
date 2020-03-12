@@ -67,6 +67,11 @@ namespace GraphFilter
             return seqDegree;
         }
 
-        
+        public int[] Vertices()
+        {
+            int[] vertices = new int[g.order];
+            for (int i = 0; i < g.order; i++)  vertices[i] = i;
+            return vertices;
+        }
     }
 }
