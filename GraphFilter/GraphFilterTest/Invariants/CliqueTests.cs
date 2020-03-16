@@ -15,10 +15,10 @@ namespace GraphFilter.Invariants.Tests
         [TestMethod()]
         public void CliqueNumberTest()
         {
-            Clique clique = new Clique();
             Graph g = GraphHelper.ExBronKerb_Wiki();
             Graph h = GraphHelper.Complete(5);
-            Assert.AreEqual(5, clique.CliqueNumber(h));
+            Assert.AreEqual(5, Clique.CliqueNumber(h));
+            Assert.AreEqual(4, Clique.CliqueNumber(g));
         }
     }
 }

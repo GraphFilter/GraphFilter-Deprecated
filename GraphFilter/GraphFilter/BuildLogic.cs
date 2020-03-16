@@ -8,15 +8,9 @@ using System.Threading.Tasks;
 
 namespace GraphFilter
 {
-    public static class Build
+    public static class BuildLogic
     {
-        //1: num de vértices
-        //2: grau máximo
-        //3: grau mínimo
-        //4: grau médio
-        //5: número clique
-
-        public static double Invariant(int item, Graph g)
+        public static double InvariantChoice(int item, Graph g)
         {
             switch (item)
             {
@@ -25,20 +19,31 @@ namespace GraphFilter
                 case 1:
                     return g.order;
                 case 2:
-                    return Degree.Max(g);
+                    return Invariant.MaxDegree(g);
                 case 3:
-                    return Degree.Min(g);
+                    return Invariant.MinDegree(g);
                 case 4:
-                    return Degree.Average(g);
+                    return Invariant.AverageDegree(g);
                 case 5:
-                    return Clique.CliqueNumber(g);
+                    return Invariant.CliqueNumber(g);
+                case 6:
+                    return Invariant.Diameter(g);
+                case 7:
+                    return Invariant.AlgebraicConnectivity(g);
+                case 8:
+                    return Invariant.SpectralRadius(g);
+                case 9:
+                    return Invariant.LaplacianEnergy(g);
+                case 10:
+                    return Invariant.AdjacencyEnergy(g);
+
                 default: return 0; //tratar caso em que não há escolha
             }
         }
 
         public static string[] ComboBox()
         {
-            return new string[] {"None", "Order", "Max Degree", "Min Degree", "Avg Degree", "Clique Number"};
+            return new string[] {"None", "Order", "Max Degree", "Min Degree", "Average Degree", "Clique Number", "Diameter", "Connectivity Algebraic","Spectral Radius", "Laplacian Energy", "Adjacencý Energy"};
         }
 
         #region Equation and Conditon
@@ -47,11 +52,11 @@ namespace GraphFilter
             switch (relation)
             {
                 case "<":
-                    return Convert.ToDouble(param1) * Invariant(comboInv1, g) + Convert.ToDouble(param2) * Invariant(comboInv2, g) < Convert.ToDouble(param3);
+                    return Convert.ToDouble(param1) * InvariantChoice(comboInv1, g) + Convert.ToDouble(param2) * InvariantChoice(comboInv2, g) < Convert.ToDouble(param3);
                 case "=":
-                    return Convert.ToDouble(param1) * Invariant(comboInv1, g) + Convert.ToDouble(param2) * Invariant(comboInv2, g) == Convert.ToDouble(param3);
+                    return Convert.ToDouble(param1) * InvariantChoice(comboInv1, g) + Convert.ToDouble(param2) * InvariantChoice(comboInv2, g) == Convert.ToDouble(param3);
                 case "<=":
-                    return Convert.ToDouble(param1) * Invariant(comboInv1, g) + Convert.ToDouble(param2) * Invariant(comboInv2, g) <= Convert.ToDouble(param3);
+                    return Convert.ToDouble(param1) * InvariantChoice(comboInv1, g) + Convert.ToDouble(param2) * InvariantChoice(comboInv2, g) <= Convert.ToDouble(param3);
                 default: return true;
             }
         }
@@ -61,12 +66,12 @@ namespace GraphFilter
             switch (relation)
             {
                 case "<":
-                    return Convert.ToDouble(param1) * (Invariant(comboInv1, g) / Invariant(comboInv2, g)) < Convert.ToDouble(param2);
+                    return Convert.ToDouble(param1) * (InvariantChoice(comboInv1, g) / InvariantChoice(comboInv2, g)) < Convert.ToDouble(param2);
                 case "=":
                     double x = Convert.ToDouble(param2);
-                    return Convert.ToDouble(param1) * (Invariant(comboInv1, g) / Invariant(comboInv2, g)) == Convert.ToDouble(param2);
+                    return Convert.ToDouble(param1) * (InvariantChoice(comboInv1, g) / InvariantChoice(comboInv2, g)) == Convert.ToDouble(param2);
                 case "<=":
-                    return Convert.ToDouble(param1) * (Invariant(comboInv1, g) / Invariant(comboInv2, g)) <= Convert.ToDouble(param2);
+                    return Convert.ToDouble(param1) * (InvariantChoice(comboInv1, g) / InvariantChoice(comboInv2, g)) <= Convert.ToDouble(param2);
                 default: return true;
             }
         }
@@ -76,22 +81,22 @@ namespace GraphFilter
             switch (relation)
             {
                 case "<":
-                    return Convert.ToDouble(param1) * (Invariant(comboInv1, g) * Invariant(comboInv2, g)) < Convert.ToDouble(param2);
+                    return Convert.ToDouble(param1) * (InvariantChoice(comboInv1, g) * InvariantChoice(comboInv2, g)) < Convert.ToDouble(param2);
                 case "=":
                     double x = Convert.ToDouble(param2);
-                    return Convert.ToDouble(param1) * (Invariant(comboInv1, g) * Invariant(comboInv2, g)) == Convert.ToDouble(param2);
+                    return Convert.ToDouble(param1) * (InvariantChoice(comboInv1, g) * InvariantChoice(comboInv2, g)) == Convert.ToDouble(param2);
                 case "<=":
-                    return Convert.ToDouble(param1) * (Invariant(comboInv1, g) * Invariant(comboInv2, g)) <= Convert.ToDouble(param2);
+                    return Convert.ToDouble(param1) * (InvariantChoice(comboInv1, g) * InvariantChoice(comboInv2, g)) <= Convert.ToDouble(param2);
                 default: return true;
             }
         }
         public static bool Condition1(Graph g)
         {
-            return Degree.IsRegular(g);
+            return Invariant.IsRegular(g);
         }
         public static bool Condition2(Graph g, int k)
         {
-            return Degree.IsRegularWithDegree(g, k);
+            return Invariant.IsRegular(g, k);
         }
         #endregion
     }

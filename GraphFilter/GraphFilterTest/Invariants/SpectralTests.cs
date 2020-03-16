@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using GraphFilter.Invariants.Spectral;
+using GraphFilter.Invariants;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GraphFilterTest.GraphHelper;
 
-namespace GraphFilter.Invariants.Spectral.Tests
+namespace GraphFilter.Invariants.Tests
 {
     [TestClass()]
     public class SpectralTests

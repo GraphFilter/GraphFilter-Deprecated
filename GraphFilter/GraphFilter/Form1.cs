@@ -87,12 +87,12 @@ namespace GraphFilter
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            comboInv1Eq1.Items.AddRange(Build.ComboBox());
-            comboInv2Eq1.Items.AddRange(Build.ComboBox());
-            comboInv1Eq2.Items.AddRange(Build.ComboBox());
-            comboInv2Eq2.Items.AddRange(Build.ComboBox());
-            comboInv1Eq3.Items.AddRange(Build.ComboBox());
-            comboInv2Eq3.Items.AddRange(Build.ComboBox());
+            comboInv1Eq1.Items.AddRange(BuildLogic.ComboBox());
+            comboInv2Eq1.Items.AddRange(BuildLogic.ComboBox());
+            comboInv1Eq2.Items.AddRange(BuildLogic.ComboBox());
+            comboInv2Eq2.Items.AddRange(BuildLogic.ComboBox());
+            comboInv1Eq3.Items.AddRange(BuildLogic.ComboBox());
+            comboInv2Eq3.Items.AddRange(BuildLogic.ComboBox());
             progressBar.Minimum = 0;
             progressBar.Maximum = 1;
         }
