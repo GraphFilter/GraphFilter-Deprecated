@@ -14,6 +14,7 @@ namespace GraphFilter
         //2: grau máximo
         //3: grau mínimo
         //4: grau médio
+        //5: número clique
 
         public static double Invariant(int item, Graph g)
         {
@@ -29,13 +30,15 @@ namespace GraphFilter
                     return Degree.Min(g);
                 case 4:
                     return Degree.Average(g);
+                case 5:
+                    return Clique.CliqueNumber(g);
                 default: return 0; //tratar caso em que não há escolha
             }
         }
 
         public static string[] ComboBox()
         {
-            return new string[] {"None", "Order", "Max Degree", "Min Degree", "Avg Degree"};
+            return new string[] {"None", "Order", "Max Degree", "Min Degree", "Avg Degree", "Clique Number"};
         }
 
         #region Equation and Conditon

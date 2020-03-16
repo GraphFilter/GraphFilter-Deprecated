@@ -17,7 +17,8 @@ namespace GraphFilter.Invariants.Tests
         {
             Clique clique = new Clique();
             Graph g = GraphHelper.ExBronKerb_Wiki();
-            Assert.AreEqual(3, clique.CliqueNumber(g));
+            Graph h = GraphHelper.Complete(5);
+            Assert.AreEqual(5, clique.CliqueNumber(h));
         }
     }
 }
