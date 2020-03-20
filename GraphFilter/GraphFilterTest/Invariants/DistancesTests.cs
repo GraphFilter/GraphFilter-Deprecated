@@ -13,6 +13,7 @@ namespace GraphFilter.Invariants.Tests
     public class DistancesTests
     {
         Graph g = GraphHelper.wheel_5();
+        Graph h = GraphHelper.NotConnected();
 
         [TestMethod()]
         public void DistanceMatrixTest()
@@ -27,6 +28,13 @@ namespace GraphFilter.Invariants.Tests
         public void DiameterTest()
         {
             Assert.AreEqual(2, Distances.Diameter(g));
+        }
+
+        [TestMethod()]
+        public void IsConnectedTest()
+        {
+            Assert.IsTrue(Distances.IsConnected(g));
+            Assert.IsFalse(Distances.IsConnected(h));
         }
     }
 }

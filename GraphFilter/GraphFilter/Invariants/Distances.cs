@@ -18,8 +18,8 @@ namespace GraphFilter.Invariants
                 {
                     if (adjMatrix[i, j] == 0)
                     {
-                        distanceMatrix[i, j] = int.MaxValue;
-                        distanceMatrix[j, i] = int.MaxValue;
+                        distanceMatrix[i, j] = 1000000;
+                        distanceMatrix[j, i] = 1000000;
                     }
                 }
             }
@@ -32,8 +32,8 @@ namespace GraphFilter.Invariants
             for (int k = 0; k < g.order; k++)
                 for (int i = 0; i < g.order; i++)
                     for (int j = 0; j < g.order; j++)
-                    {
-                        if (dist[i, j] > dist[i, k] + dist[k, j]) dist[i, j] = dist[i, k] + dist[k, j];
+                    {              
+                            if (dist[i, j] > dist[i, k] + dist[k, j]) dist[i, j] = dist[i, k] + dist[k, j];  
                     }
             return dist;
         }
@@ -46,6 +46,22 @@ namespace GraphFilter.Invariants
                 for (int j = 0; j < g.order; j++)
                     if (dist[i, j] > diam) diam = dist[i, j];
             return diam;
+        }
+
+        public static bool IsConnected(Graph g)
+        {
+            int[,] dist = DistanceMatrix(g);
+            for (int i = 0; i < g.order; i++)
+            {
+                for (int j = i + 1; j < g.order; j++)
+                {
+                    if(dist[i, j] == 1000000 || dist[j, i] == 1000000)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
     }
 }

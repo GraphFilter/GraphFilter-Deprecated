@@ -23,9 +23,8 @@ namespace GraphFilter.Invariants
         #region booleanos
         public static bool IsRegular(Graph g) { return Degree.IsRegular(g); }
         public static bool IsRegular(Graph g, int k) { return Degree.IsRegularWithDegree(g, k); }
+        public static bool IsConnect(Graph g) { return Distances.IsConnected(g); }
         #endregion
-
-
     }
 }
 
