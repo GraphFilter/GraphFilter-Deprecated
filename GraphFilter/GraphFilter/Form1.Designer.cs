@@ -53,7 +53,6 @@
             this.enableEq1 = new System.Windows.Forms.CheckBox();
             this.enableEq2 = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.enableEq3 = new System.Windows.Forms.CheckBox();
@@ -66,6 +65,8 @@
             this.param1Eq3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.enableIsConnected = new System.Windows.Forms.CheckBox();
             this.enableRegular = new System.Windows.Forms.CheckBox();
             this.enableRegularWithK = new System.Windows.Forms.CheckBox();
             this.paramRegularWithDegree = new System.Windows.Forms.TextBox();
@@ -110,7 +111,7 @@
             // buttonSearch
             // 
             this.buttonSearch.Enabled = false;
-            this.buttonSearch.Location = new System.Drawing.Point(12, 380);
+            this.buttonSearch.Location = new System.Drawing.Point(12, 387);
             this.buttonSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(139, 40);
@@ -380,17 +381,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Equations";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.enableRegular);
-            this.groupBox2.Controls.Add(this.enableRegularWithK);
-            this.groupBox2.Location = new System.Drawing.Point(12, 258);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(585, 101);
-            this.groupBox2.TabIndex = 8;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Condition";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -516,6 +506,29 @@
             this.label4.TabIndex = 35;
             this.label4.Text = "(";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.enableIsConnected);
+            this.groupBox2.Controls.Add(this.enableRegular);
+            this.groupBox2.Controls.Add(this.enableRegularWithK);
+            this.groupBox2.Location = new System.Drawing.Point(12, 258);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(585, 124);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Condition";
+            // 
+            // enableIsConnected
+            // 
+            this.enableIsConnected.AutoSize = true;
+            this.enableIsConnected.Location = new System.Drawing.Point(10, 94);
+            this.enableIsConnected.Name = "enableIsConnected";
+            this.enableIsConnected.Size = new System.Drawing.Size(112, 21);
+            this.enableIsConnected.TabIndex = 49;
+            this.enableIsConnected.Text = "Is Connected";
+            this.enableIsConnected.UseVisualStyleBackColor = true;
+            this.enableIsConnected.CheckedChanged += new System.EventHandler(this.enableIsConnected_CheckedChanged);
+            // 
             // enableRegular
             // 
             this.enableRegular.AutoSize = true;
@@ -550,7 +563,7 @@
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(157, 380);
+            this.progressBar.Location = new System.Drawing.Point(157, 387);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(440, 40);
             this.progressBar.TabIndex = 50;
@@ -560,7 +573,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(732, 450);
+            this.ClientSize = new System.Drawing.Size(732, 480);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.paramRegularWithDegree);
@@ -628,6 +641,7 @@
         public System.Windows.Forms.CheckBox enableRegularWithK;
         public System.Windows.Forms.TextBox paramRegularWithDegree;
         public System.Windows.Forms.ProgressBar progressBar;
+        public System.Windows.Forms.CheckBox enableIsConnected;
     }
 }
 

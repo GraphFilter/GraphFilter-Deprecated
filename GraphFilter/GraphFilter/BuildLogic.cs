@@ -98,6 +98,11 @@ namespace GraphFilter
         {
             return Invariant.IsRegular(g, k);
         }
+
+        public static bool Condition3(Graph g)
+        {
+            return Invariant.IsConnect(g);
+        }
         #endregion
     }
 }

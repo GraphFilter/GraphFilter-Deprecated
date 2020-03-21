@@ -49,6 +49,8 @@ namespace GraphFilter
                             condition = condition && BuildLogic.Condition1(new Graph(g6Line));
                         if (form1.enableRegularWithK.Checked)
                             condition = condition && BuildLogic.Condition2(new Graph(g6Line), Convert.ToInt32(form1.paramRegularWithDegree.Text));
+                        if (form1.enableIsConnected.Checked)
+                            condition = condition && BuildLogic.Condition3(new Graph(g6Line));
                         if (condition)
                         {
                             numberOfGraphsOut++;

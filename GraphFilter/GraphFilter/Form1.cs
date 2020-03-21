@@ -442,8 +442,15 @@ namespace GraphFilter
             else paramRegularWithDegree.Enabled = false;
         }
 
+        private void enableIsConnected_CheckedChanged(object sender, EventArgs e)
+        {
 
-        #endregion   
+        }
+
+
+        #endregion
+
+
     }
 }
 
