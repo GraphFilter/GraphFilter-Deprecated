@@ -29,13 +29,13 @@ namespace GraphFilterTest.GraphHelper
             return new Graph(adjMatrix);
         }
 
-        public static Graph ExBronKerb_Wiki()
+        public static Graph ExBronKerb_Wiki() //https://en.wikipedia.org/wiki/Bron%E2%80%93Kerbosch_algorithm
         {
             int[,] adjMatrix = new int[6, 6] { { 0,1,0,0,1,0 }, { 1,0,1,0,1,0 }, { 0,1,0,1,0,0 }, {0,0,1,0,1,1 }, { 1,1,0,1,0,0 }, { 0,0,0,1,0,0 } };
             return new Graph(adjMatrix);
         }
 
-        public static Graph NotConnected()
+        public static Graph NotConnected() 
         {
             int[,] adjmatrix = new int[5, 5] { { 0, 1, 1, 0, 0 }, { 1, 0, 1, 1, 0 }, { 1, 1, 0, 1, 0 }, { 0, 1, 1, 0, 0 }, { 0, 0, 0, 0, 0 }};
             return new Graph(adjmatrix);

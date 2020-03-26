@@ -18,6 +18,7 @@ namespace GraphFilter.Invariants
         public static double SpectralRadius(Graph g) { return Spectral.SpectralRadius(g); }
         public static double LaplacianEnergy(Graph g) { return Spectral.LaplacianEnergy(g); }
         public static double AdjacencyEnergy(Graph g) { return Spectral.AdjacencyEnergy(g); }
+        
         #endregion
 
         #region booleanos

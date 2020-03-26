@@ -73,5 +73,33 @@ namespace GraphFilter
             for (int i = 0; i < this.order; i++)  vertices[i] = i;
             return vertices;
         }
+
+        public List<int[]> Edges()
+        {
+            List<int[]> edges = new List<int[]>();
+            for (int i = 0; i < order; i++)
+                for (int j = i+1; j < order; j++)
+                    if (this.adjacent(i, j)) edges.Add(new int[2] { i, j });
+            return edges;
+        }
+
+        public int[] NoEdge()
+        {
+            for (int i = 0; i < order; i++)
+                for (int j = i+1; j < order; j++)
+                    if (adjacencyMatrix[i, j] == 0) return new int[2] { i, j };
+            return null;
+        }
+
+        public bool InsertEdge(int i, int j)
+        {
+            if (i != j)
+            {
+                adjacencyMatrix[i, j] = 1;
+                adjacencyMatrix[j, i] = 1;
+                return true;
+            }
+            else return false;
+        }
     }
 }

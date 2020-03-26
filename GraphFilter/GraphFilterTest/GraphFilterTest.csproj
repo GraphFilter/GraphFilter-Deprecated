@@ -64,6 +64,7 @@
     <Compile Include="GraphHelper.cs" />
     <Compile Include="GraphTests.cs" />
     <Compile Include="Invariants\CliqueTests.cs" />
+    <Compile Include="Invariants\ColoringTests.cs" />
     <Compile Include="Invariants\DegreeTests.cs" />
     <Compile Include="Invariants\DistancesTests.cs" />
     <Compile Include="Invariants\SpectralTests.cs" />
