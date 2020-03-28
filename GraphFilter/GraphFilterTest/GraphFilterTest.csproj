@@ -67,7 +67,9 @@
     <Compile Include="Invariants\ColoringTests.cs" />
     <Compile Include="Invariants\DegreeTests.cs" />
     <Compile Include="Invariants\DistancesTests.cs" />
+    <Compile Include="Invariants\SpanningTreeTests.cs" />
     <Compile Include="Invariants\SpectralTests.cs" />
+    <Compile Include="OperationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

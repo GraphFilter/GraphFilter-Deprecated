@@ -97,6 +97,7 @@
     <Compile Include="BuildLogic.cs" />
     <Compile Include="Invariants\Distances.cs" />
     <Compile Include="Invariants\Invariant.cs" />
+    <Compile Include="Invariants\SpanningTree.cs" />
     <Compile Include="Invariants\Spectral.cs" />
     <Compile Include="Operation.cs" />
     <Compile Include="Preloader.cs">

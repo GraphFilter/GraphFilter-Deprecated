@@ -21,7 +21,7 @@ namespace GraphFilter.Invariants
             return matrix;
         }
         
-        private static double[,] LaplacianMatrix(Graph g)
+        public static double[,] LaplacianMatrix(Graph g)
         {
             double[,] laplacian = new double[g.order, g.order];
             for (int i = 0; i < g.order; i++)
