@@ -39,6 +39,10 @@ namespace GraphFilter.Invariants
             }
             return null;
         }
+        public static int IndependenceNumber(Graph g)
+        {
+            return CliqueNumber(Operation.Complement(g));
+        }
 
         private static HashSet<int> Union(HashSet<int> A, HashSet<int> B)
         {
@@ -55,5 +59,7 @@ namespace GraphFilter.Invariants
                 if (A.Contains(x)) aIntb.Add(x);
             return aIntb;
         }
+
+        
     }
 }

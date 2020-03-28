@@ -12,13 +12,20 @@ namespace GraphFilter.Invariants.Tests
     [TestClass()]
     public class CliqueTests
     {
+        Graph g = GraphHelper.ExBronKerb_Wiki();
+        Graph h = GraphHelper.Complete(5);
         [TestMethod()]
         public void CliqueNumberTest()
         {
-            Graph g = GraphHelper.ExBronKerb_Wiki();
-            Graph h = GraphHelper.Complete(5);
+            
             Assert.AreEqual(5, Clique.CliqueNumber(h));
             Assert.AreEqual(5, Clique.CliqueNumber(g));
+        }
+
+        [TestMethod()]
+        public void IndependenceNumberTest()
+        {
+            Assert.AreEqual(3, Clique.IndependenceNumber(g));
         }
     }
 }

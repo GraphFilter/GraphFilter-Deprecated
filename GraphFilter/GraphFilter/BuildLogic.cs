@@ -36,14 +36,17 @@ namespace GraphFilter
                     return Invariant.LaplacianEnergy(g);
                 case 10:
                     return Invariant.AdjacencyEnergy(g);
-
+                case 11:
+                    return Invariant.ChromaticNumber(g);
+                case 12:
+                    return Invariant.IndependenceNumber(g);
                 default: return 0; //tratar caso em que não há escolha
             }
         }
 
         public static string[] ComboBox()
         {
-            return new string[] {"None", "Order", "Max Degree", "Min Degree", "Average Degree", "Clique Number", "Diameter", "Connectivity Algebraic","Spectral Radius", "Laplacian Energy", "Adjacencý Energy"};
+            return new string[] {"None", "Order", "Max Degree", "Min Degree", "Average Degree", "Clique Number", "Diameter", "Connectivity Algebraic","Spectral Radius", "Laplacian Energy", "Adjacencý Energy", "Chromatic Number", "Independency Number"};
         }
 
         #region Equation and Conditon
