@@ -455,6 +455,41 @@ namespace GraphFilter
         {
 
         }
+
+        private void listOfG6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            ofd.Filter = "Arquivo g6 | *.g6";
+            ofd.ShowDialog();
+            if (string.IsNullOrEmpty(ofd.FileName) == false)
+            {
+                try
+                {
+                    using (StreamReader reader = new StreamReader(ofd.FileName, Encoding.GetEncoding(CultureInfo.GetCultureInfo("pt-br").TextInfo.ANSICodePage)))
+                    {
+                        fileG6In = ofd.OpenFile();
+                        string g6Line = reader.ReadLine();
+                        while (g6Line != null)
+                        {
+                            listOfG6.Items.Add(g6Line);
+                            g6Line = reader.ReadLine();
+                        }
+                        textoOpenViz.Text = ofd.FileName;
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(string.Format("Não foi possível abrir o seu arquivo, Erro: {0}", ex.Message), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }
 

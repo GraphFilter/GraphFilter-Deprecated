@@ -74,10 +74,14 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.filterGraphs = new System.Windows.Forms.TabPage();
             this.visualization = new System.Windows.Forms.TabPage();
+            this.listOfG6 = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textoOpenViz = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.filterGraphs.SuspendLayout();
+            this.visualization.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonOpen
@@ -606,13 +610,46 @@
             // 
             // visualization
             // 
+            this.visualization.Controls.Add(this.textoOpenViz);
+            this.visualization.Controls.Add(this.button1);
+            this.visualization.Controls.Add(this.listOfG6);
             this.visualization.Location = new System.Drawing.Point(4, 25);
             this.visualization.Name = "visualization";
             this.visualization.Padding = new System.Windows.Forms.Padding(3);
-            this.visualization.Size = new System.Drawing.Size(197, 71);
+            this.visualization.Size = new System.Drawing.Size(600, 432);
             this.visualization.TabIndex = 1;
             this.visualization.Text = "Visualization";
             this.visualization.UseVisualStyleBackColor = true;
+            // 
+            // listOfG6
+            // 
+            this.listOfG6.FormattingEnabled = true;
+            this.listOfG6.HorizontalScrollbar = true;
+            this.listOfG6.ItemHeight = 16;
+            this.listOfG6.Location = new System.Drawing.Point(6, 38);
+            this.listOfG6.Name = "listOfG6";
+            this.listOfG6.Size = new System.Drawing.Size(139, 388);
+            this.listOfG6.TabIndex = 0;
+            this.listOfG6.SelectedIndexChanged += new System.EventHandler(this.listOfG6_SelectedIndexChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 5);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(139, 30);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Open File";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textoOpenViz
+            // 
+            this.textoOpenViz.Enabled = false;
+            this.textoOpenViz.Location = new System.Drawing.Point(151, 9);
+            this.textoOpenViz.Name = "textoOpenViz";
+            this.textoOpenViz.Size = new System.Drawing.Size(443, 22);
+            this.textoOpenViz.TabIndex = 2;
             // 
             // Form1
             // 
@@ -632,6 +669,8 @@
             this.tabControl1.ResumeLayout(false);
             this.filterGraphs.ResumeLayout(false);
             this.filterGraphs.PerformLayout();
+            this.visualization.ResumeLayout(false);
+            this.visualization.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -684,6 +723,9 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage filterGraphs;
         private System.Windows.Forms.TabPage visualization;
+        private System.Windows.Forms.ListBox listOfG6;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textoOpenViz;
     }
 }
 
