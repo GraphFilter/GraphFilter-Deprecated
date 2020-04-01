@@ -448,9 +448,13 @@ namespace GraphFilter
         }
 
 
+
         #endregion
 
+        private void filterGraphs_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
 

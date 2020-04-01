@@ -71,13 +71,18 @@
             this.enableRegularWithK = new System.Windows.Forms.CheckBox();
             this.paramRegularWithDegree = new System.Windows.Forms.TextBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.filterGraphs = new System.Windows.Forms.TabPage();
+            this.visualization = new System.Windows.Forms.TabPage();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.filterGraphs.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonOpen
             // 
-            this.buttonOpen.Location = new System.Drawing.Point(12, 12);
+            this.buttonOpen.Location = new System.Drawing.Point(7, 8);
             this.buttonOpen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonOpen.Name = "buttonOpen";
             this.buttonOpen.Size = new System.Drawing.Size(139, 30);
@@ -89,7 +94,7 @@
             // buttonSave
             // 
             this.buttonSave.Enabled = false;
-            this.buttonSave.Location = new System.Drawing.Point(12, 50);
+            this.buttonSave.Location = new System.Drawing.Point(7, 46);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(139, 30);
@@ -101,7 +106,7 @@
             // textoOrigem
             // 
             this.textoOrigem.Enabled = false;
-            this.textoOrigem.Location = new System.Drawing.Point(157, 16);
+            this.textoOrigem.Location = new System.Drawing.Point(152, 12);
             this.textoOrigem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textoOrigem.Name = "textoOrigem";
             this.textoOrigem.Size = new System.Drawing.Size(440, 22);
@@ -111,7 +116,7 @@
             // buttonSearch
             // 
             this.buttonSearch.Enabled = false;
-            this.buttonSearch.Location = new System.Drawing.Point(12, 387);
+            this.buttonSearch.Location = new System.Drawing.Point(7, 383);
             this.buttonSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(139, 40);
@@ -123,7 +128,7 @@
             // textOutPath
             // 
             this.textOutPath.Enabled = false;
-            this.textOutPath.Location = new System.Drawing.Point(157, 55);
+            this.textOutPath.Location = new System.Drawing.Point(152, 51);
             this.textOutPath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textOutPath.Name = "textOutPath";
             this.textOutPath.Size = new System.Drawing.Size(440, 22);
@@ -372,7 +377,7 @@
             this.groupBox1.Controls.Add(this.comboInv1Eq1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.param1Eq1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 101);
+            this.groupBox1.Location = new System.Drawing.Point(7, 97);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -511,7 +516,7 @@
             this.groupBox2.Controls.Add(this.enableIsConnected);
             this.groupBox2.Controls.Add(this.enableRegular);
             this.groupBox2.Controls.Add(this.enableRegularWithK);
-            this.groupBox2.Location = new System.Drawing.Point(12, 258);
+            this.groupBox2.Location = new System.Drawing.Point(7, 254);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(585, 124);
             this.groupBox2.TabIndex = 8;
@@ -554,7 +559,7 @@
             // paramRegularWithDegree
             // 
             this.paramRegularWithDegree.Enabled = false;
-            this.paramRegularWithDegree.Location = new System.Drawing.Point(171, 298);
+            this.paramRegularWithDegree.Location = new System.Drawing.Point(166, 294);
             this.paramRegularWithDegree.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.paramRegularWithDegree.Name = "paramRegularWithDegree";
             this.paramRegularWithDegree.Size = new System.Drawing.Size(37, 22);
@@ -563,26 +568,58 @@
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(157, 387);
+            this.progressBar.Location = new System.Drawing.Point(152, 383);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(440, 40);
             this.progressBar.TabIndex = 50;
             this.progressBar.Click += new System.EventHandler(this.progressBar_Click);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.filterGraphs);
+            this.tabControl1.Controls.Add(this.visualization);
+            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(608, 461);
+            this.tabControl1.TabIndex = 51;
+            // 
+            // filterGraphs
+            // 
+            this.filterGraphs.Controls.Add(this.buttonOpen);
+            this.filterGraphs.Controls.Add(this.groupBox2);
+            this.filterGraphs.Controls.Add(this.buttonSave);
+            this.filterGraphs.Controls.Add(this.progressBar);
+            this.filterGraphs.Controls.Add(this.textoOrigem);
+            this.filterGraphs.Controls.Add(this.paramRegularWithDegree);
+            this.filterGraphs.Controls.Add(this.buttonSearch);
+            this.filterGraphs.Controls.Add(this.groupBox1);
+            this.filterGraphs.Controls.Add(this.textOutPath);
+            this.filterGraphs.Location = new System.Drawing.Point(4, 25);
+            this.filterGraphs.Name = "filterGraphs";
+            this.filterGraphs.Padding = new System.Windows.Forms.Padding(3);
+            this.filterGraphs.Size = new System.Drawing.Size(600, 432);
+            this.filterGraphs.TabIndex = 0;
+            this.filterGraphs.Text = "Filter Graphs";
+            this.filterGraphs.UseVisualStyleBackColor = true;
+            this.filterGraphs.Click += new System.EventHandler(this.filterGraphs_Click);
+            // 
+            // visualization
+            // 
+            this.visualization.Location = new System.Drawing.Point(4, 25);
+            this.visualization.Name = "visualization";
+            this.visualization.Padding = new System.Windows.Forms.Padding(3);
+            this.visualization.Size = new System.Drawing.Size(197, 71);
+            this.visualization.TabIndex = 1;
+            this.visualization.Text = "Visualization";
+            this.visualization.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(732, 480);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.progressBar);
-            this.Controls.Add(this.paramRegularWithDegree);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textOutPath);
-            this.Controls.Add(this.buttonSearch);
-            this.Controls.Add(this.textoOrigem);
-            this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.buttonOpen);
+            this.ClientSize = new System.Drawing.Size(625, 484);
+            this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -592,8 +629,10 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.filterGraphs.ResumeLayout(false);
+            this.filterGraphs.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -642,6 +681,9 @@
         public System.Windows.Forms.TextBox paramRegularWithDegree;
         public System.Windows.Forms.ProgressBar progressBar;
         public System.Windows.Forms.CheckBox enableIsConnected;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage filterGraphs;
+        private System.Windows.Forms.TabPage visualization;
     }
 }
 

@@ -20,7 +20,6 @@ namespace GraphFilter.Invariants
         public static double AdjacencyEnergy(Graph g) { return Spectral.AdjacencyEnergy(g); }
         public static int ChromaticNumber(Graph g) { return Coloring.ChromaticNumber(g); }
         public static int IndependenceNumber(Graph g) { return Clique.IndependenceNumber(g); }
-
         public static int NumberSpanningTree(Graph g) { return SpanningTree.NumberSpanningTree(g); }
         #endregion
 
