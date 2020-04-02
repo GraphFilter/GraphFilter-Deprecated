@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using QuickGraph;
 
 namespace GraphFilter
 {
@@ -105,6 +106,25 @@ namespace GraphFilter
             }
             return result;
 
+        }
+
+        public static AdjacencyGraph<int,Edge<int>> GraphToQuickGraph(Graph g)
+        {
+            Edge<int>[] edges = new Edge<int>[g.order];
+            int cont = 0;
+            for (int i = 0; i < g.order; i++)
+            {
+                for (int j = i+1; j < g.order; j++)
+                {
+                    if (g.adjacencyMatrix[i, j] == 1)
+                    {
+                        edges[cont] = new Edge<int>(i,j);
+                        cont++;
+                    }
+                }
+            }
+            var graph = edges.ToAdjacencyGraph<int, Edge<int>>();
+            return graph;
         }
     }
 }
