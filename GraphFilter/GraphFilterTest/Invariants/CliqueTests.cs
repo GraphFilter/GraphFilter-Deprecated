@@ -19,13 +19,14 @@ namespace GraphFilter.Invariants.Tests
         {
             
             Assert.AreEqual(5, Clique.CliqueNumber(h));
-            Assert.AreEqual(5, Clique.CliqueNumber(g));
+            Assert.AreEqual(3, Clique.CliqueNumber(g));
         }
 
         [TestMethod()]
         public void IndependenceNumberTest()
         {
             Assert.AreEqual(3, Clique.IndependenceNumber(g));
+            Assert.AreEqual(1, Clique.IndependenceNumber(h));
         }
     }
 }

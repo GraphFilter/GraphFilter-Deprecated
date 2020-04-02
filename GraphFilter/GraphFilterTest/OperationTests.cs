@@ -13,8 +13,7 @@ namespace GraphFilter.Tests
     public class OperationTests
     {
         Graph g = GraphHelper.ExBronKerb_Wiki();
-       
-        
+        Graph k7 = GraphHelper.Complete(7);
         [TestMethod()]
         public void ComplementTest()
         {
@@ -31,7 +30,15 @@ namespace GraphFilter.Tests
         [TestMethod()]
         public void LineGraphTest()
         {
-            Assert.Fail();
+            Graph lg = Operation.Line(g);
+            int[,] lgmatrix = lg.adjacencyMatrix;
+            double a_lg = Invariants.Spectral.algebraicConnectivity(Operation.Line(g));
+            Assert.IsTrue(1.21711 < a_lg && a_lg < 1.21712);
+
+            double a_lk7 = Invariants.Spectral.algebraicConnectivity(Operation.Line(k7));
+            Assert.AreEqual(7,a_lk7);
+
+
         }
     }
 }

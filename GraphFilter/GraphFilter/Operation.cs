@@ -22,10 +22,30 @@ namespace GraphFilter
             return new Graph(complMatrix);
         }
 
-        public static Graph LineGraph(Graph g)
+        public static Graph Line(Graph g)
         {
+            Dictionary<int,int[]> dic = new Dictionary<int, int[]>();
+            int m = 0;
+            foreach (int[] edge in g.Edges()) //map vertice-edge
+            {
+                dic[m] = edge;
+                m++;
+            }
+            int[,] lineMatrix = new int[m, m];
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = i+1; j < m; j++)
+                {
+                    if (dic[i][0] == dic[j][0] || dic[i][1] == dic[j][0] || dic[i][0] == dic[j][1] || dic[i][1] == dic[j][1])
+                    {
+                        lineMatrix[i, j] = 1;
+                        lineMatrix[j, i] = 1;
+                    } 
+                }
+            }
+
             //deve retornar um Grafo linha do grafo de entrada
-            return g;
+            return new Graph(lineMatrix);
         }
 
 
