@@ -95,6 +95,40 @@ namespace GraphFilter
             comboInv2Eq3.Items.AddRange(BuildLogic.ComboBox());
             progressBar.Minimum = 0;
             progressBar.Maximum = 1;
+
+           /* String GrapgVizString = @"graph Coarvore {
+1 -- 3
+1 -- 4
+3 -- 5
+3 -- 9
+3 -- 13
+5 -- 6
+5 -- 7
+5 -- 8
+9 -- 10
+9 -- 11
+9 -- 12
+13 -- 14
+13 -- 15
+13 -- 16
+4 -- 17
+4 -- 18
+4 -- 19
+4 -- 20
+4 -- 21
+4 -- 22
+4 -- 23
+23 -- 24
+23 -- 25
+23 -- 26
+23 -- 27
+23 -- 28
+23 -- 29
+}
+
+";
+
+            vizBox.Image = Graphviz.RenderImage(GrapgVizString, "jpg");*/
         }
 
         #region Button Search
@@ -458,7 +492,10 @@ namespace GraphFilter
 
         private void listOfG6_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            int[,] adjMatrix = Conversor.Graph6toAdjMatrix(listOfG6.SelectedItem.ToString());
+            String dot = DOT_Converter.G6toDOT(adjMatrix);
+            vizBox.Image = Graphviz.RenderImage(dot, "jpg");
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

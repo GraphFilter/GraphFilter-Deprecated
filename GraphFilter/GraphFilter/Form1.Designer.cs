@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.buttonOpen = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.textoOrigem = new System.Windows.Forms.TextBox();
@@ -74,14 +75,16 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.filterGraphs = new System.Windows.Forms.TabPage();
             this.visualization = new System.Windows.Forms.TabPage();
-            this.listOfG6 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.vizBox = new System.Windows.Forms.PictureBox();
             this.textoOpenViz = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.listOfG6 = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.filterGraphs.SuspendLayout();
             this.visualization.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vizBox)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonOpen
@@ -585,7 +588,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(608, 461);
+            this.tabControl1.Size = new System.Drawing.Size(778, 461);
             this.tabControl1.TabIndex = 51;
             // 
             // filterGraphs
@@ -602,7 +605,7 @@
             this.filterGraphs.Location = new System.Drawing.Point(4, 25);
             this.filterGraphs.Name = "filterGraphs";
             this.filterGraphs.Padding = new System.Windows.Forms.Padding(3);
-            this.filterGraphs.Size = new System.Drawing.Size(600, 432);
+            this.filterGraphs.Size = new System.Drawing.Size(770, 432);
             this.filterGraphs.TabIndex = 0;
             this.filterGraphs.Text = "Filter Graphs";
             this.filterGraphs.UseVisualStyleBackColor = true;
@@ -610,27 +613,35 @@
             // 
             // visualization
             // 
+            this.visualization.Controls.Add(this.vizBox);
             this.visualization.Controls.Add(this.textoOpenViz);
             this.visualization.Controls.Add(this.button1);
             this.visualization.Controls.Add(this.listOfG6);
             this.visualization.Location = new System.Drawing.Point(4, 25);
             this.visualization.Name = "visualization";
             this.visualization.Padding = new System.Windows.Forms.Padding(3);
-            this.visualization.Size = new System.Drawing.Size(600, 432);
+            this.visualization.Size = new System.Drawing.Size(770, 432);
             this.visualization.TabIndex = 1;
             this.visualization.Text = "Visualization";
             this.visualization.UseVisualStyleBackColor = true;
             // 
-            // listOfG6
+            // vizBox
             // 
-            this.listOfG6.FormattingEnabled = true;
-            this.listOfG6.HorizontalScrollbar = true;
-            this.listOfG6.ItemHeight = 16;
-            this.listOfG6.Location = new System.Drawing.Point(6, 38);
-            this.listOfG6.Name = "listOfG6";
-            this.listOfG6.Size = new System.Drawing.Size(139, 388);
-            this.listOfG6.TabIndex = 0;
-            this.listOfG6.SelectedIndexChanged += new System.EventHandler(this.listOfG6_SelectedIndexChanged);
+            this.vizBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("vizBox.InitialImage")));
+            this.vizBox.Location = new System.Drawing.Point(151, 38);
+            this.vizBox.Name = "vizBox";
+            this.vizBox.Size = new System.Drawing.Size(443, 388);
+            this.vizBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.vizBox.TabIndex = 3;
+            this.vizBox.TabStop = false;
+            // 
+            // textoOpenViz
+            // 
+            this.textoOpenViz.Enabled = false;
+            this.textoOpenViz.Location = new System.Drawing.Point(151, 9);
+            this.textoOpenViz.Name = "textoOpenViz";
+            this.textoOpenViz.Size = new System.Drawing.Size(443, 22);
+            this.textoOpenViz.TabIndex = 2;
             // 
             // button1
             // 
@@ -643,19 +654,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textoOpenViz
+            // listOfG6
             // 
-            this.textoOpenViz.Enabled = false;
-            this.textoOpenViz.Location = new System.Drawing.Point(151, 9);
-            this.textoOpenViz.Name = "textoOpenViz";
-            this.textoOpenViz.Size = new System.Drawing.Size(443, 22);
-            this.textoOpenViz.TabIndex = 2;
+            this.listOfG6.FormattingEnabled = true;
+            this.listOfG6.HorizontalScrollbar = true;
+            this.listOfG6.ItemHeight = 16;
+            this.listOfG6.Location = new System.Drawing.Point(6, 38);
+            this.listOfG6.Name = "listOfG6";
+            this.listOfG6.Size = new System.Drawing.Size(139, 388);
+            this.listOfG6.TabIndex = 0;
+            this.listOfG6.SelectedIndexChanged += new System.EventHandler(this.listOfG6_SelectedIndexChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 484);
+            this.ClientSize = new System.Drawing.Size(1298, 484);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
@@ -671,6 +685,7 @@
             this.filterGraphs.PerformLayout();
             this.visualization.ResumeLayout(false);
             this.visualization.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vizBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -726,6 +741,7 @@
         private System.Windows.Forms.ListBox listOfG6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textoOpenViz;
+        private System.Windows.Forms.PictureBox vizBox;
     }
 }
 

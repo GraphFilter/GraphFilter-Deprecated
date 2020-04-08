@@ -9,6 +9,7 @@ namespace GraphFilter
 {
     public static class Conversor
     {
+        
         /*
         public static string GraphToGraph6(int[,] adjMatrix)
         {
