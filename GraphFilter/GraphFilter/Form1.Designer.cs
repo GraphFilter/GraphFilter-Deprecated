@@ -29,30 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.filterGraphs = new System.Windows.Forms.TabPage();
             this.buttonOpen = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.enableIsConnected = new System.Windows.Forms.CheckBox();
+            this.enableRegular = new System.Windows.Forms.CheckBox();
+            this.enableRegularWithK = new System.Windows.Forms.CheckBox();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.textoOrigem = new System.Windows.Forms.TextBox();
-            this.buttonSearch = new System.Windows.Forms.Button();
+            this.paramRegularWithDegree = new System.Windows.Forms.TextBox();
             this.textOutPath = new System.Windows.Forms.TextBox();
-            this.param1Eq1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboInv1Eq1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.param2Eq1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboInv2Eq1 = new System.Windows.Forms.ComboBox();
-            this.param3Eq1 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.relationEq1 = new System.Windows.Forms.TextBox();
-            this.param1Eq2 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.comboInv1Eq2 = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.comboInv2Eq2 = new System.Windows.Forms.ComboBox();
-            this.param2Eq2 = new System.Windows.Forms.TextBox();
-            this.relationEq2 = new System.Windows.Forms.TextBox();
-            this.enableEq1 = new System.Windows.Forms.CheckBox();
-            this.enableEq2 = new System.Windows.Forms.CheckBox();
+            this.buttonSearch = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -66,26 +54,62 @@
             this.param1Eq3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.enableIsConnected = new System.Windows.Forms.CheckBox();
-            this.enableRegular = new System.Windows.Forms.CheckBox();
-            this.enableRegularWithK = new System.Windows.Forms.CheckBox();
-            this.paramRegularWithDegree = new System.Windows.Forms.TextBox();
-            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.enableEq2 = new System.Windows.Forms.CheckBox();
+            this.enableEq1 = new System.Windows.Forms.CheckBox();
+            this.relationEq2 = new System.Windows.Forms.TextBox();
+            this.param2Eq2 = new System.Windows.Forms.TextBox();
+            this.comboInv2Eq2 = new System.Windows.Forms.ComboBox();
+            this.param3Eq1 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.comboInv1Eq2 = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.param1Eq2 = new System.Windows.Forms.TextBox();
+            this.relationEq1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboInv2Eq1 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.param2Eq1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboInv1Eq1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.param1Eq1 = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.filterGraphs = new System.Windows.Forms.TabPage();
             this.visualization = new System.Windows.Forms.TabPage();
             this.vizBox = new System.Windows.Forms.PictureBox();
+            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.textoOpenViz = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.listOfG6 = new System.Windows.Forms.ListBox();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.graphControl = new yWorks.Controls.GraphControl();
             this.filterGraphs.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.visualization.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vizBox)).BeginInit();
+            this.toolStripContainer1.ContentPanel.SuspendLayout();
+            this.toolStripContainer1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // filterGraphs
+            // 
+            this.filterGraphs.Controls.Add(this.buttonOpen);
+            this.filterGraphs.Controls.Add(this.groupBox2);
+            this.filterGraphs.Controls.Add(this.buttonSave);
+            this.filterGraphs.Controls.Add(this.progressBar);
+            this.filterGraphs.Controls.Add(this.textoOrigem);
+            this.filterGraphs.Controls.Add(this.paramRegularWithDegree);
+            this.filterGraphs.Controls.Add(this.textOutPath);
+            this.filterGraphs.Controls.Add(this.buttonSearch);
+            this.filterGraphs.Controls.Add(this.groupBox1);
+            this.filterGraphs.Location = new System.Drawing.Point(4, 25);
+            this.filterGraphs.Name = "filterGraphs";
+            this.filterGraphs.Padding = new System.Windows.Forms.Padding(3);
+            this.filterGraphs.Size = new System.Drawing.Size(1249, 432);
+            this.filterGraphs.TabIndex = 0;
+            this.filterGraphs.Text = "Filter Graphs";
+            this.filterGraphs.UseVisualStyleBackColor = true;
+            this.filterGraphs.Click += new System.EventHandler(this.filterGraphs_Click);
             // 
             // buttonOpen
             // 
@@ -97,6 +121,51 @@
             this.buttonOpen.Text = "Input File";
             this.buttonOpen.UseVisualStyleBackColor = true;
             this.buttonOpen.Click += new System.EventHandler(this.ButtonInput_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.enableIsConnected);
+            this.groupBox2.Controls.Add(this.enableRegular);
+            this.groupBox2.Controls.Add(this.enableRegularWithK);
+            this.groupBox2.Location = new System.Drawing.Point(7, 254);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(585, 124);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Condition";
+            // 
+            // enableIsConnected
+            // 
+            this.enableIsConnected.AutoSize = true;
+            this.enableIsConnected.Location = new System.Drawing.Point(10, 94);
+            this.enableIsConnected.Name = "enableIsConnected";
+            this.enableIsConnected.Size = new System.Drawing.Size(112, 21);
+            this.enableIsConnected.TabIndex = 49;
+            this.enableIsConnected.Text = "Is Connected";
+            this.enableIsConnected.UseVisualStyleBackColor = true;
+            this.enableIsConnected.CheckedChanged += new System.EventHandler(this.enableIsConnected_CheckedChanged);
+            // 
+            // enableRegular
+            // 
+            this.enableRegular.AutoSize = true;
+            this.enableRegular.Location = new System.Drawing.Point(10, 31);
+            this.enableRegular.Name = "enableRegular";
+            this.enableRegular.Size = new System.Drawing.Size(80, 21);
+            this.enableRegular.TabIndex = 47;
+            this.enableRegular.Text = "Regular";
+            this.enableRegular.UseVisualStyleBackColor = true;
+            this.enableRegular.CheckedChanged += new System.EventHandler(this.enableRegular_CheckedChanged_1);
+            // 
+            // enableRegularWithK
+            // 
+            this.enableRegularWithK.AutoSize = true;
+            this.enableRegularWithK.Location = new System.Drawing.Point(10, 63);
+            this.enableRegularWithK.Name = "enableRegularWithK";
+            this.enableRegularWithK.Size = new System.Drawing.Size(153, 21);
+            this.enableRegularWithK.TabIndex = 48;
+            this.enableRegularWithK.Text = "Regular with Order:";
+            this.enableRegularWithK.UseVisualStyleBackColor = true;
+            this.enableRegularWithK.CheckedChanged += new System.EventHandler(this.enableRegularWithK_CheckedChanged);
             // 
             // buttonSave
             // 
@@ -110,6 +179,14 @@
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.ButtonOutput_Click);
             // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(152, 383);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(440, 40);
+            this.progressBar.TabIndex = 50;
+            this.progressBar.Click += new System.EventHandler(this.progressBar_Click);
+            // 
             // textoOrigem
             // 
             this.textoOrigem.Enabled = false;
@@ -119,6 +196,26 @@
             this.textoOrigem.Size = new System.Drawing.Size(440, 22);
             this.textoOrigem.TabIndex = 2;
             this.textoOrigem.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
+            // 
+            // paramRegularWithDegree
+            // 
+            this.paramRegularWithDegree.Enabled = false;
+            this.paramRegularWithDegree.Location = new System.Drawing.Point(166, 294);
+            this.paramRegularWithDegree.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.paramRegularWithDegree.Name = "paramRegularWithDegree";
+            this.paramRegularWithDegree.Size = new System.Drawing.Size(37, 22);
+            this.paramRegularWithDegree.TabIndex = 49;
+            this.paramRegularWithDegree.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.paramRegularWithDegree_KeyPress_1);
+            // 
+            // textOutPath
+            // 
+            this.textOutPath.Enabled = false;
+            this.textOutPath.Location = new System.Drawing.Point(152, 51);
+            this.textOutPath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textOutPath.Name = "textOutPath";
+            this.textOutPath.Size = new System.Drawing.Size(440, 22);
+            this.textOutPath.TabIndex = 5;
+            this.textOutPath.TextChanged += new System.EventHandler(this.TextDestino_TextChanged);
             // 
             // buttonSearch
             // 
@@ -131,225 +228,6 @@
             this.buttonSearch.Text = "Run";
             this.buttonSearch.UseVisualStyleBackColor = true;
             this.buttonSearch.Click += new System.EventHandler(this.ButtonSearch_Click);
-            // 
-            // textOutPath
-            // 
-            this.textOutPath.Enabled = false;
-            this.textOutPath.Location = new System.Drawing.Point(152, 51);
-            this.textOutPath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textOutPath.Name = "textOutPath";
-            this.textOutPath.Size = new System.Drawing.Size(440, 22);
-            this.textOutPath.TabIndex = 5;
-            this.textOutPath.TextChanged += new System.EventHandler(this.TextDestino_TextChanged);
-            // 
-            // param1Eq1
-            // 
-            this.param1Eq1.Enabled = false;
-            this.param1Eq1.Location = new System.Drawing.Point(46, 30);
-            this.param1Eq1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.param1Eq1.Name = "param1Eq1";
-            this.param1Eq1.Size = new System.Drawing.Size(32, 22);
-            this.param1Eq1.TabIndex = 0;
-            this.param1Eq1.Text = "0";
-            this.param1Eq1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged_1);
-            this.param1Eq1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox1_KeyPress);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(85, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(20, 24);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "x";
-            this.label1.Click += new System.EventHandler(this.Label1_Click);
-            // 
-            // comboInv1Eq1
-            // 
-            this.comboInv1Eq1.Enabled = false;
-            this.comboInv1Eq1.FormattingEnabled = true;
-            this.comboInv1Eq1.Location = new System.Drawing.Point(110, 28);
-            this.comboInv1Eq1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboInv1Eq1.Name = "comboInv1Eq1";
-            this.comboInv1Eq1.Size = new System.Drawing.Size(121, 24);
-            this.comboInv1Eq1.TabIndex = 2;
-            this.comboInv1Eq1.Text = "None";
-            this.comboInv1Eq1.SelectedIndexChanged += new System.EventHandler(this.ComboInv1_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(237, 31);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(21, 24);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "+";
-            this.label2.Click += new System.EventHandler(this.Label2_Click);
-            // 
-            // param2Eq1
-            // 
-            this.param2Eq1.Enabled = false;
-            this.param2Eq1.Location = new System.Drawing.Point(258, 30);
-            this.param2Eq1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.param2Eq1.Name = "param2Eq1";
-            this.param2Eq1.Size = new System.Drawing.Size(32, 22);
-            this.param2Eq1.TabIndex = 4;
-            this.param2Eq1.Text = "0";
-            this.param2Eq1.TextChanged += new System.EventHandler(this.param2Eq1_TextChanged);
-            this.param2Eq1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox2_KeyPress);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(298, 31);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(20, 24);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "x";
-            this.label3.Click += new System.EventHandler(this.Label3_Click);
-            // 
-            // comboInv2Eq1
-            // 
-            this.comboInv2Eq1.Enabled = false;
-            this.comboInv2Eq1.FormattingEnabled = true;
-            this.comboInv2Eq1.Location = new System.Drawing.Point(325, 28);
-            this.comboInv2Eq1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboInv2Eq1.Name = "comboInv2Eq1";
-            this.comboInv2Eq1.Size = new System.Drawing.Size(121, 24);
-            this.comboInv2Eq1.TabIndex = 6;
-            this.comboInv2Eq1.Text = "None";
-            // 
-            // param3Eq1
-            // 
-            this.param3Eq1.Enabled = false;
-            this.param3Eq1.Location = new System.Drawing.Point(509, 30);
-            this.param3Eq1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.param3Eq1.Name = "param3Eq1";
-            this.param3Eq1.Size = new System.Drawing.Size(40, 22);
-            this.param3Eq1.TabIndex = 8;
-            this.param3Eq1.Text = "0";
-            this.param3Eq1.TextChanged += new System.EventHandler(this.Param3_TextChanged);
-            this.param3Eq1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox3_KeyPress);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(562, 30);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 24);
-            this.label6.TabIndex = 10;
-            this.label6.Click += new System.EventHandler(this.Label6_Click);
-            // 
-            // relationEq1
-            // 
-            this.relationEq1.Enabled = false;
-            this.relationEq1.Location = new System.Drawing.Point(459, 30);
-            this.relationEq1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.relationEq1.Name = "relationEq1";
-            this.relationEq1.Size = new System.Drawing.Size(37, 22);
-            this.relationEq1.TabIndex = 11;
-            this.relationEq1.Text = "=";
-            this.relationEq1.TextChanged += new System.EventHandler(this.TextBox4_TextChanged);
-            this.relationEq1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox4_KeyPress);
-            // 
-            // param1Eq2
-            // 
-            this.param1Eq2.Enabled = false;
-            this.param1Eq2.Location = new System.Drawing.Point(46, 64);
-            this.param1Eq2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.param1Eq2.Name = "param1Eq2";
-            this.param1Eq2.Size = new System.Drawing.Size(32, 22);
-            this.param1Eq2.TabIndex = 12;
-            this.param1Eq2.Text = "0";
-            this.param1Eq2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Param1Eq2_KeyPress);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(85, 63);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(20, 24);
-            this.label10.TabIndex = 13;
-            this.label10.Text = "x";
-            // 
-            // comboInv1Eq2
-            // 
-            this.comboInv1Eq2.Enabled = false;
-            this.comboInv1Eq2.FormattingEnabled = true;
-            this.comboInv1Eq2.Location = new System.Drawing.Point(120, 65);
-            this.comboInv1Eq2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboInv1Eq2.Name = "comboInv1Eq2";
-            this.comboInv1Eq2.Size = new System.Drawing.Size(121, 24);
-            this.comboInv1Eq2.TabIndex = 14;
-            this.comboInv1Eq2.Text = "None";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(247, 64);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(15, 24);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "/";
-            // 
-            // comboInv2Eq2
-            // 
-            this.comboInv2Eq2.Enabled = false;
-            this.comboInv2Eq2.FormattingEnabled = true;
-            this.comboInv2Eq2.Location = new System.Drawing.Point(268, 65);
-            this.comboInv2Eq2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboInv2Eq2.Name = "comboInv2Eq2";
-            this.comboInv2Eq2.Size = new System.Drawing.Size(121, 24);
-            this.comboInv2Eq2.TabIndex = 18;
-            this.comboInv2Eq2.Text = "None";
-            // 
-            // param2Eq2
-            // 
-            this.param2Eq2.Enabled = false;
-            this.param2Eq2.Location = new System.Drawing.Point(455, 66);
-            this.param2Eq2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.param2Eq2.Name = "param2Eq2";
-            this.param2Eq2.Size = new System.Drawing.Size(40, 22);
-            this.param2Eq2.TabIndex = 20;
-            this.param2Eq2.Text = "0";
-            this.param2Eq2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Param3Eq2_KeyPress);
-            // 
-            // relationEq2
-            // 
-            this.relationEq2.Enabled = false;
-            this.relationEq2.Location = new System.Drawing.Point(412, 66);
-            this.relationEq2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.relationEq2.Name = "relationEq2";
-            this.relationEq2.Size = new System.Drawing.Size(37, 22);
-            this.relationEq2.TabIndex = 22;
-            this.relationEq2.Text = "=";
-            this.relationEq2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RelationEq2_KeyPress);
-            // 
-            // enableEq1
-            // 
-            this.enableEq1.AutoSize = true;
-            this.enableEq1.Location = new System.Drawing.Point(10, 34);
-            this.enableEq1.Name = "enableEq1";
-            this.enableEq1.Size = new System.Drawing.Size(18, 17);
-            this.enableEq1.TabIndex = 8;
-            this.enableEq1.UseVisualStyleBackColor = true;
-            this.enableEq1.CheckedChanged += new System.EventHandler(this.EnableEq1_CheckedChanged);
-            // 
-            // enableEq2
-            // 
-            this.enableEq2.AutoSize = true;
-            this.enableEq2.Location = new System.Drawing.Point(10, 68);
-            this.enableEq2.Name = "enableEq2";
-            this.enableEq2.Size = new System.Drawing.Size(18, 17);
-            this.enableEq2.TabIndex = 34;
-            this.enableEq2.UseVisualStyleBackColor = true;
-            this.enableEq2.CheckedChanged += new System.EventHandler(this.EnableEq2_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -518,68 +396,214 @@
             this.label4.TabIndex = 35;
             this.label4.Text = "(";
             // 
-            // groupBox2
+            // enableEq2
             // 
-            this.groupBox2.Controls.Add(this.enableIsConnected);
-            this.groupBox2.Controls.Add(this.enableRegular);
-            this.groupBox2.Controls.Add(this.enableRegularWithK);
-            this.groupBox2.Location = new System.Drawing.Point(7, 254);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(585, 124);
-            this.groupBox2.TabIndex = 8;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Condition";
+            this.enableEq2.AutoSize = true;
+            this.enableEq2.Location = new System.Drawing.Point(10, 68);
+            this.enableEq2.Name = "enableEq2";
+            this.enableEq2.Size = new System.Drawing.Size(18, 17);
+            this.enableEq2.TabIndex = 34;
+            this.enableEq2.UseVisualStyleBackColor = true;
+            this.enableEq2.CheckedChanged += new System.EventHandler(this.EnableEq2_CheckedChanged);
             // 
-            // enableIsConnected
+            // enableEq1
             // 
-            this.enableIsConnected.AutoSize = true;
-            this.enableIsConnected.Location = new System.Drawing.Point(10, 94);
-            this.enableIsConnected.Name = "enableIsConnected";
-            this.enableIsConnected.Size = new System.Drawing.Size(112, 21);
-            this.enableIsConnected.TabIndex = 49;
-            this.enableIsConnected.Text = "Is Connected";
-            this.enableIsConnected.UseVisualStyleBackColor = true;
-            this.enableIsConnected.CheckedChanged += new System.EventHandler(this.enableIsConnected_CheckedChanged);
+            this.enableEq1.AutoSize = true;
+            this.enableEq1.Location = new System.Drawing.Point(10, 34);
+            this.enableEq1.Name = "enableEq1";
+            this.enableEq1.Size = new System.Drawing.Size(18, 17);
+            this.enableEq1.TabIndex = 8;
+            this.enableEq1.UseVisualStyleBackColor = true;
+            this.enableEq1.CheckedChanged += new System.EventHandler(this.EnableEq1_CheckedChanged);
             // 
-            // enableRegular
+            // relationEq2
             // 
-            this.enableRegular.AutoSize = true;
-            this.enableRegular.Location = new System.Drawing.Point(10, 31);
-            this.enableRegular.Name = "enableRegular";
-            this.enableRegular.Size = new System.Drawing.Size(80, 21);
-            this.enableRegular.TabIndex = 47;
-            this.enableRegular.Text = "Regular";
-            this.enableRegular.UseVisualStyleBackColor = true;
-            this.enableRegular.CheckedChanged += new System.EventHandler(this.enableRegular_CheckedChanged_1);
+            this.relationEq2.Enabled = false;
+            this.relationEq2.Location = new System.Drawing.Point(412, 66);
+            this.relationEq2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.relationEq2.Name = "relationEq2";
+            this.relationEq2.Size = new System.Drawing.Size(37, 22);
+            this.relationEq2.TabIndex = 22;
+            this.relationEq2.Text = "=";
+            this.relationEq2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RelationEq2_KeyPress);
             // 
-            // enableRegularWithK
+            // param2Eq2
             // 
-            this.enableRegularWithK.AutoSize = true;
-            this.enableRegularWithK.Location = new System.Drawing.Point(10, 63);
-            this.enableRegularWithK.Name = "enableRegularWithK";
-            this.enableRegularWithK.Size = new System.Drawing.Size(153, 21);
-            this.enableRegularWithK.TabIndex = 48;
-            this.enableRegularWithK.Text = "Regular with Order:";
-            this.enableRegularWithK.UseVisualStyleBackColor = true;
-            this.enableRegularWithK.CheckedChanged += new System.EventHandler(this.enableRegularWithK_CheckedChanged);
+            this.param2Eq2.Enabled = false;
+            this.param2Eq2.Location = new System.Drawing.Point(455, 66);
+            this.param2Eq2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.param2Eq2.Name = "param2Eq2";
+            this.param2Eq2.Size = new System.Drawing.Size(40, 22);
+            this.param2Eq2.TabIndex = 20;
+            this.param2Eq2.Text = "0";
+            this.param2Eq2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Param3Eq2_KeyPress);
             // 
-            // paramRegularWithDegree
+            // comboInv2Eq2
             // 
-            this.paramRegularWithDegree.Enabled = false;
-            this.paramRegularWithDegree.Location = new System.Drawing.Point(166, 294);
-            this.paramRegularWithDegree.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.paramRegularWithDegree.Name = "paramRegularWithDegree";
-            this.paramRegularWithDegree.Size = new System.Drawing.Size(37, 22);
-            this.paramRegularWithDegree.TabIndex = 49;
-            this.paramRegularWithDegree.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.paramRegularWithDegree_KeyPress_1);
+            this.comboInv2Eq2.Enabled = false;
+            this.comboInv2Eq2.FormattingEnabled = true;
+            this.comboInv2Eq2.Location = new System.Drawing.Point(268, 65);
+            this.comboInv2Eq2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboInv2Eq2.Name = "comboInv2Eq2";
+            this.comboInv2Eq2.Size = new System.Drawing.Size(121, 24);
+            this.comboInv2Eq2.TabIndex = 18;
+            this.comboInv2Eq2.Text = "None";
             // 
-            // progressBar
+            // param3Eq1
             // 
-            this.progressBar.Location = new System.Drawing.Point(152, 383);
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(440, 40);
-            this.progressBar.TabIndex = 50;
-            this.progressBar.Click += new System.EventHandler(this.progressBar_Click);
+            this.param3Eq1.Enabled = false;
+            this.param3Eq1.Location = new System.Drawing.Point(509, 30);
+            this.param3Eq1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.param3Eq1.Name = "param3Eq1";
+            this.param3Eq1.Size = new System.Drawing.Size(40, 22);
+            this.param3Eq1.TabIndex = 8;
+            this.param3Eq1.Text = "0";
+            this.param3Eq1.TextChanged += new System.EventHandler(this.Param3_TextChanged);
+            this.param3Eq1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox3_KeyPress);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(247, 64);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(15, 24);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "/";
+            // 
+            // comboInv1Eq2
+            // 
+            this.comboInv1Eq2.Enabled = false;
+            this.comboInv1Eq2.FormattingEnabled = true;
+            this.comboInv1Eq2.Location = new System.Drawing.Point(120, 65);
+            this.comboInv1Eq2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboInv1Eq2.Name = "comboInv1Eq2";
+            this.comboInv1Eq2.Size = new System.Drawing.Size(121, 24);
+            this.comboInv1Eq2.TabIndex = 14;
+            this.comboInv1Eq2.Text = "None";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(85, 63);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(20, 24);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "x";
+            // 
+            // param1Eq2
+            // 
+            this.param1Eq2.Enabled = false;
+            this.param1Eq2.Location = new System.Drawing.Point(46, 64);
+            this.param1Eq2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.param1Eq2.Name = "param1Eq2";
+            this.param1Eq2.Size = new System.Drawing.Size(32, 22);
+            this.param1Eq2.TabIndex = 12;
+            this.param1Eq2.Text = "0";
+            this.param1Eq2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Param1Eq2_KeyPress);
+            // 
+            // relationEq1
+            // 
+            this.relationEq1.Enabled = false;
+            this.relationEq1.Location = new System.Drawing.Point(459, 30);
+            this.relationEq1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.relationEq1.Name = "relationEq1";
+            this.relationEq1.Size = new System.Drawing.Size(37, 22);
+            this.relationEq1.TabIndex = 11;
+            this.relationEq1.Text = "=";
+            this.relationEq1.TextChanged += new System.EventHandler(this.TextBox4_TextChanged);
+            this.relationEq1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox4_KeyPress);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(562, 30);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 24);
+            this.label6.TabIndex = 10;
+            this.label6.Click += new System.EventHandler(this.Label6_Click);
+            // 
+            // comboInv2Eq1
+            // 
+            this.comboInv2Eq1.Enabled = false;
+            this.comboInv2Eq1.FormattingEnabled = true;
+            this.comboInv2Eq1.Location = new System.Drawing.Point(325, 28);
+            this.comboInv2Eq1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboInv2Eq1.Name = "comboInv2Eq1";
+            this.comboInv2Eq1.Size = new System.Drawing.Size(121, 24);
+            this.comboInv2Eq1.TabIndex = 6;
+            this.comboInv2Eq1.Text = "None";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(298, 31);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(20, 24);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "x";
+            this.label3.Click += new System.EventHandler(this.Label3_Click);
+            // 
+            // param2Eq1
+            // 
+            this.param2Eq1.Enabled = false;
+            this.param2Eq1.Location = new System.Drawing.Point(258, 30);
+            this.param2Eq1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.param2Eq1.Name = "param2Eq1";
+            this.param2Eq1.Size = new System.Drawing.Size(32, 22);
+            this.param2Eq1.TabIndex = 4;
+            this.param2Eq1.Text = "0";
+            this.param2Eq1.TextChanged += new System.EventHandler(this.param2Eq1_TextChanged);
+            this.param2Eq1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox2_KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(237, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(21, 24);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "+";
+            this.label2.Click += new System.EventHandler(this.Label2_Click);
+            // 
+            // comboInv1Eq1
+            // 
+            this.comboInv1Eq1.Enabled = false;
+            this.comboInv1Eq1.FormattingEnabled = true;
+            this.comboInv1Eq1.Location = new System.Drawing.Point(110, 28);
+            this.comboInv1Eq1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboInv1Eq1.Name = "comboInv1Eq1";
+            this.comboInv1Eq1.Size = new System.Drawing.Size(121, 24);
+            this.comboInv1Eq1.TabIndex = 2;
+            this.comboInv1Eq1.Text = "None";
+            this.comboInv1Eq1.SelectedIndexChanged += new System.EventHandler(this.ComboInv1_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(85, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(20, 24);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "x";
+            this.label1.Click += new System.EventHandler(this.Label1_Click);
+            // 
+            // param1Eq1
+            // 
+            this.param1Eq1.Enabled = false;
+            this.param1Eq1.Location = new System.Drawing.Point(46, 30);
+            this.param1Eq1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.param1Eq1.Name = "param1Eq1";
+            this.param1Eq1.Size = new System.Drawing.Size(32, 22);
+            this.param1Eq1.TabIndex = 0;
+            this.param1Eq1.Text = "0";
+            this.param1Eq1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged_1);
+            this.param1Eq1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox1_KeyPress);
             // 
             // tabControl1
             // 
@@ -588,42 +612,24 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(778, 461);
+            this.tabControl1.Size = new System.Drawing.Size(1257, 461);
             this.tabControl1.TabIndex = 51;
-            // 
-            // filterGraphs
-            // 
-            this.filterGraphs.Controls.Add(this.buttonOpen);
-            this.filterGraphs.Controls.Add(this.groupBox2);
-            this.filterGraphs.Controls.Add(this.buttonSave);
-            this.filterGraphs.Controls.Add(this.progressBar);
-            this.filterGraphs.Controls.Add(this.textoOrigem);
-            this.filterGraphs.Controls.Add(this.paramRegularWithDegree);
-            this.filterGraphs.Controls.Add(this.buttonSearch);
-            this.filterGraphs.Controls.Add(this.groupBox1);
-            this.filterGraphs.Controls.Add(this.textOutPath);
-            this.filterGraphs.Location = new System.Drawing.Point(4, 25);
-            this.filterGraphs.Name = "filterGraphs";
-            this.filterGraphs.Padding = new System.Windows.Forms.Padding(3);
-            this.filterGraphs.Size = new System.Drawing.Size(770, 432);
-            this.filterGraphs.TabIndex = 0;
-            this.filterGraphs.Text = "Filter Graphs";
-            this.filterGraphs.UseVisualStyleBackColor = true;
-            this.filterGraphs.Click += new System.EventHandler(this.filterGraphs_Click);
             // 
             // visualization
             // 
             this.visualization.Controls.Add(this.vizBox);
+            this.visualization.Controls.Add(this.toolStripContainer1);
             this.visualization.Controls.Add(this.textoOpenViz);
             this.visualization.Controls.Add(this.button1);
             this.visualization.Controls.Add(this.listOfG6);
             this.visualization.Location = new System.Drawing.Point(4, 25);
             this.visualization.Name = "visualization";
             this.visualization.Padding = new System.Windows.Forms.Padding(3);
-            this.visualization.Size = new System.Drawing.Size(770, 432);
+            this.visualization.Size = new System.Drawing.Size(1249, 432);
             this.visualization.TabIndex = 1;
             this.visualization.Text = "Visualization";
             this.visualization.UseVisualStyleBackColor = true;
+            this.visualization.Click += new System.EventHandler(this.visualization_Click);
             // 
             // vizBox
             // 
@@ -634,6 +640,36 @@
             this.vizBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.vizBox.TabIndex = 3;
             this.vizBox.TabStop = false;
+            // 
+            // toolStripContainer1
+            // 
+            // 
+            // toolStripContainer1.BottomToolStripPanel
+            // 
+            this.toolStripContainer1.BottomToolStripPanel.Padding = new System.Windows.Forms.Padding(0, 25, 0, 0);
+            this.toolStripContainer1.BottomToolStripPanelVisible = false;
+            // 
+            // toolStripContainer1.ContentPanel
+            // 
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.graphControl);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(643, 388);
+            this.toolStripContainer1.ContentPanel.Load += new System.EventHandler(this.toolStripContainer1_ContentPanel_Load);
+            this.toolStripContainer1.LeftToolStripPanelVisible = false;
+            this.toolStripContainer1.Location = new System.Drawing.Point(600, 38);
+            this.toolStripContainer1.Name = "toolStripContainer1";
+            // 
+            // toolStripContainer1.RightToolStripPanel
+            // 
+            this.toolStripContainer1.RightToolStripPanel.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.toolStripContainer1.RightToolStripPanelVisible = false;
+            this.toolStripContainer1.Size = new System.Drawing.Size(643, 388);
+            this.toolStripContainer1.TabIndex = 4;
+            this.toolStripContainer1.Text = "toolStripContainer1";
+            // 
+            // toolStripContainer1.TopToolStripPanel
+            // 
+            this.toolStripContainer1.TopToolStripPanel.Padding = new System.Windows.Forms.Padding(0, 0, 25, 25);
+            this.toolStripContainer1.TopToolStripPanelVisible = false;
             // 
             // textoOpenViz
             // 
@@ -665,6 +701,18 @@
             this.listOfG6.TabIndex = 0;
             this.listOfG6.SelectedIndexChanged += new System.EventHandler(this.listOfG6_SelectedIndexChanged);
             // 
+            // graphControl
+            // 
+            this.graphControl.BackColor = System.Drawing.Color.White;
+            this.graphControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.graphControl.DoubleClickSize = new yWorks.Geometry.SizeD(4D, 4D);
+            this.graphControl.DoubleClickTime = System.TimeSpan.Parse("00:00:00.5000000");
+            this.graphControl.DragSize = new yWorks.Geometry.SizeD(4D, 4D);
+            this.graphControl.Location = new System.Drawing.Point(0, 0);
+            this.graphControl.Name = "graphControl";
+            this.graphControl.Size = new System.Drawing.Size(643, 388);
+            this.graphControl.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -676,46 +724,37 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
             this.filterGraphs.ResumeLayout(false);
             this.filterGraphs.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
             this.visualization.ResumeLayout(false);
             this.visualization.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vizBox)).EndInit();
+            this.toolStripContainer1.ContentPanel.ResumeLayout(false);
+            this.toolStripContainer1.ResumeLayout(false);
+            this.toolStripContainer1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.TabPage filterGraphs;
         private System.Windows.Forms.Button buttonOpen;
+        private System.Windows.Forms.GroupBox groupBox2;
+        public System.Windows.Forms.CheckBox enableIsConnected;
+        public System.Windows.Forms.CheckBox enableRegular;
+        public System.Windows.Forms.CheckBox enableRegularWithK;
         private System.Windows.Forms.Button buttonSave;
+        public System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.TextBox textoOrigem;
-        private System.Windows.Forms.Button buttonSearch;
+        public System.Windows.Forms.TextBox paramRegularWithDegree;
         private System.Windows.Forms.TextBox textOutPath;
-        public System.Windows.Forms.TextBox param1Eq1;
-        private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.ComboBox comboInv1Eq1;
-        private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.TextBox param2Eq1;
-        private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.ComboBox comboInv2Eq1;
-        public System.Windows.Forms.TextBox param3Eq1;
-        private System.Windows.Forms.Label label6;
-        public System.Windows.Forms.TextBox relationEq1;
-        public System.Windows.Forms.TextBox param1Eq2;
-        public System.Windows.Forms.Label label10;
-        public System.Windows.Forms.ComboBox comboInv1Eq2;
-        public System.Windows.Forms.Label label9;
-        public System.Windows.Forms.ComboBox comboInv2Eq2;
-        public System.Windows.Forms.TextBox param2Eq2;
-        public System.Windows.Forms.TextBox relationEq2;
-        public System.Windows.Forms.CheckBox enableEq1;
-        public System.Windows.Forms.CheckBox enableEq2;
+        private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.GroupBox groupBox1;
         public System.Windows.Forms.Label label7;
         public System.Windows.Forms.Label label8;
@@ -729,19 +768,33 @@
         public System.Windows.Forms.TextBox param1Eq3;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBox2;
-        public System.Windows.Forms.CheckBox enableRegular;
-        public System.Windows.Forms.CheckBox enableRegularWithK;
-        public System.Windows.Forms.TextBox paramRegularWithDegree;
-        public System.Windows.Forms.ProgressBar progressBar;
-        public System.Windows.Forms.CheckBox enableIsConnected;
+        public System.Windows.Forms.CheckBox enableEq2;
+        public System.Windows.Forms.CheckBox enableEq1;
+        public System.Windows.Forms.TextBox relationEq2;
+        public System.Windows.Forms.TextBox param2Eq2;
+        public System.Windows.Forms.ComboBox comboInv2Eq2;
+        public System.Windows.Forms.TextBox param3Eq1;
+        public System.Windows.Forms.Label label9;
+        public System.Windows.Forms.ComboBox comboInv1Eq2;
+        public System.Windows.Forms.Label label10;
+        public System.Windows.Forms.TextBox param1Eq2;
+        public System.Windows.Forms.TextBox relationEq1;
+        private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.ComboBox comboInv2Eq1;
+        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.TextBox param2Eq1;
+        private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.ComboBox comboInv1Eq1;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox param1Eq1;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage filterGraphs;
         private System.Windows.Forms.TabPage visualization;
-        private System.Windows.Forms.ListBox listOfG6;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textoOpenViz;
         private System.Windows.Forms.PictureBox vizBox;
+        private System.Windows.Forms.ToolStripContainer toolStripContainer1;
+        private System.Windows.Forms.TextBox textoOpenViz;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListBox listOfG6;
+        public yWorks.Controls.GraphControl graphControl;
     }
 }
 

@@ -1,4 +1,5 @@
 ﻿using GraphFilter.Invariants;
+using GraphFilter.yNET;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,8 +12,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
+using yWorks.Controls.Input;
+using yWorks.Geometry;
+using yWorks.Graph.Styles;
 
 namespace GraphFilter
 {
@@ -41,7 +43,7 @@ namespace GraphFilter
                     using (StreamReader reader = new StreamReader(ofd.FileName, Encoding.GetEncoding(CultureInfo.GetCultureInfo("pt-br").TextInfo.ANSICodePage)))
                     {
                         fileG6In = ofd.OpenFile();
-                        while(reader.ReadLine() != null)
+                        while (reader.ReadLine() != null)
                         {
                             progressBar.Maximum++;
                         }
@@ -96,39 +98,39 @@ namespace GraphFilter
             progressBar.Minimum = 0;
             progressBar.Maximum = 1;
 
-           /* String GrapgVizString = @"graph Coarvore {
-1 -- 3
-1 -- 4
-3 -- 5
-3 -- 9
-3 -- 13
-5 -- 6
-5 -- 7
-5 -- 8
-9 -- 10
-9 -- 11
-9 -- 12
-13 -- 14
-13 -- 15
-13 -- 16
-4 -- 17
-4 -- 18
-4 -- 19
-4 -- 20
-4 -- 21
-4 -- 22
-4 -- 23
-23 -- 24
-23 -- 25
-23 -- 26
-23 -- 27
-23 -- 28
-23 -- 29
-}
+            /*wpfHost.Child = GenerateViewer.GenerateWpfVisuals();
+            _zoomctrl.ZoomToFill();*/
+            //graphControl.InputMode = new GraphEditorInputMode();
+            /*var graph = graphControl.Graph;
 
-";
+            var edgeStyle = new PolylineEdgeStyle
+            {
+                SourceArrow = Arrows.None,
+                TargetArrow = Arrows.None
+            };
 
-            vizBox.Image = Graphviz.RenderImage(GrapgVizString, "jpg");*/
+            var nodeStyle = new ShapeNodeStyle
+            {
+                Shape = ShapeNodeShape.Ellipse,
+                Brush = Brushes.Gray,
+                Pen = null
+            };
+
+            graph.NodeDefaults.Style = nodeStyle;
+            graph.EdgeDefaults.Style = edgeStyle;
+
+            var node1 = graph.CreateNode(new RectD(0, 0, 30, 30));
+            var node2 = graph.CreateNode(new RectD(100, 0, 30, 30));
+            var node3 = graph.CreateNode(new RectD(300, 300, 60, 30));
+
+            var edge1 = graph.CreateEdge(node1, node2);
+            var edge2 = graph.CreateEdge(node2, node3);
+
+            var ln1 = graph.AddLabel(node1, "1");
+            var ln2 = graph.AddLabel(node2, "2");
+            var ln3 = graph.AddLabel(node3, "3");
+            graphControl.FitGraphBounds();*/
+
         }
 
         #region Button Search
@@ -182,7 +184,7 @@ namespace GraphFilter
                 if (!Char.IsDigit(ch) && ch != 8)
                 {
                     return true;
-                }      
+                }
             }
             else
             {
@@ -236,7 +238,7 @@ namespace GraphFilter
 
         private void param1Eq3_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(AllowNumber(param1Eq3.Text, e.KeyChar))
+            if (AllowNumber(param1Eq3.Text, e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -298,7 +300,7 @@ namespace GraphFilter
         }
         private void TextBox4_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(AllowRelation(relationEq1.Text, e.KeyChar))
+            if (AllowRelation(relationEq1.Text, e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -492,10 +494,12 @@ namespace GraphFilter
 
         private void listOfG6_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int[,] adjMatrix = Conversor.Graph6toAdjMatrix(listOfG6.SelectedItem.ToString());
+            /*int[,] adjMatrix = Conversor.Graph6toAdjMatrix(listOfG6.SelectedItem.ToString());
             String dot = DOT_Converter.G6toDOT(adjMatrix);
-            vizBox.Image = Graphviz.RenderImage(dot, "jpg");
-            
+            vizBox.Image = Graphviz.RenderImage(dot, "jpg");*/
+            yNET_Conv yNET_Conv = new yNET_Conv();
+            int[,] adjMatrix = Conversor.Graph6toAdjMatrix(listOfG6.SelectedItem.ToString());
+            yNET_Conv.yNetGraph(adjMatrix, this);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -526,6 +530,16 @@ namespace GraphFilter
                     MessageBox.Show(string.Format("Não foi possível abrir o seu arquivo, Erro: {0}", ex.Message), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void visualization_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripContainer1_ContentPanel_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
