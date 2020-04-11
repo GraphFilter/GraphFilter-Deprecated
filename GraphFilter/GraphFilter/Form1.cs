@@ -1,5 +1,4 @@
 ﻿using GraphFilter.Invariants;
-using GraphFilter.yNET;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +13,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using yWorks.Controls.Input;
 using yWorks.Geometry;
+using yWorks.Graph;
 using yWorks.Graph.Styles;
+using yWorks.Layout.Organic;
 
 namespace GraphFilter
 {
@@ -22,7 +23,6 @@ namespace GraphFilter
     {
         Stream fileG6In;
         StreamWriter fileG6Out;
-        private Preloader preloader;
 
         public Form1()
         {
@@ -97,46 +97,12 @@ namespace GraphFilter
             comboInv2Eq3.Items.AddRange(BuildLogic.ComboBox());
             progressBar.Minimum = 0;
             progressBar.Maximum = 1;
-
-            /*wpfHost.Child = GenerateViewer.GenerateWpfVisuals();
-            _zoomctrl.ZoomToFill();*/
-            //graphControl.InputMode = new GraphEditorInputMode();
-            /*var graph = graphControl.Graph;
-
-            var edgeStyle = new PolylineEdgeStyle
-            {
-                SourceArrow = Arrows.None,
-                TargetArrow = Arrows.None
-            };
-
-            var nodeStyle = new ShapeNodeStyle
-            {
-                Shape = ShapeNodeShape.Ellipse,
-                Brush = Brushes.Gray,
-                Pen = null
-            };
-
-            graph.NodeDefaults.Style = nodeStyle;
-            graph.EdgeDefaults.Style = edgeStyle;
-
-            var node1 = graph.CreateNode(new RectD(0, 0, 30, 30));
-            var node2 = graph.CreateNode(new RectD(100, 0, 30, 30));
-            var node3 = graph.CreateNode(new RectD(300, 300, 60, 30));
-
-            var edge1 = graph.CreateEdge(node1, node2);
-            var edge2 = graph.CreateEdge(node2, node3);
-
-            var ln1 = graph.AddLabel(node1, "1");
-            var ln2 = graph.AddLabel(node2, "2");
-            var ln3 = graph.AddLabel(node3, "3");
-            graphControl.FitGraphBounds();*/
-
         }
 
         #region Button Search
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
-            FilesFilter filesFilter = new FilesFilter(fileG6In, textOutPath.Text, this, preloader);
+            FilesFilter filesFilter = new FilesFilter(fileG6In, textOutPath.Text, this);
             double[] retorno = filesFilter.Run();
             MessageBox.Show("Busca realizada com sucesso! \nO percentual de grafos escolhidos é: " + retorno[2] + " %" + "\nO número de grafos escolhidos foi de: " + retorno[1] + "\nO número total de grafos que foram lidos foi de: " + retorno[0] + ".");
             Application.Restart();
@@ -494,12 +460,7 @@ namespace GraphFilter
 
         private void listOfG6_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*int[,] adjMatrix = Conversor.Graph6toAdjMatrix(listOfG6.SelectedItem.ToString());
-            String dot = DOT_Converter.G6toDOT(adjMatrix);
-            vizBox.Image = Graphviz.RenderImage(dot, "jpg");*/
-            yNET_Conv yNET_Conv = new yNET_Conv();
-            int[,] adjMatrix = Conversor.Graph6toAdjMatrix(listOfG6.SelectedItem.ToString());
-            yNET_Conv.yNetGraph(adjMatrix, this);
+           Conversor.g6ToyNetGraph(listOfG6.SelectedItem.ToString(), this);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -521,7 +482,7 @@ namespace GraphFilter
                             listOfG6.Items.Add(g6Line);
                             g6Line = reader.ReadLine();
                         }
-                        textoOpenViz.Text = ofd.FileName;
+                        textOpenViz.Text = ofd.FileName;
                     }
                 }
                 catch (Exception ex)
@@ -538,6 +499,11 @@ namespace GraphFilter
         }
 
         private void toolStripContainer1_ContentPanel_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void graphControl_Click(object sender, EventArgs e)
         {
 
         }

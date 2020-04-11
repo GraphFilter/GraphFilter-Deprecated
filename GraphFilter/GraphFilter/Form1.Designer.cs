@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.filterGraphs = new System.Windows.Forms.TabPage();
             this.buttonOpen = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -75,18 +74,16 @@
             this.param1Eq1 = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.visualization = new System.Windows.Forms.TabPage();
-            this.vizBox = new System.Windows.Forms.PictureBox();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.textoOpenViz = new System.Windows.Forms.TextBox();
+            this.graphControl = new yWorks.Controls.GraphControl();
+            this.textOpenViz = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.listOfG6 = new System.Windows.Forms.ListBox();
-            this.graphControl = new yWorks.Controls.GraphControl();
             this.filterGraphs.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.visualization.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vizBox)).BeginInit();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.SuspendLayout();
@@ -105,7 +102,7 @@
             this.filterGraphs.Location = new System.Drawing.Point(4, 25);
             this.filterGraphs.Name = "filterGraphs";
             this.filterGraphs.Padding = new System.Windows.Forms.Padding(3);
-            this.filterGraphs.Size = new System.Drawing.Size(1249, 432);
+            this.filterGraphs.Size = new System.Drawing.Size(1290, 455);
             this.filterGraphs.TabIndex = 0;
             this.filterGraphs.Text = "Filter Graphs";
             this.filterGraphs.UseVisualStyleBackColor = true;
@@ -609,37 +606,27 @@
             // 
             this.tabControl1.Controls.Add(this.filterGraphs);
             this.tabControl1.Controls.Add(this.visualization);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1257, 461);
+            this.tabControl1.Size = new System.Drawing.Size(1298, 484);
             this.tabControl1.TabIndex = 51;
             // 
             // visualization
             // 
-            this.visualization.Controls.Add(this.vizBox);
             this.visualization.Controls.Add(this.toolStripContainer1);
-            this.visualization.Controls.Add(this.textoOpenViz);
+            this.visualization.Controls.Add(this.textOpenViz);
             this.visualization.Controls.Add(this.button1);
             this.visualization.Controls.Add(this.listOfG6);
             this.visualization.Location = new System.Drawing.Point(4, 25);
             this.visualization.Name = "visualization";
             this.visualization.Padding = new System.Windows.Forms.Padding(3);
-            this.visualization.Size = new System.Drawing.Size(1249, 432);
+            this.visualization.Size = new System.Drawing.Size(1290, 455);
             this.visualization.TabIndex = 1;
             this.visualization.Text = "Visualization";
             this.visualization.UseVisualStyleBackColor = true;
             this.visualization.Click += new System.EventHandler(this.visualization_Click);
-            // 
-            // vizBox
-            // 
-            this.vizBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("vizBox.InitialImage")));
-            this.vizBox.Location = new System.Drawing.Point(151, 38);
-            this.vizBox.Name = "vizBox";
-            this.vizBox.Size = new System.Drawing.Size(443, 388);
-            this.vizBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.vizBox.TabIndex = 3;
-            this.vizBox.TabStop = false;
             // 
             // toolStripContainer1
             // 
@@ -655,7 +642,7 @@
             this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(643, 388);
             this.toolStripContainer1.ContentPanel.Load += new System.EventHandler(this.toolStripContainer1_ContentPanel_Load);
             this.toolStripContainer1.LeftToolStripPanelVisible = false;
-            this.toolStripContainer1.Location = new System.Drawing.Point(600, 38);
+            this.toolStripContainer1.Location = new System.Drawing.Point(151, 38);
             this.toolStripContainer1.Name = "toolStripContainer1";
             // 
             // toolStripContainer1.RightToolStripPanel
@@ -671,13 +658,26 @@
             this.toolStripContainer1.TopToolStripPanel.Padding = new System.Windows.Forms.Padding(0, 0, 25, 25);
             this.toolStripContainer1.TopToolStripPanelVisible = false;
             // 
-            // textoOpenViz
+            // graphControl
             // 
-            this.textoOpenViz.Enabled = false;
-            this.textoOpenViz.Location = new System.Drawing.Point(151, 9);
-            this.textoOpenViz.Name = "textoOpenViz";
-            this.textoOpenViz.Size = new System.Drawing.Size(443, 22);
-            this.textoOpenViz.TabIndex = 2;
+            this.graphControl.BackColor = System.Drawing.Color.White;
+            this.graphControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.graphControl.DoubleClickSize = new yWorks.Geometry.SizeD(4D, 4D);
+            this.graphControl.DoubleClickTime = System.TimeSpan.Parse("00:00:00.5000000");
+            this.graphControl.DragSize = new yWorks.Geometry.SizeD(4D, 4D);
+            this.graphControl.Location = new System.Drawing.Point(0, 0);
+            this.graphControl.Name = "graphControl";
+            this.graphControl.Size = new System.Drawing.Size(643, 388);
+            this.graphControl.TabIndex = 0;
+            this.graphControl.Click += new System.EventHandler(this.graphControl_Click);
+            // 
+            // textOpenViz
+            // 
+            this.textOpenViz.Enabled = false;
+            this.textOpenViz.Location = new System.Drawing.Point(151, 9);
+            this.textOpenViz.Name = "textOpenViz";
+            this.textOpenViz.Size = new System.Drawing.Size(643, 22);
+            this.textOpenViz.TabIndex = 2;
             // 
             // button1
             // 
@@ -701,18 +701,6 @@
             this.listOfG6.TabIndex = 0;
             this.listOfG6.SelectedIndexChanged += new System.EventHandler(this.listOfG6_SelectedIndexChanged);
             // 
-            // graphControl
-            // 
-            this.graphControl.BackColor = System.Drawing.Color.White;
-            this.graphControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.graphControl.DoubleClickSize = new yWorks.Geometry.SizeD(4D, 4D);
-            this.graphControl.DoubleClickTime = System.TimeSpan.Parse("00:00:00.5000000");
-            this.graphControl.DragSize = new yWorks.Geometry.SizeD(4D, 4D);
-            this.graphControl.Location = new System.Drawing.Point(0, 0);
-            this.graphControl.Name = "graphControl";
-            this.graphControl.Size = new System.Drawing.Size(643, 388);
-            this.graphControl.TabIndex = 0;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -723,6 +711,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.filterGraphs.ResumeLayout(false);
             this.filterGraphs.PerformLayout();
@@ -733,7 +722,6 @@
             this.tabControl1.ResumeLayout(false);
             this.visualization.ResumeLayout(false);
             this.visualization.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vizBox)).EndInit();
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
@@ -789,9 +777,8 @@
         public System.Windows.Forms.TextBox param1Eq1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage visualization;
-        private System.Windows.Forms.PictureBox vizBox;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
-        private System.Windows.Forms.TextBox textoOpenViz;
+        private System.Windows.Forms.TextBox textOpenViz;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox listOfG6;
         public yWorks.Controls.GraphControl graphControl;

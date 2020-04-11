@@ -15,14 +15,12 @@ namespace GraphFilter
         
         public Form1 form1;
 
-        public Preloader preloader;
 
-        public FilesFilter(Stream fileIn, String fileOut, Form1 form1, Preloader preloader)
+        public FilesFilter(Stream fileIn, String fileOut, Form1 form1)
         {
             this.fileG6In = fileIn;
             this.fileG6OutPath = fileOut;
             this.form1 = form1;
-            this.preloader = preloader;
 
         }
 
