@@ -17,10 +17,10 @@ namespace GraphFilter.Invariants.Tests
         public void ChromaticNumberTest()
         {
             //Coloring color = new Coloring();     
-            Assert.AreEqual(4, Coloring.ChromaticNumber(GraphHelper.wheel_5()));
-            Assert.AreEqual(3, Coloring.ChromaticNumber(GraphHelper.NotConnected()));
-            Assert.AreEqual(3, Coloring.ChromaticNumber(GraphHelper.ExBronKerb_Wiki()));
-            Assert.AreEqual(5, Coloring.ChromaticNumber(GraphHelper.Complete(5)));
+            Assert.AreEqual(4, ChromaticNumber.Calculate(GraphHelper.wheel_5()));
+            Assert.AreEqual(3, ChromaticNumber.Calculate(GraphHelper.NotConnected()));
+            Assert.AreEqual(3, ChromaticNumber.Calculate(GraphHelper.ExBronKerb_Wiki()));
+            Assert.AreEqual(5, ChromaticNumber.Calculate(GraphHelper.Complete(5)));
         }
     }
 }

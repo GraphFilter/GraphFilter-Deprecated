@@ -10,6 +10,7 @@ namespace GraphFilter
 {
     public static class BuildLogic
     {
+        #region Invariant Numeric
         public static double InvariantChoice(int item, Graph g)
         {
             switch (item)
@@ -19,30 +20,47 @@ namespace GraphFilter
                 case 1:
                     return g.order;
                 case 2:
-                    return Invariant.MaxDegree(g);
+                    return MaxDegree.Calculate(g);
                 case 3:
-                    return Invariant.MinDegree(g);
+                    return MinDegree.Calculate(g);
                 case 4:
-                    return Invariant.AverageDegree(g);
+                    return AverageDegree.Calculate(g);
                 case 5:
-                    return Invariant.CliqueNumber(g);
+                    return CliqueNumber.Calculate(g);
                 case 6:
-                    return Invariant.Diameter(g);
+                    return Diameter.Calculate(g);
                 case 7:
-                    return Invariant.AlgebraicConnectivity(g);
+                    return AlgebraicConnectivity.Calculate(g);
                 case 8:
-                    return Invariant.SpectralRadius(g);
+                    return SpectralRadius.Calculate(g);
                 case 9:
-                    return Invariant.LaplacianEnergy(g);
+                    return LaplacianEnergy.Calculate(g);
                 case 10:
-                    return Invariant.AdjacencyEnergy(g);
+                    return AdjanceyEnergy.Calculate(g);
                 case 11:
-                    return Invariant.ChromaticNumber(g);
+                    return ChromaticNumber.Calculate(g);
                 case 12:
-                    return Invariant.IndependenceNumber(g);
+                    return IndependenceNumber.Calculate(g);
                 default: return 0; //tratar caso em que não há escolha
             }
         }
+        #endregion
+
+        #region Invariants boolean
+        public static bool Condition1(Graph g)
+        {
+            return IsRegular.Calculate(g);
+        }
+        public static bool Condition2(Graph g, int k)
+        {
+            return IsRegularWithDegree.Calculate(g, k);
+        }
+
+        public static bool Condition3(Graph g)
+        {
+            return IsConnected.Calculate(g);
+        }
+        #endregion
 
         public static string[] ComboBox()
         {
@@ -93,19 +111,7 @@ namespace GraphFilter
                 default: return true;
             }
         }
-        public static bool Condition1(Graph g)
-        {
-            return Invariant.IsRegular(g);
-        }
-        public static bool Condition2(Graph g, int k)
-        {
-            return Invariant.IsRegular(g, k);
-        }
-
-        public static bool Condition3(Graph g)
-        {
-            return Invariant.IsConnect(g);
-        }
+        
         #endregion
     }
 }

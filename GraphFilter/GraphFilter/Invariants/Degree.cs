@@ -6,24 +6,31 @@ using System.Threading.Tasks;
 
 namespace GraphFilter.Invariants
 {
-    public static class Degree
+    public class MaxDegree : Invariant
     {
-        public static int Max(Graph g)
-        {
-            return g.sequenceDegree.Max();
-        }
+        public static int Calculate(Graph g) {return g.sequenceDegree.Max();}
+        public static string getName() {return "Max Degree";}
 
-        public static int Min(Graph g)
-        {
-            return g.sequenceDegree.Min();
-        }
+    }
 
-        public static double Average(Graph g)
+    public class MinDegree : Invariant
+    {
+        public static int Calculate(Graph g) {return g.sequenceDegree.Min();}
+        public static string getName() {return "Min Degree";}
+    }
+
+    public class AverageDegree : Invariant
+    {
+        public static double Calculate(Graph g)
         {
             return g.sequenceDegree.Average();
         }
+        public static string getName(){return "Average Degree";}
+    }
 
-        public static bool IsRegular(Graph g)
+    public class IsRegular : Invariant
+    {
+        public static bool Calculate(Graph g)
         {
             for (int i = 0; i < g.order - 1; i++)
             {
@@ -31,12 +38,19 @@ namespace GraphFilter.Invariants
             }
             return true;
         }
+        public static string getName() { return "Is a regular graph"; }
+    }
 
-        public static bool IsRegularWithDegree(Graph g, int k)
+    public class IsRegularWithDegree : Invariant
+    {
+        public static bool Calculate(Graph g, int k)
         {
             for (int i = 0; i < g.order - 1; i++)
+            {
                 if (g.sequenceDegree.ElementAt<int>(i) != k) return false;
+            }
             return true;
         }
+        public static string getName() {return "Is a regular graph with degree k";}
     }
 }

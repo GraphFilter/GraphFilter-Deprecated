@@ -40,9 +40,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GraphVizWrapper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\GraphViz.NET.1.0.0\lib\net40\GraphVizWrapper.dll</HintPath>
-    </Reference>
     <Reference Include="MathNet.Numerics, Version=4.9.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MathNet.Numerics.4.9.0\lib\net461\MathNet.Numerics.dll</HintPath>
     </Reference>
@@ -72,13 +69,13 @@
       <HintPath>..\packages\WinFormAnimation.1.6.0.4\lib\net40\WinFormAnimation.dll</HintPath>
     </Reference>
     <Reference Include="yWorks.yFilesNET.Adapter">
-      <HintPath>..\..\..\Users\denil\Desktop\yFiles.NET-Complete-5.2.0.2-Evaluation\lib\net40\yWorks.yFilesNET.Adapter.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\yFiles.NET-Complete-5.2.0.2-Evaluation\lib\net40\yWorks.yFilesNET.Adapter.dll</HintPath>
     </Reference>
     <Reference Include="yWorks.yFilesNET.Algorithms">
-      <HintPath>..\..\..\Users\denil\Desktop\yFiles.NET-Complete-5.2.0.2-Evaluation\lib\net40\yWorks.yFilesNET.Algorithms.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\yFiles.NET-Complete-5.2.0.2-Evaluation\lib\net40\yWorks.yFilesNET.Algorithms.dll</HintPath>
     </Reference>
     <Reference Include="yWorks.yFilesNET.Viewer">
-      <HintPath>..\..\..\Users\denil\Desktop\yFiles.NET-Complete-5.2.0.2-Evaluation\lib\net40\yWorks.yFilesNET.Viewer.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\yFiles.NET-Complete-5.2.0.2-Evaluation\lib\net40\yWorks.yFilesNET.Viewer.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -91,12 +88,13 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Graph.cs" />
-    <Compile Include="Invariants\Clique.cs" />
-    <Compile Include="Invariants\Coloring.cs" />
+    <Compile Include="Invariants\CliqueNumber.cs" />
+    <Compile Include="Invariants\ChromaticNumber.cs" />
     <Compile Include="Invariants\Degree.cs" />
     <Compile Include="BuildLogic.cs" />
     <Compile Include="Invariants\Distances.cs" />
     <Compile Include="Invariants\Invariant.cs" />
+    <Compile Include="Invariants\Invariant2.cs" />
     <Compile Include="Invariants\SpanningTree.cs" />
     <Compile Include="Invariants\Spectral.cs" />
     <Compile Include="Operation.cs" />

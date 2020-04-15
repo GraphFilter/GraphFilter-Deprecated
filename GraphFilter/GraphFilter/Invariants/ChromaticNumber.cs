@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace GraphFilter.Invariants
 {
     //book Teoria Computacional de Grafos, algoritmo 5.3
-    public static class Coloring
+    public class ChromaticNumber : Invariant
     {
-        public static int ChromaticNumber(Graph g)
+        public static int Calculate(Graph g)
         {
             int n = g.order;
             List<int> result = new List<int>(n);
@@ -36,5 +36,6 @@ namespace GraphFilter.Invariants
             }
             return result.Distinct().Count();
         }
+        public static string getName() { return "Chromatic Number"; }
     }
 }

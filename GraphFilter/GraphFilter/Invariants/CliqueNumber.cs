@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace GraphFilter.Invariants
 {
-    public static class Clique
+    public class CliqueNumber : Invariant
     {
         private static List<HashSet<int>> maximalCliques = new List<HashSet<int>>();
         private static int maximumClique = 0;
 
-        public static int CliqueNumber(Graph g)
+        public static int Calculate(Graph g)
         {
             HashSet<int> R = new HashSet<int>();
             HashSet<int> X = new HashSet<int>();
@@ -20,6 +20,7 @@ namespace GraphFilter.Invariants
             return maximumClique;
 
         }
+        public static string getName(Graph g) { return "Clique Number"; }
 
         private static HashSet<int> BronKerbosch1(Graph g, HashSet<int> R, HashSet<int> P, HashSet<int> X)
         {
@@ -39,10 +40,6 @@ namespace GraphFilter.Invariants
             }
             return null;
         }
-        public static int IndependenceNumber(Graph g)
-        {
-            return CliqueNumber(Operation.Complement(g));
-        }
 
         private static HashSet<int> Union(HashSet<int> A, HashSet<int> B)
         {
@@ -59,7 +56,12 @@ namespace GraphFilter.Invariants
                 if (A.Contains(x)) aIntb.Add(x);
             return aIntb;
         }
-
-        
     }
+
+    public class IndependenceNumber : Invariant
+    {
+        public static int Calculate(Graph g){return CliqueNumber.Calculate(Operation.Complement(g));}
+        public static string getName(Graph g){ return "Independence Number";}
+
+    }    
 }

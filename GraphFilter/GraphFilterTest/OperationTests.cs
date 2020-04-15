@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GraphFilterTest.GraphHelper;
+using GraphFilter.Invariants;
 
 namespace GraphFilter.Tests
 {
@@ -32,10 +33,10 @@ namespace GraphFilter.Tests
         {
             Graph lg = Operation.Line(g);
             int[,] lgmatrix = lg.adjacencyMatrix;
-            double a_lg = Invariants.Spectral.algebraicConnectivity(Operation.Line(g));
+            double a_lg = AlgebraicConnectivity.Calculate(Operation.Line(g));
             Assert.IsTrue(1.21711 < a_lg && a_lg < 1.21712);
 
-            double a_lk7 = Invariants.Spectral.algebraicConnectivity(Operation.Line(k7));
+            double a_lk7 = AlgebraicConnectivity.Calculate(Operation.Line(k7));
             Assert.AreEqual(7,a_lk7);
 
 

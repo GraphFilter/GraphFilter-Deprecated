@@ -26,7 +26,7 @@ namespace GraphFilter.Invariants
             return distanceMatrix;
         }
 
-        public static int[,] DistanceMatrix(Graph g)
+        public static int[,] Matrix(Graph g)
         {
             int[,] dist = FloydWarshall_0(g);
             for (int k = 0; k < g.order; k++)
@@ -38,24 +38,32 @@ namespace GraphFilter.Invariants
             return dist;
         }
 
-        public static int Diameter(Graph g)
+        
+    }
+    public class Diameter : Invariant
+    {
+        public static int Calculate(Graph g)
         {
-            int[,] dist = DistanceMatrix(g);
+            int[,] dist = Distances.Matrix(g);
             int diam = 0;
             for (int i = 0; i < g.order; i++)
                 for (int j = 0; j < g.order; j++)
                     if (dist[i, j] > diam) diam = dist[i, j];
             return diam;
         }
+        public static string getName() { return "Diameter"; }
+    }
 
-        public static bool IsConnected(Graph g)
+    public class IsConnected : Invariant
+    {
+        public static bool Calculate(Graph g)
         {
-            int[,] dist = DistanceMatrix(g);
+            int[,] dist = Distances.Matrix(g);
             for (int i = 0; i < g.order; i++)
             {
                 for (int j = i + 1; j < g.order; j++)
                 {
-                    if(dist[i, j] == 1000000 || dist[j, i] == 1000000)
+                    if (dist[i, j] == 1000000 || dist[j, i] == 1000000)
                     {
                         return false;
                     }
@@ -63,5 +71,7 @@ namespace GraphFilter.Invariants
             }
             return true;
         }
+        public static string getName() { return "Is a connected graph?"; }
+
     }
 }

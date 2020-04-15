@@ -18,15 +18,15 @@ namespace GraphFilter.Invariants.Tests
         public void CliqueNumberTest()
         {
             
-            Assert.AreEqual(5, Clique.CliqueNumber(h));
-            Assert.AreEqual(3, Clique.CliqueNumber(g));
+            Assert.AreEqual(5, CliqueNumber.Calculate(h));
+            Assert.AreEqual(3, CliqueNumber.Calculate(g));
         }
 
         [TestMethod()]
         public void IndependenceNumberTest()
         {
-            Assert.AreEqual(3, Clique.IndependenceNumber(g));
-            Assert.AreEqual(1, Clique.IndependenceNumber(h));
+            Assert.AreEqual(3, IndependenceNumber.Calculate(g));
+            Assert.AreEqual(1, IndependenceNumber.Calculate(h));
         }
     }
 }
