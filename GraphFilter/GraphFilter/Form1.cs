@@ -1,4 +1,10 @@
-﻿using GraphFilter.Invariants;
+﻿using GraphFilter.GraphX;
+using GraphFilter.Invariants;
+using GraphX.Controls;
+using GraphX.Controls.Models;
+using GraphX.PCL.Common.Enums;
+using GraphX.PCL.Common.Models;
+using QuickGraph;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +16,9 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
+
 
 namespace GraphFilter
 {
@@ -22,6 +30,7 @@ namespace GraphFilter
         public Form1()
         {
             InitializeComponent();
+            Load += Form1_Load;
         }
 
         #region File Input and Output
@@ -84,6 +93,7 @@ namespace GraphFilter
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            wpfHost.Child = GenerateWpfVisuals();
             comboInv1Eq1.Items.AddRange(BuildLogic.ComboBox());
             comboInv2Eq1.Items.AddRange(BuildLogic.ComboBox());
             comboInv1Eq2.Items.AddRange(BuildLogic.ComboBox());
@@ -92,6 +102,56 @@ namespace GraphFilter
             comboInv2Eq3.Items.AddRange(BuildLogic.ComboBox());
             progressBar.Minimum = 0;
             progressBar.Maximum = 1;
+        }
+
+        private ZoomControl _zoomctrl;
+        private GraphAreaExample _gArea;
+
+        private UIElement GenerateWpfVisuals()
+        {
+            _zoomctrl = new ZoomControl();
+            ZoomControl.SetViewFinderVisibility(_zoomctrl, Visibility.Visible);
+            //var logic = new GXlogicCore<DataVertex, DataEdge, BidirectionalGraph<DataVertex, DataEdge>>();
+            _gArea = new GraphAreaExample
+            {
+                // EnableWinFormsHostingMode = false,
+                LogicCore = logic,
+                EdgeLabelFactory = new DefaultEdgelabelFactory()
+            };
+            _gArea.ShowAllEdgesLabels(true);
+            //logic.Graph = GenerateGraph();
+            logic.DefaultLayoutAlgorithm = LayoutAlgorithmTypeEnum.LinLog;
+            logic.DefaultLayoutAlgorithmParams = logic.AlgorithmFactory.CreateLayoutParameters(LayoutAlgorithmTypeEnum.LinLog);
+
+
+
+            return _zoomctrl;
+        }
+
+        private CreateGraph GenerateGraph(int[,] adjMatrix)
+        {
+            var graph = new CreateGraph();
+            int order = adjMatrix.GetLength(0);
+
+            //Create vertices
+            for (int i = 0; i < order; i++)
+            {
+                var vertex = new DataVertex("" + i);
+                graph.AddVertex(vertex);
+            }
+
+            var vlist = graph.Vertices.ToList();
+
+            //Create edges of graph g
+
+            for (int i = 0; i < order; i++)
+                for (int j = i + 1; j < order; j++)
+                    if (adjMatrix[i, j] == 1)
+                    {
+                        var edge = new DataEdge(vlist[i], vlist[j]) { Text = string.Format("{0} -> {1}", vlist[i], vlist[j]) };
+                        graph.AddEdge(edge);
+                    }
+            return graph;
         }
 
         #region Button Search
@@ -455,7 +515,7 @@ namespace GraphFilter
 
         private void listOfG6_SelectedIndexChanged(object sender, EventArgs e)
         {
-           //Conversor.g6ToyNetGraph(listOfG6.SelectedItem.ToString(), this);
+            //Conversor.g6ToyNetGraph(listOfG6.SelectedItem.ToString(), this);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -492,7 +552,7 @@ namespace GraphFilter
         {
 
         }
-        
+
 
         private void Form1_Resize(object sender, EventArgs e)
         {

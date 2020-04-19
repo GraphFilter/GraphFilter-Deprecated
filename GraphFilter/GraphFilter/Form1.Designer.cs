@@ -82,6 +82,7 @@
             this.textOpenExp = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.wpfHost = new System.Windows.Forms.Integration.ElementHost();
             this.filterGraphs.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -619,6 +620,7 @@
             // 
             // visualization
             // 
+            this.visualization.Controls.Add(this.wpfHost);
             this.visualization.Controls.Add(this.textOpenViz);
             this.visualization.Controls.Add(this.button1);
             this.visualization.Controls.Add(this.listOfG6);
@@ -713,6 +715,16 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // wpfHost
+            // 
+            this.wpfHost.BackColor = System.Drawing.Color.White;
+            this.wpfHost.Location = new System.Drawing.Point(206, 38);
+            this.wpfHost.Name = "wpfHost";
+            this.wpfHost.Size = new System.Drawing.Size(643, 388);
+            this.wpfHost.TabIndex = 52;
+            this.wpfHost.Text = "elementHost1";
+            this.wpfHost.Child = null;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -798,6 +810,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textOpenExp;
         private System.Windows.Forms.TextBox textExp;
+        private System.Windows.Forms.Integration.ElementHost wpfHost;
     }
 }
 
