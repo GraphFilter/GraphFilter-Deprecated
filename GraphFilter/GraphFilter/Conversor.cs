@@ -4,11 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using yWorks.Controls.Input;
-using yWorks.Geometry;
-using yWorks.Graph;
-using yWorks.Graph.Styles;
-using yWorks.Layout.Organic;
+
 
 namespace GraphFilter
 {
@@ -134,7 +130,7 @@ namespace GraphFilter
             return graph;
         }*/
 
-        public static void g6ToyNetGraph(string g6, Form1 form1)
+        /*public static void g6ToyNetGraph(string g6, Form1 form1)
         {
             int[,] adj = Conversor.Graph6toAdjMatrix(g6);
             int order = adj.GetLength(0);
@@ -179,7 +175,7 @@ namespace GraphFilter
                         graph.CreateEdge(nodes.ElementAt(i), nodes.ElementAt(j));
                     }
             form1.graphControl.FitGraphBounds();
-        }
+        }*/
 
     }
 }

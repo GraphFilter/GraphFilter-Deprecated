@@ -74,18 +74,20 @@
             this.param1Eq1 = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.visualization = new System.Windows.Forms.TabPage();
-            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.graphControl = new yWorks.Controls.GraphControl();
             this.textOpenViz = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.listOfG6 = new System.Windows.Forms.ListBox();
+            this.export = new System.Windows.Forms.TabPage();
+            this.textExp = new System.Windows.Forms.TextBox();
+            this.textOpenExp = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.filterGraphs.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.visualization.SuspendLayout();
-            this.toolStripContainer1.ContentPanel.SuspendLayout();
-            this.toolStripContainer1.SuspendLayout();
+            this.export.SuspendLayout();
             this.SuspendLayout();
             // 
             // filterGraphs
@@ -102,7 +104,7 @@
             this.filterGraphs.Location = new System.Drawing.Point(4, 25);
             this.filterGraphs.Name = "filterGraphs";
             this.filterGraphs.Padding = new System.Windows.Forms.Padding(3);
-            this.filterGraphs.Size = new System.Drawing.Size(1290, 455);
+            this.filterGraphs.Size = new System.Drawing.Size(910, 488);
             this.filterGraphs.TabIndex = 0;
             this.filterGraphs.Text = "Filter Graphs";
             this.filterGraphs.UseVisualStyleBackColor = true;
@@ -606,75 +608,33 @@
             // 
             this.tabControl1.Controls.Add(this.filterGraphs);
             this.tabControl1.Controls.Add(this.visualization);
+            this.tabControl1.Controls.Add(this.export);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.MinimumSize = new System.Drawing.Size(720, 480);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1298, 484);
+            this.tabControl1.Size = new System.Drawing.Size(918, 517);
             this.tabControl1.TabIndex = 51;
             // 
             // visualization
             // 
-            this.visualization.Controls.Add(this.toolStripContainer1);
             this.visualization.Controls.Add(this.textOpenViz);
             this.visualization.Controls.Add(this.button1);
             this.visualization.Controls.Add(this.listOfG6);
             this.visualization.Location = new System.Drawing.Point(4, 25);
             this.visualization.Name = "visualization";
             this.visualization.Padding = new System.Windows.Forms.Padding(3);
-            this.visualization.Size = new System.Drawing.Size(1290, 455);
+            this.visualization.Size = new System.Drawing.Size(910, 488);
             this.visualization.TabIndex = 1;
             this.visualization.Text = "Visualization";
             this.visualization.UseVisualStyleBackColor = true;
             this.visualization.Click += new System.EventHandler(this.visualization_Click);
             // 
-            // toolStripContainer1
-            // 
-            // 
-            // toolStripContainer1.BottomToolStripPanel
-            // 
-            this.toolStripContainer1.BottomToolStripPanel.Padding = new System.Windows.Forms.Padding(0, 25, 0, 0);
-            this.toolStripContainer1.BottomToolStripPanelVisible = false;
-            // 
-            // toolStripContainer1.ContentPanel
-            // 
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.graphControl);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(643, 388);
-            this.toolStripContainer1.ContentPanel.Load += new System.EventHandler(this.toolStripContainer1_ContentPanel_Load);
-            this.toolStripContainer1.LeftToolStripPanelVisible = false;
-            this.toolStripContainer1.Location = new System.Drawing.Point(151, 38);
-            this.toolStripContainer1.Name = "toolStripContainer1";
-            // 
-            // toolStripContainer1.RightToolStripPanel
-            // 
-            this.toolStripContainer1.RightToolStripPanel.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.toolStripContainer1.RightToolStripPanelVisible = false;
-            this.toolStripContainer1.Size = new System.Drawing.Size(643, 388);
-            this.toolStripContainer1.TabIndex = 4;
-            this.toolStripContainer1.Text = "toolStripContainer1";
-            // 
-            // toolStripContainer1.TopToolStripPanel
-            // 
-            this.toolStripContainer1.TopToolStripPanel.Padding = new System.Windows.Forms.Padding(0, 0, 25, 25);
-            this.toolStripContainer1.TopToolStripPanelVisible = false;
-            // 
-            // graphControl
-            // 
-            this.graphControl.BackColor = System.Drawing.Color.White;
-            this.graphControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.graphControl.DoubleClickSize = new yWorks.Geometry.SizeD(4D, 4D);
-            this.graphControl.DoubleClickTime = System.TimeSpan.Parse("00:00:00.5000000");
-            this.graphControl.DragSize = new yWorks.Geometry.SizeD(4D, 4D);
-            this.graphControl.Location = new System.Drawing.Point(0, 0);
-            this.graphControl.Name = "graphControl";
-            this.graphControl.Size = new System.Drawing.Size(643, 388);
-            this.graphControl.TabIndex = 0;
-            this.graphControl.Click += new System.EventHandler(this.graphControl_Click);
-            // 
             // textOpenViz
             // 
             this.textOpenViz.Enabled = false;
-            this.textOpenViz.Location = new System.Drawing.Point(151, 9);
+            this.textOpenViz.Location = new System.Drawing.Point(206, 9);
             this.textOpenViz.Name = "textOpenViz";
             this.textOpenViz.Size = new System.Drawing.Size(643, 22);
             this.textOpenViz.TabIndex = 2;
@@ -684,7 +644,7 @@
             this.button1.Location = new System.Drawing.Point(6, 5);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 30);
+            this.button1.Size = new System.Drawing.Size(194, 30);
             this.button1.TabIndex = 1;
             this.button1.Text = "Open File";
             this.button1.UseVisualStyleBackColor = true;
@@ -697,22 +657,76 @@
             this.listOfG6.ItemHeight = 16;
             this.listOfG6.Location = new System.Drawing.Point(6, 38);
             this.listOfG6.Name = "listOfG6";
-            this.listOfG6.Size = new System.Drawing.Size(139, 388);
+            this.listOfG6.Size = new System.Drawing.Size(194, 388);
             this.listOfG6.TabIndex = 0;
             this.listOfG6.SelectedIndexChanged += new System.EventHandler(this.listOfG6_SelectedIndexChanged);
+            // 
+            // export
+            // 
+            this.export.Controls.Add(this.textExp);
+            this.export.Controls.Add(this.textOpenExp);
+            this.export.Controls.Add(this.button3);
+            this.export.Controls.Add(this.button2);
+            this.export.Location = new System.Drawing.Point(4, 25);
+            this.export.Name = "export";
+            this.export.Padding = new System.Windows.Forms.Padding(3);
+            this.export.Size = new System.Drawing.Size(910, 488);
+            this.export.TabIndex = 2;
+            this.export.Text = "Export";
+            this.export.UseVisualStyleBackColor = true;
+            // 
+            // textExp
+            // 
+            this.textExp.Enabled = false;
+            this.textExp.Location = new System.Drawing.Point(206, 43);
+            this.textExp.Name = "textExp";
+            this.textExp.Size = new System.Drawing.Size(643, 22);
+            this.textExp.TabIndex = 5;
+            // 
+            // textOpenExp
+            // 
+            this.textOpenExp.Enabled = false;
+            this.textOpenExp.Location = new System.Drawing.Point(206, 9);
+            this.textOpenExp.Name = "textOpenExp";
+            this.textOpenExp.Size = new System.Drawing.Size(643, 22);
+            this.textOpenExp.TabIndex = 4;
+            this.textOpenExp.TextChanged += new System.EventHandler(this.textBox1_TextChanged_2);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(6, 39);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(194, 30);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Export";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(6, 5);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(194, 30);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Open File";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1298, 484);
+            this.ClientSize = new System.Drawing.Size(918, 517);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MinimumSize = new System.Drawing.Size(720, 500);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Graph Filter";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             this.filterGraphs.ResumeLayout(false);
             this.filterGraphs.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -722,9 +736,8 @@
             this.tabControl1.ResumeLayout(false);
             this.visualization.ResumeLayout(false);
             this.visualization.PerformLayout();
-            this.toolStripContainer1.ContentPanel.ResumeLayout(false);
-            this.toolStripContainer1.ResumeLayout(false);
-            this.toolStripContainer1.PerformLayout();
+            this.export.ResumeLayout(false);
+            this.export.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -777,11 +790,14 @@
         public System.Windows.Forms.TextBox param1Eq1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage visualization;
-        private System.Windows.Forms.ToolStripContainer toolStripContainer1;
         private System.Windows.Forms.TextBox textOpenViz;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox listOfG6;
-        public yWorks.Controls.GraphControl graphControl;
+        private System.Windows.Forms.TabPage export;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textOpenExp;
+        private System.Windows.Forms.TextBox textExp;
     }
 }
 

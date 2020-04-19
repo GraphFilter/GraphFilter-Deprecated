@@ -11,11 +11,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using yWorks.Controls.Input;
-using yWorks.Geometry;
-using yWorks.Graph;
-using yWorks.Graph.Styles;
-using yWorks.Layout.Organic;
 
 namespace GraphFilter
 {
@@ -460,7 +455,7 @@ namespace GraphFilter
 
         private void listOfG6_SelectedIndexChanged(object sender, EventArgs e)
         {
-           Conversor.g6ToyNetGraph(listOfG6.SelectedItem.ToString(), this);
+           //Conversor.g6ToyNetGraph(listOfG6.SelectedItem.ToString(), this);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -497,13 +492,50 @@ namespace GraphFilter
         {
 
         }
+        
 
-        private void toolStripContainer1_ContentPanel_Load(object sender, EventArgs e)
+        private void Form1_Resize(object sender, EventArgs e)
         {
+            textoOrigem.Width = this.Width - 145;
+            textOutPath.Width = this.Width - 145;
+            groupBox1.Width = this.Width - 37;
+            groupBox2.Width = this.Width - 37;
+            progressBar.Width = this.Width - 146;
 
+            textOpenViz.Width = this.Width - 185;
+            listOfG6.Height = this.Height - 100;
         }
 
-        private void graphControl_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            ofd.Filter = "Arquivo g6 | *.g6";
+            ofd.ShowDialog();
+            if (string.IsNullOrEmpty(ofd.FileName) == false)
+            {
+                try
+                {
+                    using (StreamReader reader = new StreamReader(ofd.FileName, Encoding.GetEncoding(CultureInfo.GetCultureInfo("pt-br").TextInfo.ANSICodePage)))
+                    {
+                        fileG6In = ofd.OpenFile();
+                        string g6Line = reader.ReadLine();
+                        while (g6Line != null)
+                        {
+                            g6Line = reader.ReadLine();
+                        }
+                        textOpenExp.Text = ofd.FileName;
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(string.Format("Não foi possível abrir o seu arquivo, Erro: {0}", ex.Message), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void textBox1_TextChanged_2(object sender, EventArgs e)
         {
 
         }

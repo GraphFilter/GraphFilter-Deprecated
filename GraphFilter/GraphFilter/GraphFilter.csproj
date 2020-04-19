@@ -68,14 +68,17 @@
     <Reference Include="WinFormAnimation, Version=1.6.0.4, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
       <HintPath>..\packages\WinFormAnimation.1.6.0.4\lib\net40\WinFormAnimation.dll</HintPath>
     </Reference>
-    <Reference Include="yWorks.yFilesNET.Adapter">
-      <HintPath>..\..\..\..\Downloads\yFiles.NET-Complete-5.2.0.2-Evaluation\lib\net40\yWorks.yFilesNET.Adapter.dll</HintPath>
+    <Reference Include="yWorks.yFilesNET.Adapter, Version=5.2.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Users\denil\Desktop\yFiles.NET-Complete-5.2.0.2-Evaluation\lib\net40\yWorks.yFilesNET.Adapter.dll</HintPath>
     </Reference>
-    <Reference Include="yWorks.yFilesNET.Algorithms">
-      <HintPath>..\..\..\..\Downloads\yFiles.NET-Complete-5.2.0.2-Evaluation\lib\net40\yWorks.yFilesNET.Algorithms.dll</HintPath>
+    <Reference Include="yWorks.yFilesNET.Algorithms, Version=5.2.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Users\denil\Desktop\yFiles.NET-Complete-5.2.0.2-Evaluation\lib\net40\yWorks.yFilesNET.Algorithms.dll</HintPath>
     </Reference>
-    <Reference Include="yWorks.yFilesNET.Viewer">
-      <HintPath>..\..\..\..\Downloads\yFiles.NET-Complete-5.2.0.2-Evaluation\lib\net40\yWorks.yFilesNET.Viewer.dll</HintPath>
+    <Reference Include="yWorks.yFilesNET.Viewer, Version=5.2.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Users\denil\Desktop\yFiles.NET-Complete-5.2.0.2-Evaluation\lib\net40\yWorks.yFilesNET.Viewer.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
