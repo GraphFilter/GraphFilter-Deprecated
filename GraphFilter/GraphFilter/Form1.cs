@@ -1,21 +1,16 @@
-﻿using GraphFilter.GraphX;
-using GraphFilter.Invariants;
+﻿using GraphFilter.GraphX_Utils;
+using GraphX.Common.Enums;
 using GraphX.Controls;
 using GraphX.Controls.Models;
-using GraphX.PCL.Common.Enums;
-using GraphX.PCL.Common.Models;
+using GraphX.Logic.Algorithms.OverlapRemoval;
+using GraphX.Logic.Models;
 using QuickGraph;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 
@@ -58,8 +53,7 @@ namespace GraphFilter
                 }
                 catch (Exception ex)
                 {
-
-                    MessageBox.Show(string.Format("Não foi possível abrir o seu arquivo, Erro: {0}", ex.Message), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    System.Windows.Forms.MessageBox.Show(string.Format("Não foi possível abrir o seu arquivo, Erro: {0}", ex.Message), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -85,7 +79,7 @@ namespace GraphFilter
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Não foi possível salvar o seu arquivo.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    System.Windows.Forms.MessageBox.Show("Não foi possível salvar o seu arquivo.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -93,7 +87,7 @@ namespace GraphFilter
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            wpfHost.Child = GenerateWpfVisuals();
+            //wpfHost.Child = GenerateWpfVisuals();
             comboInv1Eq1.Items.AddRange(BuildLogic.ComboBox());
             comboInv2Eq1.Items.AddRange(BuildLogic.ComboBox());
             comboInv1Eq2.Items.AddRange(BuildLogic.ComboBox());
@@ -105,53 +99,52 @@ namespace GraphFilter
         }
 
         private ZoomControl _zoomctrl;
-        private GraphAreaExample _gArea;
+        private GraphAreaView _gArea;
 
-        private UIElement GenerateWpfVisuals()
+        private UIElement GenerateWpfVisuals(string g6)
         {
             _zoomctrl = new ZoomControl();
             ZoomControl.SetViewFinderVisibility(_zoomctrl, Visibility.Visible);
-            //var logic = new GXlogicCore<DataVertex, DataEdge, BidirectionalGraph<DataVertex, DataEdge>>();
-            _gArea = new GraphAreaExample
+            var logic = new GXLogicCore<DataVertex, DataEdge, BidirectionalGraph<DataVertex, DataEdge>>();
+            _gArea = new GraphAreaView
             {
                 // EnableWinFormsHostingMode = false,
                 LogicCore = logic,
                 EdgeLabelFactory = new DefaultEdgelabelFactory()
             };
-            _gArea.ShowAllEdgesLabels(true);
-            //logic.Graph = GenerateGraph();
+            _gArea.ShowAllEdgesLabels(false);
+            
             logic.DefaultLayoutAlgorithm = LayoutAlgorithmTypeEnum.LinLog;
             logic.DefaultLayoutAlgorithmParams = logic.AlgorithmFactory.CreateLayoutParameters(LayoutAlgorithmTypeEnum.LinLog);
+            // ((LinLogLayoutParameters)logic.DefaultLayoutAlgorithmParams). = 100;
+            if (listOfG6.SelectedItem != null)
+            {
+                logic.Graph = Conversor.G6toQuickGraph(g6);
+            }
+            logic.DefaultOverlapRemovalAlgorithm = OverlapRemovalAlgorithmTypeEnum.FSA;
+            logic.DefaultOverlapRemovalAlgorithmParams = logic.AlgorithmFactory.CreateOverlapRemovalParameters(OverlapRemovalAlgorithmTypeEnum.FSA);
+            ((OverlapRemovalParameters)logic.DefaultOverlapRemovalAlgorithmParams).HorizontalGap = 100;
+            ((OverlapRemovalParameters)logic.DefaultOverlapRemovalAlgorithmParams).VerticalGap = 100;
+            logic.DefaultEdgeRoutingAlgorithm = EdgeRoutingAlgorithmTypeEnum.None;
+            logic.AsyncAlgorithmCompute = false;
+            _zoomctrl.Content = _gArea;
+            _gArea.RelayoutFinished += gArea_RelayoutFinished;
 
+            //Edge visualization edit
+            _gArea.SetEdgesDashStyle(EdgeDashStyle.Solid);
+            _gArea.ShowAllEdgesArrows(false);
+
+
+            var myResourceDictionary = new ResourceDictionary { Source = new Uri("GraphX_Utils\\template.xaml", UriKind.Relative) };
+            _zoomctrl.Resources.MergedDictionaries.Add(myResourceDictionary);
 
 
             return _zoomctrl;
         }
 
-        private CreateGraph GenerateGraph(int[,] adjMatrix)
+        private void gArea_RelayoutFinished(object sender, EventArgs e)
         {
-            var graph = new CreateGraph();
-            int order = adjMatrix.GetLength(0);
-
-            //Create vertices
-            for (int i = 0; i < order; i++)
-            {
-                var vertex = new DataVertex("" + i);
-                graph.AddVertex(vertex);
-            }
-
-            var vlist = graph.Vertices.ToList();
-
-            //Create edges of graph g
-
-            for (int i = 0; i < order; i++)
-                for (int j = i + 1; j < order; j++)
-                    if (adjMatrix[i, j] == 1)
-                    {
-                        var edge = new DataEdge(vlist[i], vlist[j]) { Text = string.Format("{0} -> {1}", vlist[i], vlist[j]) };
-                        graph.AddEdge(edge);
-                    }
-            return graph;
+            _zoomctrl.ZoomToFill();
         }
 
         #region Button Search
@@ -159,8 +152,8 @@ namespace GraphFilter
         {
             FilesFilter filesFilter = new FilesFilter(fileG6In, textOutPath.Text, this);
             double[] retorno = filesFilter.Run();
-            MessageBox.Show("Busca realizada com sucesso! \nO percentual de grafos escolhidos é: " + retorno[2] + " %" + "\nO número de grafos escolhidos foi de: " + retorno[1] + "\nO número total de grafos que foram lidos foi de: " + retorno[0] + ".");
-            Application.Restart();
+            System.Windows.Forms.MessageBox.Show("Busca realizada com sucesso! \nO percentual de grafos escolhidos é: " + retorno[2] + " %" + "\nO número de grafos escolhidos foi de: " + retorno[1] + "\nO número total de grafos que foram lidos foi de: " + retorno[0] + ".");
+            System.Windows.Forms.Application.Restart();
         }
         #endregion
 
@@ -516,6 +509,10 @@ namespace GraphFilter
         private void listOfG6_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Conversor.g6ToyNetGraph(listOfG6.SelectedItem.ToString(), this);
+            wpfHost.Child = GenerateWpfVisuals(listOfG6.SelectedItem.ToString());
+            _gArea.GenerateGraph(true);
+            _gArea.SetVerticesDrag(true, true);
+            _zoomctrl.ZoomToFill();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -543,7 +540,7 @@ namespace GraphFilter
                 catch (Exception ex)
                 {
 
-                    MessageBox.Show(string.Format("Não foi possível abrir o seu arquivo, Erro: {0}", ex.Message), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    System.Windows.Forms.MessageBox.Show(string.Format("Não foi possível abrir o seu arquivo, Erro: {0}", ex.Message), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -562,6 +559,8 @@ namespace GraphFilter
             groupBox2.Width = this.Width - 37;
             progressBar.Width = this.Width - 146;
 
+            wpfHost.Width = this.Width - 185;
+            wpfHost.Height = this.Height - 107;
             textOpenViz.Width = this.Width - 185;
             listOfG6.Height = this.Height - 100;
         }
@@ -590,12 +589,17 @@ namespace GraphFilter
                 catch (Exception ex)
                 {
 
-                    MessageBox.Show(string.Format("Não foi possível abrir o seu arquivo, Erro: {0}", ex.Message), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    System.Windows.Forms.MessageBox.Show(string.Format("Não foi possível abrir o seu arquivo, Erro: {0}", ex.Message), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         private void textBox1_TextChanged_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void wpfHost_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
         {
 
         }

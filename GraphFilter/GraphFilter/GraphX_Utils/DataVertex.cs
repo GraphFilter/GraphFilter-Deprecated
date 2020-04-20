@@ -1,6 +1,7 @@
-﻿using GraphX.PCL.Common.Models;
+﻿using GraphX;
+using GraphX.Common.Models;
 
-namespace GraphFilter.GraphX
+namespace GraphFilter.GraphX_Utils
 {
     public class DataVertex: VertexBase
     {

@@ -40,14 +40,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GraphX.PCL.Common, Version=2.3.6.0, Culture=neutral, PublicKeyToken=a6cdb671d651b60a, processorArchitecture=MSIL">
-      <HintPath>..\packages\GraphX.2.3.6.0\lib\net40-client\GraphX.PCL.Common.dll</HintPath>
+    <Reference Include="GraphX.Standard.Common">
+      <HintPath>..\..\..\Users\denil\Desktop\GraphX-PCL\Examples\WindowsFormsProject\bin\Debug\GraphX.Standard.Common.dll</HintPath>
     </Reference>
-    <Reference Include="GraphX.PCL.Logic, Version=2.3.6.0, Culture=neutral, PublicKeyToken=3b65ef85075e278f, processorArchitecture=MSIL">
-      <HintPath>..\packages\GraphX.2.3.6.0\lib\net40-client\GraphX.PCL.Logic.dll</HintPath>
+    <Reference Include="GraphX.Standard.Logic">
+      <HintPath>..\..\..\Users\denil\Desktop\GraphX-PCL\Examples\WindowsFormsProject\bin\Debug\GraphX.Standard.Logic.dll</HintPath>
     </Reference>
-    <Reference Include="GraphX.WPF.Controls, Version=2.3.6.0, Culture=neutral, PublicKeyToken=bab23663f80c9e76, processorArchitecture=MSIL">
-      <HintPath>..\packages\GraphX.2.3.6.0\lib\net40-client\GraphX.WPF.Controls.dll</HintPath>
+    <Reference Include="GraphX.WPF.Controls">
+      <HintPath>..\..\..\Users\denil\Desktop\GraphX-PCL\Examples\WindowsFormsProject\bin\Debug\GraphX.WPF.Controls.dll</HintPath>
     </Reference>
     <Reference Include="MathNet.Numerics, Version=4.9.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MathNet.Numerics.4.9.0\lib\net461\MathNet.Numerics.dll</HintPath>
@@ -57,17 +57,14 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="QuickGraph, Version=3.6.61114.0, Culture=neutral, PublicKeyToken=f3fb40175eec2af3, processorArchitecture=MSIL">
-      <HintPath>..\packages\QuickGraph.3.6.61119.7\lib\net4\QuickGraph.dll</HintPath>
+    <Reference Include="QuickGraph">
+      <HintPath>..\..\..\Users\denil\Desktop\GraphX-PCL\Examples\WindowsFormsProject\bin\Debug\QuickGraph.dll</HintPath>
     </Reference>
-    <Reference Include="QuickGraph.Data, Version=3.6.61114.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\QuickGraph.3.6.61119.7\lib\net4\QuickGraph.Data.dll</HintPath>
+    <Reference Include="QuickGraph.Data">
+      <HintPath>..\..\..\Users\denil\Desktop\GraphX-PCL\Examples\WindowsFormsProject\bin\Debug\QuickGraph.Data.dll</HintPath>
     </Reference>
-    <Reference Include="QuickGraph.Graphviz, Version=3.6.61114.0, Culture=neutral, PublicKeyToken=f3fb40175eec2af3, processorArchitecture=MSIL">
-      <HintPath>..\packages\QuickGraph.3.6.61119.7\lib\net4\QuickGraph.Graphviz.dll</HintPath>
-    </Reference>
-    <Reference Include="QuickGraph.Serialization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\QuickGraph.3.6.61119.7\lib\net4\QuickGraph.Serialization.dll</HintPath>
+    <Reference Include="QuickGraph.Serialization">
+      <HintPath>..\..\..\Users\denil\Desktop\GraphX-PCL\Examples\WindowsFormsProject\bin\Debug\QuickGraph.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -112,10 +109,10 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Graph.cs" />
-    <Compile Include="GraphAreaExample.cs" />
-    <Compile Include="GraphX\CreateGraph.cs" />
-    <Compile Include="GraphX\DataEdge.cs" />
-    <Compile Include="GraphX\DataVertex.cs" />
+    <Compile Include="GraphX_Utils\GraphAreaView.cs" />
+    <Compile Include="GraphX_Utils\CreateGraph.cs" />
+    <Compile Include="GraphX_Utils\DataEdge.cs" />
+    <Compile Include="GraphX_Utils\DataVertex.cs" />
     <Compile Include="Invariants\CliqueNumber.cs" />
     <Compile Include="Invariants\ChromaticNumber.cs" />
     <Compile Include="Invariants\Degree.cs" />
@@ -165,6 +162,12 @@
     <Analyzer Include="..\packages\Microsoft.NetCore.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetCore.CSharp.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetFramework.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="GraphX_Utils\template.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

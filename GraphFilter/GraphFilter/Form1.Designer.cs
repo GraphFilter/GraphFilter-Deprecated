@@ -74,6 +74,7 @@
             this.param1Eq1 = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.visualization = new System.Windows.Forms.TabPage();
+            this.wpfHost = new System.Windows.Forms.Integration.ElementHost();
             this.textOpenViz = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.listOfG6 = new System.Windows.Forms.ListBox();
@@ -82,7 +83,6 @@
             this.textOpenExp = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.wpfHost = new System.Windows.Forms.Integration.ElementHost();
             this.filterGraphs.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -633,6 +633,17 @@
             this.visualization.UseVisualStyleBackColor = true;
             this.visualization.Click += new System.EventHandler(this.visualization_Click);
             // 
+            // wpfHost
+            // 
+            this.wpfHost.BackColor = System.Drawing.Color.White;
+            this.wpfHost.Location = new System.Drawing.Point(206, 38);
+            this.wpfHost.Name = "wpfHost";
+            this.wpfHost.Size = new System.Drawing.Size(643, 388);
+            this.wpfHost.TabIndex = 52;
+            this.wpfHost.Text = "elementHost1";
+            this.wpfHost.ChildChanged += new System.EventHandler<System.Windows.Forms.Integration.ChildChangedEventArgs>(this.wpfHost_ChildChanged);
+            this.wpfHost.Child = null;
+            // 
             // textOpenViz
             // 
             this.textOpenViz.Enabled = false;
@@ -714,16 +725,6 @@
             this.button2.Text = "Open File";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // wpfHost
-            // 
-            this.wpfHost.BackColor = System.Drawing.Color.White;
-            this.wpfHost.Location = new System.Drawing.Point(206, 38);
-            this.wpfHost.Name = "wpfHost";
-            this.wpfHost.Size = new System.Drawing.Size(643, 388);
-            this.wpfHost.TabIndex = 52;
-            this.wpfHost.Text = "elementHost1";
-            this.wpfHost.Child = null;
             // 
             // Form1
             // 

@@ -37,8 +37,6 @@ namespace GraphFilter.Invariants
                     }
             return dist;
         }
-
-        
     }
     public class Diameter : Invariant
     {
@@ -72,6 +70,5 @@ namespace GraphFilter.Invariants
             return true;
         }
         public static string getName() { return "Is a connected graph?"; }
-
     }
 }

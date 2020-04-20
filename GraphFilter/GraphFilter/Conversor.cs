@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GraphFilter.GraphX_Utils;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -130,52 +131,35 @@ namespace GraphFilter
             return graph;
         }*/
 
-        /*public static void g6ToyNetGraph(string g6, Form1 form1)
+        public static CreateGraph G6toQuickGraph(string g6)
         {
-            int[,] adj = Conversor.Graph6toAdjMatrix(g6);
-            int order = adj.GetLength(0);
-            form1.graphControl.InputMode = new GraphEditorInputMode();
-            var graph = form1.graphControl.Graph;
+            int[,] adjMatrix = Graph6toAdjMatrix(g6);
+            var graph = new CreateGraph();
+            int order = adjMatrix.GetLength(0);
 
-            if (graph.Nodes.Count != 0)
-            {
-                graph.Clear();
-            }
-
-            var edgeStyle = new PolylineEdgeStyle
-            {
-                SourceArrow = Arrows.None,
-                TargetArrow = Arrows.None
-            };
-
-            var nodeStyle = new ShapeNodeStyle
-            {
-                Shape = ShapeNodeShape.Ellipse,
-                Brush = Brushes.Gray,
-                Pen = null
-            };
-
-            graph.NodeDefaults.Style = nodeStyle;
-            graph.EdgeDefaults.Style = edgeStyle;
-
-            List<INode> nodes = new List<INode>(order);
-            Random rand = new Random();
-
+            //Create vertices
             for (int i = 0; i < order; i++)
             {
-                var node = graph.CreateNode(new RectD(-Math.Sin((2*Math.PI/order)*i)*100, -Math.Cos((2 * Math.PI / order) * i)*100, 30, 30));
-                graph.AddLabel(node, "" + i);
-                nodes.Add(node);
+                var vertex = new DataVertex("" + i);
+                graph.AddVertex(vertex);
             }
+
+            var vlist = graph.Vertices.ToList();
+
+            //Create edges of graph g
 
             for (int i = 0; i < order; i++)
                 for (int j = i + 1; j < order; j++)
-                    if (adj[i, j] == 1)
+                    if (adjMatrix[i, j] == 1)
                     {
-                        graph.CreateEdge(nodes.ElementAt(i), nodes.ElementAt(j));
+                        
+                        var edge = new DataEdge(vlist[i], vlist[j]);
+                        var edge1 = new DataEdge(vlist[j], vlist[i]);
+                        graph.AddEdge(edge);
+                        graph.AddEdge(edge1);
                     }
-            form1.graphControl.FitGraphBounds();
-        }*/
+            return graph;
+        }
 
     }
 }
