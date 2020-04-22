@@ -19,6 +19,7 @@ namespace GraphFilter
 {
     public partial class Form1 : Form
     {
+        #region Form1 properties
         Stream fileG6In;
         StreamWriter fileG6Out;
 
@@ -27,6 +28,40 @@ namespace GraphFilter
             InitializeComponent();
             Load += Form1_Load;
         }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            comboInv1Eq1.Items.AddRange(BuildLogic.ComboBox());
+            comboInv2Eq1.Items.AddRange(BuildLogic.ComboBox());
+            comboInv1Eq2.Items.AddRange(BuildLogic.ComboBox());
+            comboInv2Eq2.Items.AddRange(BuildLogic.ComboBox());
+            comboInv1Eq3.Items.AddRange(BuildLogic.ComboBox());
+            comboInv2Eq3.Items.AddRange(BuildLogic.ComboBox());
+            progressBar.Minimum = 0;
+            progressBar.Maximum = 1;
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            textoOrigem.Width = this.Width - 145;
+            textOutPath.Width = this.Width - 145;
+            groupBox1.Width = this.Width - 37;
+            groupBox2.Width = this.Width - 37;
+            progressBar.Width = this.Width - 146;
+
+            wpfHost.Width = this.Width - 185;
+            wpfHost.Height = this.Height - 107;
+            textOpenViz.Width = this.Width - 185;
+            listOfG6.Height = this.Height - 100;
+        }
+        private void listOfG6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            wpfHost.Child = GenerateWpfVisuals(listOfG6.SelectedItem.ToString());
+            _gArea.GenerateGraph(true);
+            _gArea.ShowAllEdgesLabels(false);
+            _gArea.SetVerticesDrag(true, true);
+            _zoomctrl.ZoomToFill();
+        }
+        #endregion
 
         #region File Input and Output
         private void ButtonInput_Click(object sender, EventArgs e)
@@ -83,40 +118,86 @@ namespace GraphFilter
                 }
             }
         }
-        #endregion
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            //wpfHost.Child = GenerateWpfVisuals();
-            comboInv1Eq1.Items.AddRange(BuildLogic.ComboBox());
-            comboInv2Eq1.Items.AddRange(BuildLogic.ComboBox());
-            comboInv1Eq2.Items.AddRange(BuildLogic.ComboBox());
-            comboInv2Eq2.Items.AddRange(BuildLogic.ComboBox());
-            comboInv1Eq3.Items.AddRange(BuildLogic.ComboBox());
-            comboInv2Eq3.Items.AddRange(BuildLogic.ComboBox());
-            progressBar.Minimum = 0;
-            progressBar.Maximum = 1;
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            ofd.Filter = "Arquivo g6 | *.g6";
+            ofd.ShowDialog();
+            if (string.IsNullOrEmpty(ofd.FileName) == false)
+            {
+                try
+                {
+                    using (StreamReader reader = new StreamReader(ofd.FileName, Encoding.GetEncoding(CultureInfo.GetCultureInfo("pt-br").TextInfo.ANSICodePage)))
+                    {
+                        fileG6In = ofd.OpenFile();
+                        string g6Line = reader.ReadLine();
+                        while (g6Line != null)
+                        {
+                            listOfG6.Items.Add(g6Line);
+                            g6Line = reader.ReadLine();
+                        }
+                        textOpenViz.Text = ofd.FileName;
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    System.Windows.Forms.MessageBox.Show(string.Format("Não foi possível abrir o seu arquivo, Erro: {0}", ex.Message), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            ofd.Filter = "Arquivo g6 | *.g6";
+            ofd.ShowDialog();
+            if (string.IsNullOrEmpty(ofd.FileName) == false)
+            {
+                try
+                {
+                    using (StreamReader reader = new StreamReader(ofd.FileName, Encoding.GetEncoding(CultureInfo.GetCultureInfo("pt-br").TextInfo.ANSICodePage)))
+                    {
+                        fileG6In = ofd.OpenFile();
+                        string g6Line = reader.ReadLine();
+                        while (g6Line != null)
+                        {
+                            g6Line = reader.ReadLine();
+                        }
+                        textOpenExp.Text = ofd.FileName;
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    System.Windows.Forms.MessageBox.Show(string.Format("Não foi possível abrir o seu arquivo, Erro: {0}", ex.Message), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        #endregion
+
+        #region Visual properties
         private ZoomControl _zoomctrl;
         private GraphAreaView _gArea;
 
         private UIElement GenerateWpfVisuals(string g6)
         {
             _zoomctrl = new ZoomControl();
-            ZoomControl.SetViewFinderVisibility(_zoomctrl, Visibility.Visible);
+            ZoomControl.SetViewFinderVisibility(_zoomctrl, Visibility.Hidden);
             var logic = new GXLogicCore<DataVertex, DataEdge, BidirectionalGraph<DataVertex, DataEdge>>();
             _gArea = new GraphAreaView
             {
-                // EnableWinFormsHostingMode = false,
                 LogicCore = logic,
                 EdgeLabelFactory = new DefaultEdgelabelFactory()
             };
             _gArea.ShowAllEdgesLabels(false);
-            
+
             logic.DefaultLayoutAlgorithm = LayoutAlgorithmTypeEnum.LinLog;
             logic.DefaultLayoutAlgorithmParams = logic.AlgorithmFactory.CreateLayoutParameters(LayoutAlgorithmTypeEnum.LinLog);
-            // ((LinLogLayoutParameters)logic.DefaultLayoutAlgorithmParams). = 100;
             if (listOfG6.SelectedItem != null)
             {
                 logic.Graph = Conversor.G6toQuickGraph(g6);
@@ -127,6 +208,7 @@ namespace GraphFilter
             ((OverlapRemovalParameters)logic.DefaultOverlapRemovalAlgorithmParams).VerticalGap = 100;
             logic.DefaultEdgeRoutingAlgorithm = EdgeRoutingAlgorithmTypeEnum.None;
             logic.AsyncAlgorithmCompute = false;
+
             _zoomctrl.Content = _gArea;
             _gArea.RelayoutFinished += gArea_RelayoutFinished;
 
@@ -134,10 +216,8 @@ namespace GraphFilter
             _gArea.SetEdgesDashStyle(EdgeDashStyle.Solid);
             _gArea.ShowAllEdgesArrows(false);
 
-
             var myResourceDictionary = new ResourceDictionary { Source = new Uri("GraphX_Utils\\template.xaml", UriKind.Relative) };
             _zoomctrl.Resources.MergedDictionaries.Add(myResourceDictionary);
-
 
             return _zoomctrl;
         }
@@ -146,6 +226,7 @@ namespace GraphFilter
         {
             _zoomctrl.ZoomToFill();
         }
+        #endregion
 
         #region Button Search
         private void ButtonSearch_Click(object sender, EventArgs e)
@@ -155,6 +236,7 @@ namespace GraphFilter
             System.Windows.Forms.MessageBox.Show("Busca realizada com sucesso! \nO percentual de grafos escolhidos é: " + retorno[2] + " %" + "\nO número de grafos escolhidos foi de: " + retorno[1] + "\nO número total de grafos que foram lidos foi de: " + retorno[0] + ".");
             System.Windows.Forms.Application.Restart();
         }
+
         #endregion
 
         #region TextBox Parameters
@@ -338,89 +420,6 @@ namespace GraphFilter
 
         #endregion
 
-        #region Don't delete
-
-        private void param2Eq1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void paramRegularWithDegree_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        public void enableRegular_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void enableRegular_CheckedChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void progressBar_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void TextDestino_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void ComboInv1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-        private void BackgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-        }
-
-        private void Label1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void Label5_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void Label5_Click_1(object sender, EventArgs e)
-        {
-        }
-
-        private void Label6_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void Label2_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void Label3_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void Label4_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void TextBox1_TextChanged_1(object sender, EventArgs e)
-        {
-        }
-
-        private void Param3_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        #endregion
-
         #region Enable Check boxes
         private void EnableEq1_CheckedChanged(object sender, EventArgs e)
         {
@@ -501,99 +500,16 @@ namespace GraphFilter
 
         #endregion
 
-        private void filterGraphs_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listOfG6_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //Conversor.g6ToyNetGraph(listOfG6.SelectedItem.ToString(), this);
-            wpfHost.Child = GenerateWpfVisuals(listOfG6.SelectedItem.ToString());
-            _gArea.GenerateGraph(true);
-            _gArea.SetVerticesDrag(true, true);
-            _zoomctrl.ZoomToFill();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-
-            ofd.Filter = "Arquivo g6 | *.g6";
-            ofd.ShowDialog();
-            if (string.IsNullOrEmpty(ofd.FileName) == false)
-            {
-                try
-                {
-                    using (StreamReader reader = new StreamReader(ofd.FileName, Encoding.GetEncoding(CultureInfo.GetCultureInfo("pt-br").TextInfo.ANSICodePage)))
-                    {
-                        fileG6In = ofd.OpenFile();
-                        string g6Line = reader.ReadLine();
-                        while (g6Line != null)
-                        {
-                            listOfG6.Items.Add(g6Line);
-                            g6Line = reader.ReadLine();
-                        }
-                        textOpenViz.Text = ofd.FileName;
-                    }
-                }
-                catch (Exception ex)
-                {
-
-                    System.Windows.Forms.MessageBox.Show(string.Format("Não foi possível abrir o seu arquivo, Erro: {0}", ex.Message), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
+        #region Don't delete
 
         private void visualization_Click(object sender, EventArgs e)
         {
 
         }
-
-
-        private void Form1_Resize(object sender, EventArgs e)
+        private void filterGraphs_Click(object sender, EventArgs e)
         {
-            textoOrigem.Width = this.Width - 145;
-            textOutPath.Width = this.Width - 145;
-            groupBox1.Width = this.Width - 37;
-            groupBox2.Width = this.Width - 37;
-            progressBar.Width = this.Width - 146;
 
-            wpfHost.Width = this.Width - 185;
-            wpfHost.Height = this.Height - 107;
-            textOpenViz.Width = this.Width - 185;
-            listOfG6.Height = this.Height - 100;
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-
-            ofd.Filter = "Arquivo g6 | *.g6";
-            ofd.ShowDialog();
-            if (string.IsNullOrEmpty(ofd.FileName) == false)
-            {
-                try
-                {
-                    using (StreamReader reader = new StreamReader(ofd.FileName, Encoding.GetEncoding(CultureInfo.GetCultureInfo("pt-br").TextInfo.ANSICodePage)))
-                    {
-                        fileG6In = ofd.OpenFile();
-                        string g6Line = reader.ReadLine();
-                        while (g6Line != null)
-                        {
-                            g6Line = reader.ReadLine();
-                        }
-                        textOpenExp.Text = ofd.FileName;
-                    }
-                }
-                catch (Exception ex)
-                {
-
-                    System.Windows.Forms.MessageBox.Show(string.Format("Não foi possível abrir o seu arquivo, Erro: {0}", ex.Message), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
         private void textBox1_TextChanged_2(object sender, EventArgs e)
         {
 
@@ -603,6 +519,87 @@ namespace GraphFilter
         {
 
         }
+        private void param2Eq1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void paramRegularWithDegree_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void enableRegular_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void enableRegular_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void progressBar_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void TextDestino_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void ComboInv1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+        private void BackgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void Label5_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void Label5_Click_1(object sender, EventArgs e)
+        {
+        }
+
+        private void Label6_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void Label2_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void Label3_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void Label4_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void TextBox1_TextChanged_1(object sender, EventArgs e)
+        {
+        }
+
+        private void Param3_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        #endregion
+        
     }
 }
 
