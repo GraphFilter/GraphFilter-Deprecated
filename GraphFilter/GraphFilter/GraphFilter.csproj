@@ -46,8 +46,9 @@
     <Reference Include="GraphX.Standard.Logic">
       <HintPath>..\..\..\Users\denil\Desktop\GraphX-PCL\Examples\WindowsFormsProject\bin\Debug\GraphX.Standard.Logic.dll</HintPath>
     </Reference>
-    <Reference Include="GraphX.WPF.Controls">
-      <HintPath>..\..\..\Users\denil\Desktop\GraphX-PCL\Examples\WindowsFormsProject\bin\Debug\GraphX.WPF.Controls.dll</HintPath>
+    <Reference Include="GraphX.WPF.Controls, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\GraphX.WPF.Controls.dll</HintPath>
     </Reference>
     <Reference Include="MathNet.Numerics, Version=4.9.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MathNet.Numerics.4.9.0\lib\net461\MathNet.Numerics.dll</HintPath>
@@ -57,14 +58,17 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="QuickGraph">
-      <HintPath>..\..\..\Users\denil\Desktop\GraphX-PCL\Examples\WindowsFormsProject\bin\Debug\QuickGraph.dll</HintPath>
+    <Reference Include="QuickGraph, Version=3.6.61114.0, Culture=neutral, PublicKeyToken=f3fb40175eec2af3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\QuickGraph.dll</HintPath>
     </Reference>
-    <Reference Include="QuickGraph.Data">
-      <HintPath>..\..\..\Users\denil\Desktop\GraphX-PCL\Examples\WindowsFormsProject\bin\Debug\QuickGraph.Data.dll</HintPath>
+    <Reference Include="QuickGraph.Data, Version=3.6.61114.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\QuickGraph.Data.dll</HintPath>
     </Reference>
-    <Reference Include="QuickGraph.Serialization">
-      <HintPath>..\..\..\Users\denil\Desktop\GraphX-PCL\Examples\WindowsFormsProject\bin\Debug\QuickGraph.Serialization.dll</HintPath>
+    <Reference Include="QuickGraph.Serialization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\QuickGraph.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
