@@ -599,7 +599,34 @@ namespace GraphFilter
         }
 
         #endregion
-        
+
+        #region Control buttons
+        private void buttonFill_Click(object sender, EventArgs e)
+        {
+            _zoomctrl.ZoomToFill();
+        }
+        private void buttonZoomOut_Click(object sender, EventArgs e)
+        {
+            _zoomctrl.ZoomToOriginal();
+        }
+
+        private void buttonZoomOut_Click_1(object sender, EventArgs e)
+        {
+            if (_zoomctrl.Zoom >= 0.5)
+            {
+                _zoomctrl.Zoom -= 0.25;
+            }
+        }
+
+        private void buttonZoomIn_Click(object sender, EventArgs e)
+        {
+            if (_zoomctrl.Zoom <= 4)
+            {
+                _zoomctrl.Zoom += 0.25;
+            }
+
+        }
+        #endregion
     }
 }
 

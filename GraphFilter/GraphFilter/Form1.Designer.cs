@@ -74,6 +74,10 @@
             this.param1Eq1 = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.visualization = new System.Windows.Forms.TabPage();
+            this.buttonZoomIn = new System.Windows.Forms.Button();
+            this.buttonZoomOriginal = new System.Windows.Forms.Button();
+            this.buttonZoomOut = new System.Windows.Forms.Button();
+            this.buttonFill = new System.Windows.Forms.Button();
             this.wpfHost = new System.Windows.Forms.Integration.ElementHost();
             this.textOpenViz = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -620,6 +624,10 @@
             // 
             // visualization
             // 
+            this.visualization.Controls.Add(this.buttonZoomIn);
+            this.visualization.Controls.Add(this.buttonZoomOriginal);
+            this.visualization.Controls.Add(this.buttonZoomOut);
+            this.visualization.Controls.Add(this.buttonFill);
             this.visualization.Controls.Add(this.wpfHost);
             this.visualization.Controls.Add(this.textOpenViz);
             this.visualization.Controls.Add(this.button1);
@@ -632,6 +640,46 @@
             this.visualization.Text = "Visualization";
             this.visualization.UseVisualStyleBackColor = true;
             this.visualization.Click += new System.EventHandler(this.visualization_Click);
+            // 
+            // buttonZoomIn
+            // 
+            this.buttonZoomIn.Location = new System.Drawing.Point(458, 48);
+            this.buttonZoomIn.Name = "buttonZoomIn";
+            this.buttonZoomIn.Size = new System.Drawing.Size(75, 23);
+            this.buttonZoomIn.TabIndex = 56;
+            this.buttonZoomIn.Text = "Zoom+";
+            this.buttonZoomIn.UseVisualStyleBackColor = true;
+            this.buttonZoomIn.Click += new System.EventHandler(this.buttonZoomIn_Click);
+            // 
+            // buttonZoomOriginal
+            // 
+            this.buttonZoomOriginal.Location = new System.Drawing.Point(296, 48);
+            this.buttonZoomOriginal.Name = "buttonZoomOriginal";
+            this.buttonZoomOriginal.Size = new System.Drawing.Size(75, 23);
+            this.buttonZoomOriginal.TabIndex = 55;
+            this.buttonZoomOriginal.Text = "Original";
+            this.buttonZoomOriginal.UseVisualStyleBackColor = true;
+            this.buttonZoomOriginal.Click += new System.EventHandler(this.buttonZoomOut_Click);
+            // 
+            // buttonZoomOut
+            // 
+            this.buttonZoomOut.Location = new System.Drawing.Point(377, 48);
+            this.buttonZoomOut.Name = "buttonZoomOut";
+            this.buttonZoomOut.Size = new System.Drawing.Size(75, 23);
+            this.buttonZoomOut.TabIndex = 54;
+            this.buttonZoomOut.Text = "Zoom-";
+            this.buttonZoomOut.UseVisualStyleBackColor = true;
+            this.buttonZoomOut.Click += new System.EventHandler(this.buttonZoomOut_Click_1);
+            // 
+            // buttonFill
+            // 
+            this.buttonFill.Location = new System.Drawing.Point(215, 48);
+            this.buttonFill.Name = "buttonFill";
+            this.buttonFill.Size = new System.Drawing.Size(75, 23);
+            this.buttonFill.TabIndex = 53;
+            this.buttonFill.Text = "Fill";
+            this.buttonFill.UseVisualStyleBackColor = true;
+            this.buttonFill.Click += new System.EventHandler(this.buttonFill_Click);
             // 
             // wpfHost
             // 
@@ -812,6 +860,10 @@
         private System.Windows.Forms.TextBox textOpenExp;
         private System.Windows.Forms.TextBox textExp;
         private System.Windows.Forms.Integration.ElementHost wpfHost;
+        private System.Windows.Forms.Button buttonFill;
+        private System.Windows.Forms.Button buttonZoomOriginal;
+        private System.Windows.Forms.Button buttonZoomOut;
+        private System.Windows.Forms.Button buttonZoomIn;
     }
 }
 
