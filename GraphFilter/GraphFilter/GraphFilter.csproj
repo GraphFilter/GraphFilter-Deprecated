@@ -41,14 +41,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GraphX.Standard.Common">
-      <HintPath>..\..\..\Users\denil\Desktop\GraphX-PCL\Examples\WindowsFormsProject\bin\Debug\GraphX.Standard.Common.dll</HintPath>
+      <HintPath>..\packages\GraphX_external\GraphX.Standard.Common.dll</HintPath>
     </Reference>
     <Reference Include="GraphX.Standard.Logic">
-      <HintPath>..\..\..\Users\denil\Desktop\GraphX-PCL\Examples\WindowsFormsProject\bin\Debug\GraphX.Standard.Logic.dll</HintPath>
+      <HintPath>..\packages\GraphX_external\GraphX.Standard.Logic.dll</HintPath>
     </Reference>
     <Reference Include="GraphX.WPF.Controls, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\GraphX.WPF.Controls.dll</HintPath>
+      <HintPath>..\packages\GraphX_external\GraphX.WPF.Controls.dll</HintPath>
     </Reference>
     <Reference Include="MathNet.Numerics, Version=4.9.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MathNet.Numerics.4.9.0\lib\net461\MathNet.Numerics.dll</HintPath>
@@ -60,15 +60,15 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="QuickGraph, Version=3.6.61114.0, Culture=neutral, PublicKeyToken=f3fb40175eec2af3, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\QuickGraph.dll</HintPath>
+      <HintPath>..\packages\QuickGraphCore.1.0.0\lib\netstandard2.0\QuickGraph.dll</HintPath>
     </Reference>
     <Reference Include="QuickGraph.Data, Version=3.6.61114.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\QuickGraph.Data.dll</HintPath>
+      <HintPath>..\packages\QuickGraph.3.6.61119.7\lib\net4\QuickGraph.Data.dll</HintPath>
     </Reference>
     <Reference Include="QuickGraph.Serialization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\QuickGraph.Serialization.dll</HintPath>
+      <HintPath>..\packages\QuickGraph.3.6.61119.7\lib\net4\QuickGraph.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -89,18 +89,6 @@
     <Reference Include="WindowsFormsIntegration" />
     <Reference Include="WinFormAnimation, Version=1.6.0.4, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
       <HintPath>..\packages\WinFormAnimation.1.6.0.4\lib\net40\WinFormAnimation.dll</HintPath>
-    </Reference>
-    <Reference Include="yWorks.yFilesNET.Adapter, Version=5.2.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Users\denil\Desktop\yFiles.NET-Complete-5.2.0.2-Evaluation\lib\net40\yWorks.yFilesNET.Adapter.dll</HintPath>
-    </Reference>
-    <Reference Include="yWorks.yFilesNET.Algorithms, Version=5.2.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Users\denil\Desktop\yFiles.NET-Complete-5.2.0.2-Evaluation\lib\net40\yWorks.yFilesNET.Algorithms.dll</HintPath>
-    </Reference>
-    <Reference Include="yWorks.yFilesNET.Viewer, Version=5.2.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Users\denil\Desktop\yFiles.NET-Complete-5.2.0.2-Evaluation\lib\net40\yWorks.yFilesNET.Viewer.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -132,7 +120,6 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
