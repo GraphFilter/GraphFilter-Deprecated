@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphFilter", "GraphFilter\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphFilterTest", "GraphFilterTest\GraphFilterTest.csproj", "{D553C0D4-4E5F-4F88-B8D7-856DDC388E48}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "InvariantsByNetworkX", "InvariantsByNetworkX\InvariantsByNetworkX.pyproj", "{4FBF4DFB-F840-4194-BE98-45B143EB0BBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,8 @@ Global
 		{D553C0D4-4E5F-4F88-B8D7-856DDC388E48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D553C0D4-4E5F-4F88-B8D7-856DDC388E48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D553C0D4-4E5F-4F88-B8D7-856DDC388E48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FBF4DFB-F840-4194-BE98-45B143EB0BBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FBF4DFB-F840-4194-BE98-45B143EB0BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
