@@ -54,16 +54,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>GraphFilter.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GraphX.Standard.Common">
-      <HintPath>..\packages\GraphX_external\GraphX.Standard.Common.dll</HintPath>
+    <Reference Include="GraphX.Standard.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GraphX.3.0.0\lib\net461\GraphX.Standard.Common.dll</HintPath>
     </Reference>
-    <Reference Include="GraphX.Standard.Logic">
-      <HintPath>..\packages\GraphX_external\GraphX.Standard.Logic.dll</HintPath>
+    <Reference Include="GraphX.Standard.Logic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GraphX.3.0.0\lib\net461\GraphX.Standard.Logic.dll</HintPath>
     </Reference>
     <Reference Include="GraphX.WPF.Controls, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\GraphX_external\GraphX.WPF.Controls.dll</HintPath>
+      <HintPath>..\packages\GraphX.3.0.0\lib\net461\GraphX.WPF.Controls.dll</HintPath>
     </Reference>
     <Reference Include="IronPython, Version=2.7.9.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
       <HintPath>..\packages\IronPython.2.7.9\lib\net45\IronPython.dll</HintPath>
@@ -94,17 +96,8 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="QuickGraph, Version=3.6.61114.0, Culture=neutral, PublicKeyToken=f3fb40175eec2af3, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\QuickGraphCore.1.0.0\lib\netstandard2.0\QuickGraph.dll</HintPath>
-    </Reference>
-    <Reference Include="QuickGraph.Data, Version=3.6.61114.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\QuickGraph.3.6.61119.7\lib\net4\QuickGraph.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="QuickGraph.Serialization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\QuickGraph.3.6.61119.7\lib\net4\QuickGraph.Serialization.dll</HintPath>
+    <Reference Include="QuickGraph, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QuickGraphCore.1.0.0\lib\net40\QuickGraph.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -140,8 +133,8 @@
     <Compile Include="Graph.cs" />
     <Compile Include="GraphX_Utils\GraphAreaView.cs" />
     <Compile Include="GraphX_Utils\CreateGraph.cs" />
-    <Compile Include="GraphX_Utils\DataEdge.cs" />
-    <Compile Include="GraphX_Utils\DataVertex.cs" />
+    <Compile Include="GraphX_Utils\DataEdge1.cs" />
+    <Compile Include="GraphX_Utils\DataVertex1.cs" />
     <Compile Include="Invariants\CliqueNumber.cs" />
     <Compile Include="Invariants\ChromaticNumber.cs" />
     <Compile Include="Invariants\Degree.cs" />
