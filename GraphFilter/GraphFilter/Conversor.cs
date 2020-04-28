@@ -1,4 +1,5 @@
 ﻿using GraphFilter.GraphX_Utils;
+using QuikGraph;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -112,7 +113,7 @@ namespace GraphFilter
 
         }
 
-        /*public static AdjacencyGraph<int,Edge<int>> GraphToQuickGraph(Graph g)
+        public static UndirectedGraph<int, Edge<int>> GraphToQuikGraph(Graph g)
         {
             Edge<int>[] edges = new Edge<int>[g.order];
             int cont = 0;
@@ -127,9 +128,9 @@ namespace GraphFilter
                     }
                 }
             }
-            var graph = edges.ToAdjacencyGraph<int, Edge<int>>();
+            var graph = edges.ToUndirectedGraph<int, Edge<int>>();
             return graph;
-        }*/
+        }
 
         public static CreateGraph G6toQuickGraph(string g6)
         {

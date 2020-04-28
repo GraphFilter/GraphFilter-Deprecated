@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using QuikGraph.Algorithms.Cliques;
 
 namespace GraphFilter.Invariants
 {
@@ -10,7 +11,7 @@ namespace GraphFilter.Invariants
     {
         private static List<HashSet<int>> maximalCliques = new List<HashSet<int>>();
         private static int maximumClique = 0;
-
+        
         public static int Calculate(Graph g)
         {
             HashSet<int> R = new HashSet<int>();
@@ -18,6 +19,7 @@ namespace GraphFilter.Invariants
             HashSet<int> P = new HashSet<int>(g.Vertices());
             BronKerbosch1(g, R, P, X);
             return maximumClique;
+            
 
         }
         public static string getName(Graph g) { return "Clique Number"; }
