@@ -74,6 +74,7 @@
             this.param1Eq1 = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.visualization = new System.Windows.Forms.TabPage();
+            this.buttonExp2PNG = new System.Windows.Forms.Button();
             this.buttonZoomIn = new System.Windows.Forms.Button();
             this.buttonZoomOriginal = new System.Windows.Forms.Button();
             this.buttonZoomOut = new System.Windows.Forms.Button();
@@ -83,16 +84,20 @@
             this.button1 = new System.Windows.Forms.Button();
             this.listOfG6 = new System.Windows.Forms.ListBox();
             this.export = new System.Windows.Forms.TabPage();
-            this.textExp = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.elementHost = new System.Windows.Forms.Integration.ElementHost();
+            this.listOfG6Exp = new System.Windows.Forms.ListBox();
             this.textOpenExp = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonSavePNG = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.buttonPrint = new System.Windows.Forms.Button();
             this.filterGraphs.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.visualization.SuspendLayout();
             this.export.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // filterGraphs
@@ -624,6 +629,8 @@
             // 
             // visualization
             // 
+            this.visualization.Controls.Add(this.buttonPrint);
+            this.visualization.Controls.Add(this.buttonExp2PNG);
             this.visualization.Controls.Add(this.buttonZoomIn);
             this.visualization.Controls.Add(this.buttonZoomOriginal);
             this.visualization.Controls.Add(this.buttonZoomOut);
@@ -640,6 +647,16 @@
             this.visualization.Text = "Visualization";
             this.visualization.UseVisualStyleBackColor = true;
             this.visualization.Click += new System.EventHandler(this.visualization_Click);
+            // 
+            // buttonExp2PNG
+            // 
+            this.buttonExp2PNG.Location = new System.Drawing.Point(539, 48);
+            this.buttonExp2PNG.Name = "buttonExp2PNG";
+            this.buttonExp2PNG.Size = new System.Drawing.Size(110, 23);
+            this.buttonExp2PNG.TabIndex = 57;
+            this.buttonExp2PNG.Text = "Export2PNG";
+            this.buttonExp2PNG.UseVisualStyleBackColor = true;
+            this.buttonExp2PNG.Click += new System.EventHandler(this.buttonExp2PNG_Click);
             // 
             // buttonZoomIn
             // 
@@ -724,9 +741,11 @@
             // 
             // export
             // 
-            this.export.Controls.Add(this.textExp);
+            this.export.Controls.Add(this.pictureBox1);
+            this.export.Controls.Add(this.elementHost);
+            this.export.Controls.Add(this.listOfG6Exp);
             this.export.Controls.Add(this.textOpenExp);
-            this.export.Controls.Add(this.button3);
+            this.export.Controls.Add(this.buttonSavePNG);
             this.export.Controls.Add(this.button2);
             this.export.Location = new System.Drawing.Point(4, 25);
             this.export.Name = "export";
@@ -736,13 +755,35 @@
             this.export.Text = "Export";
             this.export.UseVisualStyleBackColor = true;
             // 
-            // textExp
+            // pictureBox1
             // 
-            this.textExp.Enabled = false;
-            this.textExp.Location = new System.Drawing.Point(206, 43);
-            this.textExp.Name = "textExp";
-            this.textExp.Size = new System.Drawing.Size(643, 22);
-            this.textExp.TabIndex = 5;
+            this.pictureBox1.Location = new System.Drawing.Point(206, 74);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(643, 372);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // elementHost
+            // 
+            this.elementHost.BackColor = System.Drawing.Color.White;
+            this.elementHost.Enabled = false;
+            this.elementHost.Location = new System.Drawing.Point(206, 74);
+            this.elementHost.Name = "elementHost";
+            this.elementHost.Size = new System.Drawing.Size(643, 372);
+            this.elementHost.TabIndex = 7;
+            this.elementHost.Text = "elementHost1";
+            this.elementHost.Child = null;
+            // 
+            // listOfG6Exp
+            // 
+            this.listOfG6Exp.Enabled = false;
+            this.listOfG6Exp.FormattingEnabled = true;
+            this.listOfG6Exp.ItemHeight = 16;
+            this.listOfG6Exp.Location = new System.Drawing.Point(8, 74);
+            this.listOfG6Exp.Name = "listOfG6Exp";
+            this.listOfG6Exp.Size = new System.Drawing.Size(192, 372);
+            this.listOfG6Exp.TabIndex = 6;
+            this.listOfG6Exp.SelectedIndexChanged += new System.EventHandler(this.listOfG6Exp_SelectedIndexChanged);
             // 
             // textOpenExp
             // 
@@ -753,15 +794,16 @@
             this.textOpenExp.TabIndex = 4;
             this.textOpenExp.TextChanged += new System.EventHandler(this.textBox1_TextChanged_2);
             // 
-            // button3
+            // buttonSavePNG
             // 
-            this.button3.Location = new System.Drawing.Point(6, 39);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(194, 30);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Export";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonSavePNG.Location = new System.Drawing.Point(6, 39);
+            this.buttonSavePNG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonSavePNG.Name = "buttonSavePNG";
+            this.buttonSavePNG.Size = new System.Drawing.Size(194, 30);
+            this.buttonSavePNG.TabIndex = 3;
+            this.buttonSavePNG.Text = "Export to PNG";
+            this.buttonSavePNG.UseVisualStyleBackColor = true;
+            this.buttonSavePNG.Click += new System.EventHandler(this.buttonSavePNG_Click);
             // 
             // button2
             // 
@@ -773,6 +815,16 @@
             this.button2.Text = "Open File";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // buttonPrint
+            // 
+            this.buttonPrint.Location = new System.Drawing.Point(655, 48);
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.Size = new System.Drawing.Size(110, 23);
+            this.buttonPrint.TabIndex = 58;
+            this.buttonPrint.Text = "Print";
+            this.buttonPrint.UseVisualStyleBackColor = true;
+            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
             // 
             // Form1
             // 
@@ -799,6 +851,7 @@
             this.visualization.PerformLayout();
             this.export.ResumeLayout(false);
             this.export.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -856,14 +909,18 @@
         private System.Windows.Forms.ListBox listOfG6;
         private System.Windows.Forms.TabPage export;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonSavePNG;
         private System.Windows.Forms.TextBox textOpenExp;
-        private System.Windows.Forms.TextBox textExp;
         private System.Windows.Forms.Integration.ElementHost wpfHost;
         private System.Windows.Forms.Button buttonFill;
         private System.Windows.Forms.Button buttonZoomOriginal;
         private System.Windows.Forms.Button buttonZoomOut;
         private System.Windows.Forms.Button buttonZoomIn;
+        private System.Windows.Forms.ListBox listOfG6Exp;
+        private System.Windows.Forms.Button buttonExp2PNG;
+        private System.Windows.Forms.Integration.ElementHost elementHost;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button buttonPrint;
     }
 }
 

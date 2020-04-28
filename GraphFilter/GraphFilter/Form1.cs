@@ -6,6 +6,7 @@ using GraphX.Logic.Algorithms.OverlapRemoval;
 using GraphX.Logic.Models;
 using QuickGraph;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.IO;
@@ -38,11 +39,11 @@ namespace GraphFilter
             progressBar.Minimum = 0;
             progressBar.Maximum = 1;
         }
-
         private void Form1_Resize(object sender, EventArgs e)
         {
             textoOrigem.Width = this.Width - 145;
             textOutPath.Width = this.Width - 145;
+            textOpenExp.Width = this.Width - 188;
             groupBox1.Width = this.Width - 37;
             groupBox2.Width = this.Width - 37;
             progressBar.Width = this.Width - 146;
@@ -51,6 +52,7 @@ namespace GraphFilter
             wpfHost.Height = this.Height - 107;
             textOpenViz.Width = this.Width - 185;
             listOfG6.Height = this.Height - 100;
+            listOfG6Exp.Height = this.Height - 133;
         }
         private void listOfG6_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -164,6 +166,7 @@ namespace GraphFilter
                         string g6Line = reader.ReadLine();
                         while (g6Line != null)
                         {
+                            listOfG6Exp.Items.Add(g6Line);
                             g6Line = reader.ReadLine();
                         }
                         textOpenExp.Text = ofd.FileName;
@@ -219,6 +222,43 @@ namespace GraphFilter
             return _zoomctrl;
         }
 
+        private UIElement GenerateWpfVisual2Export(string g6)
+        {
+            _zoomctrl = new ZoomControl();
+            ZoomControl.SetViewFinderVisibility(_zoomctrl, Visibility.Hidden);
+            var logic = new GXLogicCore<DataVertex, DataEdge, BidirectionalGraph<DataVertex, DataEdge>>();
+            _gArea = new GraphAreaView
+            {
+                LogicCore = logic,
+                EdgeLabelFactory = new DefaultEdgelabelFactory()
+            };
+            _gArea.ShowAllEdgesLabels(false);
+            logic.DefaultLayoutAlgorithm = LayoutAlgorithmTypeEnum.LinLog;
+            logic.DefaultLayoutAlgorithmParams = logic.AlgorithmFactory.CreateLayoutParameters(LayoutAlgorithmTypeEnum.LinLog);
+            /*if (listOfG6Exp.Items[i].ToString().Length != 0)
+            {
+                
+            }*/
+            logic.Graph = Conversor.G6toQuickGraph(g6);
+            logic.DefaultOverlapRemovalAlgorithm = OverlapRemovalAlgorithmTypeEnum.FSA;
+            logic.DefaultOverlapRemovalAlgorithmParams = logic.AlgorithmFactory.CreateOverlapRemovalParameters(OverlapRemovalAlgorithmTypeEnum.FSA);
+            ((OverlapRemovalParameters)logic.DefaultOverlapRemovalAlgorithmParams).HorizontalGap = 100;
+            ((OverlapRemovalParameters)logic.DefaultOverlapRemovalAlgorithmParams).VerticalGap = 100;
+            logic.DefaultEdgeRoutingAlgorithm = EdgeRoutingAlgorithmTypeEnum.None;
+            logic.AsyncAlgorithmCompute = false;
+
+            _zoomctrl.Content = _gArea;
+            _gArea.RelayoutFinished += gArea_RelayoutFinished;
+
+            //Edge visualization edit
+            _gArea.SetEdgesDashStyle(EdgeDashStyle.Solid);
+            _gArea.ShowAllEdgesArrows(false);
+
+            var myResourceDictionary = new ResourceDictionary { Source = new Uri("GraphX_Utils\\template.xaml", UriKind.Relative) };
+            _zoomctrl.Resources.MergedDictionaries.Add(myResourceDictionary);
+
+            return _zoomctrl;
+        }
         private void gArea_RelayoutFinished(object sender, EventArgs e)
         {
             _zoomctrl.ZoomToFill();
@@ -523,10 +563,49 @@ namespace GraphFilter
             }
 
         }
+
+        private void buttonSavePNG_Click(object sender, EventArgs e)
+        {
+            int count = listOfG6Exp.Items.Count;
+
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.Description = "Select file to export all graphs";
+            fbd.ShowDialog();
+            var path = fbd.SelectedPath;
+            for (int i = 0; i < count; i++)
+            {
+                elementHost.Child = GenerateWpfVisual2Export(listOfG6Exp.Items[i].ToString());
+                _gArea.GenerateGraph(true);
+                _gArea.ShowAllEdgesLabels(false);
+                _gArea.SetVerticesDrag(true, true);
+                _gArea.ExportAsImage(fbd.SelectedPath + "\\" + i + ".png", ImageType.PNG, false, 96, 100);
+            }
+        }
+
+        private void buttonExp2PNG_Click(object sender, EventArgs e)
+        {
+            if (listOfG6.SelectedItem != null)
+            {
+                _gArea.ExportAsImageDialog(ImageType.PNG, true, 96D, 100);
+            }
+        }
+
+        private void buttonPrint_Click(object sender, EventArgs e)
+        {
+            if (listOfG6.SelectedItem != null)
+            {
+                _gArea.PrintDialog();
+            }
+        }
+
         #endregion
 
         #region Don't delete
 
+        private void listOfG6Exp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
         private void visualization_Click(object sender, EventArgs e)
         {
 
@@ -624,7 +703,6 @@ namespace GraphFilter
         }
 
         #endregion
-
     }
 }
 
