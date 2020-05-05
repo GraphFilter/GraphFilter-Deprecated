@@ -74,6 +74,7 @@
             this.param1Eq1 = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.visualization = new System.Windows.Forms.TabPage();
+            this.buttonPrint = new System.Windows.Forms.Button();
             this.buttonExp2PNG = new System.Windows.Forms.Button();
             this.buttonZoomIn = new System.Windows.Forms.Button();
             this.buttonZoomOriginal = new System.Windows.Forms.Button();
@@ -90,7 +91,6 @@
             this.textOpenExp = new System.Windows.Forms.TextBox();
             this.buttonSavePNG = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.buttonPrint = new System.Windows.Forms.Button();
             this.filterGraphs.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -648,6 +648,16 @@
             this.visualization.UseVisualStyleBackColor = true;
             this.visualization.Click += new System.EventHandler(this.visualization_Click);
             // 
+            // buttonPrint
+            // 
+            this.buttonPrint.Location = new System.Drawing.Point(655, 48);
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.Size = new System.Drawing.Size(110, 23);
+            this.buttonPrint.TabIndex = 58;
+            this.buttonPrint.Text = "Print";
+            this.buttonPrint.UseVisualStyleBackColor = true;
+            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
+            // 
             // buttonExp2PNG
             // 
             this.buttonExp2PNG.Location = new System.Drawing.Point(539, 48);
@@ -815,16 +825,6 @@
             this.button2.Text = "Open File";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // buttonPrint
-            // 
-            this.buttonPrint.Location = new System.Drawing.Point(655, 48);
-            this.buttonPrint.Name = "buttonPrint";
-            this.buttonPrint.Size = new System.Drawing.Size(110, 23);
-            this.buttonPrint.TabIndex = 58;
-            this.buttonPrint.Text = "Print";
-            this.buttonPrint.UseVisualStyleBackColor = true;
-            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
             // 
             // Form1
             // 

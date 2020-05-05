@@ -1,5 +1,5 @@
 ﻿using GraphFilter.GraphX_Utils;
-using QuikGraph;
+using QuickGraph;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

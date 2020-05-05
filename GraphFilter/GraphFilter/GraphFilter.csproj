@@ -52,7 +52,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Mixed_Mode_Calling_App.Program</StartupObject>
+    <StartupObject>GraphFilter.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -143,8 +143,8 @@
     <Compile Include="Graph.cs" />
     <Compile Include="GraphX_Utils\GraphAreaView.cs" />
     <Compile Include="GraphX_Utils\CreateGraph.cs" />
-    <Compile Include="GraphX_Utils\DataEdge1.cs" />
-    <Compile Include="GraphX_Utils\DataVertex1.cs" />
+    <Compile Include="GraphX_Utils\DataEdge.cs" />
+    <Compile Include="GraphX_Utils\DataVertex.cs" />
     <Compile Include="Invariants\CliqueNumber.cs" />
     <Compile Include="Invariants\ChromaticNumber.cs" />
     <Compile Include="Invariants\Degree.cs" />

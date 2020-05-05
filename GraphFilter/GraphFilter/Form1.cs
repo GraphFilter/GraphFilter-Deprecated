@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows;
 using System.Windows.Forms;
@@ -703,6 +704,15 @@ namespace GraphFilter
         }
 
         #endregion
+
+        /*[DllImport("BoostLib.dll", EntryPoint = "mixed_mode_multiply", CallingConvention = CallingConvention.StdCall)]
+        public static extern int Multiply(int x, int y);
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int result = Multiply(7, 7);
+            //Console.WriteLine("The answer is {0}", result);
+            System.Windows.Forms.MessageBox.Show(result.ToString());
+        }*/
     }
 }
 
