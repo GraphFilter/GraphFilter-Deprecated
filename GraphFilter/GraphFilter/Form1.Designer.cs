@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.filterGraphs = new System.Windows.Forms.TabPage();
+            this.buttonCalc = new System.Windows.Forms.Button();
+            this.nCalcText = new System.Windows.Forms.TextBox();
             this.buttonOpen = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.enableIsConnected = new System.Windows.Forms.CheckBox();
@@ -102,6 +104,8 @@
             // 
             // filterGraphs
             // 
+            this.filterGraphs.Controls.Add(this.buttonCalc);
+            this.filterGraphs.Controls.Add(this.nCalcText);
             this.filterGraphs.Controls.Add(this.buttonOpen);
             this.filterGraphs.Controls.Add(this.groupBox2);
             this.filterGraphs.Controls.Add(this.buttonSave);
@@ -114,11 +118,28 @@
             this.filterGraphs.Location = new System.Drawing.Point(4, 25);
             this.filterGraphs.Name = "filterGraphs";
             this.filterGraphs.Padding = new System.Windows.Forms.Padding(3);
-            this.filterGraphs.Size = new System.Drawing.Size(910, 488);
+            this.filterGraphs.Size = new System.Drawing.Size(910, 485);
             this.filterGraphs.TabIndex = 0;
             this.filterGraphs.Text = "Filter Graphs";
             this.filterGraphs.UseVisualStyleBackColor = true;
             this.filterGraphs.Click += new System.EventHandler(this.filterGraphs_Click);
+            // 
+            // buttonCalc
+            // 
+            this.buttonCalc.Location = new System.Drawing.Point(304, 428);
+            this.buttonCalc.Name = "buttonCalc";
+            this.buttonCalc.Size = new System.Drawing.Size(75, 23);
+            this.buttonCalc.TabIndex = 52;
+            this.buttonCalc.Text = "Calc";
+            this.buttonCalc.UseVisualStyleBackColor = true;
+            this.buttonCalc.Click += new System.EventHandler(this.buttonCalc_Click);
+            // 
+            // nCalcText
+            // 
+            this.nCalcText.Location = new System.Drawing.Point(197, 430);
+            this.nCalcText.Name = "nCalcText";
+            this.nCalcText.Size = new System.Drawing.Size(100, 22);
+            this.nCalcText.TabIndex = 51;
             // 
             // buttonOpen
             // 
@@ -190,7 +211,7 @@
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(152, 383);
+            this.progressBar.Location = new System.Drawing.Point(152, 384);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(440, 40);
             this.progressBar.TabIndex = 50;
@@ -229,7 +250,7 @@
             // buttonSearch
             // 
             this.buttonSearch.Enabled = false;
-            this.buttonSearch.Location = new System.Drawing.Point(7, 383);
+            this.buttonSearch.Location = new System.Drawing.Point(7, 384);
             this.buttonSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(139, 40);
@@ -624,7 +645,7 @@
             this.tabControl1.MinimumSize = new System.Drawing.Size(720, 480);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(918, 517);
+            this.tabControl1.Size = new System.Drawing.Size(918, 514);
             this.tabControl1.TabIndex = 51;
             // 
             // visualization
@@ -642,7 +663,7 @@
             this.visualization.Location = new System.Drawing.Point(4, 25);
             this.visualization.Name = "visualization";
             this.visualization.Padding = new System.Windows.Forms.Padding(3);
-            this.visualization.Size = new System.Drawing.Size(910, 488);
+            this.visualization.Size = new System.Drawing.Size(910, 451);
             this.visualization.TabIndex = 1;
             this.visualization.Text = "Visualization";
             this.visualization.UseVisualStyleBackColor = true;
@@ -760,7 +781,7 @@
             this.export.Location = new System.Drawing.Point(4, 25);
             this.export.Name = "export";
             this.export.Padding = new System.Windows.Forms.Padding(3);
-            this.export.Size = new System.Drawing.Size(910, 488);
+            this.export.Size = new System.Drawing.Size(910, 451);
             this.export.TabIndex = 2;
             this.export.Text = "Export";
             this.export.UseVisualStyleBackColor = true;
@@ -830,7 +851,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(918, 517);
+            this.ClientSize = new System.Drawing.Size(918, 514);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimumSize = new System.Drawing.Size(720, 500);
@@ -921,6 +942,8 @@
         private System.Windows.Forms.Integration.ElementHost elementHost;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonPrint;
+        private System.Windows.Forms.TextBox nCalcText;
+        private System.Windows.Forms.Button buttonCalc;
     }
 }
 

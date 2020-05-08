@@ -4,6 +4,7 @@ using GraphX.Controls;
 using GraphX.Controls.Models;
 using GraphX.Logic.Algorithms.OverlapRemoval;
 using GraphX.Logic.Models;
+using NCalc;
 using QuickGraph;
 using System;
 using System.Collections.Generic;
@@ -573,6 +574,7 @@ namespace GraphFilter
             fbd.Description = "Select file to export all graphs";
             fbd.ShowDialog();
             var path = fbd.SelectedPath;
+
             for (int i = 0; i < count; i++)
             {
                 elementHost.Child = GenerateWpfVisual2Export(listOfG6Exp.Items[i].ToString());
@@ -703,7 +705,40 @@ namespace GraphFilter
         {
         }
 
+        private void circularProgressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void circularProgressBar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loadingIndicatorControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonCalc_Click(object sender, EventArgs e)
+        {
+            /*NCalc.Expression e = new NCalc.Expression("A");
+            e.EvaluateFunction += delegate (string name, FunctionArgs args)
+            {
+                if (name == "A") args.Result =
+            }*/
+
+
+
+            string function = nCalcText.Text;
+            var expression = new NCalc.Expression(function);
+
+            System.Windows.Forms.MessageBox.Show(expression.Evaluate().ToString());
+
+        }
+
         #endregion
+
 
         /*[DllImport("BoostLib.dll", EntryPoint = "mixed_mode_multiply", CallingConvention = CallingConvention.StdCall)]
         public static extern int Multiply(int x, int y);

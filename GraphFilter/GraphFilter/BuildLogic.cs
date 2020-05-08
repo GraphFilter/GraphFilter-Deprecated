@@ -1,4 +1,5 @@
 ﻿using GraphFilter.Invariants;
+using NCalc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,15 @@ namespace GraphFilter
             }
         }
         #endregion
+
+        /*public static double functionTest(Graph g)
+        {
+            Expression e = new Expression("Energy");
+            e.EvaluateFunction += delegate(string name, FunctionArgs args)
+            {
+                if()
+            }
+        }*/
 
         #region Invariants boolean
         public static bool Condition1(Graph g)
