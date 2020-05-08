@@ -1,4 +1,5 @@
 ﻿using GraphFilter.Invariants;
+using GraphX.Logic.Algorithms.LayoutAlgorithms;
 using NCalc;
 using System;
 using System.Collections.Generic;
@@ -37,7 +38,7 @@ namespace GraphFilter
                 case 9:
                     return LaplacianEnergy.Calculate(g);
                 case 10:
-                    return AdjanceyEnergy.Calculate(g);
+                    return AdjacencyEnergy.Calculate(g);
                 case 11:
                     return ChromaticNumber.Calculate(g);
                 case 12:
@@ -78,6 +79,33 @@ namespace GraphFilter
         }
 
         #region Equation and Conditon
+        public static bool Text2BoolNCalc(string text, Graph g)
+        {
+            var ex = new NCalc.Expression(text);
+
+            ex.EvaluateFunction += delegate (string name, FunctionArgs args)
+            {
+                if (name == Order.getCode()) args.Result = Order.Calculate(g);
+                if (name == MaxDegree.getCode()) args.Result = MaxDegree.Calculate(g);
+                if (name == MinDegree.getCode()) args.Result = MinDegree.Calculate(g);
+                if (name == AverageDegree.getCode()) args.Result = AverageDegree.Calculate(g);
+                if (name == CliqueNumber.getCode()) args.Result = CliqueNumber.Calculate(g);
+                if (name == Diameter.getCode()) args.Result = Diameter.Calculate(g);
+                if (name == AlgebraicConnectivity.getCode()) args.Result = AlgebraicConnectivity.Calculate(g);
+                if (name == SpectralRadius.getCode()) args.Result = SpectralRadius.Calculate(g);
+                if (name == LaplacianEnergy.getCode()) args.Result = LaplacianEnergy.Calculate(g);
+                if (name == AdjacencyEnergy.getCode()) args.Result = AdjacencyEnergy.Calculate(g);
+                if (name == ChromaticNumber.getCode()) args.Result = ChromaticNumber.Calculate(g);
+                if (name == IndependenceNumber.getCode()) args.Result = IndependenceNumber.Calculate(g);
+                if (name == NumberSpanningTree.getCode()) args.Result = NumberSpanningTree.Calculate(g);
+            };
+            if (ex.Evaluate().ToString() == "True")     return true;
+
+            else if (ex.Evaluate().ToString() == "False")    return false;
+
+            return false;
+            //Escrever tratamento de erro para funções inválidas
+        }
         public static bool Equation1(string param1, int comboInv1, string param2, int comboInv2, string param3, string relation, Graph g)
         {
             switch (relation)

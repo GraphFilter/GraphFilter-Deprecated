@@ -33,12 +33,12 @@ namespace GraphFilter
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            comboInv1Eq1.Items.AddRange(BuildLogic.ComboBox());
+            /*comboInv1Eq1.Items.AddRange(BuildLogic.ComboBox());
             comboInv2Eq1.Items.AddRange(BuildLogic.ComboBox());
             comboInv1Eq2.Items.AddRange(BuildLogic.ComboBox());
             comboInv2Eq2.Items.AddRange(BuildLogic.ComboBox());
             comboInv1Eq3.Items.AddRange(BuildLogic.ComboBox());
-            comboInv2Eq3.Items.AddRange(BuildLogic.ComboBox());
+            comboInv2Eq3.Items.AddRange(BuildLogic.ComboBox());*/
             progressBar.Minimum = 0;
             progressBar.Maximum = 1;
         }
@@ -331,61 +331,6 @@ namespace GraphFilter
             }
             return false;
         }
-        private void TextBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-            if (AllowNumber(param1Eq1.Text, e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void TextBox2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (AllowNumber(param2Eq1.Text, e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void TextBox3_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (AllowNumber(param3Eq1.Text, e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void Param1Eq2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (AllowNumber(param1Eq2.Text, e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void Param3Eq2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (AllowNumber(param2Eq2.Text, e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void param1Eq3_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (AllowNumber(param1Eq3.Text, e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-        private void param3Eq3_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (AllowNumber(param2Eq3.Text, e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
 
         private void paramRegularWithDegree_KeyPress_1(object sender, KeyPressEventArgs e)
         {
@@ -393,11 +338,6 @@ namespace GraphFilter
             {
                 e.Handled = true;
             }
-        }
-
-        private void TextBox4_TextChanged(object sender, EventArgs e)
-        {
-            relationEq1.MaxLength = 2;
         }
 
         private bool AllowRelation(string textBox, char ch1)
@@ -434,28 +374,6 @@ namespace GraphFilter
             }
             return false;
         }
-        private void TextBox4_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (AllowRelation(relationEq1.Text, e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-        private void RelationEq2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (AllowRelation(relationEq2.Text, e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void relationEq3_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (AllowRelation(relationEq3.Text, e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
 
 
         #endregion
@@ -463,66 +381,17 @@ namespace GraphFilter
         #region Enable Check boxes
         private void EnableEq1_CheckedChanged(object sender, EventArgs e)
         {
-            if (enableEq1.Checked == true)
-            {
-                param1Eq1.Enabled = true;
-                comboInv1Eq1.Enabled = true;
-                param2Eq1.Enabled = true;
-                comboInv2Eq1.Enabled = true;
-                param3Eq1.Enabled = true;
-                relationEq1.Enabled = true;
-            }
-            else
-            {
-                param1Eq1.Enabled = false;
-                comboInv1Eq1.Enabled = false;
-                param2Eq1.Enabled = false;
-                comboInv2Eq1.Enabled = false;
-                param3Eq1.Enabled = false;
-                relationEq1.Enabled = false;
-            }
+            textEquation1.Enabled = enableEq1.Checked;
         }
 
         private void EnableEq2_CheckedChanged(object sender, EventArgs e)
         {
-            if (enableEq2.Checked == true)
-            {
-                param1Eq2.Enabled = true;
-                comboInv1Eq2.Enabled = true;
-                comboInv2Eq2.Enabled = true;
-                param2Eq2.Enabled = true;
-                relationEq2.Enabled = true;
-            }
-            else
-            {
-                param1Eq2.Enabled = false;
-                comboInv1Eq2.Enabled = false;
-                comboInv2Eq2.Enabled = false;
-                param2Eq2.Enabled = false;
-                relationEq2.Enabled = false;
-            }
+            textEquation2.Enabled = enableEq2.Checked;
         }
 
         private void enableEq3_CheckedChanged(object sender, EventArgs e)
         {
-            if (enableEq3.Checked == true)
-            {
-                param1Eq3.Enabled = true;
-                comboInv1Eq3.Enabled = true;
-                comboInv2Eq3.Enabled = true;
-                param2Eq3.Enabled = true;
-                relationEq3.Enabled = true;
-            }
-            else
-            {
-                param1Eq3.Enabled = false;
-                comboInv1Eq3.Enabled = false;
-                comboInv2Eq3.Enabled = false;
-                param2Eq3.Enabled = false;
-                relationEq3.Enabled = false;
-            }
-
-
+            textEquation3.Enabled = enableEq3.Checked;
         }
 
         private void enableRegularWithK_CheckedChanged(object sender, EventArgs e)
@@ -721,14 +590,9 @@ namespace GraphFilter
 
         }
 
-        private void buttonCalc_Click(object sender, EventArgs e)
+        private void paramRegularWithDegree_TextChanged_1(object sender, EventArgs e)
         {
-            string graph = "DrO";
 
-
-            //string result = ex.Evaluate().ToString();
-            System.Windows.Forms.MessageBox.Show(Conversor.Text2BoolNCalc(nCalcText.Text, new Graph(graph)));
-            
         }
 
         #endregion

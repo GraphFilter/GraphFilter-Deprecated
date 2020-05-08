@@ -43,6 +43,8 @@ namespace GraphFilter.Invariants
             return null;
         }
 
+        public static string getCode() { return "E"; }
+
         private static HashSet<int> Union(HashSet<int> A, HashSet<int> B)
         {
             HashSet<int> aUb = new HashSet<int>(A);
@@ -63,7 +65,10 @@ namespace GraphFilter.Invariants
     public class IndependenceNumber : Invariant
     {
         public static int Calculate(Graph g){return CliqueNumber.Calculate(Operation.Complement(g));}
-        public static string getName(Graph g){ return "Independence Number";}
+        public static string getName(){ return "Independence Number";}
+
+        public static string getCode() { return "L"; }
+
 
     }    
 }

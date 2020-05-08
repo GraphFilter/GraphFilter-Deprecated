@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GraphFilter.Invariants;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ namespace GraphFilter
         public int[,] adjacencyMatrix { get; private set; }
 
         public int order { get; private set; }
+
 
         public List<int> sequenceDegree { get; private set; }
 

@@ -62,28 +62,7 @@ namespace GraphFilter
             return NtoASCII + adjVector_ASCII;
         }
         */
-        public static string Text2BoolNCalc(string text, Graph g)
-        {
-            var ex = new NCalc.Expression(text);
-
-            ex.EvaluateFunction += delegate (string name, FunctionArgs args)
-            {
-                if (name == "A") args.Result = g.order;
-                if (name == "B") args.Result = MaxDegree.Calculate(g);
-                if (name == "C") args.Result = MinDegree.Calculate(g);
-                if (name == "D") args.Result = AverageDegree.Calculate(g);
-                if (name == "E") args.Result = CliqueNumber.Calculate(g);
-                if (name == "F") args.Result = Diameter.Calculate(g);
-                if (name == "G") args.Result = AlgebraicConnectivity.Calculate(g);
-                if (name == "H") args.Result = SpectralRadius.Calculate(g);
-                if (name == "I") args.Result = LaplacianEnergy.Calculate(g);
-                if (name == "J") args.Result = AdjanceyEnergy.Calculate(g);
-                if (name == "K") args.Result = ChromaticNumber.Calculate(g);
-                if (name == "L") args.Result = IndependenceNumber.Calculate(g);
-            };
-                return ex.Evaluate().ToString();
-            //Escrever tratamento de erro para funções inválidas
-        }
+       
 
         public static int[,] Graph6toAdjMatrix(string g6)
         {

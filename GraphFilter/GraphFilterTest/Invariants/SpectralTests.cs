@@ -39,7 +39,7 @@ namespace GraphFilter.Invariants.Tests
         [TestMethod()]
         public void AdjacencyEnergyTest()
         {
-            double a = AdjanceyEnergy.Calculate(wheel5); 
+            double a = AdjacencyEnergy.Calculate(wheel5); 
             Assert.IsTrue(a < 9.38 && a > 9.37);
         }
     }

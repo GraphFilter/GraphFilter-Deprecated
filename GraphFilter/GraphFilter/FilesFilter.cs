@@ -38,11 +38,11 @@ namespace GraphFilter
                     {
                         form1.progressBar.Value++;
                         if (form1.enableEq1.Checked)
-                            condition = BuildLogic.Equation1(form1.param1Eq1.Text, form1.comboInv1Eq1.SelectedIndex, form1.param2Eq1.Text, form1.comboInv2Eq1.SelectedIndex, form1.param3Eq1.Text, form1.relationEq1.Text, new Graph(g6Line));
+                            condition = BuildLogic.Text2BoolNCalc(form1.textEquation1.Text, new Graph(g6Line));
                         if (form1.enableEq2.Checked)
-                            condition = condition && BuildLogic.Equation2(form1.param1Eq2.Text, form1.comboInv1Eq2.SelectedIndex, form1.comboInv2Eq2.SelectedIndex, form1.param2Eq2.Text, form1.relationEq2.Text, new Graph(g6Line));
+                            condition = condition && BuildLogic.Text2BoolNCalc(form1.textEquation2.Text, new Graph(g6Line));
                         if (form1.enableEq3.Checked)
-                            condition = condition && BuildLogic.Equation3(form1.param1Eq3.Text, form1.comboInv1Eq3.SelectedIndex, form1.comboInv2Eq3.SelectedIndex, form1.param2Eq3.Text, form1.relationEq3.Text, new Graph(g6Line));
+                            condition = condition && BuildLogic.Text2BoolNCalc(form1.textEquation3.Text, new Graph(g6Line));
                         if (form1.enableRegular.Checked)
                             condition = condition && BuildLogic.Condition1(new Graph(g6Line));
                         if (form1.enableRegularWithK.Checked)

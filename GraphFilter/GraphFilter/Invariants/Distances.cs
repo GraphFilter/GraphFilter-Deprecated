@@ -50,6 +50,8 @@ namespace GraphFilter.Invariants
             return diam;
         }
         public static string getName() { return "Diameter"; }
+
+        public static string getCode() { return "F"; }
     }
 
     public class IsConnected : Invariant

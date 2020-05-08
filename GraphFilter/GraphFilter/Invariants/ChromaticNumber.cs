@@ -37,5 +37,7 @@ namespace GraphFilter.Invariants
             return result.Distinct().Count();
         }
         public static string getName() { return "Chromatic Number"; }
+
+        public static string getCode() { return "K"; }
     }
 }

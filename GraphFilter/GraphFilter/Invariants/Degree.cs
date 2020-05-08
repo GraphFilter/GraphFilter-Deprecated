@@ -8,15 +8,18 @@ namespace GraphFilter.Invariants
 {
     public class MaxDegree : Invariant
     {
-        public static int Calculate(Graph g) {return g.sequenceDegree.Max();}
-        public static string getName() {return "Max Degree";}
+        public static int Calculate(Graph g) { return g.sequenceDegree.Max(); }
+        public static string getName() { return "Max Degree"; }
+
+        public static string getCode() { return "B"; }
 
     }
 
     public class MinDegree : Invariant
     {
-        public static int Calculate(Graph g) {return g.sequenceDegree.Min();}
-        public static string getName() {return "Min Degree";}
+        public static int Calculate(Graph g) { return g.sequenceDegree.Min(); }
+        public static string getName() { return "Min Degree"; }
+        public static string getCode() { return "C"; }
     }
 
     public class AverageDegree : Invariant
@@ -25,7 +28,8 @@ namespace GraphFilter.Invariants
         {
             return g.sequenceDegree.Average();
         }
-        public static string getName(){return "Average Degree";}
+        public static string getName() { return "Average Degree"; }
+        public static string getCode() { return "D"; }
     }
 
     public class IsRegular : Invariant
@@ -51,6 +55,18 @@ namespace GraphFilter.Invariants
             }
             return true;
         }
-        public static string getName() {return "Is a regular graph with degree k";}
+        public static string getName() { return "Is a regular graph with degree k"; }
+    }
+
+    public class Order : Invariant
+    {
+        public static int Calculate(Graph g)
+        {
+            return g.order;
+        }
+
+        public static string getName() { return "Order of Graph"; }
+
+        public static string getCode() { return "A"; }
     }
 }

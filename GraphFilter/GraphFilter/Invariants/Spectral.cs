@@ -82,6 +82,8 @@ namespace GraphFilter.Invariants
                 return Spectral.ApproxToInt(a);
             }
         public static string getName() { return "Algebraic Connectivity"; }
+
+        public static string getCode() { return "G"; }
     }
 
         public class SpectralRadius : Invariant
@@ -94,6 +96,7 @@ namespace GraphFilter.Invariants
                 return eigenvalues.ElementAt(g.order - 1).Real;
             }
         public static string getName() { return "Spectral Radius"; }
+        public static string getCode() { return "H"; }
     }
 
 
@@ -109,9 +112,10 @@ namespace GraphFilter.Invariants
                 return energy;
             }
         public static string getName() { return "Laplacian Energy"; }
+        public static string getCode() { return "I"; }
     }
 
-        public class AdjanceyEnergy : Invariant
+        public class AdjacencyEnergy : Invariant
     {
             public static double Calculate(Graph g)
             {
@@ -123,5 +127,6 @@ namespace GraphFilter.Invariants
                 return energy;
             }
         public static string getName() { return "Energy"; }
-        }
+        public static string getCode() { return "J"; }
+    }
     }

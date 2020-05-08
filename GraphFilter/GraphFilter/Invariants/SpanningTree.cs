@@ -17,5 +17,7 @@ namespace GraphFilter.Invariants
             return (int)lMatrix.Determinant();
         }
         public static string getName() { return "number of spanning trees"; }
+
+        public static string getCode() { return "M"; }
     }
 }
