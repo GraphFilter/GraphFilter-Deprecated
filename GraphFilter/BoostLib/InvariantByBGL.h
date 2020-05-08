@@ -1,4 +1,4 @@
-#ifndef MIXED_MODE_MULTIPLY_HPP
+/*#ifndef MIXED_MODE_MULTIPLY_HPP
 #define MIXED_MODE_MULTIPLY_HPP
 #include <boost/lambda/lambda.hpp>
 #include <iostream>
@@ -21,4 +21,4 @@ extern "C"
 
 
 
-#endif
+#endif*/

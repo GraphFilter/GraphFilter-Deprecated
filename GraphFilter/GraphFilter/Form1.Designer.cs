@@ -104,21 +104,18 @@
             // 
             // filterGraphs
             // 
-            this.filterGraphs.Controls.Add(this.buttonCalc);
-            this.filterGraphs.Controls.Add(this.nCalcText);
             this.filterGraphs.Controls.Add(this.buttonOpen);
             this.filterGraphs.Controls.Add(this.groupBox2);
             this.filterGraphs.Controls.Add(this.buttonSave);
             this.filterGraphs.Controls.Add(this.progressBar);
             this.filterGraphs.Controls.Add(this.textoOrigem);
-            this.filterGraphs.Controls.Add(this.paramRegularWithDegree);
             this.filterGraphs.Controls.Add(this.textOutPath);
             this.filterGraphs.Controls.Add(this.buttonSearch);
             this.filterGraphs.Controls.Add(this.groupBox1);
             this.filterGraphs.Location = new System.Drawing.Point(4, 25);
             this.filterGraphs.Name = "filterGraphs";
             this.filterGraphs.Padding = new System.Windows.Forms.Padding(3);
-            this.filterGraphs.Size = new System.Drawing.Size(910, 485);
+            this.filterGraphs.Size = new System.Drawing.Size(910, 597);
             this.filterGraphs.TabIndex = 0;
             this.filterGraphs.Text = "Filter Graphs";
             this.filterGraphs.UseVisualStyleBackColor = true;
@@ -126,7 +123,7 @@
             // 
             // buttonCalc
             // 
-            this.buttonCalc.Location = new System.Drawing.Point(304, 428);
+            this.buttonCalc.Location = new System.Drawing.Point(501, 146);
             this.buttonCalc.Name = "buttonCalc";
             this.buttonCalc.Size = new System.Drawing.Size(75, 23);
             this.buttonCalc.TabIndex = 52;
@@ -136,9 +133,9 @@
             // 
             // nCalcText
             // 
-            this.nCalcText.Location = new System.Drawing.Point(197, 430);
+            this.nCalcText.Location = new System.Drawing.Point(47, 146);
             this.nCalcText.Name = "nCalcText";
-            this.nCalcText.Size = new System.Drawing.Size(100, 22);
+            this.nCalcText.Size = new System.Drawing.Size(448, 22);
             this.nCalcText.TabIndex = 51;
             // 
             // buttonOpen
@@ -157,7 +154,8 @@
             this.groupBox2.Controls.Add(this.enableIsConnected);
             this.groupBox2.Controls.Add(this.enableRegular);
             this.groupBox2.Controls.Add(this.enableRegularWithK);
-            this.groupBox2.Location = new System.Drawing.Point(7, 254);
+            this.groupBox2.Controls.Add(this.paramRegularWithDegree);
+            this.groupBox2.Location = new System.Drawing.Point(7, 326);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(585, 124);
             this.groupBox2.TabIndex = 8;
@@ -211,7 +209,7 @@
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(152, 384);
+            this.progressBar.Location = new System.Drawing.Point(152, 455);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(440, 40);
             this.progressBar.TabIndex = 50;
@@ -230,7 +228,7 @@
             // paramRegularWithDegree
             // 
             this.paramRegularWithDegree.Enabled = false;
-            this.paramRegularWithDegree.Location = new System.Drawing.Point(166, 294);
+            this.paramRegularWithDegree.Location = new System.Drawing.Point(169, 63);
             this.paramRegularWithDegree.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.paramRegularWithDegree.Name = "paramRegularWithDegree";
             this.paramRegularWithDegree.Size = new System.Drawing.Size(37, 22);
@@ -250,7 +248,7 @@
             // buttonSearch
             // 
             this.buttonSearch.Enabled = false;
-            this.buttonSearch.Location = new System.Drawing.Point(7, 384);
+            this.buttonSearch.Location = new System.Drawing.Point(7, 455);
             this.buttonSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(139, 40);
@@ -261,7 +259,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonCalc);
             this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.nCalcText);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.enableEq3);
             this.groupBox1.Controls.Add(this.relationEq3);
@@ -296,7 +296,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(585, 152);
+            this.groupBox1.Size = new System.Drawing.Size(585, 224);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Equations";
@@ -645,7 +645,7 @@
             this.tabControl1.MinimumSize = new System.Drawing.Size(720, 480);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(918, 514);
+            this.tabControl1.Size = new System.Drawing.Size(918, 626);
             this.tabControl1.TabIndex = 51;
             // 
             // visualization
@@ -663,7 +663,7 @@
             this.visualization.Location = new System.Drawing.Point(4, 25);
             this.visualization.Name = "visualization";
             this.visualization.Padding = new System.Windows.Forms.Padding(3);
-            this.visualization.Size = new System.Drawing.Size(910, 451);
+            this.visualization.Size = new System.Drawing.Size(910, 485);
             this.visualization.TabIndex = 1;
             this.visualization.Text = "Visualization";
             this.visualization.UseVisualStyleBackColor = true;
@@ -781,7 +781,7 @@
             this.export.Location = new System.Drawing.Point(4, 25);
             this.export.Name = "export";
             this.export.Padding = new System.Windows.Forms.Padding(3);
-            this.export.Size = new System.Drawing.Size(910, 451);
+            this.export.Size = new System.Drawing.Size(910, 485);
             this.export.TabIndex = 2;
             this.export.Text = "Export";
             this.export.UseVisualStyleBackColor = true;
@@ -851,7 +851,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(918, 514);
+            this.ClientSize = new System.Drawing.Size(918, 626);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimumSize = new System.Drawing.Size(720, 500);

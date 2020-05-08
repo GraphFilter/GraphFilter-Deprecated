@@ -9,6 +9,7 @@ using QuickGraph;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -722,19 +723,12 @@ namespace GraphFilter
 
         private void buttonCalc_Click(object sender, EventArgs e)
         {
-            /*NCalc.Expression e = new NCalc.Expression("A");
-            e.EvaluateFunction += delegate (string name, FunctionArgs args)
-            {
-                if (name == "A") args.Result =
-            }*/
+            string graph = "DrO";
 
 
-
-            string function = nCalcText.Text;
-            var expression = new NCalc.Expression(function);
-
-            System.Windows.Forms.MessageBox.Show(expression.Evaluate().ToString());
-
+            //string result = ex.Evaluate().ToString();
+            System.Windows.Forms.MessageBox.Show(Conversor.Text2BoolNCalc(nCalcText.Text, new Graph(graph)));
+            
         }
 
         #endregion
