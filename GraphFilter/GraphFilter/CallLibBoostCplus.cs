@@ -13,12 +13,14 @@ namespace Mixed_Mode_Calling_App
         //[DllImport(@"D:\ProgramasEmGit\GraphFilter\GraphFilter\x64\Debug\BoostLib.dll", EntryPoint ="mixed_mode_multiply", CallingConvention = CallingConvention.StdCall)]
         [DllImport("BoostLib.dll", EntryPoint ="mixed_mode_multiply", CallingConvention = CallingConvention.StdCall)]
         public static extern int Multiply(int x, int y);
+
+        [DllImport("BoostLib.dll", EntryPoint = "boostTest", CallingConvention = CallingConvention.StdCall)]
+        public static extern int boostTest(int x, int y);
         public static void Main(string[] args)
         {
             //string startupPath = System.IO.Directory.GetCurrentDirectory();
             //Console.WriteLine(startupPath);
-            int result = Multiply(7, 7);
-            Console.WriteLine("The answer is {0}", result);
+            int x = boostTest(7, 7);
             Console.ReadKey();
         }
     }
