@@ -14,56 +14,6 @@ namespace GraphFilter
 {
     public static class Conversor
     {
-
-        /*
-        public static string GraphToGraph6(int[,] adjMatrix)
-        {
-            int n = adjMatrix.Rank;
-            string block6 = ""; //variável auxiliar para tratar cada código binário de 6 dígitos
-            string NtoASCII = ""; //armazena o número de vértices em ASCII
-            string adjVector_binary = ""; //armazena código binário da matriz de adjacência
-            string adjVector_ASCII = ""; //armazena código binário da matriz de adjacência
-
-            //construção de NemASCII
-            string nBinary = DecimalToBinary(n); //converte n para binário
-            while (nBinary.Length % 6 != 0) nBinary = "0" + nBinary; //insere 0 à esquerda até obter código binário com tamanho múltiplo de 6
-            for (int i = 0; i < nBinary.Length; i = i + 6) //transforma cada bloco de 6 em um ASC II
-            {
-                block6 = nBinary.Substring(i, 6);
-                NtoASCII = NtoASCII + Convert.ToChar((Convert.ToInt32(block6, 2) + 63)).ToString();
-            }
-
-            //construção do vetorAdjanceciaEmASCII
-
-            //ordem do passeio na matriz ((0,1),(0,2),(1,2),(0,3),(1,3),(2,3),(0,4),(1,4),(2,4),(3,4),(0,5),...,(n-2,n-1).
-            int rown = 0;
-            int column = 1;
-            do
-            {
-                if (n < 3) break;
-                adjVector_binary = adjVector_binary + adjMatrix[rown, column].ToString();
-                if (rown == column - 1)
-                {
-                    rown = 0;
-                    column = column + 1;
-                }
-                else rown = rown + 1;
-            } while (rown < n - 1 && column < n);
-
-            while (adjVector_binary.Length % 6 != 0) adjVector_binary = adjVector_binary + "0";
-
-
-            for (int i = 0; i < adjVector_binary.Length; i = i + 6)
-            {
-                block6 = adjVector_binary.Substring(i, 6);
-                adjVector_ASCII = adjVector_ASCII + Convert.ToChar((Convert.ToInt32(block6, 2) + 63)).ToString();
-            }
-
-            return NtoASCII + adjVector_ASCII;
-        }
-        */
-       
-
         public static int[,] Graph6toAdjMatrix(string g6)
         {
             if (g6.Length == 0) return new int[0, 0];
@@ -164,6 +114,54 @@ namespace GraphFilter
                     }
             return graph;
         }
+
+        /*
+        public static string GraphToGraph6(int[,] adjMatrix)
+        {
+            int n = adjMatrix.Rank;
+            string block6 = ""; //variável auxiliar para tratar cada código binário de 6 dígitos
+            string NtoASCII = ""; //armazena o número de vértices em ASCII
+            string adjVector_binary = ""; //armazena código binário da matriz de adjacência
+            string adjVector_ASCII = ""; //armazena código binário da matriz de adjacência
+
+            //construção de NemASCII
+            string nBinary = DecimalToBinary(n); //converte n para binário
+            while (nBinary.Length % 6 != 0) nBinary = "0" + nBinary; //insere 0 à esquerda até obter código binário com tamanho múltiplo de 6
+            for (int i = 0; i < nBinary.Length; i = i + 6) //transforma cada bloco de 6 em um ASC II
+            {
+                block6 = nBinary.Substring(i, 6);
+                NtoASCII = NtoASCII + Convert.ToChar((Convert.ToInt32(block6, 2) + 63)).ToString();
+            }
+
+            //construção do vetorAdjanceciaEmASCII
+
+            //ordem do passeio na matriz ((0,1),(0,2),(1,2),(0,3),(1,3),(2,3),(0,4),(1,4),(2,4),(3,4),(0,5),...,(n-2,n-1).
+            int rown = 0;
+            int column = 1;
+            do
+            {
+                if (n < 3) break;
+                adjVector_binary = adjVector_binary + adjMatrix[rown, column].ToString();
+                if (rown == column - 1)
+                {
+                    rown = 0;
+                    column = column + 1;
+                }
+                else rown = rown + 1;
+            } while (rown < n - 1 && column < n);
+
+            while (adjVector_binary.Length % 6 != 0) adjVector_binary = adjVector_binary + "0";
+
+
+            for (int i = 0; i < adjVector_binary.Length; i = i + 6)
+            {
+                block6 = adjVector_binary.Substring(i, 6);
+                adjVector_ASCII = adjVector_ASCII + Convert.ToChar((Convert.ToInt32(block6, 2) + 63)).ToString();
+            }
+
+            return NtoASCII + adjVector_ASCII;
+        }
+        */
 
     }
 }

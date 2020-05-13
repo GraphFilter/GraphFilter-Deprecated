@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.filterGraphs = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.listOfInvariants = new System.Windows.Forms.ListBox();
             this.buttonOpen = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.enableIsConnected = new System.Windows.Forms.CheckBox();
@@ -68,6 +70,7 @@
             this.buttonSavePNG = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.filterGraphs.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -78,6 +81,7 @@
             // 
             // filterGraphs
             // 
+            this.filterGraphs.Controls.Add(this.groupBox3);
             this.filterGraphs.Controls.Add(this.buttonOpen);
             this.filterGraphs.Controls.Add(this.groupBox2);
             this.filterGraphs.Controls.Add(this.buttonSave);
@@ -89,11 +93,36 @@
             this.filterGraphs.Location = new System.Drawing.Point(4, 25);
             this.filterGraphs.Name = "filterGraphs";
             this.filterGraphs.Padding = new System.Windows.Forms.Padding(3);
-            this.filterGraphs.Size = new System.Drawing.Size(910, 451);
+            this.filterGraphs.Size = new System.Drawing.Size(951, 451);
             this.filterGraphs.TabIndex = 0;
             this.filterGraphs.Text = "Filter Graphs";
             this.filterGraphs.UseVisualStyleBackColor = true;
             this.filterGraphs.Click += new System.EventHandler(this.filterGraphs_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.listOfInvariants);
+            this.groupBox3.Location = new System.Drawing.Point(598, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(347, 401);
+            this.groupBox3.TabIndex = 51;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "List of Invariants";
+            // 
+            // listOfInvariants
+            // 
+            this.listOfInvariants.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listOfInvariants.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listOfInvariants.FormattingEnabled = true;
+            this.listOfInvariants.ItemHeight = 20;
+            this.listOfInvariants.Location = new System.Drawing.Point(6, 21);
+            this.listOfInvariants.Name = "listOfInvariants";
+            this.listOfInvariants.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.listOfInvariants.Size = new System.Drawing.Size(335, 364);
+            this.listOfInvariants.TabIndex = 0;
             // 
             // buttonOpen
             // 
@@ -307,7 +336,7 @@
             this.tabControl1.MinimumSize = new System.Drawing.Size(720, 480);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(918, 480);
+            this.tabControl1.Size = new System.Drawing.Size(959, 480);
             this.tabControl1.TabIndex = 51;
             // 
             // visualization
@@ -325,7 +354,7 @@
             this.visualization.Location = new System.Drawing.Point(4, 25);
             this.visualization.Name = "visualization";
             this.visualization.Padding = new System.Windows.Forms.Padding(3);
-            this.visualization.Size = new System.Drawing.Size(910, 451);
+            this.visualization.Size = new System.Drawing.Size(951, 451);
             this.visualization.TabIndex = 1;
             this.visualization.Text = "Visualization";
             this.visualization.UseVisualStyleBackColor = true;
@@ -333,61 +362,91 @@
             // 
             // buttonPrint
             // 
-            this.buttonPrint.Location = new System.Drawing.Point(655, 48);
+            this.buttonPrint.FlatAppearance.BorderSize = 0;
+            this.buttonPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPrint.Image = global::GraphFilter.Properties.Resources.icons8_png;
+            this.buttonPrint.Location = new System.Drawing.Point(456, 38);
+            this.buttonPrint.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonPrint.MaximumSize = new System.Drawing.Size(50, 50);
+            this.buttonPrint.MinimumSize = new System.Drawing.Size(50, 50);
             this.buttonPrint.Name = "buttonPrint";
-            this.buttonPrint.Size = new System.Drawing.Size(110, 23);
-            this.buttonPrint.TabIndex = 58;
-            this.buttonPrint.Text = "Print";
+            this.buttonPrint.Size = new System.Drawing.Size(50, 50);
+            this.buttonPrint.TabIndex = 45;
             this.buttonPrint.UseVisualStyleBackColor = true;
             this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
             // 
             // buttonExp2PNG
             // 
-            this.buttonExp2PNG.Location = new System.Drawing.Point(539, 48);
+            this.buttonExp2PNG.FlatAppearance.BorderSize = 0;
+            this.buttonExp2PNG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExp2PNG.Image = global::GraphFilter.Properties.Resources.icons8_export_pdf;
+            this.buttonExp2PNG.Location = new System.Drawing.Point(406, 38);
+            this.buttonExp2PNG.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonExp2PNG.MaximumSize = new System.Drawing.Size(50, 50);
+            this.buttonExp2PNG.MinimumSize = new System.Drawing.Size(50, 50);
             this.buttonExp2PNG.Name = "buttonExp2PNG";
-            this.buttonExp2PNG.Size = new System.Drawing.Size(110, 23);
-            this.buttonExp2PNG.TabIndex = 57;
-            this.buttonExp2PNG.Text = "Export2PNG";
+            this.buttonExp2PNG.Size = new System.Drawing.Size(50, 50);
+            this.buttonExp2PNG.TabIndex = 45;
             this.buttonExp2PNG.UseVisualStyleBackColor = true;
             this.buttonExp2PNG.Click += new System.EventHandler(this.buttonExp2PNG_Click);
             // 
             // buttonZoomIn
             // 
-            this.buttonZoomIn.Location = new System.Drawing.Point(458, 48);
+            this.buttonZoomIn.FlatAppearance.BorderSize = 0;
+            this.buttonZoomIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonZoomIn.Image = global::GraphFilter.Properties.Resources.icons8_zoom_in;
+            this.buttonZoomIn.Location = new System.Drawing.Point(356, 38);
+            this.buttonZoomIn.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonZoomIn.MaximumSize = new System.Drawing.Size(50, 50);
+            this.buttonZoomIn.MinimumSize = new System.Drawing.Size(50, 50);
             this.buttonZoomIn.Name = "buttonZoomIn";
-            this.buttonZoomIn.Size = new System.Drawing.Size(75, 23);
-            this.buttonZoomIn.TabIndex = 56;
-            this.buttonZoomIn.Text = "Zoom+";
+            this.buttonZoomIn.Size = new System.Drawing.Size(50, 50);
+            this.buttonZoomIn.TabIndex = 45;
             this.buttonZoomIn.UseVisualStyleBackColor = true;
             this.buttonZoomIn.Click += new System.EventHandler(this.buttonZoomIn_Click);
             // 
             // buttonZoomOriginal
             // 
-            this.buttonZoomOriginal.Location = new System.Drawing.Point(296, 48);
+            this.buttonZoomOriginal.FlatAppearance.BorderSize = 0;
+            this.buttonZoomOriginal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonZoomOriginal.Image = global::GraphFilter.Properties.Resources.icons8_zoom_to_actual_size;
+            this.buttonZoomOriginal.Location = new System.Drawing.Point(256, 38);
+            this.buttonZoomOriginal.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonZoomOriginal.MaximumSize = new System.Drawing.Size(50, 50);
+            this.buttonZoomOriginal.MinimumSize = new System.Drawing.Size(50, 50);
             this.buttonZoomOriginal.Name = "buttonZoomOriginal";
-            this.buttonZoomOriginal.Size = new System.Drawing.Size(75, 23);
+            this.buttonZoomOriginal.Size = new System.Drawing.Size(50, 50);
             this.buttonZoomOriginal.TabIndex = 55;
-            this.buttonZoomOriginal.Text = "Original";
             this.buttonZoomOriginal.UseVisualStyleBackColor = true;
             this.buttonZoomOriginal.Click += new System.EventHandler(this.buttonZoomOut_Click);
             // 
             // buttonZoomOut
             // 
-            this.buttonZoomOut.Location = new System.Drawing.Point(377, 48);
+            this.buttonZoomOut.FlatAppearance.BorderSize = 0;
+            this.buttonZoomOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonZoomOut.Image = global::GraphFilter.Properties.Resources.icons8_zoom_out;
+            this.buttonZoomOut.Location = new System.Drawing.Point(306, 38);
+            this.buttonZoomOut.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonZoomOut.MaximumSize = new System.Drawing.Size(50, 50);
+            this.buttonZoomOut.MinimumSize = new System.Drawing.Size(50, 50);
             this.buttonZoomOut.Name = "buttonZoomOut";
-            this.buttonZoomOut.Size = new System.Drawing.Size(75, 23);
+            this.buttonZoomOut.Size = new System.Drawing.Size(50, 50);
             this.buttonZoomOut.TabIndex = 54;
-            this.buttonZoomOut.Text = "Zoom-";
             this.buttonZoomOut.UseVisualStyleBackColor = true;
             this.buttonZoomOut.Click += new System.EventHandler(this.buttonZoomOut_Click_1);
             // 
             // buttonFill
             // 
-            this.buttonFill.Location = new System.Drawing.Point(215, 48);
+            this.buttonFill.FlatAppearance.BorderSize = 0;
+            this.buttonFill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFill.Image = global::GraphFilter.Properties.Resources.icons8_zoom_to_extents_2;
+            this.buttonFill.Location = new System.Drawing.Point(206, 38);
+            this.buttonFill.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonFill.MaximumSize = new System.Drawing.Size(50, 50);
+            this.buttonFill.MinimumSize = new System.Drawing.Size(50, 50);
             this.buttonFill.Name = "buttonFill";
-            this.buttonFill.Size = new System.Drawing.Size(75, 23);
+            this.buttonFill.Size = new System.Drawing.Size(50, 50);
             this.buttonFill.TabIndex = 53;
-            this.buttonFill.Text = "Fill";
             this.buttonFill.UseVisualStyleBackColor = true;
             this.buttonFill.Click += new System.EventHandler(this.buttonFill_Click);
             // 
@@ -443,7 +502,7 @@
             this.export.Location = new System.Drawing.Point(4, 25);
             this.export.Name = "export";
             this.export.Padding = new System.Windows.Forms.Padding(3);
-            this.export.Size = new System.Drawing.Size(910, 451);
+            this.export.Size = new System.Drawing.Size(951, 451);
             this.export.TabIndex = 2;
             this.export.Text = "Export";
             this.export.UseVisualStyleBackColor = true;
@@ -513,7 +572,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(918, 453);
+            this.ClientSize = new System.Drawing.Size(959, 453);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimumSize = new System.Drawing.Size(720, 500);
@@ -525,6 +584,7 @@
             this.Resize += new System.EventHandler(this.Form1_Resize);
             this.filterGraphs.ResumeLayout(false);
             this.filterGraphs.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -580,6 +640,8 @@
         public System.Windows.Forms.TextBox textEquation1;
         public System.Windows.Forms.TextBox textEquation3;
         public System.Windows.Forms.TextBox textEquation2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ListBox listOfInvariants;
     }
 }
 

@@ -16,7 +16,7 @@ namespace GraphFilter.Invariants
             lMatrix = lMatrix.RemoveColumn(g.order - 1).RemoveRow(g.order - 1);
             return (int)lMatrix.Determinant();
         }
-        public static string getName() { return "number of spanning trees"; }
+        public static string getName() { return "Number of spanning trees"; }
 
         public static string getCode() { return "M"; }
     }

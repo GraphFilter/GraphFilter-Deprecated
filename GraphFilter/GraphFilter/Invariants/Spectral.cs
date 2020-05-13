@@ -71,7 +71,7 @@ namespace GraphFilter.Invariants
         }
 
     }
-        public class AlgebraicConnectivity : Invariant
+        public class AlgebricConnectivity : Invariant
     {
             public static double Calculate(Graph g)
             {

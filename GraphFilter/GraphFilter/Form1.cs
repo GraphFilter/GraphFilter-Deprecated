@@ -1,4 +1,5 @@
 ﻿using GraphFilter.GraphX_Utils;
+using GraphFilter.Invariants;
 using GraphX.Common.Enums;
 using GraphX.Controls;
 using GraphX.Controls.Models;
@@ -41,21 +42,46 @@ namespace GraphFilter
             comboInv2Eq3.Items.AddRange(BuildLogic.ComboBox());*/
             progressBar.Minimum = 0;
             progressBar.Maximum = 1;
+
+            listOfInvariants.Items.Clear();
+            listOfInvariants.Items.Add(Order.getCode() + " -> " + Order.getName());
+            listOfInvariants.Items.Add(MaxDegree.getCode() + " -> " + MaxDegree.getName());
+            listOfInvariants.Items.Add(MinDegree.getCode() + " -> " + MinDegree.getName());
+            listOfInvariants.Items.Add(AverageDegree.getCode() + " -> " + AverageDegree.getName());
+            listOfInvariants.Items.Add(CliqueNumber.getCode() + " -> " + CliqueNumber.getName());
+            listOfInvariants.Items.Add(Diameter.getCode() + " -> " + Diameter.getName());
+            listOfInvariants.Items.Add(AlgebricConnectivity.getCode() + " -> " + AlgebricConnectivity.getName());
+            listOfInvariants.Items.Add(SpectralRadius.getCode() + " -> " + SpectralRadius.getName());
+            listOfInvariants.Items.Add(LaplacianEnergy.getCode() + " -> " + LaplacianEnergy.getName());
+            listOfInvariants.Items.Add(AdjacencyEnergy.getCode() + " -> " + AdjacencyEnergy.getName());
+            listOfInvariants.Items.Add(ChromaticNumber.getCode() + " -> " + ChromaticNumber.getName());
+            listOfInvariants.Items.Add(IndependenceNumber.getCode() + " -> " + IndependenceNumber.getName());
+            listOfInvariants.Items.Add(NumberSpanningTree.getCode() + " -> " + NumberSpanningTree.getName());
         }
         private void Form1_Resize(object sender, EventArgs e)
         {
-            textoOrigem.Width = this.Width - 145;
-            textOutPath.Width = this.Width - 145;
-            textOpenExp.Width = this.Width - 188;
-            groupBox1.Width = this.Width - 37;
-            groupBox2.Width = this.Width - 37;
-            progressBar.Width = this.Width - 146;
+            groupBox3.Height = this.Height - 80;
+            listOfInvariants.Height = this.Height - 90;
+
+            textoOrigem.Width = this.Width - 410;
+            textOutPath.Width = this.Width - 410;
+            textOpenExp.Width = this.Width - 410;
+            groupBox1.Width = this.Width - 303;
+            groupBox2.Width = this.Width - 303;
+            progressBar.Width = this.Width - 412;
+
+            textEquation1.Width = this.Width - 345;
+            textEquation2.Width = this.Width - 345;
+            textEquation3.Width = this.Width - 345;
+
 
             wpfHost.Width = this.Width - 185;
             wpfHost.Height = this.Height - 107;
             textOpenViz.Width = this.Width - 185;
             listOfG6.Height = this.Height - 100;
             listOfG6Exp.Height = this.Height - 133;
+
+            textOpenExp.Width = this.Width - 185;
         }
         private void listOfG6_SelectedIndexChanged(object sender, EventArgs e)
         {

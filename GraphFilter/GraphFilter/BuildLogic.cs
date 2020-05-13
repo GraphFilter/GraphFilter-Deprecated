@@ -32,7 +32,7 @@ namespace GraphFilter
                 case 6:
                     return Diameter.Calculate(g);
                 case 7:
-                    return AlgebraicConnectivity.Calculate(g);
+                    return AlgebricConnectivity.Calculate(g);
                 case 8:
                     return SpectralRadius.Calculate(g);
                 case 9:
@@ -48,15 +48,6 @@ namespace GraphFilter
         }
         #endregion
 
-        /*public static double functionTest(Graph g)
-        {
-            Expression e = new Expression("Energy");
-            e.EvaluateFunction += delegate(string name, FunctionArgs args)
-            {
-                if()
-            }
-        }*/
-
         #region Invariants boolean
         public static bool Condition1(Graph g)
         {
@@ -66,7 +57,6 @@ namespace GraphFilter
         {
             return IsRegularWithDegree.Calculate(g, k);
         }
-
         public static bool Condition3(Graph g)
         {
             return IsConnected.Calculate(g);
@@ -91,7 +81,7 @@ namespace GraphFilter
                 if (name == AverageDegree.getCode()) args.Result = AverageDegree.Calculate(g);
                 if (name == CliqueNumber.getCode()) args.Result = CliqueNumber.Calculate(g);
                 if (name == Diameter.getCode()) args.Result = Diameter.Calculate(g);
-                if (name == AlgebraicConnectivity.getCode()) args.Result = AlgebraicConnectivity.Calculate(g);
+                if (name == AlgebricConnectivity.getCode()) args.Result = AlgebricConnectivity.Calculate(g);
                 if (name == SpectralRadius.getCode()) args.Result = SpectralRadius.Calculate(g);
                 if (name == LaplacianEnergy.getCode()) args.Result = LaplacianEnergy.Calculate(g);
                 if (name == AdjacencyEnergy.getCode()) args.Result = AdjacencyEnergy.Calculate(g);
@@ -106,6 +96,7 @@ namespace GraphFilter
             return false;
             //Escrever tratamento de erro para funções inválidas
         }
+
         public static bool Equation1(string param1, int comboInv1, string param2, int comboInv2, string param3, string relation, Graph g)
         {
             switch (relation)
@@ -152,7 +143,6 @@ namespace GraphFilter
         
         #endregion
 
-        
     }
 }
 

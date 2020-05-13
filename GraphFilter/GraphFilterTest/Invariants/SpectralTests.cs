@@ -16,10 +16,10 @@ namespace GraphFilter.Invariants.Tests
         [TestMethod()]
         public void algebraicConnectivityTest()
         {
-            double a = AlgebraicConnectivity.Calculate(wheel5); //a=2.381...
+            double a = AlgebricConnectivity.Calculate(wheel5); //a=2.381...
             Assert.IsTrue(a < 2.382 && a > 2.38);
             Graph g = GraphHelper.Complete(7);
-            Assert.IsTrue(AlgebraicConnectivity.Calculate(g) == 7);
+            Assert.IsTrue(AlgebricConnectivity.Calculate(g) == 7);
         }
 
         [TestMethod()]

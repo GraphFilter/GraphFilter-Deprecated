@@ -22,7 +22,7 @@ namespace GraphFilter.Invariants
             
 
         }
-        public static string getName(Graph g) { return "Clique Number"; }
+        public static string getName() { return "Clique Number"; }
 
         private static HashSet<int> BronKerbosch1(Graph g, HashSet<int> R, HashSet<int> P, HashSet<int> X)
         {
