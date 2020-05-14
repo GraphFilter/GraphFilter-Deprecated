@@ -44,19 +44,19 @@ namespace GraphFilter
             progressBar.Maximum = 1;
 
             listOfInvariants.Items.Clear();
-            listOfInvariants.Items.Add(Order.getCode() + " -> " + Order.getName());
-            listOfInvariants.Items.Add(MaxDegree.getCode() + " -> " + MaxDegree.getName());
-            listOfInvariants.Items.Add(MinDegree.getCode() + " -> " + MinDegree.getName());
-            listOfInvariants.Items.Add(AverageDegree.getCode() + " -> " + AverageDegree.getName());
-            listOfInvariants.Items.Add(CliqueNumber.getCode() + " -> " + CliqueNumber.getName());
-            listOfInvariants.Items.Add(Diameter.getCode() + " -> " + Diameter.getName());
-            listOfInvariants.Items.Add(AlgebricConnectivity.getCode() + " -> " + AlgebricConnectivity.getName());
-            listOfInvariants.Items.Add(SpectralRadius.getCode() + " -> " + SpectralRadius.getName());
-            listOfInvariants.Items.Add(LaplacianEnergy.getCode() + " -> " + LaplacianEnergy.getName());
-            listOfInvariants.Items.Add(AdjacencyEnergy.getCode() + " -> " + AdjacencyEnergy.getName());
-            listOfInvariants.Items.Add(ChromaticNumber.getCode() + " -> " + ChromaticNumber.getName());
-            listOfInvariants.Items.Add(IndependenceNumber.getCode() + " -> " + IndependenceNumber.getName());
-            listOfInvariants.Items.Add(NumberSpanningTree.getCode() + " -> " + NumberSpanningTree.getName());
+            listOfInvariants.Items.Add(Invariant.Order.getCode() + " -> " + Invariant.Order.getName());
+            listOfInvariants.Items.Add(Invariant.MaxDegree.getCode() + " -> " + Invariant.MaxDegree.getName());
+            listOfInvariants.Items.Add(Invariant.MinDegree.getCode() + " -> " + Invariant.MinDegree.getName());
+            listOfInvariants.Items.Add(Invariant.AverageDegree.getCode() + " -> " + Invariant.AverageDegree.getName());
+            listOfInvariants.Items.Add(Invariant.CliqueNumber.getCode() + " -> " + Invariant.CliqueNumber.getName());
+            listOfInvariants.Items.Add(Invariant.Diameter.getCode() + " -> " + Invariant.Diameter.getName());
+            listOfInvariants.Items.Add(Invariant.AlgebricConnectivity.getCode() + " -> " + Invariant.AlgebricConnectivity.getName());
+            listOfInvariants.Items.Add(Invariant.SpectralRadius.getCode() + " -> " + Invariant.SpectralRadius.getName());
+            listOfInvariants.Items.Add(Invariant.LaplacianEnergy.getCode() + " -> " + Invariant.LaplacianEnergy.getName());
+            listOfInvariants.Items.Add(Invariant.AdjacencyEnergy.getCode() + " -> " + Invariant.AdjacencyEnergy.getName());
+            listOfInvariants.Items.Add(Invariant.ChromaticNumber.getCode() + " -> " + Invariant.ChromaticNumber.getName());
+            listOfInvariants.Items.Add(Invariant.IndependenceNumber.getCode() + " -> " + Invariant.IndependenceNumber.getName());
+            listOfInvariants.Items.Add(Invariant.NumberSpanningTree.getCode() + " -> " + Invariant.NumberSpanningTree.getName());
         }
         private void Form1_Resize(object sender, EventArgs e)
         {

@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GraphFilter.Invariants;
 using GraphFilterTest.GraphHelper;
 
 namespace GraphFilter.Invariants.Tests
@@ -17,10 +16,10 @@ namespace GraphFilter.Invariants.Tests
         public void ChromaticNumberTest()
         {
             //Coloring color = new Coloring();     
-            Assert.AreEqual(4, ChromaticNumber.Calculate(GraphHelper.wheel_5()));
-            Assert.AreEqual(3, ChromaticNumber.Calculate(GraphHelper.NotConnected()));
-            Assert.AreEqual(3, ChromaticNumber.Calculate(GraphHelper.ExBronKerb_Wiki()));
-            Assert.AreEqual(5, ChromaticNumber.Calculate(GraphHelper.Complete(5)));
+            Assert.AreEqual(4, Invariant.ChromaticNumber.Calculate(GraphHelper.wheel_5()));
+            Assert.AreEqual(3, Invariant.ChromaticNumber.Calculate(GraphHelper.NotConnected()));
+            Assert.AreEqual(3, Invariant.ChromaticNumber.Calculate(GraphHelper.ExBronKerb_Wiki()));
+            Assert.AreEqual(5, Invariant.ChromaticNumber.Calculate(GraphHelper.Complete(5)));
         }
     }
 }

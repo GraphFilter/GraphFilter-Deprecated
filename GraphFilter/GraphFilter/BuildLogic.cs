@@ -22,27 +22,27 @@ namespace GraphFilter
                 case 1:
                     return g.order;
                 case 2:
-                    return MaxDegree.Calculate(g);
+                    return Invariant.MaxDegree.Calculate(g);
                 case 3:
-                    return MinDegree.Calculate(g);
+                    return Invariant.MinDegree.Calculate(g);
                 case 4:
-                    return AverageDegree.Calculate(g);
+                    return Invariant.AverageDegree.Calculate(g);
                 case 5:
-                    return CliqueNumber.Calculate(g);
+                    return Invariant.CliqueNumber.Calculate(g);
                 case 6:
-                    return Diameter.Calculate(g);
+                    return Invariant.Diameter.Calculate(g);
                 case 7:
-                    return AlgebricConnectivity.Calculate(g);
+                    return Invariant.AlgebricConnectivity.Calculate(g);
                 case 8:
-                    return SpectralRadius.Calculate(g);
+                    return Invariant.SpectralRadius.Calculate(g);
                 case 9:
-                    return LaplacianEnergy.Calculate(g);
+                    return Invariant.LaplacianEnergy.Calculate(g);
                 case 10:
-                    return AdjacencyEnergy.Calculate(g);
+                    return Invariant.AdjacencyEnergy.Calculate(g);
                 case 11:
-                    return ChromaticNumber.Calculate(g);
+                    return Invariant.ChromaticNumber.Calculate(g);
                 case 12:
-                    return IndependenceNumber.Calculate(g);
+                    return Invariant.IndependenceNumber.Calculate(g);
                 default: return 0; //tratar caso em que não há escolha
             }
         }
@@ -51,15 +51,15 @@ namespace GraphFilter
         #region Invariants boolean
         public static bool Condition1(Graph g)
         {
-            return IsRegular.Calculate(g);
+            return Invariant.IsRegular.Calculate(g);
         }
         public static bool Condition2(Graph g, int k)
         {
-            return IsRegularWithDegree.Calculate(g, k);
+            return Invariant.IsRegularWithDegree.Calculate(g, k);
         }
         public static bool Condition3(Graph g)
         {
-            return IsConnected.Calculate(g);
+            return Invariant.IsConnected.Calculate(g);
         }
         #endregion
 
@@ -75,19 +75,19 @@ namespace GraphFilter
 
             ex.EvaluateFunction += delegate (string name, FunctionArgs args)
             {
-                if (name == Order.getCode()) args.Result = Order.Calculate(g);
-                if (name == MaxDegree.getCode()) args.Result = MaxDegree.Calculate(g);
-                if (name == MinDegree.getCode()) args.Result = MinDegree.Calculate(g);
-                if (name == AverageDegree.getCode()) args.Result = AverageDegree.Calculate(g);
-                if (name == CliqueNumber.getCode()) args.Result = CliqueNumber.Calculate(g);
-                if (name == Diameter.getCode()) args.Result = Diameter.Calculate(g);
-                if (name == AlgebricConnectivity.getCode()) args.Result = AlgebricConnectivity.Calculate(g);
-                if (name == SpectralRadius.getCode()) args.Result = SpectralRadius.Calculate(g);
-                if (name == LaplacianEnergy.getCode()) args.Result = LaplacianEnergy.Calculate(g);
-                if (name == AdjacencyEnergy.getCode()) args.Result = AdjacencyEnergy.Calculate(g);
-                if (name == ChromaticNumber.getCode()) args.Result = ChromaticNumber.Calculate(g);
-                if (name == IndependenceNumber.getCode()) args.Result = IndependenceNumber.Calculate(g);
-                if (name == NumberSpanningTree.getCode()) args.Result = NumberSpanningTree.Calculate(g);
+                if (name == Invariant.Order.getCode()) args.Result = Invariant.Order.Calculate(g);
+                if (name == Invariant.MaxDegree.getCode()) args.Result = Invariant.MaxDegree.Calculate(g);
+                if (name == Invariant.MinDegree.getCode()) args.Result = Invariant.MinDegree.Calculate(g);
+                if (name == Invariant.AverageDegree.getCode()) args.Result = Invariant.AverageDegree.Calculate(g);
+                if (name == Invariant.CliqueNumber.getCode()) args.Result = Invariant.CliqueNumber.Calculate(g);
+                if (name == Invariant.Diameter.getCode()) args.Result = Invariant.Diameter.Calculate(g);
+                if (name == Invariant.AlgebricConnectivity.getCode()) args.Result = Invariant.AlgebricConnectivity.Calculate(g);
+                if (name == Invariant.SpectralRadius.getCode()) args.Result = Invariant.SpectralRadius.Calculate(g);
+                if (name == Invariant.LaplacianEnergy.getCode()) args.Result = Invariant.LaplacianEnergy.Calculate(g);
+                if (name == Invariant.AdjacencyEnergy.getCode()) args.Result = Invariant.AdjacencyEnergy.Calculate(g);
+                if (name == Invariant.ChromaticNumber.getCode()) args.Result = Invariant.ChromaticNumber.Calculate(g);
+                if (name == Invariant.IndependenceNumber.getCode()) args.Result = Invariant.IndependenceNumber.Calculate(g);
+                if (name == Invariant.NumberSpanningTree.getCode()) args.Result = Invariant.NumberSpanningTree.Calculate(g);
             };
             if (ex.Evaluate().ToString() == "True")     return true;
 

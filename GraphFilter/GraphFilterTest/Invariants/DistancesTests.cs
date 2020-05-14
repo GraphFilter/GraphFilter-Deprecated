@@ -19,7 +19,7 @@ namespace GraphFilter.Invariants.Tests
         public void DistanceMatrixTest()
         {
             int[,] RealDistMatrix = new int[6, 6] { { 0, 1, 1, 1, 1, 1 }, { 1, 0, 1, 2, 2, 1 }, { 1, 1, 0, 1, 2, 2 }, { 1, 2, 1, 0, 1, 2 }, { 1, 2, 2, 1, 0, 1 }, { 1, 1, 2, 2, 1, 0 } };
-            int[,] distMatrixWheel5 = Distances.Matrix(g);
+            int[,] distMatrixWheel5 = Utils.Distance.Matrix(g);
             for (int i = 0; i < g.order; i++)
                 for (int j = 0; j < g.order; j++) Assert.AreEqual(RealDistMatrix[i, j], distMatrixWheel5[i, j]);
         }
@@ -27,14 +27,14 @@ namespace GraphFilter.Invariants.Tests
         [TestMethod()]
         public void DiameterTest()
         {
-            Assert.AreEqual(2, Diameter.Calculate(g));
+            Assert.AreEqual(2, Invariant.Diameter.Calculate(g));
         }
 
         [TestMethod()]
         public void IsConnectedTest()
         {
-            Assert.IsTrue(IsConnected.Calculate(g));
-            Assert.IsFalse(IsConnected.Calculate(h));
+            Assert.IsTrue(Invariant.IsConnected.Calculate(g));
+            Assert.IsFalse(Invariant.IsConnected.Calculate(h));
         }
     }
 }
