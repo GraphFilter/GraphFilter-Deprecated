@@ -34,12 +34,7 @@ namespace GraphFilter
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            /*comboInv1Eq1.Items.AddRange(BuildLogic.ComboBox());
-            comboInv2Eq1.Items.AddRange(BuildLogic.ComboBox());
-            comboInv1Eq2.Items.AddRange(BuildLogic.ComboBox());
-            comboInv2Eq2.Items.AddRange(BuildLogic.ComboBox());
-            comboInv1Eq3.Items.AddRange(BuildLogic.ComboBox());
-            comboInv2Eq3.Items.AddRange(BuildLogic.ComboBox());*/
+
             progressBar.Minimum = 0;
             progressBar.Maximum = 1;
 
@@ -57,6 +52,13 @@ namespace GraphFilter
             listOfInvariants.Items.Add(ChromaticNumber.getCode() + " -> " + ChromaticNumber.getName());
             listOfInvariants.Items.Add(IndependenceNumber.getCode() + " -> " + IndependenceNumber.getName());
             listOfInvariants.Items.Add(NumberSpanningTree.getCode() + " -> " + NumberSpanningTree.getName());
+
+            buttonFill.Enabled = false;
+            buttonZoomOriginal.Enabled = false;
+            buttonZoomOut.Enabled = false;
+            buttonZoomIn.Enabled = false;
+            buttonPrint.Enabled = false;
+            buttonExp2PNG.Enabled = false;
         }
         private void Form1_Resize(object sender, EventArgs e)
         {
@@ -169,6 +171,14 @@ namespace GraphFilter
                             g6Line = reader.ReadLine();
                         }
                         textOpenViz.Text = ofd.FileName;
+                        
+                        //Habilitando os botões de controle de visualização do grafo.
+                        buttonFill.Enabled = true;
+                        buttonZoomOriginal.Enabled = true;
+                        buttonZoomOut.Enabled = true;
+                        buttonZoomIn.Enabled = true;
+                        buttonPrint.Enabled = true;
+                        buttonExp2PNG.Enabled = true;
                     }
                 }
                 catch (Exception ex)

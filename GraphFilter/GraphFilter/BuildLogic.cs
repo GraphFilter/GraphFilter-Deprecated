@@ -65,7 +65,7 @@ namespace GraphFilter
 
         public static string[] ComboBox()
         {
-            return new string[] {"None", "Order", "Max Degree", "Min Degree", "Average Degree", "Clique Number", "Diameter", "Connectivity Algebraic","Spectral Radius", "Laplacian Energy", "Adjacencý Energy", "Chromatic Number", "Independency Number"};
+            return new string[] { "None", "Order", "Max Degree", "Min Degree", "Average Degree", "Clique Number", "Diameter", "Connectivity Algebraic", "Spectral Radius", "Laplacian Energy", "Adjacencý Energy", "Chromatic Number", "Independency Number" };
         }
 
         #region Equation and Conditon
@@ -89,60 +89,71 @@ namespace GraphFilter
                 if (name == IndependenceNumber.getCode()) args.Result = IndependenceNumber.Calculate(g);
                 if (name == NumberSpanningTree.getCode()) args.Result = NumberSpanningTree.Calculate(g);
             };
-            if (ex.Evaluate().ToString() == "True")     return true;
 
-            else if (ex.Evaluate().ToString() == "False")    return false;
+            try
+            {
+                if (ex.Evaluate().ToString() == "True") return true;
 
+                else if (ex.Evaluate().ToString() == "False") return false;
+            }
+            catch (ArgumentException)
+            {
+
+                System.Windows.Forms.MessageBox.Show("Invalid Function!");
+            }
+            finally
+            {
+            }
             return false;
             //Escrever tratamento de erro para funções inválidas
         }
 
-        public static bool Equation1(string param1, int comboInv1, string param2, int comboInv2, string param3, string relation, Graph g)
+    public static bool Equation1(string param1, int comboInv1, string param2, int comboInv2, string param3, string relation, Graph g)
+    {
+        switch (relation)
         {
-            switch (relation)
-            {
-                case "<":
-                    return Convert.ToDouble(param1) * InvariantChoice(comboInv1, g) + Convert.ToDouble(param2) * InvariantChoice(comboInv2, g) < Convert.ToDouble(param3);
-                case "=":
-                    return Convert.ToDouble(param1) * InvariantChoice(comboInv1, g) + Convert.ToDouble(param2) * InvariantChoice(comboInv2, g) == Convert.ToDouble(param3);
-                case "<=":
-                    return Convert.ToDouble(param1) * InvariantChoice(comboInv1, g) + Convert.ToDouble(param2) * InvariantChoice(comboInv2, g) <= Convert.ToDouble(param3);
-                default: return true;
-            }
+            case "<":
+                return Convert.ToDouble(param1) * InvariantChoice(comboInv1, g) + Convert.ToDouble(param2) * InvariantChoice(comboInv2, g) < Convert.ToDouble(param3);
+            case "=":
+                return Convert.ToDouble(param1) * InvariantChoice(comboInv1, g) + Convert.ToDouble(param2) * InvariantChoice(comboInv2, g) == Convert.ToDouble(param3);
+            case "<=":
+                return Convert.ToDouble(param1) * InvariantChoice(comboInv1, g) + Convert.ToDouble(param2) * InvariantChoice(comboInv2, g) <= Convert.ToDouble(param3);
+            default: return true;
         }
-
-        public static bool Equation2(string param1, int comboInv1, int comboInv2, string param2, string relation, Graph g)
-        {
-            switch (relation)
-            {
-                case "<":
-                    return Convert.ToDouble(param1) * (InvariantChoice(comboInv1, g) / InvariantChoice(comboInv2, g)) < Convert.ToDouble(param2);
-                case "=":
-                    double x = Convert.ToDouble(param2);
-                    return Convert.ToDouble(param1) * (InvariantChoice(comboInv1, g) / InvariantChoice(comboInv2, g)) == Convert.ToDouble(param2);
-                case "<=":
-                    return Convert.ToDouble(param1) * (InvariantChoice(comboInv1, g) / InvariantChoice(comboInv2, g)) <= Convert.ToDouble(param2);
-                default: return true;
-            }
-        }
-
-        public static bool Equation3(string param1, int comboInv1, int comboInv2, string param2, string relation, Graph g)
-        {
-            switch (relation)
-            {
-                case "<":
-                    return Convert.ToDouble(param1) * (InvariantChoice(comboInv1, g) * InvariantChoice(comboInv2, g)) < Convert.ToDouble(param2);
-                case "=":
-                    double x = Convert.ToDouble(param2);
-                    return Convert.ToDouble(param1) * (InvariantChoice(comboInv1, g) * InvariantChoice(comboInv2, g)) == Convert.ToDouble(param2);
-                case "<=":
-                    return Convert.ToDouble(param1) * (InvariantChoice(comboInv1, g) * InvariantChoice(comboInv2, g)) <= Convert.ToDouble(param2);
-                default: return true;
-            }
-        }
-        
-        #endregion
-
     }
+
+    public static bool Equation2(string param1, int comboInv1, int comboInv2, string param2, string relation, Graph g)
+    {
+        switch (relation)
+        {
+            case "<":
+                return Convert.ToDouble(param1) * (InvariantChoice(comboInv1, g) / InvariantChoice(comboInv2, g)) < Convert.ToDouble(param2);
+            case "=":
+                double x = Convert.ToDouble(param2);
+                return Convert.ToDouble(param1) * (InvariantChoice(comboInv1, g) / InvariantChoice(comboInv2, g)) == Convert.ToDouble(param2);
+            case "<=":
+                return Convert.ToDouble(param1) * (InvariantChoice(comboInv1, g) / InvariantChoice(comboInv2, g)) <= Convert.ToDouble(param2);
+            default: return true;
+        }
+    }
+
+    public static bool Equation3(string param1, int comboInv1, int comboInv2, string param2, string relation, Graph g)
+    {
+        switch (relation)
+        {
+            case "<":
+                return Convert.ToDouble(param1) * (InvariantChoice(comboInv1, g) * InvariantChoice(comboInv2, g)) < Convert.ToDouble(param2);
+            case "=":
+                double x = Convert.ToDouble(param2);
+                return Convert.ToDouble(param1) * (InvariantChoice(comboInv1, g) * InvariantChoice(comboInv2, g)) == Convert.ToDouble(param2);
+            case "<=":
+                return Convert.ToDouble(param1) * (InvariantChoice(comboInv1, g) * InvariantChoice(comboInv2, g)) <= Convert.ToDouble(param2);
+            default: return true;
+        }
+    }
+
+    #endregion
+
+}
 }
 
