@@ -34,31 +34,29 @@ namespace GraphFilter
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            /*comboInv1Eq1.Items.AddRange(BuildLogic.ComboBox());
+            comboInv2Eq1.Items.AddRange(BuildLogic.ComboBox());
+            comboInv1Eq2.Items.AddRange(BuildLogic.ComboBox());
+            comboInv2Eq2.Items.AddRange(BuildLogic.ComboBox());
+            comboInv1Eq3.Items.AddRange(BuildLogic.ComboBox());
+            comboInv2Eq3.Items.AddRange(BuildLogic.ComboBox());*/
             progressBar.Minimum = 0;
             progressBar.Maximum = 1;
 
             listOfInvariants.Items.Clear();
-            listOfInvariants.Items.Add(Order.getCode() + " -> " + Order.getName());
-            listOfInvariants.Items.Add(MaxDegree.getCode() + " -> " + MaxDegree.getName());
-            listOfInvariants.Items.Add(MinDegree.getCode() + " -> " + MinDegree.getName());
-            listOfInvariants.Items.Add(AverageDegree.getCode() + " -> " + AverageDegree.getName());
-            listOfInvariants.Items.Add(CliqueNumber.getCode() + " -> " + CliqueNumber.getName());
-            listOfInvariants.Items.Add(Diameter.getCode() + " -> " + Diameter.getName());
-            listOfInvariants.Items.Add(AlgebricConnectivity.getCode() + " -> " + AlgebricConnectivity.getName());
-            listOfInvariants.Items.Add(SpectralRadius.getCode() + " -> " + SpectralRadius.getName());
-            listOfInvariants.Items.Add(LaplacianEnergy.getCode() + " -> " + LaplacianEnergy.getName());
-            listOfInvariants.Items.Add(AdjacencyEnergy.getCode() + " -> " + AdjacencyEnergy.getName());
-            listOfInvariants.Items.Add(ChromaticNumber.getCode() + " -> " + ChromaticNumber.getName());
-            listOfInvariants.Items.Add(IndependenceNumber.getCode() + " -> " + IndependenceNumber.getName());
-            listOfInvariants.Items.Add(NumberSpanningTree.getCode() + " -> " + NumberSpanningTree.getName());
-
-            buttonFill.Enabled = false;
-            buttonZoomOriginal.Enabled = false;
-            buttonZoomOut.Enabled = false;
-            buttonZoomIn.Enabled = false;
-            buttonPrint.Enabled = false;
-            buttonExp2PNG.Enabled = false;
+            listOfInvariants.Items.Add(Invariant.Order.getCode() + " -> " + Invariant.Order.getName());
+            listOfInvariants.Items.Add(Invariant.MaxDegree.getCode() + " -> " + Invariant.MaxDegree.getName());
+            listOfInvariants.Items.Add(Invariant.MinDegree.getCode() + " -> " + Invariant.MinDegree.getName());
+            listOfInvariants.Items.Add(Invariant.AverageDegree.getCode() + " -> " + Invariant.AverageDegree.getName());
+            listOfInvariants.Items.Add(Invariant.CliqueNumber.getCode() + " -> " + Invariant.CliqueNumber.getName());
+            listOfInvariants.Items.Add(Invariant.Diameter.getCode() + " -> " + Invariant.Diameter.getName());
+            listOfInvariants.Items.Add(Invariant.AlgebricConnectivity.getCode() + " -> " + Invariant.AlgebricConnectivity.getName());
+            listOfInvariants.Items.Add(Invariant.SpectralRadius.getCode() + " -> " + Invariant.SpectralRadius.getName());
+            listOfInvariants.Items.Add(Invariant.LaplacianEnergy.getCode() + " -> " + Invariant.LaplacianEnergy.getName());
+            listOfInvariants.Items.Add(Invariant.AdjacencyEnergy.getCode() + " -> " + Invariant.AdjacencyEnergy.getName());
+            listOfInvariants.Items.Add(Invariant.ChromaticNumber.getCode() + " -> " + Invariant.ChromaticNumber.getName());
+            listOfInvariants.Items.Add(Invariant.IndependenceNumber.getCode() + " -> " + Invariant.IndependenceNumber.getName());
+            listOfInvariants.Items.Add(Invariant.NumberSpanningTree.getCode() + " -> " + Invariant.NumberSpanningTree.getName());
         }
         private void Form1_Resize(object sender, EventArgs e)
         {
@@ -171,14 +169,6 @@ namespace GraphFilter
                             g6Line = reader.ReadLine();
                         }
                         textOpenViz.Text = ofd.FileName;
-                        
-                        //Habilitando os botões de controle de visualização do grafo.
-                        buttonFill.Enabled = true;
-                        buttonZoomOriginal.Enabled = true;
-                        buttonZoomOut.Enabled = true;
-                        buttonZoomIn.Enabled = true;
-                        buttonPrint.Enabled = true;
-                        buttonExp2PNG.Enabled = true;
                     }
                 }
                 catch (Exception ex)

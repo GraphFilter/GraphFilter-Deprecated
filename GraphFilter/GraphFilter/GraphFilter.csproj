@@ -151,15 +151,9 @@
     <Compile Include="GraphX_Utils\CreateGraph.cs" />
     <Compile Include="GraphX_Utils\DataEdge.cs" />
     <Compile Include="GraphX_Utils\DataVertex.cs" />
-    <Compile Include="Invariants\CliqueNumber.cs" />
-    <Compile Include="Invariants\ChromaticNumber.cs" />
-    <Compile Include="Invariants\Degree.cs" />
     <Compile Include="BuildLogic.cs" />
-    <Compile Include="Invariants\Distances.cs" />
     <Compile Include="Invariants\Invariant.cs" />
-    <Compile Include="Invariants\Invariant2.cs" />
-    <Compile Include="Invariants\SpanningTree.cs" />
-    <Compile Include="Invariants\Spectral.cs" />
+    <Compile Include="Invariants\Utils.cs" />
     <Compile Include="Operation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
