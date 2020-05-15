@@ -36,7 +36,6 @@ namespace GraphFilter
                     String g6Line = stReaderIn.ReadLine();
                     while (g6Line != null)
                     {
-                        form1.progressBar.Value++;
                         if (form1.enableEq1.Checked)
                             condition = BuildLogic.Text2BoolNCalc(form1.textEquation1.Text, new Graph(g6Line));
                         if (form1.enableEq2.Checked)
@@ -55,6 +54,7 @@ namespace GraphFilter
                             stWriterOut.WriteLine(g6Line);              
                         }
                         numberOfGraphsIn++;
+                        form1.progressBar.Value++;
                         g6Line = stReaderIn.ReadLine();
                     }
                 }

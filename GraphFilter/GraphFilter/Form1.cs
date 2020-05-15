@@ -34,12 +34,6 @@ namespace GraphFilter
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            /*comboInv1Eq1.Items.AddRange(BuildLogic.ComboBox());
-            comboInv2Eq1.Items.AddRange(BuildLogic.ComboBox());
-            comboInv1Eq2.Items.AddRange(BuildLogic.ComboBox());
-            comboInv2Eq2.Items.AddRange(BuildLogic.ComboBox());
-            comboInv1Eq3.Items.AddRange(BuildLogic.ComboBox());
-            comboInv2Eq3.Items.AddRange(BuildLogic.ComboBox());*/
             progressBar.Minimum = 0;
             progressBar.Maximum = 1;
 
@@ -57,6 +51,13 @@ namespace GraphFilter
             listOfInvariants.Items.Add(Invariant.ChromaticNumber.getCode() + " -> " + Invariant.ChromaticNumber.getName());
             listOfInvariants.Items.Add(Invariant.IndependenceNumber.getCode() + " -> " + Invariant.IndependenceNumber.getName());
             listOfInvariants.Items.Add(Invariant.NumberSpanningTree.getCode() + " -> " + Invariant.NumberSpanningTree.getName());
+
+            buttonFill.Enabled = false;
+            buttonZoomOriginal.Enabled = false;
+            buttonZoomOut.Enabled = false;
+            buttonZoomIn.Enabled = false;
+            buttonPrint.Enabled = false;
+            buttonExp2PNG.Enabled = false;
         }
         private void Form1_Resize(object sender, EventArgs e)
         {
@@ -70,9 +71,10 @@ namespace GraphFilter
             groupBox2.Width = this.Width - 303;
             progressBar.Width = this.Width - 412;
 
-            textEquation1.Width = this.Width - 345;
-            textEquation2.Width = this.Width - 345;
-            textEquation3.Width = this.Width - 345;
+            textEquation1.Width = this.Width - 425;
+            textEquation2.Width = this.Width - 425;
+            textEquation3.Width = this.Width - 425;
+
 
 
             wpfHost.Width = this.Width - 185;
@@ -297,10 +299,16 @@ namespace GraphFilter
         #region Button Search
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
-            FilesFilter filesFilter = new FilesFilter(fileG6In, textOutPath.Text, this);
-            double[] retorno = filesFilter.Run();
-            System.Windows.Forms.MessageBox.Show("Busca realizada com sucesso! \nO percentual de grafos escolhidos é: " + retorno[2] + " %" + "\nO número de grafos escolhidos foi de: " + retorno[1] + "\nO número total de grafos que foram lidos foi de: " + retorno[0] + ".");
-            System.Windows.Forms.Application.Restart();
+            if (textEquation1.Enabled == true) System.Windows.Forms.MessageBox.Show("Please, verify your equation 1!");
+            if (textEquation2.Enabled == true) System.Windows.Forms.MessageBox.Show("Please, verify your equation 2!");
+            if (textEquation3.Enabled == true) System.Windows.Forms.MessageBox.Show("Please, verify your equation 3!");
+            if (textEquation1.Enabled == false && textEquation2.Enabled == false && textEquation3.Enabled == false)
+            {
+                FilesFilter filesFilter = new FilesFilter(fileG6In, textOutPath.Text, this);
+                double[] retorno = filesFilter.Run();
+                System.Windows.Forms.MessageBox.Show("Busca realizada com sucesso! \nO percentual de grafos escolhidos é: " + retorno[2] + " %" + "\nO número de grafos escolhidos foi de: " + retorno[1] + "\nO número total de grafos que foram lidos foi de: " + retorno[0] + ".");
+                System.Windows.Forms.Application.Restart();
+            }
         }
 
         #endregion
@@ -408,16 +416,19 @@ namespace GraphFilter
         private void EnableEq1_CheckedChanged(object sender, EventArgs e)
         {
             textEquation1.Enabled = enableEq1.Checked;
+            verifyEq1.Enabled = enableEq1.Checked;
         }
 
         private void EnableEq2_CheckedChanged(object sender, EventArgs e)
         {
             textEquation2.Enabled = enableEq2.Checked;
+            verifyEq2.Enabled = enableEq2.Checked;
         }
 
         private void enableEq3_CheckedChanged(object sender, EventArgs e)
         {
             textEquation3.Enabled = enableEq3.Checked;
+            verifyEq3.Enabled = enableEq3.Checked;
         }
 
         private void enableRegularWithK_CheckedChanged(object sender, EventArgs e)
@@ -619,6 +630,53 @@ namespace GraphFilter
         private void paramRegularWithDegree_TextChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void verifyEq2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BuildLogic.Text2BoolNCalc(textEquation2.Text, new Graph(new int[0, 0]));
+                textEquation2.Enabled = false;
+            }
+            catch
+            {
+
+                System.Windows.Forms.MessageBox.Show("Invalid Equation!");
+            }
+        }
+
+        private void verifyEq1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BuildLogic.Text2BoolNCalc(textEquation1.Text, new Graph(new int[0, 0]));
+                textEquation1.Enabled = false;
+            }
+            catch
+            {
+
+                System.Windows.Forms.MessageBox.Show("Invalid Equation!");
+            }
+
+        }
+
+        private void buttonSearch_EnabledChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void verifyEq3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BuildLogic.Text2BoolNCalc(textEquation3.Text, new Graph(new int[0, 0]));
+                textEquation3.Enabled = false;
+            }
+            catch
+            {
+
+                System.Windows.Forms.MessageBox.Show("Invalid Equation!");
+            }
         }
 
         #endregion

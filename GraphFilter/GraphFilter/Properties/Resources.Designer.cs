@@ -63,6 +63,16 @@ namespace GraphFilter.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_checked_checkbox {
+            get {
+                object obj = ResourceManager.GetObject("icons8_checked_checkbox", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_export_pdf {
             get {
                 object obj = ResourceManager.GetObject("icons8_export_pdf", resourceCulture);

@@ -43,6 +43,9 @@
             this.textOutPath = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.verifyEq3 = new System.Windows.Forms.Button();
+            this.verifyEq2 = new System.Windows.Forms.Button();
+            this.verifyEq1 = new System.Windows.Forms.Button();
             this.textEquation3 = new System.Windows.Forms.TextBox();
             this.textEquation2 = new System.Windows.Forms.TextBox();
             this.textEquation1 = new System.Windows.Forms.TextBox();
@@ -242,10 +245,14 @@
             this.buttonSearch.TabIndex = 4;
             this.buttonSearch.Text = "Run";
             this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.EnabledChanged += new System.EventHandler(this.buttonSearch_EnabledChanged);
             this.buttonSearch.Click += new System.EventHandler(this.ButtonSearch_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.verifyEq3);
+            this.groupBox1.Controls.Add(this.verifyEq2);
+            this.groupBox1.Controls.Add(this.verifyEq1);
             this.groupBox1.Controls.Add(this.textEquation3);
             this.groupBox1.Controls.Add(this.textEquation2);
             this.groupBox1.Controls.Add(this.textEquation1);
@@ -262,12 +269,61 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Equations";
             // 
+            // verifyEq3
+            // 
+            this.verifyEq3.Enabled = false;
+            this.verifyEq3.FlatAppearance.BorderSize = 0;
+            this.verifyEq3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.verifyEq3.Image = global::GraphFilter.Properties.Resources.icons8_checked_checkbox;
+            this.verifyEq3.Location = new System.Drawing.Point(548, 95);
+            this.verifyEq3.Margin = new System.Windows.Forms.Padding(0);
+            this.verifyEq3.MaximumSize = new System.Drawing.Size(30, 30);
+            this.verifyEq3.MinimumSize = new System.Drawing.Size(30, 30);
+            this.verifyEq3.Name = "verifyEq3";
+            this.verifyEq3.Size = new System.Drawing.Size(30, 30);
+            this.verifyEq3.TabIndex = 57;
+            this.verifyEq3.UseVisualStyleBackColor = true;
+            this.verifyEq3.Click += new System.EventHandler(this.verifyEq3_Click);
+            // 
+            // verifyEq2
+            // 
+            this.verifyEq2.Enabled = false;
+            this.verifyEq2.FlatAppearance.BorderSize = 0;
+            this.verifyEq2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.verifyEq2.Image = global::GraphFilter.Properties.Resources.icons8_checked_checkbox;
+            this.verifyEq2.Location = new System.Drawing.Point(548, 60);
+            this.verifyEq2.Margin = new System.Windows.Forms.Padding(0);
+            this.verifyEq2.MaximumSize = new System.Drawing.Size(30, 30);
+            this.verifyEq2.MinimumSize = new System.Drawing.Size(30, 30);
+            this.verifyEq2.Name = "verifyEq2";
+            this.verifyEq2.Size = new System.Drawing.Size(30, 30);
+            this.verifyEq2.TabIndex = 56;
+            this.verifyEq2.UseVisualStyleBackColor = true;
+            this.verifyEq2.Click += new System.EventHandler(this.verifyEq2_Click);
+            // 
+            // verifyEq1
+            // 
+            this.verifyEq1.CausesValidation = false;
+            this.verifyEq1.Enabled = false;
+            this.verifyEq1.FlatAppearance.BorderSize = 0;
+            this.verifyEq1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.verifyEq1.Image = global::GraphFilter.Properties.Resources.icons8_checked_checkbox;
+            this.verifyEq1.Location = new System.Drawing.Point(548, 29);
+            this.verifyEq1.Margin = new System.Windows.Forms.Padding(0);
+            this.verifyEq1.MaximumSize = new System.Drawing.Size(30, 30);
+            this.verifyEq1.MinimumSize = new System.Drawing.Size(30, 30);
+            this.verifyEq1.Name = "verifyEq1";
+            this.verifyEq1.Size = new System.Drawing.Size(30, 30);
+            this.verifyEq1.TabIndex = 0;
+            this.verifyEq1.UseVisualStyleBackColor = true;
+            this.verifyEq1.Click += new System.EventHandler(this.verifyEq1_Click);
+            // 
             // textEquation3
             // 
             this.textEquation3.Enabled = false;
             this.textEquation3.Location = new System.Drawing.Point(46, 99);
             this.textEquation3.Name = "textEquation3";
-            this.textEquation3.Size = new System.Drawing.Size(530, 22);
+            this.textEquation3.Size = new System.Drawing.Size(499, 22);
             this.textEquation3.TabIndex = 55;
             // 
             // textEquation2
@@ -275,7 +331,7 @@
             this.textEquation2.Enabled = false;
             this.textEquation2.Location = new System.Drawing.Point(46, 64);
             this.textEquation2.Name = "textEquation2";
-            this.textEquation2.Size = new System.Drawing.Size(530, 22);
+            this.textEquation2.Size = new System.Drawing.Size(499, 22);
             this.textEquation2.TabIndex = 54;
             // 
             // textEquation1
@@ -283,7 +339,7 @@
             this.textEquation1.Enabled = false;
             this.textEquation1.Location = new System.Drawing.Point(46, 32);
             this.textEquation1.Name = "textEquation1";
-            this.textEquation1.Size = new System.Drawing.Size(530, 22);
+            this.textEquation1.Size = new System.Drawing.Size(499, 22);
             this.textEquation1.TabIndex = 53;
             // 
             // enableEq3
@@ -642,6 +698,9 @@
         public System.Windows.Forms.TextBox textEquation2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ListBox listOfInvariants;
+        private System.Windows.Forms.Button verifyEq1;
+        private System.Windows.Forms.Button verifyEq3;
+        private System.Windows.Forms.Button verifyEq2;
     }
 }
 
