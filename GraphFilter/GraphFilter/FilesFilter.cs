@@ -43,11 +43,13 @@ namespace GraphFilter
                         if (form1.enableEq3.Checked)
                             condition = condition && BuildLogic.Text2BoolNCalc(form1.textEquation3.Text, new Graph(g6Line));
                         if (form1.enableRegular.Checked)
-                            condition = condition && BuildLogic.Condition1(new Graph(g6Line));
+                            condition = condition && BuildLogic.ConditionRegular(new Graph(g6Line));
                         if (form1.enableRegularWithK.Checked)
-                            condition = condition && BuildLogic.Condition2(new Graph(g6Line), Convert.ToInt32(form1.paramRegularWithDegree.Text));
+                            condition = condition && BuildLogic.ConditionRegularK(new Graph(g6Line), Convert.ToInt32(form1.paramRegularWithDegree.Text));
                         if (form1.enableIsConnected.Checked)
-                            condition = condition && BuildLogic.Condition3(new Graph(g6Line));
+                            condition = condition && BuildLogic.ConditionConnected(new Graph(g6Line));
+                        if (form1.enableIsPlanar.Checked)
+                            condition = condition && BuildLogic.ConditionPlanar(new Graph(g6Line));
                         if (condition)
                         {
                             numberOfGraphsOut++;

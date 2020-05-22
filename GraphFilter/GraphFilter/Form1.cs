@@ -5,12 +5,14 @@ using GraphX.Controls;
 using GraphX.Controls.Models;
 using GraphX.Logic.Algorithms.OverlapRemoval;
 using GraphX.Logic.Models;
+using MathNet.Numerics;
 using NCalc;
 using QuickGraph;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -18,10 +20,11 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace GraphFilter
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MetroFramework.Forms.MetroForm
     {
         #region Form1 properties
         Stream fileG6In;
@@ -37,7 +40,8 @@ namespace GraphFilter
             progressBar.Minimum = 0;
             progressBar.Maximum = 1;
 
-            listOfInvariants.Items.Clear();
+            //listOfInvariants.Items.Clear();
+            
             listOfInvariants.Items.Add(Invariant.Order.getCode() + " -> " + Invariant.Order.getName());
             listOfInvariants.Items.Add(Invariant.MaxDegree.getCode() + " -> " + Invariant.MaxDegree.getName());
             listOfInvariants.Items.Add(Invariant.MinDegree.getCode() + " -> " + Invariant.MinDegree.getName());
@@ -51,6 +55,13 @@ namespace GraphFilter
             listOfInvariants.Items.Add(Invariant.ChromaticNumber.getCode() + " -> " + Invariant.ChromaticNumber.getName());
             listOfInvariants.Items.Add(Invariant.IndependenceNumber.getCode() + " -> " + Invariant.IndependenceNumber.getName());
             listOfInvariants.Items.Add(Invariant.NumberSpanningTree.getCode() + " -> " + Invariant.NumberSpanningTree.getName());
+            listOfInvariants.ForeColor = System.Drawing.Color.Black;
+
+            //listOfInvariants.FocusedItem.BackColor = Color.White;
+            //listOfInvariants.BackColor = Color.Black;
+            //listOfInvariants.Items[1].ForeColor = System.Drawing.Color.Black;
+
+            invariant1.Text = (Invariant.Order.getCode() + " -> " + Invariant.Order.getName() + "\n" + Invariant.MaxDegree.getCode() + " -> " + Invariant.MaxDegree.getName());
 
             buttonFill.Enabled = false;
             buttonZoomOriginal.Enabled = false;
@@ -61,29 +72,29 @@ namespace GraphFilter
         }
         private void Form1_Resize(object sender, EventArgs e)
         {
-            groupBox3.Height = this.Height - 80;
-            listOfInvariants.Height = this.Height - 90;
+            groupBoxFiles.Width = this.Width - 320;
 
-            textoOrigem.Width = this.Width - 410;
-            textOutPath.Width = this.Width - 410;
-            textOpenExp.Width = this.Width - 410;
-            groupBox1.Width = this.Width - 303;
-            groupBox2.Width = this.Width - 303;
-            progressBar.Width = this.Width - 412;
+            textSource.Width = groupBoxFiles.Width - 120;
+            textOutPath.Width = groupBoxFiles.Width - 120;
 
-            textEquation1.Width = this.Width - 425;
-            textEquation2.Width = this.Width - 425;
-            textEquation3.Width = this.Width - 425;
+            groupBoxEq.Width = this.Width - 320;
+            groupBoxCondition.Width = this.Width - 320;
+            progressBar.Width = groupBoxCondition.Width - 115;
 
+            textEquation1.Width = groupBoxCondition.Width - 67;
+            textEquation2.Width = groupBoxCondition.Width - 67;
+            textEquation3.Width = groupBoxCondition.Width - 67;
 
+            tabControl.Width = this.Width - 40;
+            tabControl.Height = this.Height - 80;
 
             wpfHost.Width = this.Width - 185;
             wpfHost.Height = this.Height - 107;
-            textOpenViz.Width = this.Width - 185;
-            listOfG6.Height = this.Height - 100;
-            listOfG6Exp.Height = this.Height - 133;
+            textOpenViz.Width = this.Width - 200;
+            listOfG6.Height = this.Height - 180;
+            listOfG6Exp.Height = this.Height - 200;
 
-            textOpenExp.Width = this.Width - 185;
+            textOpenExp.Width = this.Width - 200;
         }
         private void listOfG6_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -114,7 +125,7 @@ namespace GraphFilter
                             progressBar.Maximum++;
                         }
                         progressBar.Maximum--;
-                        textoOrigem.Text = ofd.FileName;
+                        textSource.Text = ofd.FileName;
                         buttonSave.Enabled = true;
                     }
                 }
@@ -137,7 +148,7 @@ namespace GraphFilter
                 {
                     using (StreamWriter writer = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
                     {
-                        writer.Write(textoOrigem.Text);
+                        writer.Write(textSource.Text);
                         writer.Flush();
                         textOutPath.Text = sfd.FileName;
                         buttonSearch.Enabled = true;
@@ -171,6 +182,12 @@ namespace GraphFilter
                             g6Line = reader.ReadLine();
                         }
                         textOpenViz.Text = ofd.FileName;
+                        buttonFill.Enabled = true;
+                        buttonZoomOriginal.Enabled = true;
+                        buttonZoomIn.Enabled = true;
+                        buttonZoomOut.Enabled = true;
+                        buttonExp2PNG.Enabled = true;
+                        buttonPrint.Enabled = true;
                     }
                 }
                 catch (Exception ex)
@@ -480,6 +497,7 @@ namespace GraphFilter
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.Description = "Select file to export all graphs";
             fbd.ShowDialog();
+            //metroProgress.Visible = true;
             var path = fbd.SelectedPath;
 
             for (int i = 0; i < count; i++)
@@ -490,6 +508,8 @@ namespace GraphFilter
                 _gArea.SetVerticesDrag(true, true);
                 _gArea.ExportAsImage(fbd.SelectedPath + "\\" + i + ".png", ImageType.PNG, false, 96, 100);
             }
+
+            System.Windows.Forms.MessageBox.Show("Export finished!");
         }
 
         private void buttonExp2PNG_Click(object sender, EventArgs e)
@@ -514,7 +534,7 @@ namespace GraphFilter
 
         private void listOfG6Exp_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //buttonFill.Enabled = true;
         }
         private void visualization_Click(object sender, EventArgs e)
         {
@@ -621,7 +641,7 @@ namespace GraphFilter
         {
 
         }
-
+        
         private void loadingIndicatorControl1_Click(object sender, EventArgs e)
         {
 
@@ -677,6 +697,26 @@ namespace GraphFilter
 
                 System.Windows.Forms.MessageBox.Show("Invalid Equation!");
             }
+        }
+
+        private void listOfInvariants_MouseHover(object sender, EventArgs e)
+        {
+            //listOfInvariants.Items[0].BackColor = Color.Black;
+        }
+
+        private void listOfInvariants_MouseClick(object sender, MouseEventArgs e)
+        {
+             //ListViewVisualItemEventArgs 
+        }
+
+        private void listOfInvariants_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            //listOfInvariants.FocusedItem.BackColor = Color.White;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
 
         #endregion
