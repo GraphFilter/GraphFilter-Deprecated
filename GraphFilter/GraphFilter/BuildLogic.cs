@@ -27,7 +27,7 @@ namespace GraphFilter
         }
         public static bool ConditionPlanar(Graph g)
         {
-            return Invariant.IsConnected.Calculate(g);
+            return Invariant.IsPlanar.Calculate(g);
         }
         #endregion
 

@@ -31,6 +31,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.listOfInvariants = new System.Windows.Forms.ListView();
             this.groupBoxCondition = new System.Windows.Forms.GroupBox();
+            this.enableIsPlanar = new System.Windows.Forms.CheckBox();
             this.paramRegularWithDegree = new MetroFramework.Controls.MetroTextBox();
             this.enableIsConnected = new System.Windows.Forms.CheckBox();
             this.enableRegular = new System.Windows.Forms.CheckBox();
@@ -75,7 +76,6 @@
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
             this.metroProgress = new MetroFramework.Controls.MetroProgressSpinner();
             this.textOpenExp = new MetroFramework.Controls.MetroTextBox();
-            this.enableIsPlanar = new System.Windows.Forms.CheckBox();
             this.groupBox3.SuspendLayout();
             this.groupBoxCondition.SuspendLayout();
             this.groupBoxEq.SuspendLayout();
@@ -94,7 +94,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox3.Location = new System.Drawing.Point(591, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(359, 425);
+            this.groupBox3.Size = new System.Drawing.Size(359, 540);
             this.groupBox3.TabIndex = 51;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "List of Invariants";
@@ -109,7 +109,7 @@
             this.listOfInvariants.Location = new System.Drawing.Point(3, 18);
             this.listOfInvariants.MultiSelect = false;
             this.listOfInvariants.Name = "listOfInvariants";
-            this.listOfInvariants.Size = new System.Drawing.Size(353, 404);
+            this.listOfInvariants.Size = new System.Drawing.Size(353, 519);
             this.listOfInvariants.TabIndex = 1;
             this.listOfInvariants.UseCompatibleStateImageBehavior = false;
             this.listOfInvariants.View = System.Windows.Forms.View.List;
@@ -128,6 +128,17 @@
             this.groupBoxCondition.TabIndex = 8;
             this.groupBoxCondition.TabStop = false;
             this.groupBoxCondition.Text = "Condition";
+            // 
+            // enableIsPlanar
+            // 
+            this.enableIsPlanar.AutoSize = true;
+            this.enableIsPlanar.Location = new System.Drawing.Point(10, 112);
+            this.enableIsPlanar.Name = "enableIsPlanar";
+            this.enableIsPlanar.Size = new System.Drawing.Size(71, 21);
+            this.enableIsPlanar.TabIndex = 51;
+            this.enableIsPlanar.Text = "Planar";
+            this.enableIsPlanar.UseVisualStyleBackColor = true;
+            this.enableIsPlanar.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // paramRegularWithDegree
             // 
@@ -208,7 +219,7 @@
             // buttonSearch
             // 
             this.buttonSearch.Enabled = false;
-            this.buttonSearch.Location = new System.Drawing.Point(0, 414);
+            this.buttonSearch.Location = new System.Drawing.Point(6, 414);
             this.buttonSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(139, 40);
@@ -619,7 +630,7 @@
             this.tabControl.Location = new System.Drawing.Point(23, 73);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(958, 466);
+            this.tabControl.Size = new System.Drawing.Size(958, 581);
             this.tabControl.TabIndex = 52;
             this.tabControl.UseSelectable = true;
             // 
@@ -637,7 +648,7 @@
             this.metroTabPage1.HorizontalScrollbarSize = 10;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 37);
             this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(950, 425);
+            this.metroTabPage1.Size = new System.Drawing.Size(950, 540);
             this.metroTabPage1.TabIndex = 0;
             this.metroTabPage1.Text = "Filter Graphs";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
@@ -647,10 +658,11 @@
             // invariant1
             // 
             this.invariant1.AutoSize = true;
-            this.invariant1.Location = new System.Drawing.Point(3, 409);
+            this.invariant1.Location = new System.Drawing.Point(6, 456);
             this.invariant1.Name = "invariant1";
-            this.invariant1.Size = new System.Drawing.Size(0, 0);
+            this.invariant1.Size = new System.Drawing.Size(61, 20);
             this.invariant1.TabIndex = 2;
+            this.invariant1.Text = "Invariant";
             // 
             // progressBar
             // 
@@ -867,22 +879,11 @@
             this.textOpenExp.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.textOpenExp.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // enableIsPlanar
-            // 
-            this.enableIsPlanar.AutoSize = true;
-            this.enableIsPlanar.Location = new System.Drawing.Point(10, 112);
-            this.enableIsPlanar.Name = "enableIsPlanar";
-            this.enableIsPlanar.Size = new System.Drawing.Size(71, 21);
-            this.enableIsPlanar.TabIndex = 51;
-            this.enableIsPlanar.Text = "Planar";
-            this.enableIsPlanar.UseVisualStyleBackColor = true;
-            this.enableIsPlanar.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1272, 575);
+            this.ClientSize = new System.Drawing.Size(1272, 648);
             this.Controls.Add(this.tabControl);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimumSize = new System.Drawing.Size(720, 500);

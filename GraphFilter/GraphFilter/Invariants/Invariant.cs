@@ -250,7 +250,7 @@ namespace GraphFilter.Invariants
             public static string getCode() { return "K"; }
         }
 
-        public class PlanarityTest
+        public class IsPlanar
         {
             //https://github.com/OndrejNepozitek/GraphPlanarityTesting
             public static bool Calculate(Graph g)
