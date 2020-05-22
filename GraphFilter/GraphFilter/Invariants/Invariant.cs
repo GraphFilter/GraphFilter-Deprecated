@@ -4,6 +4,8 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using GraphPlanarityTesting.Graphs.DataStructures;
+using GraphPlanarityTesting.PlanarityTesting.BoyerMyrvold;
 using MathNet.Numerics.LinearAlgebra;
 using MathNet.Numerics.LinearAlgebra.Double;
 using MathNet.Numerics.LinearAlgebra.Factorization;
@@ -39,7 +41,6 @@ namespace GraphFilter.Invariants
             public static string getName() { return "Spectral Radius"; }
             public static string getCode() { return "H"; }
         }
-
 
         public class LaplacianEnergy
         {
@@ -248,6 +249,27 @@ namespace GraphFilter.Invariants
 
             public static string getCode() { return "K"; }
         }
+
+        public class PlanarityTest
+        {
+            //https://github.com/OndrejNepozitek/GraphPlanarityTesting
+            public static bool Calculate(Graph g)
+            {
+                var graph = new UndirectedAdjacencyListGraph<int>();
+                for (int i = 0; i < g.order; i++) graph.AddVertex(i);
+
+                for (int i = 0; i < g.order; i++)
+                    for (int j = i+1; j < g.order; j++)
+                        if (g.adjacencyMatrix[i,j]==1) graph.AddEdge(i,j);
+
+                var boyerMyrvold = new BoyerMyrvold<int>();
+                return boyerMyrvold.IsPlanar(graph);
+            }
+
+            public static string getName() { return "Planarity Test"; }
+
+        }
+
     }
 
 }
