@@ -27,7 +27,7 @@ namespace GraphFilter.Invariants
             }
             public static string getName() { return "Algebraic Connectivity"; }
 
-            public static string getCode() { return "a"; }
+            public static string getCode() { return "ac"; }
         }
 
         public class SpectralRadius
