@@ -17,34 +17,34 @@ namespace GraphFilter.Invariants.Tests
         [TestMethod()]
         public void MaxTest()
         {
-            Assert.AreEqual(5, Invariant.MaxDegree.Calculate(wheel_6));
+            Assert.AreEqual(5, InvariantNum.MaxDegree.Calculate(wheel_6));
         }
 
         [TestMethod()]
         public void MinTest()
         {
-            Assert.AreEqual(3, Invariant.MinDegree.Calculate(wheel_6));
+            Assert.AreEqual(3, InvariantNum.MinDegree.Calculate(wheel_6));
         }
 
         [TestMethod()]
         public void AverageTest()
         {
-            Assert.IsTrue(Invariant.AverageDegree.Calculate(wheel_6) > 3.33 && Invariant.AverageDegree.Calculate(wheel_6) < 3.34);
+            Assert.IsTrue(InvariantNum.AverageDegree.Calculate(wheel_6) > 3.33 && InvariantNum.AverageDegree.Calculate(wheel_6) < 3.34);
         }
 
         [TestMethod()]
         public void IsRegularTest()
         {
-            Assert.IsFalse(Invariant.IsRegular.Calculate(wheel_6));
-            Assert.IsTrue(Invariant.IsRegular.Calculate(GraphHelper.Complete(5)));
+            Assert.IsFalse(InvariantBool.IsRegular.Calculate(wheel_6));
+            Assert.IsTrue(InvariantBool.IsRegular.Calculate(GraphHelper.Complete(5)));
         }
 
         [TestMethod()]
         public void IsRegularWithDegreeTest()
         {
-            Assert.IsFalse(Invariant.IsRegularWithDegree.Calculate(wheel_6, 3));
-            Assert.IsTrue(Invariant.IsRegularWithDegree.Calculate(GraphHelper.Complete(5), 4));
-            Assert.IsFalse(Invariant.IsRegularWithDegree.Calculate(GraphHelper.Complete(5), 5));
+            Assert.IsFalse(InvariantBool.IsRegularWithDegree.Calculate(wheel_6, 3));
+            Assert.IsTrue(InvariantBool.IsRegularWithDegree.Calculate(GraphHelper.Complete(5), 4));
+            Assert.IsFalse(InvariantBool.IsRegularWithDegree.Calculate(GraphHelper.Complete(5), 5));
         }
     }
 }

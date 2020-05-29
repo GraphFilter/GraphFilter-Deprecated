@@ -40,28 +40,7 @@ namespace GraphFilter
             progressBar.Minimum = 0;
             progressBar.Maximum = 1;
 
-            //listOfInvariants.Items.Clear();
-            
-            listOfInvariants.Items.Add(Invariant.Order.getCode() + " -> " + Invariant.Order.getName());
-            listOfInvariants.Items.Add(Invariant.MaxDegree.getCode() + " -> " + Invariant.MaxDegree.getName());
-            listOfInvariants.Items.Add(Invariant.MinDegree.getCode() + " -> " + Invariant.MinDegree.getName());
-            listOfInvariants.Items.Add(Invariant.AverageDegree.getCode() + " -> " + Invariant.AverageDegree.getName());
-            listOfInvariants.Items.Add(Invariant.CliqueNumber.getCode() + " -> " + Invariant.CliqueNumber.getName());
-            listOfInvariants.Items.Add(Invariant.Diameter.getCode() + " -> " + Invariant.Diameter.getName());
-            listOfInvariants.Items.Add(Invariant.AlgebricConnectivity.getCode() + " -> " + Invariant.AlgebricConnectivity.getName());
-            listOfInvariants.Items.Add(Invariant.SpectralRadius.getCode() + " -> " + Invariant.SpectralRadius.getName());
-            listOfInvariants.Items.Add(Invariant.LaplacianEnergy.getCode() + " -> " + Invariant.LaplacianEnergy.getName());
-            listOfInvariants.Items.Add(Invariant.AdjacencyEnergy.getCode() + " -> " + Invariant.AdjacencyEnergy.getName());
-            listOfInvariants.Items.Add(Invariant.ChromaticNumber.getCode() + " -> " + Invariant.ChromaticNumber.getName());
-            listOfInvariants.Items.Add(Invariant.IndependenceNumber.getCode() + " -> " + Invariant.IndependenceNumber.getName());
-            listOfInvariants.Items.Add(Invariant.NumberSpanningTree.getCode() + " -> " + Invariant.NumberSpanningTree.getName());
-            listOfInvariants.ForeColor = System.Drawing.Color.Black;
-
-            //listOfInvariants.FocusedItem.BackColor = Color.White;
-            //listOfInvariants.BackColor = Color.Black;
-            //listOfInvariants.Items[1].ForeColor = System.Drawing.Color.Black;
-
-            invariant1.Text = (Invariant.Order.getCode() + " -> " + Invariant.Order.getName() + "\n" + Invariant.MaxDegree.getCode() + " -> " + Invariant.MaxDegree.getName());
+            ListOfInvariants.Text = InvariantNum.AllNames();
 
             buttonFill.Enabled = false;
             buttonZoomOriginal.Enabled = false;
@@ -715,6 +694,11 @@ namespace GraphFilter
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void invariant1_Click(object sender, EventArgs e)
         {
 
         }
