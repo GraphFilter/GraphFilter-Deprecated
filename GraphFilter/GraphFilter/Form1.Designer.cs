@@ -76,6 +76,7 @@
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
             this.metroProgress = new MetroFramework.Controls.MetroProgressSpinner();
             this.textOpenExp = new MetroFramework.Controls.MetroTextBox();
+            this.checkUpdatesBtn = new MetroFramework.Controls.MetroButton();
             this.groupBox3.SuspendLayout();
             this.groupBoxCondition.SuspendLayout();
             this.groupBoxEq.SuspendLayout();
@@ -627,7 +628,7 @@
             this.tabControl.Controls.Add(this.metroTabPage2);
             this.tabControl.Controls.Add(this.metroTabPage3);
             this.tabControl.FontSize = MetroFramework.MetroTabControlSize.Small;
-            this.tabControl.Location = new System.Drawing.Point(23, 73);
+            this.tabControl.Location = new System.Drawing.Point(23, 72);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(958, 581);
@@ -775,7 +776,7 @@
             this.metroTabPage2.HorizontalScrollbarSize = 10;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 37);
             this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(950, 425);
+            this.metroTabPage2.Size = new System.Drawing.Size(950, 540);
             this.metroTabPage2.TabIndex = 1;
             this.metroTabPage2.Text = "Visualization";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
@@ -827,7 +828,7 @@
             this.metroTabPage3.HorizontalScrollbarSize = 10;
             this.metroTabPage3.Location = new System.Drawing.Point(4, 37);
             this.metroTabPage3.Name = "metroTabPage3";
-            this.metroTabPage3.Size = new System.Drawing.Size(950, 425);
+            this.metroTabPage3.Size = new System.Drawing.Size(950, 540);
             this.metroTabPage3.TabIndex = 2;
             this.metroTabPage3.Text = "Export";
             this.metroTabPage3.VerticalScrollbarBarColor = true;
@@ -879,11 +880,31 @@
             this.textOpenExp.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.textOpenExp.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // checkUpdatesBtn
+            // 
+            this.checkUpdatesBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkUpdatesBtn.BackColor = System.Drawing.Color.Transparent;
+            this.checkUpdatesBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.checkUpdatesBtn.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.checkUpdatesBtn.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.checkUpdatesBtn.Location = new System.Drawing.Point(839, 63);
+            this.checkUpdatesBtn.Name = "checkUpdatesBtn";
+            this.checkUpdatesBtn.Size = new System.Drawing.Size(142, 23);
+            this.checkUpdatesBtn.Style = MetroFramework.MetroColorStyle.Blue;
+            this.checkUpdatesBtn.TabIndex = 53;
+            this.checkUpdatesBtn.Text = "Check Updates";
+            this.checkUpdatesBtn.UseCustomBackColor = true;
+            this.checkUpdatesBtn.UseCustomForeColor = true;
+            this.checkUpdatesBtn.UseSelectable = true;
+            this.checkUpdatesBtn.UseStyleColors = true;
+            this.checkUpdatesBtn.Click += new System.EventHandler(this.checkUpdatesBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1272, 648);
+            this.ClientSize = new System.Drawing.Size(1272, 851);
+            this.Controls.Add(this.checkUpdatesBtn);
             this.Controls.Add(this.tabControl);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimumSize = new System.Drawing.Size(720, 500);
@@ -957,6 +978,7 @@
         private System.Windows.Forms.ListView listOfInvariants;
         private MetroFramework.Controls.MetroLabel invariant1;
         public System.Windows.Forms.CheckBox enableIsPlanar;
+        private MetroFramework.Controls.MetroButton checkUpdatesBtn;
     }
 }
 
