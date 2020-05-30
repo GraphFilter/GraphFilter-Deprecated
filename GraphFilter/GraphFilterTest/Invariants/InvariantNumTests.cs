@@ -52,6 +52,4 @@ namespace GraphFilter.Invariants.Tests
         }
 
     }
-
-
 }

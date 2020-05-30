@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.listOfInvariants = new System.Windows.Forms.ListView();
             this.groupBoxCondition = new System.Windows.Forms.GroupBox();
             this.enableIsPlanar = new System.Windows.Forms.CheckBox();
             this.paramRegularWithDegree = new MetroFramework.Controls.MetroTextBox();
@@ -65,7 +63,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.tabControl = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
-            this.invariant1 = new MetroFramework.Controls.MetroLabel();
+            this.ListOfInvariants = new MetroFramework.Controls.MetroLabel();
             this.progressBar = new MetroFramework.Controls.MetroProgressBar();
             this.groupBoxFiles = new System.Windows.Forms.GroupBox();
             this.textOutPath = new MetroFramework.Controls.MetroTextBox();
@@ -77,7 +75,6 @@
             this.metroProgress = new MetroFramework.Controls.MetroProgressSpinner();
             this.textOpenExp = new MetroFramework.Controls.MetroTextBox();
             this.checkUpdatesBtn = new MetroFramework.Controls.MetroButton();
-            this.groupBox3.SuspendLayout();
             this.groupBoxCondition.SuspendLayout();
             this.groupBoxEq.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -87,33 +84,6 @@
             this.metroTabPage2.SuspendLayout();
             this.metroTabPage3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.BackColor = System.Drawing.SystemColors.Window;
-            this.groupBox3.Controls.Add(this.listOfInvariants);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox3.Location = new System.Drawing.Point(591, 0);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(359, 540);
-            this.groupBox3.TabIndex = 51;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "List of Invariants";
-            // 
-            // listOfInvariants
-            // 
-            this.listOfInvariants.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listOfInvariants.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listOfInvariants.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.listOfInvariants.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listOfInvariants.HideSelection = false;
-            this.listOfInvariants.Location = new System.Drawing.Point(3, 18);
-            this.listOfInvariants.MultiSelect = false;
-            this.listOfInvariants.Name = "listOfInvariants";
-            this.listOfInvariants.Size = new System.Drawing.Size(353, 519);
-            this.listOfInvariants.TabIndex = 1;
-            this.listOfInvariants.UseCompatibleStateImageBehavior = false;
-            this.listOfInvariants.View = System.Windows.Forms.View.List;
             // 
             // groupBoxCondition
             // 
@@ -637,10 +607,9 @@
             // 
             // metroTabPage1
             // 
-            this.metroTabPage1.Controls.Add(this.invariant1);
+            this.metroTabPage1.Controls.Add(this.ListOfInvariants);
             this.metroTabPage1.Controls.Add(this.progressBar);
             this.metroTabPage1.Controls.Add(this.groupBoxFiles);
-            this.metroTabPage1.Controls.Add(this.groupBox3);
             this.metroTabPage1.Controls.Add(this.groupBoxCondition);
             this.metroTabPage1.Controls.Add(this.buttonSearch);
             this.metroTabPage1.Controls.Add(this.groupBoxEq);
@@ -656,14 +625,15 @@
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
             // 
-            // invariant1
+            // ListOfInvariants
             // 
-            this.invariant1.AutoSize = true;
-            this.invariant1.Location = new System.Drawing.Point(6, 456);
-            this.invariant1.Name = "invariant1";
-            this.invariant1.Size = new System.Drawing.Size(61, 20);
-            this.invariant1.TabIndex = 2;
-            this.invariant1.Text = "Invariant";
+            this.ListOfInvariants.AutoSize = true;
+            this.ListOfInvariants.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ListOfInvariants.Location = new System.Drawing.Point(889, 0);
+            this.ListOfInvariants.Name = "ListOfInvariants";
+            this.ListOfInvariants.Size = new System.Drawing.Size(61, 20);
+            this.ListOfInvariants.TabIndex = 2;
+            this.ListOfInvariants.Text = "Invariant";
             // 
             // progressBar
             // 
@@ -882,7 +852,7 @@
             // 
             // checkUpdatesBtn
             // 
-            this.checkUpdatesBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkUpdatesBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.checkUpdatesBtn.BackColor = System.Drawing.Color.Transparent;
             this.checkUpdatesBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.checkUpdatesBtn.FontWeight = MetroFramework.MetroButtonWeight.Regular;
@@ -913,7 +883,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);
-            this.groupBox3.ResumeLayout(false);
             this.groupBoxCondition.ResumeLayout(false);
             this.groupBoxCondition.PerformLayout();
             this.groupBoxEq.ResumeLayout(false);
@@ -954,7 +923,6 @@
         private System.Windows.Forms.Integration.ElementHost elementHost;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonPrint;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button verifyEq1;
         private System.Windows.Forms.Button verifyEq3;
         private System.Windows.Forms.Button verifyEq2;
@@ -975,8 +943,7 @@
         public MetroFramework.Controls.MetroTextBox textOpenViz;
         private MetroFramework.Controls.MetroTextBox textOpenExp;
         private MetroFramework.Controls.MetroProgressSpinner metroProgress;
-        private System.Windows.Forms.ListView listOfInvariants;
-        private MetroFramework.Controls.MetroLabel invariant1;
+        private MetroFramework.Controls.MetroLabel ListOfInvariants;
         public System.Windows.Forms.CheckBox enableIsPlanar;
         private MetroFramework.Controls.MetroButton checkUpdatesBtn;
     }
