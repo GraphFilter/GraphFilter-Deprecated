@@ -15,19 +15,19 @@ namespace GraphFilter
         #region Invariants boolean
         public static bool ConditionRegular(Graph g)
         {
-            return Invariant.IsRegular.Calculate(g);
+            return InvariantBool.IsRegular.Calculate(g);
         }
         public static bool ConditionRegularK(Graph g, int k)
         {
-            return Invariant.IsRegularWithDegree.Calculate(g, k);
+            return InvariantBool.IsRegularWithDegree.Calculate(g, k);
         }
         public static bool ConditionConnected(Graph g)
         {
-            return Invariant.IsConnected.Calculate(g);
+            return InvariantBool.IsConnected.Calculate(g);
         }
         public static bool ConditionPlanar(Graph g)
         {
-            return Invariant.IsPlanar.Calculate(g);
+            return InvariantBool.IsPlanar.Calculate(g);
         }
         #endregion
 
@@ -38,19 +38,20 @@ namespace GraphFilter
 
             ex.EvaluateFunction += delegate (string name, FunctionArgs args)
             {
-                if (name == Invariant.Order.getCode()) args.Result = Invariant.Order.Calculate(g);
-                if (name == Invariant.MaxDegree.getCode()) args.Result = Invariant.MaxDegree.Calculate(g);
-                if (name == Invariant.MinDegree.getCode()) args.Result = Invariant.MinDegree.Calculate(g);
-                if (name == Invariant.AverageDegree.getCode()) args.Result = Invariant.AverageDegree.Calculate(g);
-                if (name == Invariant.CliqueNumber.getCode()) args.Result = Invariant.CliqueNumber.Calculate(g);
-                if (name == Invariant.Diameter.getCode()) args.Result = Invariant.Diameter.Calculate(g);
-                if (name == Invariant.AlgebricConnectivity.getCode()) args.Result = Invariant.AlgebricConnectivity.Calculate(g);
-                if (name == Invariant.SpectralRadius.getCode()) args.Result = Invariant.SpectralRadius.Calculate(g);
-                if (name == Invariant.LaplacianEnergy.getCode()) args.Result = Invariant.LaplacianEnergy.Calculate(g);
-                if (name == Invariant.AdjacencyEnergy.getCode()) args.Result = Invariant.AdjacencyEnergy.Calculate(g);
-                if (name == Invariant.ChromaticNumber.getCode()) args.Result = Invariant.ChromaticNumber.Calculate(g);
-                if (name == Invariant.IndependenceNumber.getCode()) args.Result = Invariant.IndependenceNumber.Calculate(g);
-                if (name == Invariant.NumberSpanningTree.getCode()) args.Result = Invariant.NumberSpanningTree.Calculate(g);
+                if (name == InvariantNum.Order.getCode()) args.Result = InvariantNum.Order.Calculate(g);
+                if (name == InvariantNum.MaxDegree.getCode()) args.Result = InvariantNum.MaxDegree.Calculate(g);
+                if (name == InvariantNum.MinDegree.getCode()) args.Result = InvariantNum.MinDegree.Calculate(g);
+                if (name == InvariantNum.AverageDegree.getCode()) args.Result = InvariantNum.AverageDegree.Calculate(g);
+                if (name == InvariantNum.CliqueNumber.getCode()) args.Result = InvariantNum.CliqueNumber.Calculate(g);
+                if (name == InvariantNum.Diameter.getCode()) args.Result = InvariantNum.Diameter.Calculate(g);
+                if (name == InvariantNum.AlgebricConnectivity.getCode()) args.Result = InvariantNum.AlgebricConnectivity.Calculate(g);
+                if (name == InvariantNum.SpectralRadius.getCode()) args.Result = InvariantNum.SpectralRadius.Calculate(g);
+                if (name == InvariantNum.LaplacianEnergy.getCode()) args.Result = InvariantNum.LaplacianEnergy.Calculate(g);
+                if (name == InvariantNum.AdjacencyEnergy.getCode()) args.Result = InvariantNum.AdjacencyEnergy.Calculate(g);
+                if (name == InvariantNum.ChromaticNumber.getCode()) args.Result = InvariantNum.ChromaticNumber.Calculate(g);
+                if (name == InvariantNum.IndependenceNumber.getCode()) args.Result = InvariantNum.IndependenceNumber.Calculate(g);
+                if (name == InvariantNum.NumberSpanningTree.getCode()) args.Result = InvariantNum.NumberSpanningTree.Calculate(g);
+                if (name == InvariantNum.NumberOfEdges.getCode()) args.Result = InvariantNum.NumberOfEdges.Calculate(g);
             };
 
             if (ex.Evaluate().ToString() == "True") return true;

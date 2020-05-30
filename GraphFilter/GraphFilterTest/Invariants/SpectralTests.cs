@@ -16,30 +16,30 @@ namespace GraphFilter.Invariants.Tests
         [TestMethod()]
         public void algebraicConnectivityTest()
         {
-            double a = Invariant.AlgebricConnectivity.Calculate(wheel5); //a=2.381...
+            double a = InvariantNum.AlgebricConnectivity.Calculate(wheel5); //a=2.381...
             Assert.IsTrue(a < 2.382 && a > 2.38);
             Graph g = GraphHelper.Complete(7);
-            Assert.IsTrue(Invariant.AlgebricConnectivity.Calculate(g) == 7);
+            Assert.IsTrue(InvariantNum.AlgebricConnectivity.Calculate(g) == 7);
         }
 
         [TestMethod()]
         public void SpectralRadiusTest()
         {
-            double a = Invariant.SpectralRadius.Calculate(wheel5); 
+            double a = InvariantNum.SpectralRadius.Calculate(wheel5); 
             Assert.IsTrue(a < 3.4495 && a > 3.4494);
         }
 
         [TestMethod()]
         public void LaplacianEnergyTest()
         {
-            double a = Invariant.LaplacianEnergy.Calculate(wheel5); 
+            double a = InvariantNum.LaplacianEnergy.Calculate(wheel5); 
             Assert.IsTrue(a ==20);
         }
 
         [TestMethod()]
         public void AdjacencyEnergyTest()
         {
-            double a = Invariant.AdjacencyEnergy.Calculate(wheel5); 
+            double a = InvariantNum.AdjacencyEnergy.Calculate(wheel5); 
             Assert.IsTrue(a < 9.38 && a > 9.37);
         }
     }

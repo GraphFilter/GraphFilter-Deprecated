@@ -27,14 +27,14 @@ namespace GraphFilter.Invariants.Tests
         [TestMethod()]
         public void DiameterTest()
         {
-            Assert.AreEqual(2, Invariant.Diameter.Calculate(g));
+            Assert.AreEqual(2, InvariantNum.Diameter.Calculate(g));
         }
 
         [TestMethod()]
         public void IsConnectedTest()
         {
-            Assert.IsTrue(Invariant.IsConnected.Calculate(g));
-            Assert.IsFalse(Invariant.IsConnected.Calculate(h));
+            Assert.IsTrue(InvariantBool.IsConnected.Calculate(g));
+            Assert.IsFalse(InvariantBool.IsConnected.Calculate(h));
         }
     }
 }

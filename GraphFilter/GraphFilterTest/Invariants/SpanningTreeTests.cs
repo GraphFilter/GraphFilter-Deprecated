@@ -19,9 +19,9 @@ namespace GraphFilter.Invariants.Tests
         [TestMethod()]
         public void NumberSpanningTreeTest()
         {
-            Assert.AreEqual(11, Invariant.NumberSpanningTree.Calculate(h));
-            Assert.AreEqual(1296, Invariant.NumberSpanningTree.Calculate(g));
-            Assert.AreEqual(121, Invariant.NumberSpanningTree.Calculate(r));
+            Assert.AreEqual(11, InvariantNum.NumberSpanningTree.Calculate(h));
+            Assert.AreEqual(1296, InvariantNum.NumberSpanningTree.Calculate(g));
+            Assert.AreEqual(121, InvariantNum.NumberSpanningTree.Calculate(r));
         }
     }
 }

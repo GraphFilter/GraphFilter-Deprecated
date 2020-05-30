@@ -105,12 +105,14 @@
     <Compile Include="Invariants\ColoringTests.cs" />
     <Compile Include="Invariants\DegreeTests.cs" />
     <Compile Include="Invariants\DistancesTests.cs" />
+    <Compile Include="Invariants\InvariantNumTests.cs" />
     <Compile Include="Invariants\SpanningTreeTests.cs" />
     <Compile Include="Invariants\SpectralTests.cs" />
     <Compile Include="OperationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="g6Files\cograph11vertices.g6" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ using MathNet.Numerics.LinearAlgebra.Factorization;
 
 namespace GraphFilter.Invariants
 {
-    public static class Invariant
+    public static class InvariantNum
     {
         public class AlgebricConnectivity
         {
@@ -26,7 +27,7 @@ namespace GraphFilter.Invariants
             }
             public static string getName() { return "Algebraic Connectivity"; }
 
-            public static string getCode() { return "G"; }
+            public static string getCode() { return "ac"; }
         }
 
         public class SpectralRadius
@@ -39,7 +40,7 @@ namespace GraphFilter.Invariants
                 return eigenvalues.ElementAt(g.order - 1).Real;
             }
             public static string getName() { return "Spectral Radius"; }
-            public static string getCode() { return "H"; }
+            public static string getCode() { return "lambda"; }
         }
 
         public class LaplacianEnergy
@@ -54,7 +55,7 @@ namespace GraphFilter.Invariants
                 return energy;
             }
             public static string getName() { return "Laplacian Energy"; }
-            public static string getCode() { return "I"; }
+            public static string getCode() { return "El"; }
         }
 
         public class AdjacencyEnergy
@@ -69,7 +70,7 @@ namespace GraphFilter.Invariants
                 return energy;
             }
             public static string getName() { return "Energy"; }
-            public static string getCode() { return "J"; }
+            public static string getCode() { return "Ea"; }
         }
 
         public class NumberSpanningTree
@@ -82,7 +83,7 @@ namespace GraphFilter.Invariants
             }
             public static string getName() { return "Number of spanning trees"; }
 
-            public static string getCode() { return "M"; }
+            public static string getCode() { return "spnt"; }
         }
 
         public class Diameter
@@ -98,35 +99,17 @@ namespace GraphFilter.Invariants
             }
             public static string getName() { return "Diameter"; }
 
-            public static string getCode() { return "F"; }
+            public static string getCode() { return "diam"; }
         }
 
-        public class IsConnected
-        {
-            public static bool Calculate(Graph g)
-            {
-                int[,] dist = Utils.Distance.Matrix(g);
-                for (int i = 0; i < g.order; i++)
-                {
-                    for (int j = i + 1; j < g.order; j++)
-                    {
-                        if (dist[i, j] == 1000000 || dist[j, i] == 1000000)
-                        {
-                            return false;
-                        }
-                    }
-                }
-                return true;
-            }
-            public static string getName() { return "Is a connected graph?"; }
-        }
+        
 
         public class MaxDegree
         {
             public static int Calculate(Graph g) { return g.sequenceDegree.Max(); }
             public static string getName() { return "Max Degree"; }
 
-            public static string getCode() { return "B"; }
+            public static string getCode() { return "Delta"; }
 
         }
 
@@ -134,7 +117,7 @@ namespace GraphFilter.Invariants
         {
             public static int Calculate(Graph g) { return g.sequenceDegree.Min(); }
             public static string getName() { return "Min Degree"; }
-            public static string getCode() { return "C"; }
+            public static string getCode() { return "d"; }
         }
 
         public class AverageDegree
@@ -144,34 +127,8 @@ namespace GraphFilter.Invariants
                 return g.sequenceDegree.Average();
             }
             public static string getName() { return "Average Degree"; }
-            public static string getCode() { return "D"; }
-        }
-
-        public class IsRegular
-        {
-            public static bool Calculate(Graph g)
-            {
-                for (int i = 0; i < g.order - 1; i++)
-                {
-                    if (g.sequenceDegree.ElementAt<int>(i) != g.sequenceDegree.ElementAt<int>(i + 1)) return false;
-                }
-                return true;
-            }
-            public static string getName() { return "Is a regular graph"; }
-        }
-
-        public class IsRegularWithDegree
-        {
-            public static bool Calculate(Graph g, int k)
-            {
-                for (int i = 0; i < g.order - 1; i++)
-                {
-                    if (g.sequenceDegree.ElementAt<int>(i) != k) return false;
-                }
-                return true;
-            }
-            public static string getName() { return "Is a regular graph with degree k"; }
-        }
+            public static string getCode() { return "delta"; }
+        }     
 
         public class Order
         {
@@ -182,7 +139,19 @@ namespace GraphFilter.Invariants
 
             public static string getName() { return "Order of Graph"; }
 
-            public static string getCode() { return "A"; }
+            public static string getCode() { return "n"; }
+        }
+
+        public class NumberOfEdges
+        {
+            public static int Calculate(Graph g)
+            {
+                return g.Edges().Count;
+            }
+
+            public static string getName() { return "Number of Edges"; }
+
+            public static string getCode() { return "m"; }
         }
 
         public class CliqueNumber
@@ -194,7 +163,7 @@ namespace GraphFilter.Invariants
             }
             public static string getName() { return "Clique Number"; }
 
-            public static string getCode() { return "E"; }
+            public static string getCode() { return "omega"; }
         }
 
         public class IndependenceNumber
@@ -202,7 +171,7 @@ namespace GraphFilter.Invariants
             public static int Calculate(Graph g) { return CliqueNumber.Calculate(Operation.Complement(g)); }
             public static string getName() { return "Independence Number"; }
 
-            public static string getCode() { return "L"; }
+            public static string getCode() { return "alpha"; }
 
 
         }
@@ -212,7 +181,7 @@ namespace GraphFilter.Invariants
             public static int Calculate(Graph g) { return CliqueNumber.Calculate(Operation.Complement(Operation.Line(g))); }
             public static string getName() { return "Matching Number"; }
 
-            public static string getCode() { return "L"; }
+            public static string getCode() { return "M"; }
         }
         
         public class ChromaticNumber
@@ -247,26 +216,27 @@ namespace GraphFilter.Invariants
             }
             public static string getName() { return "Chromatic Number"; }
 
-            public static string getCode() { return "K"; }
+            public static string getCode() { return "chi"; }
         }
 
-        public class IsPlanar
+        public static string AllNames()
         {
-            //https://github.com/OndrejNepozitek/GraphPlanarityTesting
-            public static bool Calculate(Graph g)
-            {
-                var graph = new UndirectedAdjacencyListGraph<int>();
-                for (int i = 0; i < g.order; i++) graph.AddVertex(i);
-
-                for (int i = 0; i < g.order; i++)
-                    for (int j = i+1; j < g.order; j++)
-                        if (g.adjacencyMatrix[i,j]==1) graph.AddEdge(i,j);
-
-                var boyerMyrvold = new BoyerMyrvold<int>();
-                return boyerMyrvold.IsPlanar(graph);
-            }
-
-            public static string getName() { return "Planarity Test"; }
+            List<string> names = new List<string>();
+            names.Add(AlgebricConnectivity.getCode() + ": "+AlgebricConnectivity.getName()+"\n");
+            names.Add(SpectralRadius.getCode() + ": " + SpectralRadius.getName() + "\n");
+            names.Add(LaplacianEnergy.getCode() + ": " + LaplacianEnergy.getName() + "\n");
+            names.Add(AdjacencyEnergy.getCode() + ": " + AdjacencyEnergy.getName() + "\n");
+            names.Add(NumberSpanningTree.getCode() + ": " + NumberSpanningTree.getName() + "\n");
+            names.Add(Diameter.getCode() + ": " + Diameter.getName() + "\n");
+            names.Add(MaxDegree.getCode() + ": " + MaxDegree.getName() + "\n");
+            names.Add(MinDegree.getCode() + ": " + MinDegree.getName() + "\n");
+            names.Add(AverageDegree.getCode() + ": " + AverageDegree.getName() + "\n");
+            names.Add(Order.getCode() + ": " + Order.getName() + "\n");
+            names.Add(CliqueNumber.getCode() + ": " + CliqueNumber.getName() + "\n");
+            names.Add(IndependenceNumber.getCode() + ": " + IndependenceNumber.getName() + "\n");
+            names.Add(MatchingNumber.getCode() + ": " + MatchingNumber.getName() + "\n");
+            names.Add(ChromaticNumber.getCode() + ": " + ChromaticNumber.getName() + "\n");
+            return String.Concat(names);
 
         }
 
