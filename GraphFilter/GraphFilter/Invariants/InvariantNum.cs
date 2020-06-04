@@ -153,7 +153,11 @@ namespace GraphFilter.Invariants
             public static int Calculate(Graph g)
             {
                 if (g.order == 0) return 0;
-                return g.Edges().Count;
+                int m = 0;
+                for (int i = 0; i < g.order; i++)
+                    for (int j = i+1; j < g.order; j++)
+                        m = m + g.adjacencyMatrix[i, j];
+                return m;
             }
 
             public static string getName() { return "Number of Edges"; }
@@ -192,10 +196,11 @@ namespace GraphFilter.Invariants
             public static int Calculate(Graph g) {
                 if (g.order == 0) return 0;
                 return IndependenceNumber.Calculate(Operation.Line(g));
+                
             }
             public static string getName() { return "Matching Number"; }
 
-            public static string getCode() { return "M"; }
+            public static string getCode() { return "Mx"; }
         }
         
         public class ChromaticNumber

@@ -40,7 +40,9 @@ namespace GraphFilter.Invariant.Tests
         [TestMethod()]
         public void CliqueNumberTEST()
         {
+            Assert.IsTrue(Execute("cliqueNumber4", InvariantNum.CliqueNumber.getCode() + "()=4"));
             Assert.IsTrue(Execute("cliqueNumber5", InvariantNum.CliqueNumber.getCode() + "()=5"));
+            Assert.IsTrue(Execute("cliqueNumber7", InvariantNum.CliqueNumber.getCode() + "()=7"));
         }
         
         [TestMethod()]
@@ -83,7 +85,7 @@ namespace GraphFilter.Invariant.Tests
         [TestMethod()]//COM ERRO
         public void MatchingNumberTEST()
         {
-            Assert.IsTrue(Execute("matchingNumber6", InvariantNum.MatchingNumber.getCode() + "()=6"));
+            Assert.IsTrue(Execute("matchingNumber5", InvariantNum.MatchingNumber.getCode() + "()=5"));
         }
 
         [TestMethod()]//COM ERRO

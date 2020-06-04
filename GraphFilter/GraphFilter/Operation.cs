@@ -31,6 +31,7 @@ namespace GraphFilter
                 dic[m] = edge;
                 m++;
             }
+            m--;
             int[,] lineMatrix = new int[m, m];
             for (int i = 0; i < m; i++)
             {
@@ -43,8 +44,23 @@ namespace GraphFilter
                     } 
                 }
             }
-
-            //deve retornar um Grafo linha do grafo de entrada
+            /*int i = 0;
+            int j = 0;
+            int m = g.Edges().Count;
+            int[,] lineMatrix = new int[m, m];
+            foreach (int[] edge1 in g.Edges())
+            {
+                foreach (int[] edge2 in g.Edges())
+                {
+                    if (edge1[0] == edge2[0] || edge1[0] == edge2[1] || edge1[1] == edge2[0] || edge1[1] == edge2[1])
+                    {
+                        lineMatrix[i, j] = 1;
+                        lineMatrix[j, i] = 1;
+                    }
+                    j++;
+                }
+                i++;
+            }*/
             return new Graph(lineMatrix);
         }
 
