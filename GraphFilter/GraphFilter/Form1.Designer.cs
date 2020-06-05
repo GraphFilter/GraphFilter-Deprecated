@@ -72,9 +72,10 @@
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
             this.textOpenViz = new MetroFramework.Controls.MetroTextBox();
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
+            this.metroProgressSpinner = new MetroFramework.Controls.MetroProgressSpinner();
             this.metroProgress = new MetroFramework.Controls.MetroProgressSpinner();
             this.textOpenExp = new MetroFramework.Controls.MetroTextBox();
-            this.checkUpdatesBtn = new MetroFramework.Controls.MetroButton();
+            this.version = new MetroFramework.Controls.MetroLabel();
             this.groupBoxCondition.SuspendLayout();
             this.groupBoxEq.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -600,7 +601,7 @@
             this.tabControl.FontSize = MetroFramework.MetroTabControlSize.Small;
             this.tabControl.Location = new System.Drawing.Point(23, 72);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
+            this.tabControl.SelectedIndex = 2;
             this.tabControl.Size = new System.Drawing.Size(958, 581);
             this.tabControl.TabIndex = 52;
             this.tabControl.UseSelectable = true;
@@ -786,6 +787,7 @@
             // 
             // metroTabPage3
             // 
+            this.metroTabPage3.Controls.Add(this.metroProgressSpinner);
             this.metroTabPage3.Controls.Add(this.pictureBox1);
             this.metroTabPage3.Controls.Add(this.elementHost);
             this.metroTabPage3.Controls.Add(this.metroProgress);
@@ -804,6 +806,21 @@
             this.metroTabPage3.VerticalScrollbarBarColor = true;
             this.metroTabPage3.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage3.VerticalScrollbarSize = 10;
+            // 
+            // metroProgressSpinner
+            // 
+            this.metroProgressSpinner.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroProgressSpinner.Location = new System.Drawing.Point(484, 179);
+            this.metroProgressSpinner.Margin = new System.Windows.Forms.Padding(0);
+            this.metroProgressSpinner.Maximum = 100;
+            this.metroProgressSpinner.MaximumSize = new System.Drawing.Size(220, 220);
+            this.metroProgressSpinner.MinimumSize = new System.Drawing.Size(220, 220);
+            this.metroProgressSpinner.Name = "metroProgressSpinner";
+            this.metroProgressSpinner.Size = new System.Drawing.Size(220, 220);
+            this.metroProgressSpinner.Speed = 3F;
+            this.metroProgressSpinner.TabIndex = 11;
+            this.metroProgressSpinner.UseSelectable = true;
+            this.metroProgressSpinner.Visible = false;
             // 
             // metroProgress
             // 
@@ -850,31 +867,22 @@
             this.textOpenExp.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.textOpenExp.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // checkUpdatesBtn
+            // version
             // 
-            this.checkUpdatesBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.checkUpdatesBtn.BackColor = System.Drawing.Color.Transparent;
-            this.checkUpdatesBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.checkUpdatesBtn.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.checkUpdatesBtn.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.checkUpdatesBtn.Location = new System.Drawing.Point(839, 63);
-            this.checkUpdatesBtn.Name = "checkUpdatesBtn";
-            this.checkUpdatesBtn.Size = new System.Drawing.Size(142, 23);
-            this.checkUpdatesBtn.Style = MetroFramework.MetroColorStyle.Blue;
-            this.checkUpdatesBtn.TabIndex = 53;
-            this.checkUpdatesBtn.Text = "Check Updates";
-            this.checkUpdatesBtn.UseCustomBackColor = true;
-            this.checkUpdatesBtn.UseCustomForeColor = true;
-            this.checkUpdatesBtn.UseSelectable = true;
-            this.checkUpdatesBtn.UseStyleColors = true;
-            this.checkUpdatesBtn.Click += new System.EventHandler(this.checkUpdatesBtn_Click);
+            this.version.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.version.AutoSize = true;
+            this.version.Location = new System.Drawing.Point(816, 46);
+            this.version.Name = "version";
+            this.version.Size = new System.Drawing.Size(78, 20);
+            this.version.TabIndex = 53;
+            this.version.Text = "Version: 1.0";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1272, 851);
-            this.Controls.Add(this.checkUpdatesBtn);
+            this.Controls.Add(this.version);
             this.Controls.Add(this.tabControl);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimumSize = new System.Drawing.Size(720, 500);
@@ -895,6 +903,7 @@
             this.metroTabPage2.ResumeLayout(false);
             this.metroTabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -945,7 +954,8 @@
         private MetroFramework.Controls.MetroProgressSpinner metroProgress;
         private MetroFramework.Controls.MetroLabel ListOfInvariants;
         public System.Windows.Forms.CheckBox enableIsPlanar;
-        private MetroFramework.Controls.MetroButton checkUpdatesBtn;
+        private MetroFramework.Controls.MetroProgressSpinner metroProgressSpinner;
+        private MetroFramework.Controls.MetroLabel version;
     }
 }
 

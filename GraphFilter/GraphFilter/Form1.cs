@@ -77,6 +77,11 @@ namespace GraphFilter
             listOfG6Exp.Height = this.Height - 200;
 
             textOpenExp.Width = this.Width - 200;
+
+            metroProgressSpinner.Top = listOfG6Exp.Height / 2;
+            metroProgressSpinner.Left = textOpenExp.Width / 2;
+
+            version.Left = this.Width - 120;
         }
         private void listOfG6_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -479,18 +484,22 @@ namespace GraphFilter
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.Description = "Select file to export all graphs";
             fbd.ShowDialog();
-            //metroProgress.Visible = true;
             var path = fbd.SelectedPath;
+            metroProgressSpinner.Value = 0;
+            metroProgressSpinner.Visible = true;
 
             for (int i = 0; i < count; i++)
             {
+                if (metroProgressSpinner.Value == 100) metroProgressSpinner.Value = 0;
                 elementHost.Child = GenerateWpfVisual2Export(listOfG6Exp.Items[i].ToString());
                 _gArea.GenerateGraph(true);
                 _gArea.ShowAllEdgesLabels(false);
                 _gArea.SetVerticesDrag(true, true);
                 _gArea.ExportAsImage(fbd.SelectedPath + "\\" + i + ".png", ImageType.PNG, false, 96, 100);
+                metroProgressSpinner.Value++;
             }
-
+            metroProgressSpinner.Visible = false;
+            metroProgressSpinner.Enabled = false;
             System.Windows.Forms.MessageBox.Show("Export finished!");
         }
 
@@ -762,9 +771,15 @@ namespace GraphFilter
                 }
             }
         }
+
+        private void CheckUpdateButton_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 
     #endregion
+
 
 
     /*[DllImport("BoostLib.dll", EntryPoint = "mixed_mode_multiply", CallingConvention = CallingConvention.StdCall)]
