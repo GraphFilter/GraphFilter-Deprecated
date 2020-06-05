@@ -52,6 +52,7 @@ namespace GraphFilter
                 if (name == InvariantNum.IndependenceNumber.getCode()) args.Result = InvariantNum.IndependenceNumber.Calculate(g);
                 if (name == InvariantNum.NumberSpanningTree.getCode()) args.Result = InvariantNum.NumberSpanningTree.Calculate(g);
                 if (name == InvariantNum.NumberOfEdges.getCode()) args.Result = InvariantNum.NumberOfEdges.Calculate(g);
+                if (name == InvariantNum.MatchingNumber.getCode()) args.Result = InvariantNum.MatchingNumber.Calculate(g);
             };
 
             if (ex.Evaluate().ToString() == "True") return true;

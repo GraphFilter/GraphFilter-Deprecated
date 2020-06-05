@@ -19,6 +19,7 @@ namespace GraphFilter.Invariants
         {
             public static double Calculate(Graph g)
             {
+                if (g.order == 0) return 0;
                 Matrix<double> lMatrix = DenseMatrix.OfArray(Utils.Spectral.LaplacianMatrix(g));
                 Evd<double> evd = lMatrix.Evd(Symmetricity.Symmetric);
                 Vector<Complex> eigenvalues = evd.EigenValues;
@@ -34,6 +35,7 @@ namespace GraphFilter.Invariants
         {
             public static double Calculate(Graph g)
             {
+                if (g.order == 0) return 0;
                 Matrix<double> lMatrix = DenseMatrix.OfArray(Utils.Spectral.AdjacencyMatrix(g));
                 Evd<double> evd = lMatrix.Evd(Symmetricity.Symmetric);
                 Vector<Complex> eigenvalues = evd.EigenValues;
@@ -47,6 +49,7 @@ namespace GraphFilter.Invariants
         {
             public static double Calculate(Graph g)
             {
+                if (g.order == 0) return 0;
                 Matrix<double> lMatrix = DenseMatrix.OfArray(Utils.Spectral.LaplacianMatrix(g));
                 Evd<double> evd = lMatrix.Evd(Symmetricity.Symmetric);
                 Vector<Complex> eigenvalues = evd.EigenValues;
@@ -62,6 +65,7 @@ namespace GraphFilter.Invariants
         {
             public static double Calculate(Graph g)
             {
+                if (g.order == 0) return 0;
                 Matrix<double> lMatrix = DenseMatrix.OfArray(Utils.Spectral.AdjacencyMatrix(g));
                 Evd<double> evd = lMatrix.Evd(Symmetricity.Symmetric);
                 Vector<Complex> eigenvalues = evd.EigenValues;
@@ -77,6 +81,7 @@ namespace GraphFilter.Invariants
         {
             public static int Calculate(Graph g)
             {
+                if (g.order == 0) return 0;
                 Matrix<double> lMatrix = DenseMatrix.OfArray(Utils.Spectral.LaplacianMatrix(g));
                 lMatrix = lMatrix.RemoveColumn(g.order - 1).RemoveRow(g.order - 1);
                 return (int)lMatrix.Determinant();
@@ -90,6 +95,7 @@ namespace GraphFilter.Invariants
         {
             public static int Calculate(Graph g)
             {
+                if (g.order == 0) return 0;
                 int[,] dist = Utils.Distance.Matrix(g);
                 int diam = 0;
                 for (int i = 0; i < g.order; i++)
@@ -146,7 +152,12 @@ namespace GraphFilter.Invariants
         {
             public static int Calculate(Graph g)
             {
-                return g.Edges().Count;
+                if (g.order == 0) return 0;
+                int m = 0;
+                for (int i = 0; i < g.order; i++)
+                    for (int j = i+1; j < g.order; j++)
+                        m = m + g.adjacencyMatrix[i, j];
+                return m;
             }
 
             public static string getName() { return "Number of Edges"; }
@@ -158,7 +169,8 @@ namespace GraphFilter.Invariants
         {
             private static HashSet<int> U;
             public static int Calculate(Graph g)
-            { 
+            {
+                if (g.order == 0) return 0;
                 return Utils.Clique.MaxClique(g, 0, 0, U);
             }
             public static string getName() { return "Clique Number"; }
@@ -168,7 +180,10 @@ namespace GraphFilter.Invariants
 
         public class IndependenceNumber
         {
-            public static int Calculate(Graph g) { return CliqueNumber.Calculate(Operation.Complement(g)); }
+            public static int Calculate(Graph g) {
+                if (g.order == 0) return 0; 
+                return CliqueNumber.Calculate(Operation.Complement(g));
+            }
             public static string getName() { return "Independence Number"; }
 
             public static string getCode() { return "alpha"; }
@@ -178,10 +193,14 @@ namespace GraphFilter.Invariants
 
         public class MatchingNumber
         {
-            public static int Calculate(Graph g) { return CliqueNumber.Calculate(Operation.Complement(Operation.Line(g))); }
+            public static int Calculate(Graph g) {
+                if (g.order == 0) return 0;
+                return IndependenceNumber.Calculate(Operation.Line(g));
+                
+            }
             public static string getName() { return "Matching Number"; }
 
-            public static string getCode() { return "M"; }
+            public static string getCode() { return "Mx"; }
         }
         
         public class ChromaticNumber
@@ -189,6 +208,7 @@ namespace GraphFilter.Invariants
             //book Teoria Computacional de Grafos, algoritmo 5.3
             public static int Calculate(Graph g)
             {
+                if (g.order == 0) return 0;
                 int n = g.order;
                 List<int> result = new List<int>(n);
                 bool[] avaible = new bool[n];
