@@ -40,15 +40,13 @@ namespace GraphFilter.Invariant.Tests
             planar,
             regular,
             regular_k
-
         }
 
         [TestMethod()]
         public void ConnectedTEST()
         {
             Assert.IsTrue(Execute("connected",InvariantBool.connected,0));
-            Assert.IsTrue(Execute("disconnected", InvariantBool.disconnected, 0));
-            
+            Assert.IsTrue(Execute("disconnected", InvariantBool.disconnected, 0));  
         }
 
         [TestMethod()]

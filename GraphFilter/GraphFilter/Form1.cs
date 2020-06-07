@@ -41,8 +41,6 @@ namespace GraphFilter
             progressBar.Minimum = 0;
             progressBar.Maximum = 1;
 
-
-
             ListOfInvariants.Text = InvariantNum.AllNames();
 
             buttonFill.Enabled = false;
@@ -510,7 +508,6 @@ namespace GraphFilter
                 _gArea.ExportAsImageDialog(ImageType.PNG, true, 96D, 100);
             }
         }
-
         private void buttonPrint_Click(object sender, EventArgs e)
         {
             if (listOfG6.SelectedItem != null)

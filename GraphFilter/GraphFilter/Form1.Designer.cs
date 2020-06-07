@@ -95,8 +95,10 @@
             this.groupBoxCondition.Controls.Add(this.enableRegular);
             this.groupBoxCondition.Controls.Add(this.enableRegularWithK);
             this.groupBoxCondition.Location = new System.Drawing.Point(0, 103);
+            this.groupBoxCondition.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxCondition.Name = "groupBoxCondition";
-            this.groupBoxCondition.Size = new System.Drawing.Size(585, 157);
+            this.groupBoxCondition.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxCondition.Size = new System.Drawing.Size(585, 158);
             this.groupBoxCondition.TabIndex = 8;
             this.groupBoxCondition.TabStop = false;
             this.groupBoxCondition.Text = "Condition";
@@ -104,7 +106,8 @@
             // enableIsPlanar
             // 
             this.enableIsPlanar.AutoSize = true;
-            this.enableIsPlanar.Location = new System.Drawing.Point(10, 112);
+            this.enableIsPlanar.Location = new System.Drawing.Point(11, 112);
+            this.enableIsPlanar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.enableIsPlanar.Name = "enableIsPlanar";
             this.enableIsPlanar.Size = new System.Drawing.Size(71, 21);
             this.enableIsPlanar.TabIndex = 51;
@@ -119,6 +122,7 @@
             // 
             this.paramRegularWithDegree.CustomButton.Image = null;
             this.paramRegularWithDegree.CustomButton.Location = new System.Drawing.Point(15, 1);
+            this.paramRegularWithDegree.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.paramRegularWithDegree.CustomButton.Name = "";
             this.paramRegularWithDegree.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.paramRegularWithDegree.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -129,6 +133,7 @@
             this.paramRegularWithDegree.Enabled = false;
             this.paramRegularWithDegree.Lines = new string[0];
             this.paramRegularWithDegree.Location = new System.Drawing.Point(205, 58);
+            this.paramRegularWithDegree.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.paramRegularWithDegree.MaxLength = 32767;
             this.paramRegularWithDegree.Name = "paramRegularWithDegree";
             this.paramRegularWithDegree.PasswordChar = '\0';
@@ -146,7 +151,8 @@
             // enableIsConnected
             // 
             this.enableIsConnected.AutoSize = true;
-            this.enableIsConnected.Location = new System.Drawing.Point(10, 85);
+            this.enableIsConnected.Location = new System.Drawing.Point(11, 85);
+            this.enableIsConnected.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.enableIsConnected.Name = "enableIsConnected";
             this.enableIsConnected.Size = new System.Drawing.Size(98, 21);
             this.enableIsConnected.TabIndex = 49;
@@ -157,7 +163,8 @@
             // enableRegular
             // 
             this.enableRegular.AutoSize = true;
-            this.enableRegular.Location = new System.Drawing.Point(10, 31);
+            this.enableRegular.Location = new System.Drawing.Point(11, 31);
+            this.enableRegular.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.enableRegular.Name = "enableRegular";
             this.enableRegular.Size = new System.Drawing.Size(80, 21);
             this.enableRegular.TabIndex = 47;
@@ -168,7 +175,8 @@
             // enableRegularWithK
             // 
             this.enableRegularWithK.AutoSize = true;
-            this.enableRegularWithK.Location = new System.Drawing.Point(10, 58);
+            this.enableRegularWithK.Location = new System.Drawing.Point(11, 58);
+            this.enableRegularWithK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.enableRegularWithK.Name = "enableRegularWithK";
             this.enableRegularWithK.Size = new System.Drawing.Size(153, 21);
             this.enableRegularWithK.TabIndex = 48;
@@ -179,7 +187,7 @@
             // buttonSave
             // 
             this.buttonSave.Enabled = false;
-            this.buttonSave.Location = new System.Drawing.Point(6, 58);
+            this.buttonSave.Location = new System.Drawing.Point(5, 58);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(139, 30);
@@ -191,10 +199,10 @@
             // buttonSearch
             // 
             this.buttonSearch.Enabled = false;
-            this.buttonSearch.Location = new System.Drawing.Point(6, 414);
+            this.buttonSearch.Location = new System.Drawing.Point(5, 414);
             this.buttonSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(139, 40);
+            this.buttonSearch.Size = new System.Drawing.Size(139, 39);
             this.buttonSearch.TabIndex = 4;
             this.buttonSearch.Text = "Run";
             this.buttonSearch.UseVisualStyleBackColor = true;
@@ -229,7 +237,7 @@
             this.verifyEq3.FlatAppearance.BorderSize = 0;
             this.verifyEq3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.verifyEq3.Image = global::GraphFilter.Properties.Resources.icons8_checked_checkbox;
-            this.verifyEq3.Location = new System.Drawing.Point(38, 92);
+            this.verifyEq3.Location = new System.Drawing.Point(37, 92);
             this.verifyEq3.Margin = new System.Windows.Forms.Padding(0);
             this.verifyEq3.MaximumSize = new System.Drawing.Size(36, 36);
             this.verifyEq3.MinimumSize = new System.Drawing.Size(36, 36);
@@ -245,7 +253,7 @@
             this.verifyEq2.FlatAppearance.BorderSize = 0;
             this.verifyEq2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.verifyEq2.Image = global::GraphFilter.Properties.Resources.icons8_checked_checkbox;
-            this.verifyEq2.Location = new System.Drawing.Point(38, 56);
+            this.verifyEq2.Location = new System.Drawing.Point(37, 57);
             this.verifyEq2.Margin = new System.Windows.Forms.Padding(0);
             this.verifyEq2.MaximumSize = new System.Drawing.Size(36, 36);
             this.verifyEq2.MinimumSize = new System.Drawing.Size(36, 36);
@@ -261,7 +269,7 @@
             this.verifyEq1.FlatAppearance.BorderSize = 0;
             this.verifyEq1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.verifyEq1.Image = global::GraphFilter.Properties.Resources.icons8_checked_checkbox;
-            this.verifyEq1.Location = new System.Drawing.Point(38, 22);
+            this.verifyEq1.Location = new System.Drawing.Point(37, 22);
             this.verifyEq1.Margin = new System.Windows.Forms.Padding(0);
             this.verifyEq1.MaximumSize = new System.Drawing.Size(36, 36);
             this.verifyEq1.MinimumSize = new System.Drawing.Size(36, 36);
@@ -278,6 +286,7 @@
             // 
             this.textEquation3.CustomButton.Image = null;
             this.textEquation3.CustomButton.Location = new System.Drawing.Point(477, 1);
+            this.textEquation3.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.textEquation3.CustomButton.Name = "";
             this.textEquation3.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.textEquation3.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -288,6 +297,7 @@
             this.textEquation3.Enabled = false;
             this.textEquation3.Lines = new string[0];
             this.textEquation3.Location = new System.Drawing.Point(79, 97);
+            this.textEquation3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textEquation3.MaxLength = 32767;
             this.textEquation3.Name = "textEquation3";
             this.textEquation3.PasswordChar = '\0';
@@ -309,6 +319,7 @@
             // 
             this.textEquation2.CustomButton.Image = null;
             this.textEquation2.CustomButton.Location = new System.Drawing.Point(477, 1);
+            this.textEquation2.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.textEquation2.CustomButton.Name = "";
             this.textEquation2.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.textEquation2.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -318,7 +329,8 @@
             this.textEquation2.CustomButton.Visible = false;
             this.textEquation2.Enabled = false;
             this.textEquation2.Lines = new string[0];
-            this.textEquation2.Location = new System.Drawing.Point(79, 67);
+            this.textEquation2.Location = new System.Drawing.Point(79, 66);
+            this.textEquation2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textEquation2.MaxLength = 32767;
             this.textEquation2.Name = "textEquation2";
             this.textEquation2.PasswordChar = '\0';
@@ -340,6 +352,7 @@
             // 
             this.textEquation1.CustomButton.Image = null;
             this.textEquation1.CustomButton.Location = new System.Drawing.Point(477, 1);
+            this.textEquation1.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.textEquation1.CustomButton.Name = "";
             this.textEquation1.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.textEquation1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -350,6 +363,7 @@
             this.textEquation1.Enabled = false;
             this.textEquation1.Lines = new string[0];
             this.textEquation1.Location = new System.Drawing.Point(79, 31);
+            this.textEquation1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textEquation1.MaxLength = 32767;
             this.textEquation1.Name = "textEquation1";
             this.textEquation1.PasswordChar = '\0';
@@ -368,6 +382,7 @@
             // 
             this.enableEq3.AutoSize = true;
             this.enableEq3.Location = new System.Drawing.Point(11, 103);
+            this.enableEq3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.enableEq3.Name = "enableEq3";
             this.enableEq3.Size = new System.Drawing.Size(18, 17);
             this.enableEq3.TabIndex = 44;
@@ -377,7 +392,8 @@
             // enableEq2
             // 
             this.enableEq2.AutoSize = true;
-            this.enableEq2.Location = new System.Drawing.Point(10, 68);
+            this.enableEq2.Location = new System.Drawing.Point(11, 68);
+            this.enableEq2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.enableEq2.Name = "enableEq2";
             this.enableEq2.Size = new System.Drawing.Size(18, 17);
             this.enableEq2.TabIndex = 34;
@@ -387,7 +403,8 @@
             // enableEq1
             // 
             this.enableEq1.AutoSize = true;
-            this.enableEq1.Location = new System.Drawing.Point(10, 34);
+            this.enableEq1.Location = new System.Drawing.Point(11, 34);
+            this.enableEq1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.enableEq1.Name = "enableEq1";
             this.enableEq1.Size = new System.Drawing.Size(18, 17);
             this.enableEq1.TabIndex = 8;
@@ -398,7 +415,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(562, 30);
+            this.label6.Location = new System.Drawing.Point(563, 30);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(0, 24);
             this.label6.TabIndex = 10;
@@ -412,10 +429,10 @@
             this.buttonPrint.Image = global::GraphFilter.Properties.Resources.icons8_export_pdf;
             this.buttonPrint.Location = new System.Drawing.Point(453, 39);
             this.buttonPrint.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonPrint.MaximumSize = new System.Drawing.Size(50, 50);
-            this.buttonPrint.MinimumSize = new System.Drawing.Size(50, 50);
+            this.buttonPrint.MaximumSize = new System.Drawing.Size(51, 50);
+            this.buttonPrint.MinimumSize = new System.Drawing.Size(51, 50);
             this.buttonPrint.Name = "buttonPrint";
-            this.buttonPrint.Size = new System.Drawing.Size(50, 50);
+            this.buttonPrint.Size = new System.Drawing.Size(51, 50);
             this.buttonPrint.TabIndex = 45;
             this.buttonPrint.UseVisualStyleBackColor = false;
             this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
@@ -428,10 +445,10 @@
             this.buttonExp2PNG.Image = global::GraphFilter.Properties.Resources.icons8_png;
             this.buttonExp2PNG.Location = new System.Drawing.Point(403, 39);
             this.buttonExp2PNG.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonExp2PNG.MaximumSize = new System.Drawing.Size(50, 50);
-            this.buttonExp2PNG.MinimumSize = new System.Drawing.Size(50, 50);
+            this.buttonExp2PNG.MaximumSize = new System.Drawing.Size(51, 50);
+            this.buttonExp2PNG.MinimumSize = new System.Drawing.Size(51, 50);
             this.buttonExp2PNG.Name = "buttonExp2PNG";
-            this.buttonExp2PNG.Size = new System.Drawing.Size(50, 50);
+            this.buttonExp2PNG.Size = new System.Drawing.Size(51, 50);
             this.buttonExp2PNG.TabIndex = 45;
             this.buttonExp2PNG.UseVisualStyleBackColor = false;
             this.buttonExp2PNG.Click += new System.EventHandler(this.buttonExp2PNG_Click);
@@ -444,10 +461,10 @@
             this.buttonZoomIn.Image = global::GraphFilter.Properties.Resources.icons8_zoom_in;
             this.buttonZoomIn.Location = new System.Drawing.Point(353, 39);
             this.buttonZoomIn.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonZoomIn.MaximumSize = new System.Drawing.Size(50, 50);
-            this.buttonZoomIn.MinimumSize = new System.Drawing.Size(50, 50);
+            this.buttonZoomIn.MaximumSize = new System.Drawing.Size(51, 50);
+            this.buttonZoomIn.MinimumSize = new System.Drawing.Size(51, 50);
             this.buttonZoomIn.Name = "buttonZoomIn";
-            this.buttonZoomIn.Size = new System.Drawing.Size(50, 50);
+            this.buttonZoomIn.Size = new System.Drawing.Size(51, 50);
             this.buttonZoomIn.TabIndex = 45;
             this.buttonZoomIn.UseVisualStyleBackColor = false;
             this.buttonZoomIn.Click += new System.EventHandler(this.buttonZoomIn_Click);
@@ -460,10 +477,10 @@
             this.buttonZoomOriginal.Image = global::GraphFilter.Properties.Resources.icons8_zoom_to_actual_size;
             this.buttonZoomOriginal.Location = new System.Drawing.Point(253, 39);
             this.buttonZoomOriginal.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonZoomOriginal.MaximumSize = new System.Drawing.Size(50, 50);
-            this.buttonZoomOriginal.MinimumSize = new System.Drawing.Size(50, 50);
+            this.buttonZoomOriginal.MaximumSize = new System.Drawing.Size(51, 50);
+            this.buttonZoomOriginal.MinimumSize = new System.Drawing.Size(51, 50);
             this.buttonZoomOriginal.Name = "buttonZoomOriginal";
-            this.buttonZoomOriginal.Size = new System.Drawing.Size(50, 50);
+            this.buttonZoomOriginal.Size = new System.Drawing.Size(51, 50);
             this.buttonZoomOriginal.TabIndex = 55;
             this.buttonZoomOriginal.UseVisualStyleBackColor = false;
             this.buttonZoomOriginal.Click += new System.EventHandler(this.buttonZoomOut_Click);
@@ -476,10 +493,10 @@
             this.buttonZoomOut.Image = global::GraphFilter.Properties.Resources.icons8_zoom_out;
             this.buttonZoomOut.Location = new System.Drawing.Point(303, 39);
             this.buttonZoomOut.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonZoomOut.MaximumSize = new System.Drawing.Size(50, 50);
-            this.buttonZoomOut.MinimumSize = new System.Drawing.Size(50, 50);
+            this.buttonZoomOut.MaximumSize = new System.Drawing.Size(51, 50);
+            this.buttonZoomOut.MinimumSize = new System.Drawing.Size(51, 50);
             this.buttonZoomOut.Name = "buttonZoomOut";
-            this.buttonZoomOut.Size = new System.Drawing.Size(50, 50);
+            this.buttonZoomOut.Size = new System.Drawing.Size(51, 50);
             this.buttonZoomOut.TabIndex = 54;
             this.buttonZoomOut.UseVisualStyleBackColor = false;
             this.buttonZoomOut.Click += new System.EventHandler(this.buttonZoomOut_Click_1);
@@ -492,10 +509,10 @@
             this.buttonFill.Image = global::GraphFilter.Properties.Resources.icons8_zoom_to_extents_2;
             this.buttonFill.Location = new System.Drawing.Point(203, 39);
             this.buttonFill.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonFill.MaximumSize = new System.Drawing.Size(50, 50);
-            this.buttonFill.MinimumSize = new System.Drawing.Size(50, 50);
+            this.buttonFill.MaximumSize = new System.Drawing.Size(51, 50);
+            this.buttonFill.MinimumSize = new System.Drawing.Size(51, 50);
             this.buttonFill.Name = "buttonFill";
-            this.buttonFill.Size = new System.Drawing.Size(50, 50);
+            this.buttonFill.Size = new System.Drawing.Size(51, 50);
             this.buttonFill.TabIndex = 53;
             this.buttonFill.UseVisualStyleBackColor = false;
             this.buttonFill.Click += new System.EventHandler(this.buttonFill_Click);
@@ -503,7 +520,8 @@
             // wpfHost
             // 
             this.wpfHost.BackColor = System.Drawing.Color.White;
-            this.wpfHost.Location = new System.Drawing.Point(203, 40);
+            this.wpfHost.Location = new System.Drawing.Point(203, 39);
+            this.wpfHost.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.wpfHost.Name = "wpfHost";
             this.wpfHost.Size = new System.Drawing.Size(643, 388);
             this.wpfHost.TabIndex = 52;
@@ -516,7 +534,7 @@
             this.button1.Location = new System.Drawing.Point(3, 6);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(194, 30);
+            this.button1.Size = new System.Drawing.Size(195, 30);
             this.button1.TabIndex = 1;
             this.button1.Text = "Open .g6 File";
             this.button1.UseVisualStyleBackColor = true;
@@ -528,8 +546,9 @@
             this.listOfG6.HorizontalScrollbar = true;
             this.listOfG6.ItemHeight = 16;
             this.listOfG6.Location = new System.Drawing.Point(3, 39);
+            this.listOfG6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listOfG6.Name = "listOfG6";
-            this.listOfG6.Size = new System.Drawing.Size(194, 388);
+            this.listOfG6.Size = new System.Drawing.Size(193, 388);
             this.listOfG6.TabIndex = 0;
             this.listOfG6.SelectedIndexChanged += new System.EventHandler(this.listOfG6_SelectedIndexChanged);
             // 
@@ -540,6 +559,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Location = new System.Drawing.Point(231, 71);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(643, 369);
             this.pictureBox1.TabIndex = 8;
@@ -553,6 +573,7 @@
             this.elementHost.BackColor = System.Drawing.Color.White;
             this.elementHost.Enabled = false;
             this.elementHost.Location = new System.Drawing.Point(231, 71);
+            this.elementHost.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.elementHost.Name = "elementHost";
             this.elementHost.Size = new System.Drawing.Size(643, 369);
             this.elementHost.TabIndex = 7;
@@ -564,7 +585,8 @@
             this.listOfG6Exp.Enabled = false;
             this.listOfG6Exp.FormattingEnabled = true;
             this.listOfG6Exp.ItemHeight = 16;
-            this.listOfG6Exp.Location = new System.Drawing.Point(2, 75);
+            this.listOfG6Exp.Location = new System.Drawing.Point(3, 75);
+            this.listOfG6Exp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listOfG6Exp.Name = "listOfG6Exp";
             this.listOfG6Exp.Size = new System.Drawing.Size(192, 372);
             this.listOfG6Exp.TabIndex = 6;
@@ -572,10 +594,10 @@
             // 
             // buttonSavePNG
             // 
-            this.buttonSavePNG.Location = new System.Drawing.Point(0, 40);
+            this.buttonSavePNG.Location = new System.Drawing.Point(0, 39);
             this.buttonSavePNG.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSavePNG.Name = "buttonSavePNG";
-            this.buttonSavePNG.Size = new System.Drawing.Size(194, 30);
+            this.buttonSavePNG.Size = new System.Drawing.Size(195, 30);
             this.buttonSavePNG.TabIndex = 3;
             this.buttonSavePNG.Text = "Export to PNG";
             this.buttonSavePNG.UseVisualStyleBackColor = true;
@@ -586,7 +608,7 @@
             this.button2.Location = new System.Drawing.Point(0, 6);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(194, 30);
+            this.button2.Size = new System.Drawing.Size(195, 30);
             this.button2.TabIndex = 2;
             this.button2.Text = "Open .g6 File";
             this.button2.UseVisualStyleBackColor = true;
@@ -599,10 +621,11 @@
             this.tabControl.Controls.Add(this.metroTabPage2);
             this.tabControl.Controls.Add(this.metroTabPage3);
             this.tabControl.FontSize = MetroFramework.MetroTabControlSize.Small;
-            this.tabControl.Location = new System.Drawing.Point(23, 72);
+            this.tabControl.Location = new System.Drawing.Point(23, 71);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 2;
-            this.tabControl.Size = new System.Drawing.Size(958, 581);
+            this.tabControl.Size = new System.Drawing.Size(1277, 715);
             this.tabControl.TabIndex = 52;
             this.tabControl.UseSelectable = true;
             // 
@@ -618,19 +641,20 @@
             this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.HorizontalScrollbarSize = 10;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 37);
+            this.metroTabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(950, 540);
+            this.metroTabPage1.Size = new System.Drawing.Size(1269, 674);
             this.metroTabPage1.TabIndex = 0;
             this.metroTabPage1.Text = "Filter Graphs";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.VerticalScrollbarSize = 10;
+            this.metroTabPage1.VerticalScrollbarSize = 11;
             // 
             // ListOfInvariants
             // 
             this.ListOfInvariants.AutoSize = true;
             this.ListOfInvariants.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ListOfInvariants.Location = new System.Drawing.Point(889, 0);
+            this.ListOfInvariants.Location = new System.Drawing.Point(1208, 0);
             this.ListOfInvariants.Name = "ListOfInvariants";
             this.ListOfInvariants.Size = new System.Drawing.Size(61, 20);
             this.ListOfInvariants.TabIndex = 2;
@@ -639,8 +663,9 @@
             // progressBar
             // 
             this.progressBar.Location = new System.Drawing.Point(151, 414);
+            this.progressBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(434, 40);
+            this.progressBar.Size = new System.Drawing.Size(435, 39);
             this.progressBar.TabIndex = 52;
             // 
             // groupBoxFiles
@@ -650,8 +675,10 @@
             this.groupBoxFiles.Controls.Add(this.textSource);
             this.groupBoxFiles.Controls.Add(this.buttonOpen);
             this.groupBoxFiles.Controls.Add(this.buttonSave);
-            this.groupBoxFiles.Location = new System.Drawing.Point(0, 3);
+            this.groupBoxFiles.Location = new System.Drawing.Point(0, 2);
+            this.groupBoxFiles.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxFiles.Name = "groupBoxFiles";
+            this.groupBoxFiles.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxFiles.Size = new System.Drawing.Size(585, 100);
             this.groupBoxFiles.TabIndex = 1;
             this.groupBoxFiles.TabStop = false;
@@ -664,6 +691,7 @@
             // 
             this.textOutPath.CustomButton.Image = null;
             this.textOutPath.CustomButton.Location = new System.Drawing.Point(405, 1);
+            this.textOutPath.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.textOutPath.CustomButton.Name = "";
             this.textOutPath.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.textOutPath.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -673,7 +701,8 @@
             this.textOutPath.CustomButton.Visible = false;
             this.textOutPath.Enabled = false;
             this.textOutPath.Lines = new string[0];
-            this.textOutPath.Location = new System.Drawing.Point(151, 61);
+            this.textOutPath.Location = new System.Drawing.Point(151, 62);
+            this.textOutPath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textOutPath.MaxLength = 32767;
             this.textOutPath.Name = "textOutPath";
             this.textOutPath.PasswordChar = '\0';
@@ -695,6 +724,7 @@
             // 
             this.textSource.CustomButton.Image = null;
             this.textSource.CustomButton.Location = new System.Drawing.Point(405, 1);
+            this.textSource.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.textSource.CustomButton.Name = "";
             this.textSource.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.textSource.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -705,6 +735,7 @@
             this.textSource.Enabled = false;
             this.textSource.Lines = new string[0];
             this.textSource.Location = new System.Drawing.Point(151, 27);
+            this.textSource.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textSource.MaxLength = 32767;
             this.textSource.Name = "textSource";
             this.textSource.PasswordChar = '\0';
@@ -721,7 +752,7 @@
             // 
             // buttonOpen
             // 
-            this.buttonOpen.Location = new System.Drawing.Point(6, 20);
+            this.buttonOpen.Location = new System.Drawing.Point(5, 20);
             this.buttonOpen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonOpen.Name = "buttonOpen";
             this.buttonOpen.Size = new System.Drawing.Size(139, 30);
@@ -746,13 +777,14 @@
             this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.HorizontalScrollbarSize = 10;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 37);
+            this.metroTabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(950, 540);
+            this.metroTabPage2.Size = new System.Drawing.Size(1269, 674);
             this.metroTabPage2.TabIndex = 1;
             this.metroTabPage2.Text = "Visualization";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.VerticalScrollbarSize = 10;
+            this.metroTabPage2.VerticalScrollbarSize = 11;
             // 
             // textOpenViz
             // 
@@ -761,6 +793,7 @@
             // 
             this.textOpenViz.CustomButton.Image = null;
             this.textOpenViz.CustomButton.Location = new System.Drawing.Point(725, 1);
+            this.textOpenViz.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.textOpenViz.CustomButton.Name = "";
             this.textOpenViz.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.textOpenViz.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -771,6 +804,7 @@
             this.textOpenViz.Enabled = false;
             this.textOpenViz.Lines = new string[0];
             this.textOpenViz.Location = new System.Drawing.Point(203, 11);
+            this.textOpenViz.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textOpenViz.MaxLength = 32767;
             this.textOpenViz.Name = "textOpenViz";
             this.textOpenViz.PasswordChar = '\0';
@@ -799,24 +833,25 @@
             this.metroTabPage3.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage3.HorizontalScrollbarSize = 10;
             this.metroTabPage3.Location = new System.Drawing.Point(4, 37);
+            this.metroTabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroTabPage3.Name = "metroTabPage3";
-            this.metroTabPage3.Size = new System.Drawing.Size(950, 540);
+            this.metroTabPage3.Size = new System.Drawing.Size(1269, 674);
             this.metroTabPage3.TabIndex = 2;
             this.metroTabPage3.Text = "Export";
             this.metroTabPage3.VerticalScrollbarBarColor = true;
             this.metroTabPage3.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage3.VerticalScrollbarSize = 10;
+            this.metroTabPage3.VerticalScrollbarSize = 11;
             // 
             // metroProgressSpinner
             // 
             this.metroProgressSpinner.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroProgressSpinner.Location = new System.Drawing.Point(484, 179);
+            this.metroProgressSpinner.Location = new System.Drawing.Point(645, 220);
             this.metroProgressSpinner.Margin = new System.Windows.Forms.Padding(0);
             this.metroProgressSpinner.Maximum = 100;
-            this.metroProgressSpinner.MaximumSize = new System.Drawing.Size(220, 220);
-            this.metroProgressSpinner.MinimumSize = new System.Drawing.Size(220, 220);
+            this.metroProgressSpinner.MaximumSize = new System.Drawing.Size(293, 271);
+            this.metroProgressSpinner.MinimumSize = new System.Drawing.Size(293, 271);
             this.metroProgressSpinner.Name = "metroProgressSpinner";
-            this.metroProgressSpinner.Size = new System.Drawing.Size(220, 220);
+            this.metroProgressSpinner.Size = new System.Drawing.Size(293, 271);
             this.metroProgressSpinner.Speed = 3F;
             this.metroProgressSpinner.TabIndex = 11;
             this.metroProgressSpinner.UseSelectable = true;
@@ -825,13 +860,13 @@
             // metroProgress
             // 
             this.metroProgress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.metroProgress.Location = new System.Drawing.Point(444, 163);
+            this.metroProgress.Location = new System.Drawing.Point(444, 162);
             this.metroProgress.Margin = new System.Windows.Forms.Padding(0);
             this.metroProgress.Maximum = 100;
-            this.metroProgress.MaximumSize = new System.Drawing.Size(200, 200);
-            this.metroProgress.MinimumSize = new System.Drawing.Size(200, 200);
+            this.metroProgress.MaximumSize = new System.Drawing.Size(200, 199);
+            this.metroProgress.MinimumSize = new System.Drawing.Size(200, 199);
             this.metroProgress.Name = "metroProgress";
-            this.metroProgress.Size = new System.Drawing.Size(200, 200);
+            this.metroProgress.Size = new System.Drawing.Size(200, 199);
             this.metroProgress.TabIndex = 10;
             this.metroProgress.UseSelectable = true;
             this.metroProgress.Visible = false;
@@ -842,7 +877,8 @@
             // 
             // 
             this.textOpenExp.CustomButton.Image = null;
-            this.textOpenExp.CustomButton.Location = new System.Drawing.Point(728, 1);
+            this.textOpenExp.CustomButton.Location = new System.Drawing.Point(727, 1);
+            this.textOpenExp.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.textOpenExp.CustomButton.Name = "";
             this.textOpenExp.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.textOpenExp.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -853,6 +889,7 @@
             this.textOpenExp.Enabled = false;
             this.textOpenExp.Lines = new string[0];
             this.textOpenExp.Location = new System.Drawing.Point(200, 10);
+            this.textOpenExp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textOpenExp.MaxLength = 32767;
             this.textOpenExp.Name = "textOpenExp";
             this.textOpenExp.PasswordChar = '\0';
@@ -861,7 +898,7 @@
             this.textOpenExp.SelectionLength = 0;
             this.textOpenExp.SelectionStart = 0;
             this.textOpenExp.ShortcutsEnabled = true;
-            this.textOpenExp.Size = new System.Drawing.Size(750, 23);
+            this.textOpenExp.Size = new System.Drawing.Size(749, 23);
             this.textOpenExp.TabIndex = 9;
             this.textOpenExp.UseSelectable = true;
             this.textOpenExp.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -871,7 +908,8 @@
             // 
             this.version.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.version.AutoSize = true;
-            this.version.Location = new System.Drawing.Point(816, 46);
+            this.version.Location = new System.Drawing.Point(1088, 57);
+            this.version.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.version.Name = "version";
             this.version.Size = new System.Drawing.Size(78, 20);
             this.version.TabIndex = 53;
@@ -881,12 +919,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1272, 851);
+            this.ClientSize = new System.Drawing.Size(1696, 1047);
             this.Controls.Add(this.version);
             this.Controls.Add(this.tabControl);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimumSize = new System.Drawing.Size(720, 500);
             this.Name = "Form1";
+            this.Padding = new System.Windows.Forms.Padding(20, 74, 20, 20);
             this.Text = "Graph Filter";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
