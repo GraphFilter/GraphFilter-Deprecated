@@ -8,7 +8,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using QuikGraph;
+using MathNet.Numerics.LinearAlgebra.Complex;
+using MathNet.Numerics.LinearAlgebra;
 
 namespace GraphFilter
 {
@@ -66,9 +68,9 @@ namespace GraphFilter
 
         }
 
-        public static UndirectedGraph<int, Edge<int>> GraphToQuikGraph(Graph g)
+        /*public static QuickGraph.UndirectedGraph<int, QuikGraph.Edge<int>> GraphToQuickGraph(Graph g)
         {
-            Edge<int>[] edges = new Edge<int>[g.order];
+            QuickGraph.Edge<int>[] edges = new QuickGraph.Edge<int>[g.order];
             int cont = 0;
             for (int i = 0; i < g.order; i++)
             {
@@ -76,14 +78,14 @@ namespace GraphFilter
                 {
                     if (g.adjacencyMatrix[i, j] == 1)
                     {
-                        edges[cont] = new Edge<int>(i, j);
+                        edges[cont] = new QuickGraph.Edge<int>(i, j);
                         cont++;
                     }
                 }
             }
             var graph = edges.ToUndirectedGraph<int, Edge<int>>();
             return graph;
-        }
+        }*/
 
         public static CreateGraph G6toQuickGraph(string g6)
         {

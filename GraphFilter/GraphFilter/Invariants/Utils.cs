@@ -1,8 +1,10 @@
-﻿using System;
+﻿using MathNet.Numerics.LinearAlgebra.Complex;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace GraphFilter.Invariants
 {
@@ -98,7 +100,7 @@ namespace GraphFilter.Invariants
 
         public static class Clique
         {
-            
+
             public static int MaxClique(Graph g, int lb, int max, HashSet<int> U)
             {
                 max = lb;
@@ -140,7 +142,7 @@ namespace GraphFilter.Invariants
                 }
                 return max;
             }
-   
+
         }
         private static HashSet<int> Union(HashSet<int> A, HashSet<int> B)
         {
@@ -158,6 +160,6 @@ namespace GraphFilter.Invariants
             return aIntb;
         }
 
-
+        
     }
 }

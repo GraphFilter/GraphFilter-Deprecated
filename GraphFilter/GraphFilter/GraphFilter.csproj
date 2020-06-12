@@ -184,6 +184,7 @@
     <Compile Include="GraphX_Utils\DataEdge.cs" />
     <Compile Include="GraphX_Utils\DataVertex.cs" />
     <Compile Include="BuildLogic.cs" />
+    <Compile Include="Invariants\Coloring.cs" />
     <Compile Include="Invariants\InvariantBool.cs" />
     <Compile Include="Invariants\InvariantNum.cs" />
     <Compile Include="Invariants\Utils.cs" />
