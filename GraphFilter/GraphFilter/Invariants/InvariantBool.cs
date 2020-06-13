@@ -75,5 +75,15 @@ namespace GraphFilter.Invariants
             public static string getName() { return "Planarity Test"; }
 
         }
+
+        public class IsHamiltonian
+        {
+            public static bool Calculate(Graph g)
+            {
+                return false;
+            }
+
+            public static string getName() { return "Is a Hamiltonian Graph?"; }
+        }
     }
 }

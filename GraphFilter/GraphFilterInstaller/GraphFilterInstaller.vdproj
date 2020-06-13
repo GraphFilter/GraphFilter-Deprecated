@@ -69,7 +69,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_2B770C9902C34A7B99EA5FFC882FA1D5"
+        "MsmKey" = "8:_2CD661EFE9ED42B9987D488AFCA88F0C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -77,6 +77,12 @@
         {
         "MsmKey" = "8:_3347410FE90D1044FE94848A065D5065"
         "OwnerKey" = "8:_6F54672C12C14030A7DDE8CB0FA8BACE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3E90B2E29BB546808516C31FA41B2E38"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -250,12 +256,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B52C745C2EFBE9C6B2CEB81F112BE72A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_6F54672C12C14030A7DDE8CB0FA8BACE"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -379,6 +379,12 @@
         "OwnerKey" = "8:_8BE1913A0A1A74D925A09B7FF624530B"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_B52C745C2EFBE9C6B2CEB81F112BE72A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -397,6 +403,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -413,6 +435,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -597,10 +627,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2B770C9902C34A7B99EA5FFC882FA1D5"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2CD661EFE9ED42B9987D488AFCA88F0C"
             {
-            "SourcePath" = "8:..\\..\\Icons\\graphfilter.ico"
-            "TargetName" = "8:graphfilter.ico"
+            "SourcePath" = "8:..\\..\\Icons\\graphfilterUnins.ico"
+            "TargetName" = "8:graphfilterUnins.ico"
             "Tag" = "8:"
             "Folder" = "8:_D9C3C88E00744962880BE028CA4F6208"
             "Condition" = "8:"
@@ -646,6 +676,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3E90B2E29BB546808516C31FA41B2E38"
+            {
+            "SourcePath" = "8:..\\..\\Icons\\graphfilterICON.ico"
+            "TargetName" = "8:graphfilterICON.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_D9C3C88E00744962880BE028CA4F6208"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_439E8C8ABF1547E930A1AC69E505B4B5"
@@ -1247,7 +1297,7 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_D9C3C88E00744962880BE028CA4F6208"
             {
-            "DefaultLocation" = "8:[ProgramFiles64Folder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFiles64Folder][ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -1274,7 +1324,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:GraphFilterInstaller"
         "ProductCode" = "8:{DD7ABDA4-25B1-4E29-BDBF-8DB9F8D1B15C}"
-        "PackageCode" = "8:{3D3194D2-2A86-41AA-8428-C09047CA4BE5}"
+        "PackageCode" = "8:{E76A900D-DB6B-4A29-94BA-DA7EB4FCC011}"
         "UpgradeCode" = "8:{E88C3267-DD47-4B67-9B3B-C29D7BDC9FF4}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1291,7 +1341,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:GraphFilter Description"
         "ARPURLINFOABOUT" = "8:http://google.com"
-        "ARPPRODUCTICON" = "8:_2B770C9902C34A7B99EA5FFC882FA1D5"
+        "ARPPRODUCTICON" = "8:_2CD661EFE9ED42B9987D488AFCA88F0C"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -1405,7 +1455,7 @@
             "Target" = "8:_6F54672C12C14030A7DDE8CB0FA8BACE"
             "Folder" = "8:_A392CA930830481DB775710EC639F51D"
             "WorkingFolder" = "8:_D9C3C88E00744962880BE028CA4F6208"
-            "Icon" = "8:_2B770C9902C34A7B99EA5FFC882FA1D5"
+            "Icon" = "8:_3E90B2E29BB546808516C31FA41B2E38"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_6C5518048201474F8E507665C7429A4E"
@@ -1419,7 +1469,7 @@
             "Target" = "8:_6F54672C12C14030A7DDE8CB0FA8BACE"
             "Folder" = "8:_DC15270831D448E284B667E3333A86C5"
             "WorkingFolder" = "8:_D9C3C88E00744962880BE028CA4F6208"
-            "Icon" = "8:_2B770C9902C34A7B99EA5FFC882FA1D5"
+            "Icon" = "8:_3E90B2E29BB546808516C31FA41B2E38"
             "Feature" = "8:"
             }
         }
