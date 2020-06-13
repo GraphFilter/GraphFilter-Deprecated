@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Numerics;
@@ -10,6 +11,9 @@ using GraphPlanarityTesting.PlanarityTesting.BoyerMyrvold;
 using MathNet.Numerics.LinearAlgebra;
 using MathNet.Numerics.LinearAlgebra.Double;
 using MathNet.Numerics.LinearAlgebra.Factorization;
+using QuickGraph;
+using QuikGraph;
+using QuikGraph.Algorithms.VertexColoring;
 
 namespace GraphFilter.Invariants
 {
@@ -208,31 +212,36 @@ namespace GraphFilter.Invariants
             //book Teoria Computacional de Grafos, algoritmo 5.3
             public static int Calculate(Graph g)
             {
-                if (g.order == 0) return 0;
-                int n = g.order;
-                List<int> result = new List<int>(n);
-                bool[] avaible = new bool[n];
-                for (int i = 0; i < n; i++)
+                /*if (g.order == 0) return 0;
+                 int n = g.order;
+                 List<int> result = new List<int>(n);
+                 bool[] avaible = new bool[n];
+                 for (int i = 0; i < n; i++)
+                 {
+                     result.Add(-1);
+                     avaible[i] = true;
+                 }
+                 result[0] = 0;
+                 for (int u = 0; u < n; u++)
+                 {
+                     foreach (int i in g.N(u))
+                     {
+                         if (result[i] != -1) avaible[result[i]] = false;
+                     }
+                     int cr;
+                     for (cr = 0; cr < n; cr++)
+                     {
+                         if (avaible[cr]) break;
+                     }
+                     result[u] = cr;
+                     for (int i = 0; i < n; i++) avaible[i] = true;
+                 }*/
+                int chi = Coloring.Calculate(g);
+                if (chi!=6)
                 {
-                    result.Add(-1);
-                    avaible[i] = true;
+                    return chi;
                 }
-                result[0] = 0;
-                for (int u = 0; u < n; u++)
-                {
-                    foreach (int i in g.N(u))
-                    {
-                        if (result[i] != -1) avaible[result[i]] = false;
-                    }
-                    int cr;
-                    for (cr = 0; cr < n; cr++)
-                    {
-                        if (avaible[cr]) break;
-                    }
-                    result[u] = cr;
-                    for (int i = 0; i < n; i++) avaible[i] = true;
-                }
-                return result.Distinct().Count();
+                return chi;
             }
             public static string getName() { return "Chromatic Number"; }
 

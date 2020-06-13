@@ -82,13 +82,13 @@ namespace GraphFilter.Invariant.Tests
             Assert.IsTrue(Execute("independenceNumber7", InvariantNum.IndependenceNumber.getCode() + "()=7"));
         }
         
-        [TestMethod()]//COM ERRO
+        [TestMethod()]
         public void MatchingNumberTEST()
         {
             Assert.IsTrue(Execute("matchingNumber5", InvariantNum.MatchingNumber.getCode() + "()=5"));
         }
 
-        [TestMethod()]//COM ERRO
+        [TestMethod()]
         public void ChromaticNumberTEST()
         {
             Assert.IsTrue(Execute("chromaticNumber6", InvariantNum.ChromaticNumber.getCode() + "()=6"));
