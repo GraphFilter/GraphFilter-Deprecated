@@ -83,11 +83,14 @@ namespace GraphFilter
         }
         private void listOfG6_SelectedIndexChanged(object sender, EventArgs e)
         {
-            wpfHost.Child = GenerateWpfVisuals(listOfG6.SelectedItem.ToString());
-            _gArea.GenerateGraph(true);
-            _gArea.ShowAllEdgesLabels(false);
-            _gArea.SetVerticesDrag(true, true);
-            _zoomctrl.ZoomToFill();
+            if (listOfG6.SelectedItem != null)
+            {
+                wpfHost.Child = GenerateWpfVisuals(listOfG6.SelectedItem.ToString());
+                _gArea.GenerateGraph(true);
+                _gArea.ShowAllEdgesLabels(false);
+                _gArea.SetVerticesDrag(true, true);
+                _zoomctrl.ZoomToFill();
+            } 
         }
         #endregion
 

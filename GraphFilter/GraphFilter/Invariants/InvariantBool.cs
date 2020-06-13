@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HamiltonianGraph;
 
 namespace GraphFilter.Invariants
 {
@@ -80,7 +81,9 @@ namespace GraphFilter.Invariants
         {
             public static bool Calculate(Graph g)
             {
-                return false;
+                int?[,] graph = HamiltonianGraph.Utils.GraphUtil.FromMatrixFormat(Conversor.GraphToStringMatrix(g));
+                int[] cycle = new BranchAndBound(graph).GetShortestHamiltonianCycle();
+                return cycle.Length - 1 == g.order;
             }
 
             public static string getName() { return "Is a Hamiltonian Graph?"; }

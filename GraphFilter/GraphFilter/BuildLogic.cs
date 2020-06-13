@@ -29,6 +29,11 @@ namespace GraphFilter
         {
             return InvariantBool.IsPlanar.Calculate(g);
         }
+
+        public static bool ConditionHamiltonian(Graph g)
+        {
+            return InvariantBool.IsHamiltonian.Calculate(g);
+        }
         #endregion
 
         #region Equation and Conditon

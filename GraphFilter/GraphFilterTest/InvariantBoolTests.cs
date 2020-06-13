@@ -16,7 +16,7 @@ namespace GraphFilter.Invariant.Tests
         private string _path = System.IO.Path.GetFullPath(@"..\..\") + "\\g6Files\\";
         bool Execute(string file, InvariantBool invariant, int k)
         {
-            bool condition=false;
+            bool condition = false;
             using (StreamReader stReaderIn = new StreamReader(_path + file + ".g6"))
             {
                 String g6Line = stReaderIn.ReadLine();
@@ -27,6 +27,7 @@ namespace GraphFilter.Invariant.Tests
                     if (invariant == InvariantBool.planar) condition = BuildLogic.ConditionPlanar(new Graph(g6Line));
                     if (invariant == InvariantBool.regular) condition = BuildLogic.ConditionRegular(new Graph(g6Line));
                     if (invariant == InvariantBool.regular_k) condition = BuildLogic.ConditionRegularK(new Graph(g6Line),k);
+                    if (invariant == InvariantBool.hamiltonian) condition = BuildLogic.ConditionHamiltonian(new Graph(g6Line));
                     if (!condition) return false;
                     g6Line = stReaderIn.ReadLine();
                 }
@@ -39,7 +40,8 @@ namespace GraphFilter.Invariant.Tests
             disconnected,
             planar,
             regular,
-            regular_k
+            regular_k,
+            hamiltonian
         }
 
         [TestMethod()]
@@ -66,6 +68,12 @@ namespace GraphFilter.Invariant.Tests
         {
             Assert.IsTrue(Execute("regular6", InvariantBool.regular_k, 6));
             Assert.IsTrue(Execute("regular10", InvariantBool.regular_k, 10));
+        }
+
+        [TestMethod()]
+        public void Hamiltonian_TEST()
+        {
+            Assert.IsTrue(Execute("hamiltonian", InvariantBool.hamiltonian, 0));
         }
     }
 }

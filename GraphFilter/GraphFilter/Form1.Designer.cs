@@ -76,6 +76,7 @@
             this.metroProgress = new MetroFramework.Controls.MetroProgressSpinner();
             this.textOpenExp = new MetroFramework.Controls.MetroTextBox();
             this.version = new MetroFramework.Controls.MetroLabel();
+            this.enableIsHamiltonian = new System.Windows.Forms.CheckBox();
             this.groupBoxCondition.SuspendLayout();
             this.groupBoxEq.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -89,6 +90,7 @@
             // groupBoxCondition
             // 
             this.groupBoxCondition.BackColor = System.Drawing.SystemColors.Window;
+            this.groupBoxCondition.Controls.Add(this.enableIsHamiltonian);
             this.groupBoxCondition.Controls.Add(this.enableIsPlanar);
             this.groupBoxCondition.Controls.Add(this.paramRegularWithDegree);
             this.groupBoxCondition.Controls.Add(this.enableIsConnected);
@@ -106,7 +108,7 @@
             // enableIsPlanar
             // 
             this.enableIsPlanar.AutoSize = true;
-            this.enableIsPlanar.Location = new System.Drawing.Point(11, 112);
+            this.enableIsPlanar.Location = new System.Drawing.Point(356, 58);
             this.enableIsPlanar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.enableIsPlanar.Name = "enableIsPlanar";
             this.enableIsPlanar.Size = new System.Drawing.Size(71, 21);
@@ -624,7 +626,7 @@
             this.tabControl.Location = new System.Drawing.Point(23, 71);
             this.tabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 2;
+            this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1277, 715);
             this.tabControl.TabIndex = 52;
             this.tabControl.UseSelectable = true;
@@ -915,6 +917,17 @@
             this.version.TabIndex = 53;
             this.version.Text = "Version: 1.0";
             // 
+            // enableIsHamiltonian
+            // 
+            this.enableIsHamiltonian.AutoSize = true;
+            this.enableIsHamiltonian.Location = new System.Drawing.Point(356, 31);
+            this.enableIsHamiltonian.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.enableIsHamiltonian.Name = "enableIsHamiltonian";
+            this.enableIsHamiltonian.Size = new System.Drawing.Size(104, 21);
+            this.enableIsHamiltonian.TabIndex = 52;
+            this.enableIsHamiltonian.Text = "Hamiltonian";
+            this.enableIsHamiltonian.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -995,6 +1008,7 @@
         public System.Windows.Forms.CheckBox enableIsPlanar;
         private MetroFramework.Controls.MetroProgressSpinner metroProgressSpinner;
         private MetroFramework.Controls.MetroLabel version;
+        public System.Windows.Forms.CheckBox enableIsHamiltonian;
     }
 }
 
