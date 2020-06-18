@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using QuikGraph;
 using MathNet.Numerics.LinearAlgebra.Complex;
 using MathNet.Numerics.LinearAlgebra;
+using QuickGraph.Algorithms.MaximumFlow;
 
 namespace GraphFilter
 {
@@ -68,24 +69,23 @@ namespace GraphFilter
 
         }
 
-        /*public static QuickGraph.UndirectedGraph<int, QuikGraph.Edge<int>> GraphToQuickGraph(Graph g)
+        /*public static QuickGraph.AdjacencyGraph<int, QuickGraph.Edge<int>> GraphToAdjacencyQuickGraph(Graph g)
         {
+            var graph = new QuickGraph.AdjacencyGraph<int, QuickGraph.Edge<int>>();
             QuickGraph.Edge<int>[] edges = new QuickGraph.Edge<int>[g.order];
-            int cont = 0;
             for (int i = 0; i < g.order; i++)
             {
                 for (int j = i + 1; j < g.order; j++)
                 {
-                    if (g.adjacencyMatrix[i, j] == 1)
-                    {
-                        edges[cont] = new QuickGraph.Edge<int>(i, j);
-                        cont++;
-                    }
+                    if (g.adjacencyMatrix[i, j] == 1) graph.AddEdge(new QuickGraph.Edge<int>(i, j));
                 }
             }
-            var graph = edges.ToUndirectedGraph<int, Edge<int>>();
+            EdmondsKarpMaximumFlowAlgorithm<int, QuickGraph.Edge<int>>()
+
             return graph;
         }*/
+
+
 
         public static CreateGraph G6toQuickGraph(string g6)
         {

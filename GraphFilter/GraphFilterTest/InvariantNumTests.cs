@@ -94,8 +94,23 @@ namespace GraphFilter.Invariant.Tests
             Assert.IsTrue(Execute("chromaticNumber6", InvariantNum.ChromaticNumber.getCode() + "()=6"));
         }
 
+        [TestMethod()]
+        public void VertexConnectivyTEST()
+        {
+            Assert.IsTrue(Execute("vertexConnectivy2", InvariantNum.VerticeConnectivy.getCode() + "()=2"));
+            //Assert.IsTrue(Execute("vertexConnectivy5", InvariantNum.VerticeConnectivy.getCode() + "()=5"));
+        }
+
+        [TestMethod()]//funciona somente no caso do grafo não ser acíclico
+        public void GirthTEST()
+        {
+            Assert.IsTrue(Execute("girth4", InvariantNum.Girth.getCode() + "()=4"));
+            Assert.IsTrue(Execute("girth6", InvariantNum.Girth.getCode() + "()=6"));
+            Assert.IsTrue(Execute("girthInfinite", InvariantNum.Girth.getCode() + "()>100000"));
+        }
+
         //FALTA: energias e num de árvores geradoras
-        
+
 
 
 

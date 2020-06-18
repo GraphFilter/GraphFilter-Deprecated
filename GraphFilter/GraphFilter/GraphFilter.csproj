@@ -145,6 +145,9 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Priority Queue, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OptimizedPriorityQueue.4.2.0\lib\net45\Priority Queue.dll</HintPath>
+    </Reference>
     <Reference Include="QuickGraph, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\QuickGraphCore.1.0.0\lib\net40\QuickGraph.dll</HintPath>
     </Reference>
@@ -190,7 +193,6 @@
     <Compile Include="GraphX_Utils\DataEdge.cs" />
     <Compile Include="GraphX_Utils\DataVertex.cs" />
     <Compile Include="BuildLogic.cs" />
-    <Compile Include="Invariants\Coloring.cs" />
     <Compile Include="Invariants\InvariantBool.cs" />
     <Compile Include="Invariants\InvariantNum.cs" />
     <Compile Include="Invariants\Utils.cs" />
