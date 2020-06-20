@@ -207,6 +207,35 @@ namespace GraphFilter.Invariants
 
             public static string getCode() { return "Mx"; }
         }
+
+        public class NumberOfComponents
+        {
+            public static int Calculate(Graph g)
+            {
+                int nc = 1;
+
+                if (g.order == 0) return 0;
+
+                bool[] visited = new bool[g.order];
+
+                Utils.DFS(0, visited, g);
+
+                for (int i = 0; i < g.order; i++)
+                {
+                    if (!visited[i])
+                    {
+                        nc++;
+                        Utils.DFS(i, visited, g);
+                    }
+                }
+
+                return nc;
+            }
+
+            public static string getName() { return "Number of Components"; }
+
+            public static string getCode() { return "Nc"; }
+        }
         
         public class ChromaticNumber
         {
@@ -231,12 +260,10 @@ namespace GraphFilter.Invariants
                         if (i!=j && digraph.matrix[i,j]!=1 && digraph.matrix[j, i] != 1)
                         {
                             minCut_ij = digraph.FindMaximumFlow(i, j);
-
                             if (minCut_ij < minCut) minCut = minCut_ij;
                         }
                         //digraph.SetDestination(i);
-                        //digraph.SetDestination(j);
-                        
+                        //digraph.SetDestination(j);   
                     }                   
                 }
 
@@ -330,8 +357,9 @@ namespace GraphFilter.Invariants
             names.Add(MatchingNumber.getCode() + ": " + MatchingNumber.getName() + "\n");
             names.Add(ChromaticNumber.getCode() + ": " + ChromaticNumber.getName() + "\n");
             names.Add(VerticeConnectivy.getCode() + ": " + VerticeConnectivy.getName() + "\n");
+            names.Add(Girth.getCode() + ": " + Girth.getName() + "\n");
+            names.Add(NumberOfComponents.getCode() + ": " + NumberOfComponents.getName() + "\n");
             return String.Concat(names);
-
         }
 
     }

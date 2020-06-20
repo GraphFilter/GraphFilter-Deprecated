@@ -61,6 +61,7 @@ namespace GraphFilter
                 if (name == InvariantNum.MatchingNumber.getCode()) args.Result = InvariantNum.MatchingNumber.Calculate(g);
                 if (name == InvariantNum.VerticeConnectivy.getCode()) args.Result = InvariantNum.VerticeConnectivy.Calculate(g);
                 if (name == InvariantNum.Girth.getCode()) args.Result = InvariantNum.Girth.Calculate(g);
+                if (name == InvariantNum.NumberOfComponents.getCode()) args.Result = InvariantNum.NumberOfComponents.Calculate(g);
             };
 
             if (ex.Evaluate().ToString() == "True") return true;

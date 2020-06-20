@@ -9,13 +9,20 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using Priority_Queue;
 using System.Runtime.InteropServices;
 
 namespace GraphFilter.Invariants
 {
     public class Utils
-    {
+  {
+        public static void DFS(int v, bool[] visited, Graph g)
+        {
+            visited[v] = true;
+
+            List<int> vList = g.N(v);
+            foreach (var n in vList)
+                if (!visited[n]) DFS(n, visited, g);
+        }
         public static class Distance
         {
             public static int[,] Matrix(Graph g)
@@ -260,7 +267,6 @@ namespace GraphFilter.Invariants
             {
                 this.matrix = CostructFlowFrom(g);
                 this.order = matrix.GetLength(0);
-                
             }
 
             /*public void SetSource(int source)

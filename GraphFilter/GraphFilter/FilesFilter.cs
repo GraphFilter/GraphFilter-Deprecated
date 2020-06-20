@@ -36,30 +36,33 @@ namespace GraphFilter
                     String g6Line = stReaderIn.ReadLine();
                     while (g6Line != null)
                     {
-                        if (form1.enableEq1.Checked)
-                            condition = BuildLogic.Text2BoolNCalc(form1.textEquation1.Text, new Graph(g6Line));
-                        if (form1.enableEq2.Checked)
-                            condition = condition && BuildLogic.Text2BoolNCalc(form1.textEquation2.Text, new Graph(g6Line));
-                        if (form1.enableEq3.Checked)
-                            condition = condition && BuildLogic.Text2BoolNCalc(form1.textEquation3.Text, new Graph(g6Line));
-                        if (form1.enableRegular.Checked)
-                            condition = condition && BuildLogic.ConditionRegular(new Graph(g6Line));
-                        if (form1.enableRegularWithK.Checked)
-                            condition = condition && BuildLogic.ConditionRegularK(new Graph(g6Line), Convert.ToInt32(form1.paramRegularWithDegree.Text));
-                        if (form1.enableIsConnected.Checked)
-                            condition = condition && BuildLogic.ConditionConnected(new Graph(g6Line));
-                        if (form1.enableIsPlanar.Checked)
-                            condition = condition && BuildLogic.ConditionPlanar(new Graph(g6Line));
-                        if (form1.enableIsHamiltonian.Checked)
-                            condition = condition && BuildLogic.ConditionHamiltonian(new Graph(g6Line));
-                        if (condition)
+                        if (g6Line != "" || g6Line != " ")
                         {
-                            numberOfGraphsOut++;
-                            stWriterOut.WriteLine(g6Line);              
+                            if (form1.enableEq1.Checked)
+                                condition = BuildLogic.Text2BoolNCalc(form1.textEquation1.Text, new Graph(g6Line));
+                            if (form1.enableEq2.Checked)
+                                condition = condition && BuildLogic.Text2BoolNCalc(form1.textEquation2.Text, new Graph(g6Line));
+                            if (form1.enableEq3.Checked)
+                                condition = condition && BuildLogic.Text2BoolNCalc(form1.textEquation3.Text, new Graph(g6Line));
+                            if (form1.enableRegular.Checked)
+                                condition = condition && BuildLogic.ConditionRegular(new Graph(g6Line));
+                            if (form1.enableRegularWithK.Checked)
+                                condition = condition && BuildLogic.ConditionRegularK(new Graph(g6Line), Convert.ToInt32(form1.paramRegularWithDegree.Text));
+                            if (form1.enableIsConnected.Checked)
+                                condition = condition && BuildLogic.ConditionConnected(new Graph(g6Line));
+                            if (form1.enableIsPlanar.Checked)
+                                condition = condition && BuildLogic.ConditionPlanar(new Graph(g6Line));
+                            if (form1.enableIsHamiltonian.Checked)
+                                condition = condition && BuildLogic.ConditionHamiltonian(new Graph(g6Line));
+                            if (condition)
+                            {
+                                numberOfGraphsOut++;
+                                stWriterOut.WriteLine(g6Line);
+                            }
+                            numberOfGraphsIn++;
+                            condition = true;
+                            form1.progressBar.Value++;
                         }
-                        numberOfGraphsIn++;
-                        condition = true;
-                        form1.progressBar.Value++;
                         g6Line = stReaderIn.ReadLine();
                     }
                 }

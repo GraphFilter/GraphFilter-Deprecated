@@ -12,6 +12,7 @@ using QuikGraph;
 using MathNet.Numerics.LinearAlgebra.Complex;
 using MathNet.Numerics.LinearAlgebra;
 using QuickGraph.Algorithms.MaximumFlow;
+using System.Security.Cryptography.X509Certificates;
 
 namespace GraphFilter
 {
@@ -19,8 +20,63 @@ namespace GraphFilter
     {
         public static int[,] Graph6toAdjMatrix(string g6)
         {
+            string R_x = "";
+            string bin6 = "";
+
             if (g6.Length == 0) return new int[0, 0];
-            int n = g6.ElementAt(0) - 63;
+            int n;
+            if (g6.ElementAt(0) == 126)
+            {
+                n = Convert.ToInt32(Conversor.Rx(2, 4, g6), 2);
+                R_x = Conversor.Rx(5, g6.Length - 1, g6);
+            }
+            else
+            {
+                n = g6.ElementAt(0) - 63;
+                R_x = Conversor.Rx(1, g6.Length - 1, g6);
+            }
+
+            string x = R_x.Substring(0, (n * (n - 1)) / 2);
+
+            int[,] AdjMatrix = new int[n, n];
+            int k = 0;
+            for (int j = 1; j < n; j++)
+            {
+                for (int i = 0; i < j; i++)
+                {
+                    AdjMatrix[i, j] = Convert.ToInt32(x.Substring(k, 1));
+                    AdjMatrix[j, i] = Convert.ToInt32(x.Substring(k, 1));
+                    k++;
+                }
+                AdjMatrix[j, j] = 0;
+            }
+            AdjMatrix[0, 0] = 0;
+
+            return AdjMatrix;
+        }
+
+        private static String Rx(int init, int end, string g6)
+        {
+            string bin6 = "";
+            string R_x = "";
+
+            for (int i = init; i <= end; i++)
+            {
+                bin6 = DecimalToBinary(Convert.ToInt32(g6.ElementAt(i) - 63));
+                while (bin6.Length < 6) { bin6 = "0" + bin6; };
+                R_x = R_x + bin6;
+            }
+            return R_x;
+        }
+
+        /*
+         * if (g6.Length == 0) return new int[0, 0];
+            int n = 0;
+            if (g6.ElementAt(0) >= 126)
+                n = 126;
+            else
+                n = g6.ElementAt(0) - 63;
+
             string R_x = "";
             string bin6 = "";
 
@@ -48,8 +104,7 @@ namespace GraphFilter
             }
             AdjMatrix[0, 0] = 0;
 
-            return AdjMatrix;
-        }
+            return AdjMatrix;*/
 
         private static string DecimalToBinary(int decimalNumber)
         {

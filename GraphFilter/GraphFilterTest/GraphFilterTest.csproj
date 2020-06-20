@@ -98,6 +98,7 @@
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConversorTests.cs" />
     <Compile Include="InvariantBoolTests.cs" />
     <Compile Include="InvariantNumTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

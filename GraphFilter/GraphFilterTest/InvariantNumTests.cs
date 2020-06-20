@@ -109,10 +109,15 @@ namespace GraphFilter.Invariant.Tests
             Assert.IsTrue(Execute("girthInfinite", InvariantNum.Girth.getCode() + "()>100000"));
         }
 
+        [TestMethod()]
+        public void NumberOfComponentsTEST()
+        {
+            Assert.IsTrue(Execute("3NC", InvariantNum.NumberOfComponents.getCode() + "()=3"));
+            Assert.IsTrue(Execute("5NC", InvariantNum.NumberOfComponents.getCode() + "()=5"));
+            Assert.IsTrue(Execute("connected", InvariantNum.NumberOfComponents.getCode() + "()=1"));
+            Assert.IsTrue(Execute("disconnected", InvariantNum.NumberOfComponents.getCode() + "()>1"));
+        }
+
         //FALTA: energias e num de árvores geradoras
-
-
-
-
     }
 }

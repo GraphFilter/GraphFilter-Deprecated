@@ -47,9 +47,8 @@ namespace GraphFilter.Invariant.Tests
         [TestMethod()]
         public void ConnectedTEST()
         {
-            //Assert.IsTrue(Execute("connected",InvariantBool.connected, 0));
-            ///Assert.IsTrue(Execute("disconnected", InvariantBool.disconnected, 0));  
-            Assert.IsTrue(Execute("connectedAndDisco", InvariantBool.disconnected, 0));
+            Assert.IsTrue(Execute("connected",InvariantBool.connected, 0));
+            Assert.IsTrue(Execute("disconnected", InvariantBool.disconnected, 0));  
         }
 
         [TestMethod()]
