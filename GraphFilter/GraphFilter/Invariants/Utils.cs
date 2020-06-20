@@ -10,6 +10,14 @@ namespace GraphFilter.Invariants
 {
     public static class Utils
     {
+        public static void DFS(int v, bool[] visited, Graph g)
+        {
+            visited[v] = true;
+
+            List<int> vList = g.N(v);
+            foreach (var n in vList)
+                if (!visited[n]) DFS(n, visited, g);
+        }
         public class Distance
         {
             public static int[,] Matrix(Graph g)
@@ -144,6 +152,7 @@ namespace GraphFilter.Invariants
             }
 
         }
+
         private static HashSet<int> Union(HashSet<int> A, HashSet<int> B)
         {
             HashSet<int> aUb = new HashSet<int>(A);

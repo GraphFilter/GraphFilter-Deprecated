@@ -58,6 +58,7 @@ namespace GraphFilter
                             stWriterOut.WriteLine(g6Line);              
                         }
                         numberOfGraphsIn++;
+                        condition = true;
                         form1.progressBar.Value++;
                         g6Line = stReaderIn.ReadLine();
                     }

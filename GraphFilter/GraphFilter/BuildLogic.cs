@@ -23,6 +23,7 @@ namespace GraphFilter
         }
         public static bool ConditionConnected(Graph g)
         {
+            bool x = InvariantBool.IsConnected.Calculate(g);
             return InvariantBool.IsConnected.Calculate(g);
         }
         public static bool ConditionPlanar(Graph g)

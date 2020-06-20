@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HamiltonianGraph;
+using System.Drawing.Text;
+using GraphPlanarityTesting.Graphs.Algorithms;
 
 namespace GraphFilter.Invariants
 {
@@ -15,19 +17,16 @@ namespace GraphFilter.Invariants
         {
             public static bool Calculate(Graph g)
             {
-                int[,] dist = Utils.Distance.Matrix(g);
-                for (int i = 0; i < g.order; i++)
-                {
-                    for (int j = i + 1; j < g.order; j++)
-                    {
-                        if (dist[i, j] == 1000000 || dist[j, i] == 1000000)
-                        {
-                            return false;
-                        }
-                    }
-                }
+                if (g.order == 0) return true;
+
+                bool[] visited = new bool[g.order];
+
+                Utils.DFS(0, visited, g);
+
+                for (int i = 0; i < g.order; i++) if (!visited[i]) return false;
                 return true;
             }
+
             public static string getName() { return "Is a connected graph?"; }
         }
 
@@ -73,12 +72,13 @@ namespace GraphFilter.Invariants
                 return boyerMyrvold.IsPlanar(graph);
             }
 
-            public static string getName() { return "Planarity Test"; }
+            public static string getName() { return "Is a Planar Graph?"; }
 
         }
 
         public class IsHamiltonian
         {
+            //https://github.com/sagidM/HamiltonianGraph/blob/master/src/HamiltonianGraph/BranchAndBound.cs
             public static bool Calculate(Graph g)
             {
                 int?[,] graph = HamiltonianGraph.Utils.GraphUtil.FromMatrixFormat(Conversor.GraphToStringMatrix(g));
