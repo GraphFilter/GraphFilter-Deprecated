@@ -106,12 +106,18 @@
     <None Include="g6Files\algCon3-4.g6" />
     <None Include="g6Files\averageDegree_5-6.g6" />
     <None Include="g6Files\chromaticNumber6.g6" />
+    <None Include="g6Files\chromaticNumber6COPIA - Copia.g6" />
+    <None Include="g6Files\chromaticNumber6COPIA.g6" />
+    <None Include="g6Files\cliqueNumber4.g6" />
     <None Include="g6Files\cliqueNumber5.g6" />
+    <None Include="g6Files\cliqueNumber7.g6" />
     <None Include="g6Files\connected.g6" />
     <None Include="g6Files\deltaPlusDelta10.g6" />
     <None Include="g6Files\diameter7.g6" />
     <None Include="g6Files\disconnected.g6" />
+    <None Include="g6Files\hamiltonian.g6" />
     <None Include="g6Files\independenceNumber7.g6" />
+    <None Include="g6Files\matchingNumber5.g6" />
     <None Include="g6Files\matchingNumber6.g6" />
     <None Include="g6Files\numberOfEdges12.g6" />
     <None Include="g6Files\planar.g6" />
@@ -119,6 +125,8 @@
     <None Include="g6Files\regular10.g6" />
     <None Include="g6Files\regular6.g6" />
     <None Include="g6Files\spectralRadius5-6.g6" />
+    <None Include="g6Files\vertexConnectivy2.g6" />
+    <None Include="g6Files\vertexConnectivy5.g6" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -93,6 +93,7 @@ namespace GraphFilter
             return null;
         }
 
+
         public bool InsertEdge(int i, int j)
         {
             if (i != j)
@@ -103,5 +104,16 @@ namespace GraphFilter
             }
             else return false;
         }
+        public bool RemoveEdge(int i, int j)
+        {
+            if (adjacencyMatrix[i, j] == 1)
+            {
+                adjacencyMatrix[i, j] = 0;
+                adjacencyMatrix[j, i] = 0;
+                return true;
+            }
+            else return false;
+        }
+
     }
 }

@@ -6,6 +6,7 @@ using System.Net.Http.Headers;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using GraphPlanarityTesting.Graphs.DataStructures;
 using GraphPlanarityTesting.PlanarityTesting.BoyerMyrvold;
 using MathNet.Numerics.LinearAlgebra;
@@ -210,44 +211,107 @@ namespace GraphFilter.Invariants
         public class ChromaticNumber
         {
             //book Teoria Computacional de Grafos, algoritmo 5.3
-            public static int Calculate(Graph g)
-            {
-                /*if (g.order == 0) return 0;
-                 int n = g.order;
-                 List<int> result = new List<int>(n);
-                 bool[] avaible = new bool[n];
-                 for (int i = 0; i < n; i++)
-                 {
-                     result.Add(-1);
-                     avaible[i] = true;
-                 }
-                 result[0] = 0;
-                 for (int u = 0; u < n; u++)
-                 {
-                     foreach (int i in g.N(u))
-                     {
-                         if (result[i] != -1) avaible[result[i]] = false;
-                     }
-                     int cr;
-                     for (cr = 0; cr < n; cr++)
-                     {
-                         if (avaible[cr]) break;
-                     }
-                     result[u] = cr;
-                     for (int i = 0; i < n; i++) avaible[i] = true;
-                 }*/
-                int chi = Coloring.Calculate(g);
-                if (chi!=6)
-                {
-                    return chi;
-                }
-                return chi;
-            }
+            public static int Calculate(Graph g) { return Utils.Coloring.Calculate(g); }
             public static string getName() { return "Chromatic Number"; }
 
             public static string getCode() { return "chi"; }
         }
 
+        public class VerticeConnectivy
+        {
+            //book Teoria Computacional de Grafos, algoritmo 5.3
+            public static int Calculate(Graph g) {
+                Utils.Digraph_MaxFlow digraph = new Utils.Digraph_MaxFlow(g);
+                int minCut=int.MaxValue;
+                int minCut_ij;
+                for (int i = 0; i < digraph.order; i++)
+                {
+                    for (int j = 0; j < digraph.order; j++)
+                    {
+                        if (i!=j && digraph.matrix[i,j]!=1 && digraph.matrix[j, i] != 1)
+                        {
+                            minCut_ij = digraph.FindMaximumFlow(i, j);
+
+                            if (minCut_ij < minCut) minCut = minCut_ij;
+                        }
+                        //digraph.SetDestination(i);
+                        //digraph.SetDestination(j);
+                        
+                    }                   
+                }
+
+                if (minCut!=2)
+                {
+                    return minCut;
+                }
+                return minCut;
+            
+            }
+            public static string getName() { return "Vertice Connectivy"; }
+
+            public static string getCode() { return "k"; }
+        }
+
+        public class Girth
+        {
+            //https://www.geeksforgeeks.org/shortest-cycle-in-an-undirected-unweighted-graph/
+            private static int shortest_cycle(Graph g)
+            {
+                int n = g.order;
+                // To store length of the shortest cycle  
+                int ans = int.MaxValue;
+                // For all vertices  
+                for (int i = 0; i < n; i++)
+                {
+                    // Make distance maximum  
+                    int[] dist = new int[n];
+                    fill(dist, (int)1e9);
+                    // Take a imaginary parent  
+                    int[] par = new int[n];
+                    fill(par, -1);
+                    // Distance of source to source is 0  
+                    dist[i] = 0;
+                    List<int> q = new List<int>();
+                    // Push the source element  
+                    q.Add(i);
+                    // Continue until queue is not empty  
+                    while (q.Count != 0)
+                    {
+                        // Take the first element  
+                        int x = q[0];
+                        q.RemoveAt(0);
+                        // Traverse for all it's childs  
+                        foreach (int child in g.N(x))
+                        {
+                            // If it is not visited yet  
+                            if (dist[child] == (int)(1e9))
+                            {
+                                // Increase distance by 1  
+                                dist[child] = 1 + dist[x];
+                                // Change parent  
+                                par[child] = x;
+                                // Push into the queue  
+                                q.Add(child);
+                            }
+                            else if (par[x] != child && par[child] != x)
+                                ans = Math.Min(ans, dist[x] + dist[child] + 1);
+                        }
+                    }
+                }
+                return ans;
+            }
+            private static int[] fill(int[] arr, int val)
+            {
+                for (int i = 0; i < arr.GetLength(0); i++)
+                    arr[i] = val;
+                return arr;
+            }
+
+            public static int Calculate(Graph g) { return shortest_cycle(g); }
+            public static string getName() { return "Girth"; }
+
+            public static string getCode() { return "g"; }
+        }
         public static string AllNames()
         {
             List<string> names = new List<string>();
@@ -265,6 +329,7 @@ namespace GraphFilter.Invariants
             names.Add(IndependenceNumber.getCode() + ": " + IndependenceNumber.getName() + "\n");
             names.Add(MatchingNumber.getCode() + ": " + MatchingNumber.getName() + "\n");
             names.Add(ChromaticNumber.getCode() + ": " + ChromaticNumber.getName() + "\n");
+            names.Add(VerticeConnectivy.getCode() + ": " + VerticeConnectivy.getName() + "\n");
             return String.Concat(names);
 
         }
