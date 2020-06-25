@@ -12,6 +12,7 @@ using GraphPlanarityTesting.PlanarityTesting.BoyerMyrvold;
 using MathNet.Numerics.LinearAlgebra;
 using MathNet.Numerics.LinearAlgebra.Double;
 using MathNet.Numerics.LinearAlgebra.Factorization;
+using MaximumFlowProblem;
 using QuickGraph;
 using QuikGraph;
 using QuikGraph.Algorithms.VertexColoring;
@@ -246,37 +247,23 @@ namespace GraphFilter.Invariants
             public static string getCode() { return "chi"; }
         }
 
-        public class VerticeConnectivy
+        public class EdgeConnectivy
         {
-            //book Teoria Computacional de Grafos, algoritmo 5.3
+            //https://github.com/lucasrabiec/MaximumFlowProblem
             public static int Calculate(Graph g) {
-                Utils.Digraph_MaxFlow digraph = new Utils.Digraph_MaxFlow(g);
-                int minCut=int.MaxValue;
-                int minCut_ij;
-                for (int i = 0; i < digraph.order; i++)
+                if (!InvariantBool.IsConnected.Calculate(g)) return 0;
+                FordFulkerson fordF = new FordFulkerson(g.adjacencyMatrix);
+                int x= fordF.FindMaximumFlow();
+                if (x!=4)
                 {
-                    for (int j = 0; j < digraph.order; j++)
-                    {
-                        if (i!=j && digraph.matrix[i,j]!=1 && digraph.matrix[j, i] != 1)
-                        {
-                            minCut_ij = digraph.FindMaximumFlow(i, j);
-                            if (minCut_ij < minCut) minCut = minCut_ij;
-                        }
-                        //digraph.SetDestination(i);
-                        //digraph.SetDestination(j);   
-                    }                   
+                    return x;
                 }
-
-                if (minCut!=2)
-                {
-                    return minCut;
-                }
-                return minCut;
+                return x;
             
             }
-            public static string getName() { return "Vertice Connectivy"; }
+            public static string getName() { return "Edge Connectivy"; }
 
-            public static string getCode() { return "k"; }
+            public static string getCode() { return "ec"; }
         }
 
         public class Girth
@@ -356,7 +343,7 @@ namespace GraphFilter.Invariants
             names.Add(IndependenceNumber.getCode() + ": " + IndependenceNumber.getName() + "\n");
             names.Add(MatchingNumber.getCode() + ": " + MatchingNumber.getName() + "\n");
             names.Add(ChromaticNumber.getCode() + ": " + ChromaticNumber.getName() + "\n");
-            names.Add(VerticeConnectivy.getCode() + ": " + VerticeConnectivy.getName() + "\n");
+            names.Add(EdgeConnectivy.getCode() + ": " + EdgeConnectivy.getName() + "\n");
             names.Add(Girth.getCode() + ": " + Girth.getName() + "\n");
             names.Add(NumberOfComponents.getCode() + ": " + NumberOfComponents.getName() + "\n");
             return String.Concat(names);

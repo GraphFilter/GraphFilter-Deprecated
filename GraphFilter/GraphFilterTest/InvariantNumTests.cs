@@ -95,9 +95,10 @@ namespace GraphFilter.Invariant.Tests
         }
 
         [TestMethod()]
-        public void VertexConnectivyTEST()
+        public void EdgeConnectivyTEST()
         {
-            Assert.IsTrue(Execute("vertexConnectivy2", InvariantNum.VerticeConnectivy.getCode() + "()=2"));
+            Assert.IsTrue(Execute("edgeConnectivy4", InvariantNum.EdgeConnectivy.getCode() + "()=4"));
+            Assert.IsTrue(Execute("disconnected", InvariantNum.EdgeConnectivy.getCode() + "()=0"));
             //Assert.IsTrue(Execute("vertexConnectivy5", InvariantNum.VerticeConnectivy.getCode() + "()=5"));
         }
 

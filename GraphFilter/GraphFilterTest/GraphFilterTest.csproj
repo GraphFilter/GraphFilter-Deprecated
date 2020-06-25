@@ -104,6 +104,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="g6Files\3NC.g6" />
+    <None Include="g6Files\5NC.g6" />
     <None Include="g6Files\algCon3-4.g6" />
     <None Include="g6Files\averageDegree_5-6.g6" />
     <None Include="g6Files\chromaticNumber6.g6" />
@@ -113,9 +115,14 @@
     <None Include="g6Files\cliqueNumber5.g6" />
     <None Include="g6Files\cliqueNumber7.g6" />
     <None Include="g6Files\connected.g6" />
+    <None Include="g6Files\connectedAndDisco.g6" />
     <None Include="g6Files\deltaPlusDelta10.g6" />
     <None Include="g6Files\diameter7.g6" />
     <None Include="g6Files\disconnected.g6" />
+    <None Include="g6Files\girth4.g6" />
+    <None Include="g6Files\girth5.g6" />
+    <None Include="g6Files\girth6.g6" />
+    <None Include="g6Files\girthInfinite.g6" />
     <None Include="g6Files\hamiltonian.g6" />
     <None Include="g6Files\independenceNumber7.g6" />
     <None Include="g6Files\matchingNumber5.g6" />
