@@ -13,6 +13,9 @@ using MathNet.Numerics.LinearAlgebra.Complex;
 using MathNet.Numerics.LinearAlgebra;
 using QuickGraph.Algorithms.MaximumFlow;
 using System.Security.Cryptography.X509Certificates;
+using System.Drawing.Text;
+using System.Configuration;
+using System.IO;
 
 namespace GraphFilter
 {
@@ -27,8 +30,8 @@ namespace GraphFilter
             int n;
             if (g6.ElementAt(0) == 126)
             {
-                n = Convert.ToInt32(Conversor.Rx(2, 4, g6), 2);
-                R_x = Conversor.Rx(5, g6.Length - 1, g6);
+                n = Convert.ToInt32(Conversor.Rx(1, 3, g6), 2);
+                R_x = Conversor.Rx(4, g6.Length - 1, g6);
             }
             else
             {
@@ -36,7 +39,7 @@ namespace GraphFilter
                 R_x = Conversor.Rx(1, g6.Length - 1, g6);
             }
 
-            string x = R_x.Substring(0, (n * (n - 1)) / 2);
+            //string x = R_x.Substring(0, (n * (n - 1)) / 2);
 
             int[,] AdjMatrix = new int[n, n];
             int k = 0;
@@ -44,8 +47,8 @@ namespace GraphFilter
             {
                 for (int i = 0; i < j; i++)
                 {
-                    AdjMatrix[i, j] = Convert.ToInt32(x.Substring(k, 1));
-                    AdjMatrix[j, i] = Convert.ToInt32(x.Substring(k, 1));
+                    AdjMatrix[i, j] = Convert.ToInt32(R_x.Substring(k, 1));
+                    AdjMatrix[j, i] = Convert.ToInt32(R_x.Substring(k, 1));
                     k++;
                 }
                 AdjMatrix[j, j] = 0;
@@ -188,6 +191,32 @@ namespace GraphFilter
                 graph = graph + "\n";
             }
             return graph;
+        }
+
+        private static string path = System.IO.Path.GetFullPath(@"..\..\") + "\\matFiles\\";
+
+        public static int[,] matFile2Matrix(string file)
+        {
+            using (StreamReader stReaderIn = new StreamReader(path + file + ".mat"))
+            {
+                String line = stReaderIn.ReadLine();
+                int[,] adjMatrix = new int[(line.Length/2) + 1, (line.Length / 2) + 1];
+
+                int i = 0;
+                int j = 0;
+                while (line != null)
+                {
+                    for (int k = 0; k < line.Length; k += 2)
+                    {
+                        adjMatrix[i, j] = line[k] - 48;
+                        j++;
+                    }
+                    j = 0;
+                    line = stReaderIn.ReadLine();
+                    i++;
+                }
+                return adjMatrix;
+            }
         }
 
         /*

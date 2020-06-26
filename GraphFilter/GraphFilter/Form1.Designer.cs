@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.listInvResults = new System.Windows.Forms.DataGridView();
             this.groupBoxCondition = new System.Windows.Forms.GroupBox();
+            this.enableIsHamiltonian = new System.Windows.Forms.CheckBox();
             this.enableIsPlanar = new System.Windows.Forms.CheckBox();
             this.paramRegularWithDegree = new MetroFramework.Controls.MetroTextBox();
             this.enableIsConnected = new System.Windows.Forms.CheckBox();
@@ -70,13 +72,16 @@
             this.textSource = new MetroFramework.Controls.MetroTextBox();
             this.buttonOpen = new System.Windows.Forms.Button();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.showInvariantsCheck = new MetroFramework.Controls.MetroCheckBox();
             this.textOpenViz = new MetroFramework.Controls.MetroTextBox();
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
             this.metroProgressSpinner = new MetroFramework.Controls.MetroProgressSpinner();
             this.metroProgress = new MetroFramework.Controls.MetroProgressSpinner();
             this.textOpenExp = new MetroFramework.Controls.MetroTextBox();
             this.version = new MetroFramework.Controls.MetroLabel();
-            this.enableIsHamiltonian = new System.Windows.Forms.CheckBox();
+            this.ColunaInvariant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColunaResultado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.listInvResults)).BeginInit();
             this.groupBoxCondition.SuspendLayout();
             this.groupBoxEq.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -86,6 +91,30 @@
             this.metroTabPage2.SuspendLayout();
             this.metroTabPage3.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // listInvResults
+            // 
+            this.listInvResults.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.listInvResults.BackgroundColor = System.Drawing.Color.White;
+            this.listInvResults.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listInvResults.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.listInvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.listInvResults.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColunaInvariant,
+            this.ColunaResultado});
+            this.listInvResults.Location = new System.Drawing.Point(203, 87);
+            this.listInvResults.MinimumSize = new System.Drawing.Size(430, 200);
+            this.listInvResults.MultiSelect = false;
+            this.listInvResults.Name = "listInvResults";
+            this.listInvResults.RowHeadersWidth = 51;
+            this.listInvResults.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.listInvResults.RowTemplate.Height = 24;
+            this.listInvResults.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.listInvResults.ShowRowErrors = false;
+            this.listInvResults.Size = new System.Drawing.Size(430, 340);
+            this.listInvResults.TabIndex = 0;
+            this.listInvResults.Visible = false;
+            this.listInvResults.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listInvResults_CellContentClick);
             // 
             // groupBoxCondition
             // 
@@ -104,6 +133,17 @@
             this.groupBoxCondition.TabIndex = 8;
             this.groupBoxCondition.TabStop = false;
             this.groupBoxCondition.Text = "Condition";
+            // 
+            // enableIsHamiltonian
+            // 
+            this.enableIsHamiltonian.AutoSize = true;
+            this.enableIsHamiltonian.Location = new System.Drawing.Point(356, 31);
+            this.enableIsHamiltonian.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.enableIsHamiltonian.Name = "enableIsHamiltonian";
+            this.enableIsHamiltonian.Size = new System.Drawing.Size(104, 21);
+            this.enableIsHamiltonian.TabIndex = 52;
+            this.enableIsHamiltonian.Text = "Hamiltonian";
+            this.enableIsHamiltonian.UseVisualStyleBackColor = true;
             // 
             // enableIsPlanar
             // 
@@ -626,7 +666,7 @@
             this.tabControl.Location = new System.Drawing.Point(23, 71);
             this.tabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
+            this.tabControl.SelectedIndex = 1;
             this.tabControl.Size = new System.Drawing.Size(1277, 715);
             this.tabControl.TabIndex = 52;
             this.tabControl.UseSelectable = true;
@@ -765,6 +805,8 @@
             // 
             // metroTabPage2
             // 
+            this.metroTabPage2.Controls.Add(this.showInvariantsCheck);
+            this.metroTabPage2.Controls.Add(this.listInvResults);
             this.metroTabPage2.Controls.Add(this.textOpenViz);
             this.metroTabPage2.Controls.Add(this.buttonFill);
             this.metroTabPage2.Controls.Add(this.buttonZoomOriginal);
@@ -787,6 +829,17 @@
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 11;
+            // 
+            // showInvariantsCheck
+            // 
+            this.showInvariantsCheck.AutoSize = true;
+            this.showInvariantsCheck.Location = new System.Drawing.Point(796, 39);
+            this.showInvariantsCheck.Name = "showInvariantsCheck";
+            this.showInvariantsCheck.Size = new System.Drawing.Size(154, 17);
+            this.showInvariantsCheck.TabIndex = 57;
+            this.showInvariantsCheck.Text = "Show Graph Invariants";
+            this.showInvariantsCheck.UseSelectable = true;
+            this.showInvariantsCheck.CheckedChanged += new System.EventHandler(this.metroCheckBox1_CheckedChanged);
             // 
             // textOpenViz
             // 
@@ -917,16 +970,19 @@
             this.version.TabIndex = 53;
             this.version.Text = "Version: 1.0";
             // 
-            // enableIsHamiltonian
+            // ColunaInvariant
             // 
-            this.enableIsHamiltonian.AutoSize = true;
-            this.enableIsHamiltonian.Location = new System.Drawing.Point(356, 31);
-            this.enableIsHamiltonian.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.enableIsHamiltonian.Name = "enableIsHamiltonian";
-            this.enableIsHamiltonian.Size = new System.Drawing.Size(104, 21);
-            this.enableIsHamiltonian.TabIndex = 52;
-            this.enableIsHamiltonian.Text = "Hamiltonian";
-            this.enableIsHamiltonian.UseVisualStyleBackColor = true;
+            this.ColunaInvariant.HeaderText = "Invariant";
+            this.ColunaInvariant.MinimumWidth = 6;
+            this.ColunaInvariant.Name = "ColunaInvariant";
+            this.ColunaInvariant.Width = 125;
+            // 
+            // ColunaResultado
+            // 
+            this.ColunaResultado.HeaderText = "Result";
+            this.ColunaResultado.MinimumWidth = 6;
+            this.ColunaResultado.Name = "ColunaResultado";
+            this.ColunaResultado.Width = 125;
             // 
             // Form1
             // 
@@ -943,6 +999,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);
+            ((System.ComponentModel.ISupportInitialize)(this.listInvResults)).EndInit();
             this.groupBoxCondition.ResumeLayout(false);
             this.groupBoxCondition.PerformLayout();
             this.groupBoxEq.ResumeLayout(false);
@@ -953,6 +1010,7 @@
             this.metroTabPage1.PerformLayout();
             this.groupBoxFiles.ResumeLayout(false);
             this.metroTabPage2.ResumeLayout(false);
+            this.metroTabPage2.PerformLayout();
             this.metroTabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1009,6 +1067,10 @@
         private MetroFramework.Controls.MetroProgressSpinner metroProgressSpinner;
         private MetroFramework.Controls.MetroLabel version;
         public System.Windows.Forms.CheckBox enableIsHamiltonian;
+        private System.Windows.Forms.DataGridView listInvResults;
+        private MetroFramework.Controls.MetroCheckBox showInvariantsCheck;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColunaInvariant;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColunaResultado;
     }
 }
 

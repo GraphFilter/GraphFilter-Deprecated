@@ -49,6 +49,16 @@ namespace GraphFilter
             buttonZoomIn.Enabled = false;
             buttonPrint.Enabled = false;
             buttonExp2PNG.Enabled = false;
+
+
+            /*listInvariantsResult.Columns.Add(InvariantNum.AdjacencyEnergy.getCode());
+            listInvariantsResult.Columns.Add(InvariantNum.AlgebricConnectivity.getCode());
+            listInvariantsResult.Columns.Add(InvariantNum.AverageDegree.getCode());*/
+
+            //listInvResults.Columns.Insert(InvariantNum.AdjacencyEnergy.getCode(), ColunaInvariant);
+            //listInvResults.Rows.Add(InvariantNum.AdjacencyEnergy.getCode());
+
+
         }
         private void Form1_Resize(object sender, EventArgs e)
         {
@@ -80,16 +90,51 @@ namespace GraphFilter
             metroProgressSpinner.Left = textOpenExp.Width / 2;
 
             version.Left = this.Width - 120;
+
+            showInvariantsCheck.Left = this.Width - 250;
+
+            listInvResults.Top = this.Height - 430;
         }
         private void listOfG6_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listOfG6.SelectedItem != null)
+            listInvResults.Rows.Clear();
+            string g6Line = "";
+            if (listOfG6.SelectedItem != null && listOfG6.SelectedItem.ToString().Length != 0 && listOfG6.SelectedItem.ToString() != " ")
             {
+                g6Line = listOfG6.SelectedItem.ToString();
                 wpfHost.Child = GenerateWpfVisuals(listOfG6.SelectedItem.ToString());
                 _gArea.GenerateGraph(true);
                 _gArea.ShowAllEdgesLabels(false);
                 _gArea.SetVerticesDrag(true, true);
                 _zoomctrl.ZoomToFill();
+
+                string[] inv1 = new string[] { InvariantNum.AdjacencyEnergy.getName(), InvariantNum.AdjacencyEnergy.Calculate(new Graph(g6Line)).ToString() };
+                string[] inv2 = new string[] { InvariantNum.AlgebricConnectivity.getName(), InvariantNum.AlgebricConnectivity.Calculate(new Graph(g6Line)).ToString() };
+                string[] inv3 = new string[] { InvariantNum.AverageDegree.getName(), InvariantNum.AverageDegree.Calculate(new Graph(g6Line)).ToString() };
+                string[] inv4 = new string[] { InvariantNum.ChromaticNumber.getName(), InvariantNum.ChromaticNumber.Calculate(new Graph(g6Line)).ToString() };
+                string[] inv5 = new string[] { InvariantNum.CliqueNumber.getName(), InvariantNum.CliqueNumber.Calculate(new Graph(g6Line)).ToString() };
+                string[] inv6 = new string[] { InvariantNum.Diameter.getName(), InvariantNum.Diameter.Calculate(new Graph(g6Line)).ToString() };
+                string[] inv7 = new string[] { InvariantNum.Girth.getName(), InvariantNum.Girth.Calculate(new Graph(g6Line)).ToString() };
+                string[] inv8 = new string[] { InvariantNum.IndependenceNumber.getName(), InvariantNum.IndependenceNumber.Calculate(new Graph(g6Line)).ToString() };
+                string[] inv9 = new string[] { InvariantNum.LaplacianEnergy.getName(), InvariantNum.LaplacianEnergy.Calculate(new Graph(g6Line)).ToString() };
+                string[] inv10 = new string[] { InvariantNum.MatchingNumber.getName(), InvariantNum.MatchingNumber.Calculate(new Graph(g6Line)).ToString() };
+                string[] inv11 = new string[] { InvariantNum.MaxDegree.getName(), InvariantNum.MaxDegree.Calculate(new Graph(g6Line)).ToString() };
+                string[] inv12 = new string[] { InvariantNum.MinDegree.getName(), InvariantNum.MinDegree.Calculate(new Graph(g6Line)).ToString() };
+                string[] inv13 = new string[] { InvariantNum.NumberOfComponents.getName(), InvariantNum.NumberOfComponents.Calculate(new Graph(g6Line)).ToString() };
+                string[] inv14 = new string[] { InvariantNum.NumberOfEdges.getName(), InvariantNum.NumberOfEdges.Calculate(new Graph(g6Line)).ToString() };
+                string[] inv15 = new string[] { InvariantNum.NumberSpanningTree.getName(), InvariantNum.NumberSpanningTree.Calculate(new Graph(g6Line)).ToString() };
+                string[] inv16 = new string[] { InvariantNum.Order.getName(), InvariantNum.Order.Calculate(new Graph(g6Line)).ToString() };
+                string[] inv17 = new string[] { InvariantNum.SpectralRadius.getName(), InvariantNum.SpectralRadius.Calculate(new Graph(g6Line)).ToString() };
+                string[] inv18 = new string[] { InvariantNum.VerticeConnectivy.getName(), InvariantNum.VerticeConnectivy.Calculate(new Graph(g6Line)).ToString() };
+                object[] invariants = new object[] { inv1, inv2, inv3, inv4, inv5, inv6, inv7, inv8, inv9, inv10, inv11, inv12, inv13, inv14, inv15, inv16, inv17, inv18 };
+
+                foreach (string[] rowArray in invariants)
+                {
+                    listInvResults.Rows.Add(rowArray);
+                }
+
+                listInvResults.Columns[0].ReadOnly = true;
+                listInvResults.Columns[1].ReadOnly = true;
             } 
         }
         #endregion
@@ -775,6 +820,25 @@ namespace GraphFilter
         private void CheckUpdateButton_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listInvResults_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void metroCheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (showInvariantsCheck.Checked == true) listInvResults.Visible = true;
+            else
+            {
+                listInvResults.Visible = false;
+            } 
         }
     }
 
