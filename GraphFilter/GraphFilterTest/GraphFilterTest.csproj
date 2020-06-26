@@ -135,6 +135,24 @@
     <None Include="g6Files\spectralRadius5-6.g6" />
     <None Include="g6Files\vertexConnectivy2.g6" />
     <None Include="g6Files\vertexConnectivy5.g6" />
+    <None Include="NewFolder1\n1.g6" />
+    <None Include="NewFolder1\n1.mat" />
+    <None Include="NewFolder1\n100.mat" />
+    <None Include="NewFolder1\n171.g6" />
+    <None Include="NewFolder1\n171.mat" />
+    <None Include="NewFolder1\n20.g6" />
+    <None Include="NewFolder1\n20.mat" />
+    <None Include="NewFolder1\n200.mat" />
+    <None Include="NewFolder1\n231.g6" />
+    <None Include="NewFolder1\n231.mat" />
+    <None Include="NewFolder1\n50.g6" />
+    <None Include="NewFolder1\n50.mat" />
+    <None Include="NewFolder1\n62.g6" />
+    <None Include="NewFolder1\n62.mat" />
+    <None Include="NewFolder1\n63.g6" />
+    <None Include="NewFolder1\n63.mat" />
+    <None Include="NewFolder1\n64.g6" />
+    <None Include="NewFolder1\n64.mat" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

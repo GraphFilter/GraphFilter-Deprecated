@@ -1,21 +1,7 @@
 ﻿using GraphFilter.GraphX_Utils;
-using GraphFilter.Invariants;
-using NCalc;
-using QuickGraph;
 using System;
-using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using QuikGraph;
-using MathNet.Numerics.LinearAlgebra.Complex;
-using MathNet.Numerics.LinearAlgebra;
-using QuickGraph.Algorithms.MaximumFlow;
-using System.Security.Cryptography.X509Certificates;
-using System.Drawing.Text;
-using System.Configuration;
-using System.IO;
+
 
 namespace GraphFilter
 {
@@ -23,6 +9,7 @@ namespace GraphFilter
     {
         public static int[,] Graph6toAdjMatrix(string g6)
         {
+            //leitura apenas para grafos com até 258.047 vértices.
             string R_x = "";
             string bin6 = "";
 
@@ -30,18 +17,17 @@ namespace GraphFilter
             int n;
             if (g6.ElementAt(0) == 126)
             {
+                if (g6.ElementAt(1) == 126) return null; //n>258.047
                 n = Convert.ToInt32(Conversor.Rx(1, 3, g6), 2);
                 R_x = Conversor.Rx(4, g6.Length - 1, g6);
             }
-            else
-            {
+            else {
                 n = g6.ElementAt(0) - 63;
                 R_x = Conversor.Rx(1, g6.Length - 1, g6);
             }
-
             //string x = R_x.Substring(0, (n * (n - 1)) / 2);
-
             int[,] AdjMatrix = new int[n, n];
+            
             int k = 0;
             for (int j = 1; j < n; j++)
             {
@@ -54,7 +40,6 @@ namespace GraphFilter
                 AdjMatrix[j, j] = 0;
             }
             AdjMatrix[0, 0] = 0;
-
             return AdjMatrix;
         }
 
@@ -68,6 +53,7 @@ namespace GraphFilter
                 bin6 = DecimalToBinary(Convert.ToInt32(g6.ElementAt(i) - 63));
                 while (bin6.Length < 6) { bin6 = "0" + bin6; };
                 R_x = R_x + bin6;
+                
             }
             return R_x;
         }
@@ -166,7 +152,6 @@ namespace GraphFilter
                 for (int j = i + 1; j < order; j++)
                     if (adjMatrix[i, j] == 1)
                     {
-
                         var edge = new DataEdge(vlist[i], vlist[j]);
                         var edge1 = new DataEdge(vlist[j], vlist[i]);
                         graph.AddEdge(edge);
@@ -193,32 +178,7 @@ namespace GraphFilter
             return graph;
         }
 
-        private static string path = System.IO.Path.GetFullPath(@"..\..\") + "\\matFiles\\";
-
-        public static int[,] matFile2Matrix(string file)
-        {
-            using (StreamReader stReaderIn = new StreamReader(path + file + ".mat"))
-            {
-                String line = stReaderIn.ReadLine();
-                int[,] adjMatrix = new int[(line.Length/2) + 1, (line.Length / 2) + 1];
-
-                int i = 0;
-                int j = 0;
-                while (line != null)
-                {
-                    for (int k = 0; k < line.Length; k += 2)
-                    {
-                        adjMatrix[i, j] = line[k] - 48;
-                        j++;
-                    }
-                    j = 0;
-                    line = stReaderIn.ReadLine();
-                    i++;
-                }
-                return adjMatrix;
-            }
-        }
-
+        
         /*
         public static string GraphToGraph6(int[,] adjMatrix)
         {

@@ -28,6 +28,7 @@ namespace GraphFilter.Invariant.Tests
                     if (invariant == InvariantBool.regular) condition = BuildLogic.ConditionRegular(new Graph(g6Line));
                     if (invariant == InvariantBool.regular_k) condition = BuildLogic.ConditionRegularK(new Graph(g6Line),k);
                     if (invariant == InvariantBool.hamiltonian) condition = BuildLogic.ConditionHamiltonian(new Graph(g6Line));
+                    if (invariant == InvariantBool.acyclic) condition = BuildLogic.ConditionAcyclic(new Graph(g6Line));
                     if (!condition) return false;
                     g6Line = stReaderIn.ReadLine();
                 }
@@ -41,7 +42,9 @@ namespace GraphFilter.Invariant.Tests
             planar,
             regular,
             regular_k,
-            hamiltonian
+            hamiltonian,
+            acyclic
+
         }
 
         [TestMethod()]
@@ -75,6 +78,13 @@ namespace GraphFilter.Invariant.Tests
         {
             Assert.IsTrue(Execute("hamiltonian", InvariantBool.hamiltonian, 0));
         }
+        
+        [TestMethod()]
+        public void Acyclic_TEST()
+        {
+            Assert.IsTrue(Execute("girthInfinite", InvariantBool.acyclic, 0));
+        }
+        
     }
 }
  
