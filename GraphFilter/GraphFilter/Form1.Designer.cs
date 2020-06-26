@@ -29,7 +29,10 @@
         private void InitializeComponent()
         {
             this.listInvResults = new System.Windows.Forms.DataGridView();
+            this.ColunaInvariant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColunaResultado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxCondition = new System.Windows.Forms.GroupBox();
+            this.enableIsAcyclic = new System.Windows.Forms.CheckBox();
             this.enableIsHamiltonian = new System.Windows.Forms.CheckBox();
             this.enableIsPlanar = new System.Windows.Forms.CheckBox();
             this.paramRegularWithDegree = new MetroFramework.Controls.MetroTextBox();
@@ -79,8 +82,6 @@
             this.metroProgress = new MetroFramework.Controls.MetroProgressSpinner();
             this.textOpenExp = new MetroFramework.Controls.MetroTextBox();
             this.version = new MetroFramework.Controls.MetroLabel();
-            this.ColunaInvariant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColunaResultado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.listInvResults)).BeginInit();
             this.groupBoxCondition.SuspendLayout();
             this.groupBoxEq.SuspendLayout();
@@ -116,9 +117,24 @@
             this.listInvResults.Visible = false;
             this.listInvResults.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listInvResults_CellContentClick);
             // 
+            // ColunaInvariant
+            // 
+            this.ColunaInvariant.HeaderText = "Invariant";
+            this.ColunaInvariant.MinimumWidth = 6;
+            this.ColunaInvariant.Name = "ColunaInvariant";
+            this.ColunaInvariant.Width = 125;
+            // 
+            // ColunaResultado
+            // 
+            this.ColunaResultado.HeaderText = "Result";
+            this.ColunaResultado.MinimumWidth = 6;
+            this.ColunaResultado.Name = "ColunaResultado";
+            this.ColunaResultado.Width = 125;
+            // 
             // groupBoxCondition
             // 
             this.groupBoxCondition.BackColor = System.Drawing.SystemColors.Window;
+            this.groupBoxCondition.Controls.Add(this.enableIsAcyclic);
             this.groupBoxCondition.Controls.Add(this.enableIsHamiltonian);
             this.groupBoxCondition.Controls.Add(this.enableIsPlanar);
             this.groupBoxCondition.Controls.Add(this.paramRegularWithDegree);
@@ -133,6 +149,18 @@
             this.groupBoxCondition.TabIndex = 8;
             this.groupBoxCondition.TabStop = false;
             this.groupBoxCondition.Text = "Condition";
+            // 
+            // enableIsAcyclic
+            // 
+            this.enableIsAcyclic.AutoSize = true;
+            this.enableIsAcyclic.Location = new System.Drawing.Point(356, 85);
+            this.enableIsAcyclic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.enableIsAcyclic.Name = "enableIsAcyclic";
+            this.enableIsAcyclic.Size = new System.Drawing.Size(73, 21);
+            this.enableIsAcyclic.TabIndex = 53;
+            this.enableIsAcyclic.Text = "Acyclic";
+            this.enableIsAcyclic.UseVisualStyleBackColor = true;
+            this.enableIsAcyclic.CheckedChanged += new System.EventHandler(this.enableIsAcyclic_CheckedChanged);
             // 
             // enableIsHamiltonian
             // 
@@ -666,7 +694,7 @@
             this.tabControl.Location = new System.Drawing.Point(23, 71);
             this.tabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 1;
+            this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1277, 715);
             this.tabControl.TabIndex = 52;
             this.tabControl.UseSelectable = true;
@@ -970,20 +998,6 @@
             this.version.TabIndex = 53;
             this.version.Text = "Version: 1.0";
             // 
-            // ColunaInvariant
-            // 
-            this.ColunaInvariant.HeaderText = "Invariant";
-            this.ColunaInvariant.MinimumWidth = 6;
-            this.ColunaInvariant.Name = "ColunaInvariant";
-            this.ColunaInvariant.Width = 125;
-            // 
-            // ColunaResultado
-            // 
-            this.ColunaResultado.HeaderText = "Result";
-            this.ColunaResultado.MinimumWidth = 6;
-            this.ColunaResultado.Name = "ColunaResultado";
-            this.ColunaResultado.Width = 125;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1071,6 +1085,7 @@
         private MetroFramework.Controls.MetroCheckBox showInvariantsCheck;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColunaInvariant;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColunaResultado;
+        public System.Windows.Forms.CheckBox enableIsAcyclic;
     }
 }
 

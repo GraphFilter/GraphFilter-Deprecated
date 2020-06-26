@@ -35,6 +35,11 @@ namespace GraphFilter
         {
             return InvariantBool.IsHamiltonian.Calculate(g);
         }
+
+        public static bool ConditionAcyclic(Graph g)
+        {
+            return InvariantBool.IsAcyclic.Calculate(g);
+        }
         #endregion
 
         #region Equation and Conditon

@@ -54,6 +54,8 @@ namespace GraphFilter
                                 condition = condition && BuildLogic.ConditionPlanar(new Graph(g6Line));
                             if (form1.enableIsHamiltonian.Checked)
                                 condition = condition && BuildLogic.ConditionHamiltonian(new Graph(g6Line));
+                            if (form1.enableIsAcyclic.Checked)
+                                condition = condition && BuildLogic.ConditionAcyclic(new Graph(g6Line));
                             if (condition)
                             {
                                 numberOfGraphsOut++;

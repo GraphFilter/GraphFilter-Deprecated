@@ -125,7 +125,7 @@ namespace GraphFilter
                 string[] inv15 = new string[] { InvariantNum.NumberSpanningTree.getName(), InvariantNum.NumberSpanningTree.Calculate(new Graph(g6Line)).ToString() };
                 string[] inv16 = new string[] { InvariantNum.Order.getName(), InvariantNum.Order.Calculate(new Graph(g6Line)).ToString() };
                 string[] inv17 = new string[] { InvariantNum.SpectralRadius.getName(), InvariantNum.SpectralRadius.Calculate(new Graph(g6Line)).ToString() };
-                string[] inv18 = new string[] { InvariantNum.VerticeConnectivy.getName(), InvariantNum.VerticeConnectivy.Calculate(new Graph(g6Line)).ToString() };
+                string[] inv18 = new string[] { InvariantNum.EdgeConnectivy.getName(), InvariantNum.EdgeConnectivy.Calculate(new Graph(g6Line)).ToString() };
                 object[] invariants = new object[] { inv1, inv2, inv3, inv4, inv5, inv6, inv7, inv8, inv9, inv10, inv11, inv12, inv13, inv14, inv15, inv16, inv17, inv18 };
 
                 foreach (string[] rowArray in invariants)
@@ -839,6 +839,14 @@ namespace GraphFilter
             {
                 listInvResults.Visible = false;
             } 
+        }
+
+        private void enableIsAcyclic_CheckedChanged(object sender, EventArgs e)
+        {
+            if (true)
+            {
+
+            }
         }
     }
 

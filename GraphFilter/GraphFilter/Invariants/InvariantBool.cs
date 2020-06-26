@@ -8,11 +8,22 @@ using System.Threading.Tasks;
 using HamiltonianGraph;
 using System.Drawing.Text;
 using GraphPlanarityTesting.Graphs.Algorithms;
+using System.Windows.Navigation;
 
 namespace GraphFilter.Invariants
 {
     public static class InvariantBool
     {
+        public class IsAcyclic
+        {
+            public static bool Calculate(Graph g)
+            {
+                return InvariantNum.Girth.Calculate(g) == int.MaxValue;
+            }
+
+            public static string getName() { return "Is acyclic graph?"; }
+        }
+
         public class IsConnected
         {
             public static bool Calculate(Graph g)
