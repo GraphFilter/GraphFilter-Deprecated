@@ -159,25 +159,6 @@ namespace GraphFilter
                     }
             return graph;
         }
-
-        public static string GraphToStringMatrix(Graph g)
-        {
-            //Função para convertor o grafo para o formato aceito no pacote Hamiltonian Graph
-            int[,] adjMatrix = g.adjacencyMatrix;
-            string graph = g.order + "\n";
-            for (int i = 0; i < g.order; i++)
-            {
-                for (int j = 0; j < g.order; j++)
-                {
-                    if (adjMatrix[i, j] == 0) graph = graph + "- ";
-                    else graph = graph + adjMatrix[i, j] + " ";
-                }
-                graph.Remove(graph.Length - 1);
-                graph = graph + "\n";
-            }
-            return graph;
-        }
-
         
         /*
         public static string GraphToGraph6(int[,] adjMatrix)

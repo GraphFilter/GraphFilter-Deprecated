@@ -119,6 +119,7 @@
     <None Include="g6Files\deltaPlusDelta10.g6" />
     <None Include="g6Files\diameter7.g6" />
     <None Include="g6Files\disconnected.g6" />
+    <None Include="g6Files\edgeConnectivy4.g6" />
     <None Include="g6Files\girth4.g6" />
     <None Include="g6Files\girth5.g6" />
     <None Include="g6Files\girth6.g6" />

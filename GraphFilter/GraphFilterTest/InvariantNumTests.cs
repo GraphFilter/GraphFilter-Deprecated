@@ -99,7 +99,7 @@ namespace GraphFilter.Invariant.Tests
         {
             Assert.IsTrue(Execute("edgeConnectivy4", InvariantNum.EdgeConnectivy.getCode() + "()=4"));
             Assert.IsTrue(Execute("disconnected", InvariantNum.EdgeConnectivy.getCode() + "()=0"));
-            //Assert.IsTrue(Execute("vertexConnectivy5", InvariantNum.VerticeConnectivy.getCode() + "=5"));
+            Assert.IsTrue(Execute("edgeConnectivy5", InvariantNum.EdgeConnectivy.getCode() + "()=5"));
         }
 
         [TestMethod()]//funciona somente no caso do grafo não ser acíclico

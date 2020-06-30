@@ -253,13 +253,7 @@ namespace GraphFilter.Invariants
             public static int Calculate(Graph g) {
                 if (!InvariantBool.IsConnected.Calculate(g)) return 0;
                 FordFulkerson fordF = new FordFulkerson(g.adjacencyMatrix);
-                int x= fordF.FindMaximumFlow();
-                if (x!=4)
-                {
-                    return x;
-                }
-                return x;
-            
+                return fordF.FindMaximumFlow();
             }
             public static string getName() { return "Edge Connectivy"; }
 
