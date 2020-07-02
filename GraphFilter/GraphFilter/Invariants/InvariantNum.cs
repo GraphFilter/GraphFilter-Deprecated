@@ -45,7 +45,8 @@ namespace GraphFilter.Invariants
                 Matrix<double> lMatrix = DenseMatrix.OfArray(Utils.Spectral.AdjacencyMatrix(g));
                 Evd<double> evd = lMatrix.Evd(Symmetricity.Symmetric);
                 Vector<Complex> eigenvalues = evd.EigenValues;
-                return eigenvalues.ElementAt(g.order - 1).Real;
+                double x = eigenvalues.ElementAt(g.order - 1).Real;
+                return Utils.Spectral.ApproxToInt(x);
             }
             public static string getName() { return "Spectral Radius"; }
             public static string getCode() { return "lambda"; }

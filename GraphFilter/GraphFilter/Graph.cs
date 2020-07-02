@@ -27,10 +27,11 @@ namespace GraphFilter
         }
 
         public Graph(int[,] adjMatrix)
-        {
+        {  
             adjacencyMatrix = adjMatrix;
             order = (int)Math.Sqrt(adjacencyMatrix.Length);
             sequenceDegree = SequenceDegree();
+            if (adjMatrix.GetLength(0) == 0) order = 0;
         }
 
         public Boolean adjacent(int i, int j)

@@ -15,10 +15,11 @@ namespace GraphFilter.Invariants
 {
     public class Utils
   {
+        
+
         public static void DFS(int v, bool[] visited, Graph g)
         {
             visited[v] = true;
-
             List<int> vList = g.N(v);
             foreach (var n in vList)
                 if (!visited[n]) DFS(n, visited, g);
@@ -258,6 +259,7 @@ namespace GraphFilter.Invariants
 
             
         }
+
 
     }
 }

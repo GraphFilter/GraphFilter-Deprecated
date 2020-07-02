@@ -68,12 +68,12 @@ namespace GraphFilter
                 if (name == InvariantNum.Girth.getCode()) args.Result = InvariantNum.Girth.Calculate(g);
                 if (name == InvariantNum.NumberOfComponents.getCode()) args.Result = InvariantNum.NumberOfComponents.Calculate(g);
             };
+            //if (ex.Evaluate().ToString() == "True") { return true; }
+            //else { if (ex.Evaluate().ToString() == "False")  return false; }
 
-            if (ex.Evaluate().ToString() == "True") return true;
+            //throw new ArgumentException();
 
-            else if (ex.Evaluate().ToString() == "False") return false;
-
-            throw new ArgumentException();
+            return ex.Evaluate().ToString() == "True";
         }
 
         #endregion
