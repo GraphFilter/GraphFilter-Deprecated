@@ -18,7 +18,8 @@ namespace GraphFilter.Invariants
         {
             public static bool Calculate(Graph g)
             {
-                return InvariantNum.Girth.Calculate(g) == int.MaxValue;
+                Girth girth = new Girth();
+                return girth.Calculate(g) == int.MaxValue;
             }
 
             public static string getName() { return "Is acyclic graph?"; }

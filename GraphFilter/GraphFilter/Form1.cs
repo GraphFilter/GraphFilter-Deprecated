@@ -6,7 +6,6 @@ using GraphX.Controls.Models;
 using GraphX.Logic.Algorithms.OverlapRemoval;
 using GraphX.Logic.Models;
 using MathNet.Numerics;
-using NCalc;
 using QuickGraph;
 using System;
 using System.Collections.Generic;
@@ -41,7 +40,10 @@ namespace GraphFilter
             progressBar.Minimum = 0;
             progressBar.Maximum = 1;
 
-            ListOfInvariants.Text = InvariantNum.AllNames();
+            foreach (IInvariant invariant in InvariantNum.List())
+            {
+                ListOfInvariants.Text += invariant.getCode() + ": " + invariant.getName() + "\n";
+            }          
 
             buttonFill.Enabled = false;
             buttonZoomOriginal.Enabled = false;
@@ -108,29 +110,9 @@ namespace GraphFilter
                 _gArea.SetVerticesDrag(true, true);
                 _zoomctrl.ZoomToFill();
 
-                string[] inv1 = new string[] { InvariantNum.AdjacencyEnergy.getName(), InvariantNum.AdjacencyEnergy.Calculate(new Graph(g6Line)).ToString() };
-                string[] inv2 = new string[] { InvariantNum.AlgebricConnectivity.getName(), InvariantNum.AlgebricConnectivity.Calculate(new Graph(g6Line)).ToString() };
-                string[] inv3 = new string[] { InvariantNum.AverageDegree.getName(), InvariantNum.AverageDegree.Calculate(new Graph(g6Line)).ToString() };
-                string[] inv4 = new string[] { InvariantNum.ChromaticNumber.getName(), InvariantNum.ChromaticNumber.Calculate(new Graph(g6Line)).ToString() };
-                string[] inv5 = new string[] { InvariantNum.CliqueNumber.getName(), InvariantNum.CliqueNumber.Calculate(new Graph(g6Line)).ToString() };
-                string[] inv6 = new string[] { InvariantNum.Diameter.getName(), InvariantNum.Diameter.Calculate(new Graph(g6Line)).ToString() };
-                string[] inv7 = new string[] { InvariantNum.Girth.getName(), InvariantNum.Girth.Calculate(new Graph(g6Line)).ToString() };
-                string[] inv8 = new string[] { InvariantNum.IndependenceNumber.getName(), InvariantNum.IndependenceNumber.Calculate(new Graph(g6Line)).ToString() };
-                string[] inv9 = new string[] { InvariantNum.LaplacianEnergy.getName(), InvariantNum.LaplacianEnergy.Calculate(new Graph(g6Line)).ToString() };
-                string[] inv10 = new string[] { InvariantNum.MatchingNumber.getName(), InvariantNum.MatchingNumber.Calculate(new Graph(g6Line)).ToString() };
-                string[] inv11 = new string[] { InvariantNum.MaxDegree.getName(), InvariantNum.MaxDegree.Calculate(new Graph(g6Line)).ToString() };
-                string[] inv12 = new string[] { InvariantNum.MinDegree.getName(), InvariantNum.MinDegree.Calculate(new Graph(g6Line)).ToString() };
-                string[] inv13 = new string[] { InvariantNum.NumberOfComponents.getName(), InvariantNum.NumberOfComponents.Calculate(new Graph(g6Line)).ToString() };
-                string[] inv14 = new string[] { InvariantNum.NumberOfEdges.getName(), InvariantNum.NumberOfEdges.Calculate(new Graph(g6Line)).ToString() };
-                string[] inv15 = new string[] { InvariantNum.NumberSpanningTree.getName(), InvariantNum.NumberSpanningTree.Calculate(new Graph(g6Line)).ToString() };
-                string[] inv16 = new string[] { InvariantNum.Order.getName(), InvariantNum.Order.Calculate(new Graph(g6Line)).ToString() };
-                string[] inv17 = new string[] { InvariantNum.SpectralRadius.getName(), InvariantNum.SpectralRadius.Calculate(new Graph(g6Line)).ToString() };
-                string[] inv18 = new string[] { InvariantNum.EdgeConnectivy.getName(), InvariantNum.EdgeConnectivy.Calculate(new Graph(g6Line)).ToString() };
-                object[] invariants = new object[] { inv1, inv2, inv3, inv4, inv5, inv6, inv7, inv8, inv9, inv10, inv11, inv12, inv13, inv14, inv15, inv16, inv17, inv18 };
-
-                foreach (string[] rowArray in invariants)
+                foreach (IInvariant invariant in InvariantNum.List())
                 {
-                    listInvResults.Rows.Add(rowArray);
+                    listInvResults.Rows.Add(new string[] { invariant.getName(), invariant.Calculate(new Graph(g6Line)).ToString() });
                 }
 
                 listInvResults.Columns[0].ReadOnly = true;

@@ -1,12 +1,7 @@
 ﻿using Flee.PublicTypes;
 using GraphFilter.Invariants;
-using GraphX.Logic.Algorithms.LayoutAlgorithms;
-using NCalc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 
 namespace GraphFilter
@@ -77,10 +72,10 @@ namespace GraphFilter
             ExpressionContext context = new ExpressionContext();
             VariableCollection variables = context.Variables;
 
-            if (text.Contains(InvariantNum.Order.getCode())) context.Variables[InvariantNum.Order.getCode()] = InvariantNum.Order.Calculate(g);
-            if (text.Contains(InvariantNum.AverageDegree.getCode())) context.Variables[InvariantNum.AverageDegree.getCode()] = InvariantNum.AverageDegree.Calculate(g);
-            if (text.Contains(InvariantNum.AlgebricConnectivity.getCode())) context.Variables[InvariantNum.AlgebricConnectivity.getCode()] = InvariantNum.AlgebricConnectivity.Calculate(g);
-            if (text.Contains(InvariantNum.Diameter.getCode())) context.Variables[InvariantNum.Diameter.getCode()] = InvariantNum.Diameter.Calculate(g);
+            foreach (IInvariant invariant in InvariantNum.List())
+            {
+                if (text.Contains(invariant.getCode())) context.Variables[invariant.getCode()] = invariant.Calculate(g);
+            }
             IGenericExpression<bool> e = context.CompileGeneric<bool>(text);
             return e.Evaluate();
             
