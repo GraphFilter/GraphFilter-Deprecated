@@ -39,11 +39,11 @@ namespace GraphFilter
                         if (g6Line.Length != 0 && g6Line != " ")
                         {
                             if (form1.enableEq1.Checked)
-                                condition = BuildLogic.Text2BoolNCalc(form1.textEquation1.Text, new Graph(g6Line));
+                                condition = BuildLogic.EvaluateText(form1.textEquation1.Text, new Graph(g6Line));
                             if (form1.enableEq2.Checked)
-                                condition = condition && BuildLogic.Text2BoolNCalc(form1.textEquation2.Text, new Graph(g6Line));
+                                condition = condition && BuildLogic.EvaluateText(form1.textEquation2.Text, new Graph(g6Line));
                             if (form1.enableEq3.Checked)
-                                condition = condition && BuildLogic.Text2BoolNCalc(form1.textEquation3.Text, new Graph(g6Line));
+                                condition = condition && BuildLogic.EvaluateText(form1.textEquation3.Text, new Graph(g6Line));
                             if (form1.enableRegular.Checked)
                                 condition = condition && BuildLogic.ConditionRegular(new Graph(g6Line));
                             if (form1.enableRegularWithK.Checked)

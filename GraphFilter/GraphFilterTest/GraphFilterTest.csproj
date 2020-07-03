@@ -96,9 +96,12 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Z.Expressions.Eval, Version=4.0.2.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Z.Expressions.Eval.4.0.2\lib\net45\Z.Expressions.Eval.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConversorTests.cs" />
+    <Compile Include="OtherTests.cs" />
     <Compile Include="InvariantBoolTests.cs" />
     <Compile Include="InvariantNumTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -26,27 +26,10 @@ namespace GraphFilter.Invariant.Tests
                 while (g6Line != null)
                 {
                     total++;
-                    if (BuildLogic.Text2BoolNCalc(condition, new Graph(g6Line))) contador++;
+                    if (BuildLogic.EvaluateText(condition, new Graph(g6Line))) contador++;
                     g6Line = stReaderIn.ReadLine();
                 }              
                 return Math.Round((double) 100*(contador / total),2);
-            }
-        }
-
-        public bool Execute100(string file, string condition)
-        {
-            using (StreamReader stReaderIn = new StreamReader(_path+file+".g6"))
-            {
-                String g6Line = stReaderIn.ReadLine();
-                while (g6Line != null)
-                {
-                    if (!BuildLogic.Text2BoolNCalc(condition, new Graph(g6Line)))
-                    {
-                        return false;
-                    }
-                    g6Line = stReaderIn.ReadLine();
-                }
-                return true;
             }
         }
         
@@ -143,7 +126,7 @@ namespace GraphFilter.Invariant.Tests
         [TestMethod()]
         public void Miscelanea()
         {
-            Assert.AreEqual(50, Execute("Return50percentual", InvariantNum.Diameter.getCode() +"()+" +InvariantNum.EdgeConnectivy.getCode()+ "()=5"));
+           //Assert.AreEqual(50, Execute("Return50percentual", InvariantNum.Diameter.getCode() +"()+" +InvariantNum.EdgeConnectivy.getCode()+ "()=5"));
             Assert.AreEqual(90, Execute("Return90percentual", InvariantNum.AlgebricConnectivity.getCode() + "()+2*" + InvariantNum.Diameter.getCode() + "()>=8"));
             Assert.AreEqual(0, Execute("girth4", InvariantNum.Girth.getCode() + "()=5"));
             Assert.AreEqual(10, Execute("Return10percentual", InvariantNum.SpectralRadius.getCode() + "()=4"));

@@ -692,8 +692,10 @@ namespace GraphFilter
         {
             try
             {
-                BuildLogic.Text2BoolNCalc(textEquation2.Text, new Graph(new int[0, 0]));
+                //BuildLogic.Text2BoolNCalc(textEquation2.Text, new Graph(new int[0, 0]));
+                BuildLogic.EvaluateText(textEquation2.Text, new Graph(new int[0, 0]));
                 textEquation2.Enabled = false;
+
             }
             catch
             {
@@ -706,7 +708,8 @@ namespace GraphFilter
         {
             try
             {
-                BuildLogic.Text2BoolNCalc(textEquation1.Text, new Graph(new int[0, 0]));
+                //BuildLogic.Text2BoolNCalc(textEquation1.Text, new Graph(new int[0, 0]));
+                BuildLogic.EvaluateText(textEquation1.Text, new Graph(new int[0, 0]));
                 textEquation1.Enabled = false;
             }
             catch
@@ -725,7 +728,8 @@ namespace GraphFilter
         {
             try
             {
-                BuildLogic.Text2BoolNCalc(textEquation3.Text, new Graph(new int[0, 0]));
+                //BuildLogic.Text2BoolNCalc(textEquation3.Text, new Graph(new int[0, 0]));
+                BuildLogic.EvaluateText(textEquation3.Text, new Graph(new int[0, 0]));
                 textEquation3.Enabled = false;
             }
             catch

@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,6 +22,13 @@ namespace GraphFilter.Invariants
 {
     public static class InvariantNum
     {
+        /*public ListOfTypes<InvariantNum> list;
+        public InvariantNum()
+        {
+            list = new ListOfTypes<InvariantNum>();
+            list.Add<ChromaticNumber>();
+        }*/
+
         public class AlgebricConnectivity
         {
             public static double Calculate(Graph g)
@@ -119,7 +127,10 @@ namespace GraphFilter.Invariants
 
         public class MaxDegree
         {
-            public static int Calculate(Graph g) { return g.sequenceDegree.Max(); }
+            public static int Calculate(Graph g) {
+                if (g.order == 0) return 0; 
+                return g.sequenceDegree.Max(); 
+            }
             public static string getName() { return "Max Degree"; }
 
             public static string getCode() { return "Delta"; }
@@ -128,7 +139,10 @@ namespace GraphFilter.Invariants
 
         public class MinDegree
         {
-            public static int Calculate(Graph g) { return g.sequenceDegree.Min(); }
+            public static int Calculate(Graph g) {
+                if (g.order == 0) return 0; 
+                return g.sequenceDegree.Min();
+            }
             public static string getName() { return "Min Degree"; }
             public static string getCode() { return "d"; }
         }
@@ -137,6 +151,7 @@ namespace GraphFilter.Invariants
         {
             public static double Calculate(Graph g)
             {
+                if (g.order == 0) return 0;
                 return g.sequenceDegree.Average();
             }
             public static string getName() { return "Average Degree"; }
@@ -187,7 +202,8 @@ namespace GraphFilter.Invariants
 
         public class IndependenceNumber
         {
-            public static int Calculate(Graph g) {
+            public static int Calculate(Graph g) 
+            {
                 if (g.order == 0) return 0; 
                 return CliqueNumber.Calculate(Operation.Complement(g));
             }
@@ -200,7 +216,8 @@ namespace GraphFilter.Invariants
 
         public class MatchingNumber
         {
-            public static int Calculate(Graph g) {
+            public static int Calculate(Graph g) 
+            {
                 if (g.order == 0) return 0;
                 return IndependenceNumber.Calculate(Operation.Line(g));
                 
@@ -242,7 +259,10 @@ namespace GraphFilter.Invariants
         public class ChromaticNumber
         {
             //book Teoria Computacional de Grafos, algoritmo 5.3
-            public static int Calculate(Graph g) { return Utils.Coloring.Calculate(g); }
+            public static int Calculate(Graph g) {
+                if (g.order == 0) return 0; 
+                return Utils.Coloring.Calculate(g);
+            }
             public static string getName() { return "Chromatic Number"; }
 
             public static string getCode() { return "chi"; }
@@ -252,7 +272,7 @@ namespace GraphFilter.Invariants
         {
             //https://github.com/lucasrabiec/MaximumFlowProblem
             public static int Calculate(Graph g) {
-                if (!InvariantBool.IsConnected.Calculate(g)) return 0;
+                if (g.order == 0 || !InvariantBool.IsConnected.Calculate(g)) return 0;
                 FordFulkerson fordF = new FordFulkerson(g.adjacencyMatrix);
                 return fordF.FindMaximumFlow();
             }
@@ -316,7 +336,10 @@ namespace GraphFilter.Invariants
                 return arr;
             }
 
-            public static int Calculate(Graph g) { return shortest_cycle(g); }
+            public static int Calculate(Graph g) { 
+                if (g.order == 0) return 0;
+                return shortest_cycle(g); 
+            }
             public static string getName() { return "Girth"; }
 
             public static string getCode() { return "g"; }
@@ -343,6 +366,24 @@ namespace GraphFilter.Invariants
             names.Add(NumberOfComponents.getCode() + ": " + NumberOfComponents.getName() + "\n");
             return String.Concat(names);
         }
+        //tentando armazenar em lista
+
+        /*
+        public class ListOfTypes<InvariantNum>
+        {
+            private List<Type> _types = new List<Type>();
+            public void Add<U>() where U : InvariantNum
+            {
+                _types.Add(typeof(U));
+            }
+
+            public Type get(int i)
+            {
+                return _types.ElementAt<Type>(i);
+            }
+           
+        }
+        */
 
     }
 

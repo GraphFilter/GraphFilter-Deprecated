@@ -1,4 +1,5 @@
-﻿using GraphFilter.Invariants;
+﻿using Flee.PublicTypes;
+using GraphFilter.Invariants;
 using GraphX.Logic.Algorithms.LayoutAlgorithms;
 using NCalc;
 using System;
@@ -43,9 +44,10 @@ namespace GraphFilter
         #endregion
 
         #region Equation and Conditon
-        public static bool Text2BoolNCalc(string text, Graph g)
+        public static bool EvaluateText(string text, Graph g)
         {
-            var ex = new NCalc.Expression(text);
+            //uso do pacote Flee para converter texto em lógica matemática
+            /*var ex = new NCalc.Expression(text);
 
             ex.EvaluateFunction += delegate (string name, FunctionArgs args)
             {
@@ -68,13 +70,25 @@ namespace GraphFilter
                 if (name == InvariantNum.Girth.getCode()) args.Result = InvariantNum.Girth.Calculate(g);
                 if (name == InvariantNum.NumberOfComponents.getCode()) args.Result = InvariantNum.NumberOfComponents.Calculate(g);
             };
-            //if (ex.Evaluate().ToString() == "True") { return true; }
-            //else { if (ex.Evaluate().ToString() == "False")  return false; }
+            if (ex.Evaluate().ToString() == "True" || ex.Evaluate().ToString() == "true") return true;
+            if (ex.Evaluate().ToString() == "False" || ex.Evaluate().ToString() == "false") return false;
 
-            //throw new ArgumentException();
+            throw new ArgumentException();*/
+            ExpressionContext context = new ExpressionContext();
+            VariableCollection variables = context.Variables;
 
-            return ex.Evaluate().ToString() == "True";
+            if (text.Contains(InvariantNum.Order.getCode())) context.Variables[InvariantNum.Order.getCode()] = InvariantNum.Order.Calculate(g);
+            if (text.Contains(InvariantNum.AverageDegree.getCode())) context.Variables[InvariantNum.AverageDegree.getCode()] = InvariantNum.AverageDegree.Calculate(g);
+            if (text.Contains(InvariantNum.AlgebricConnectivity.getCode())) context.Variables[InvariantNum.AlgebricConnectivity.getCode()] = InvariantNum.AlgebricConnectivity.Calculate(g);
+            if (text.Contains(InvariantNum.Diameter.getCode())) context.Variables[InvariantNum.Diameter.getCode()] = InvariantNum.Diameter.Calculate(g);
+            IGenericExpression<bool> e = context.CompileGeneric<bool>(text);
+            return e.Evaluate();
+            
+            
+            throw new ArgumentException();
+
         }
+
 
         #endregion
     }
