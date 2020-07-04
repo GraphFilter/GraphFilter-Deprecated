@@ -8,6 +8,7 @@ using GraphX.Logic.Models;
 using MathNet.Numerics;
 using NCalc;
 using QuickGraph;
+using Squirrel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using System.Xml;
@@ -35,6 +37,8 @@ namespace GraphFilter
         {
             InitializeComponent();
             Load += Form1_Load;
+
+            CheckForUpdates();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -49,17 +53,8 @@ namespace GraphFilter
             buttonZoomIn.Enabled = false;
             buttonPrint.Enabled = false;
             buttonExp2PNG.Enabled = false;
-
-
-            /*listInvariantsResult.Columns.Add(InvariantNum.AdjacencyEnergy.getCode());
-            listInvariantsResult.Columns.Add(InvariantNum.AlgebricConnectivity.getCode());
-            listInvariantsResult.Columns.Add(InvariantNum.AverageDegree.getCode());*/
-
-            //listInvResults.Columns.Insert(InvariantNum.AdjacencyEnergy.getCode(), ColunaInvariant);
-            //listInvResults.Rows.Add(InvariantNum.AdjacencyEnergy.getCode());
-
-
         }
+
         private void Form1_Resize(object sender, EventArgs e)
         {
             groupBoxFiles.Width = this.Width - 320;
@@ -80,9 +75,11 @@ namespace GraphFilter
 
             wpfHost.Width = this.Width - 185;
             wpfHost.Height = this.Height - 107;
-            textOpenViz.Width = this.Width - 200;
-            listOfG6.Height = this.Height - 180;
+            textOpenViz.Width = this.Width - openG6BtnViz.Width - 75;
+            listOfG6.Height = this.Height - 230;
             listOfG6Exp.Height = this.Height - 200;
+
+            insertG6ToView.Width = this.Width - viewG6Btn.Width - 75;
 
             textOpenExp.Width = this.Width - 200;
 
@@ -135,9 +132,17 @@ namespace GraphFilter
 
                 listInvResults.Columns[0].ReadOnly = true;
                 listInvResults.Columns[1].ReadOnly = true;
-            } 
+            }
         }
         #endregion
+
+        private async Task CheckForUpdates()
+        {
+            using (var manager = new UpdateManager(@"C:\Temp\Releases"))
+            {
+                await manager.UpdateApp();
+            }
+        }
 
         #region File Input and Output
         private void ButtonInput_Click(object sender, EventArgs e)
@@ -195,9 +200,27 @@ namespace GraphFilter
             }
         }
 
+        private void viewG6Btn_Click(object sender, EventArgs e)
+        {
+            if (insertG6ToView.Text != null && insertG6ToView.Text.Length != 0 && insertG6ToView.Text != " ")
+            {
+                wpfHost.Child = GenerateWpfVisuals(insertG6ToView.Text);
+                _gArea.GenerateGraph(true);
+                _gArea.ShowAllEdgesLabels(false);
+                _gArea.SetVerticesDrag(true, true);
+                _zoomctrl.ZoomToFill();
+            }
+            buttonFill.Enabled = true;
+            buttonZoomOriginal.Enabled = true;
+            buttonZoomIn.Enabled = true;
+            buttonZoomOut.Enabled = true;
+            buttonExp2PNG.Enabled = true;
+            buttonPrint.Enabled = true;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
+            /*OpenFileDialog ofd = new OpenFileDialog();
 
             ofd.Filter = "Arquivo g6 | *.g6";
             ofd.ShowDialog();
@@ -228,7 +251,13 @@ namespace GraphFilter
 
                     System.Windows.Forms.MessageBox.Show(string.Format("Não foi possível abrir o seu arquivo, Erro: {0}", ex.Message), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
+                listOfG6.Visible = true;
+            }*/
+        }
+
+        private void AddG6Button_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -279,7 +308,7 @@ namespace GraphFilter
             _gArea.ShowAllEdgesLabels(false);
             logic.DefaultLayoutAlgorithm = LayoutAlgorithmTypeEnum.LinLog;
             logic.DefaultLayoutAlgorithmParams = logic.AlgorithmFactory.CreateLayoutParameters(LayoutAlgorithmTypeEnum.LinLog);
-            if (listOfG6.SelectedItem != null)
+            if (listOfG6.SelectedItem != null || insertG6ToView.Text != null)
             {
                 logic.Graph = Conversor.G6toQuickGraph(g6);
             }
@@ -819,7 +848,7 @@ namespace GraphFilter
 
         private void CheckUpdateButton_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -838,14 +867,52 @@ namespace GraphFilter
             else
             {
                 listInvResults.Visible = false;
-            } 
+            }
         }
 
         private void enableIsAcyclic_CheckedChanged(object sender, EventArgs e)
         {
-            if (true)
-            {
+        }
 
+        private void metroTabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openG6BtnViz_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            ofd.Filter = "Arquivo g6 | *.g6";
+            ofd.ShowDialog();
+            if (string.IsNullOrEmpty(ofd.FileName) == false)
+            {
+                try
+                {
+                    using (StreamReader reader = new StreamReader(ofd.FileName, Encoding.GetEncoding(CultureInfo.GetCultureInfo("pt-br").TextInfo.ANSICodePage)))
+                    {
+                        fileG6In = ofd.OpenFile();
+                        string g6Line = reader.ReadLine();
+                        while (g6Line != null)
+                        {
+                            listOfG6.Items.Add(g6Line);
+                            g6Line = reader.ReadLine();
+                        }
+                        textOpenViz.Text = ofd.FileName;
+                        buttonFill.Enabled = true;
+                        buttonZoomOriginal.Enabled = true;
+                        buttonZoomIn.Enabled = true;
+                        buttonZoomOut.Enabled = true;
+                        buttonExp2PNG.Enabled = true;
+                        buttonPrint.Enabled = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    System.Windows.Forms.MessageBox.Show(string.Format("Não foi possível abrir o seu arquivo, Erro: {0}", ex.Message), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                listOfG6.Visible = true;
             }
         }
     }

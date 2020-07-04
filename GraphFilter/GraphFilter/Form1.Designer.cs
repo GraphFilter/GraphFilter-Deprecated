@@ -59,7 +59,6 @@
             this.buttonZoomOut = new System.Windows.Forms.Button();
             this.buttonFill = new System.Windows.Forms.Button();
             this.wpfHost = new System.Windows.Forms.Integration.ElementHost();
-            this.button1 = new System.Windows.Forms.Button();
             this.listOfG6 = new System.Windows.Forms.ListBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.elementHost = new System.Windows.Forms.Integration.ElementHost();
@@ -75,6 +74,9 @@
             this.textSource = new MetroFramework.Controls.MetroTextBox();
             this.buttonOpen = new System.Windows.Forms.Button();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.openG6BtnViz = new MetroFramework.Controls.MetroButton();
+            this.viewG6Btn = new MetroFramework.Controls.MetroButton();
+            this.insertG6ToView = new MetroFramework.Controls.MetroTextBox();
             this.showInvariantsCheck = new MetroFramework.Controls.MetroCheckBox();
             this.textOpenViz = new MetroFramework.Controls.MetroTextBox();
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
@@ -103,7 +105,7 @@
             this.listInvResults.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColunaInvariant,
             this.ColunaResultado});
-            this.listInvResults.Location = new System.Drawing.Point(203, 87);
+            this.listInvResults.Location = new System.Drawing.Point(204, 307);
             this.listInvResults.MinimumSize = new System.Drawing.Size(430, 200);
             this.listInvResults.MultiSelect = false;
             this.listInvResults.Name = "listInvResults";
@@ -497,7 +499,7 @@
             this.buttonPrint.FlatAppearance.BorderSize = 0;
             this.buttonPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPrint.Image = global::GraphFilter.Properties.Resources.icons8_export_pdf;
-            this.buttonPrint.Location = new System.Drawing.Point(453, 39);
+            this.buttonPrint.Location = new System.Drawing.Point(255, 75);
             this.buttonPrint.Margin = new System.Windows.Forms.Padding(0);
             this.buttonPrint.MaximumSize = new System.Drawing.Size(51, 50);
             this.buttonPrint.MinimumSize = new System.Drawing.Size(51, 50);
@@ -513,7 +515,7 @@
             this.buttonExp2PNG.FlatAppearance.BorderSize = 0;
             this.buttonExp2PNG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExp2PNG.Image = global::GraphFilter.Properties.Resources.icons8_png;
-            this.buttonExp2PNG.Location = new System.Drawing.Point(403, 39);
+            this.buttonExp2PNG.Location = new System.Drawing.Point(205, 75);
             this.buttonExp2PNG.Margin = new System.Windows.Forms.Padding(0);
             this.buttonExp2PNG.MaximumSize = new System.Drawing.Size(51, 50);
             this.buttonExp2PNG.MinimumSize = new System.Drawing.Size(51, 50);
@@ -529,7 +531,7 @@
             this.buttonZoomIn.FlatAppearance.BorderSize = 0;
             this.buttonZoomIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonZoomIn.Image = global::GraphFilter.Properties.Resources.icons8_zoom_in;
-            this.buttonZoomIn.Location = new System.Drawing.Point(353, 39);
+            this.buttonZoomIn.Location = new System.Drawing.Point(155, 75);
             this.buttonZoomIn.Margin = new System.Windows.Forms.Padding(0);
             this.buttonZoomIn.MaximumSize = new System.Drawing.Size(51, 50);
             this.buttonZoomIn.MinimumSize = new System.Drawing.Size(51, 50);
@@ -545,7 +547,7 @@
             this.buttonZoomOriginal.FlatAppearance.BorderSize = 0;
             this.buttonZoomOriginal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonZoomOriginal.Image = global::GraphFilter.Properties.Resources.icons8_zoom_to_actual_size;
-            this.buttonZoomOriginal.Location = new System.Drawing.Point(253, 39);
+            this.buttonZoomOriginal.Location = new System.Drawing.Point(55, 75);
             this.buttonZoomOriginal.Margin = new System.Windows.Forms.Padding(0);
             this.buttonZoomOriginal.MaximumSize = new System.Drawing.Size(51, 50);
             this.buttonZoomOriginal.MinimumSize = new System.Drawing.Size(51, 50);
@@ -561,7 +563,7 @@
             this.buttonZoomOut.FlatAppearance.BorderSize = 0;
             this.buttonZoomOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonZoomOut.Image = global::GraphFilter.Properties.Resources.icons8_zoom_out;
-            this.buttonZoomOut.Location = new System.Drawing.Point(303, 39);
+            this.buttonZoomOut.Location = new System.Drawing.Point(105, 75);
             this.buttonZoomOut.Margin = new System.Windows.Forms.Padding(0);
             this.buttonZoomOut.MaximumSize = new System.Drawing.Size(51, 50);
             this.buttonZoomOut.MinimumSize = new System.Drawing.Size(51, 50);
@@ -577,7 +579,7 @@
             this.buttonFill.FlatAppearance.BorderSize = 0;
             this.buttonFill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonFill.Image = global::GraphFilter.Properties.Resources.icons8_zoom_to_extents_2;
-            this.buttonFill.Location = new System.Drawing.Point(203, 39);
+            this.buttonFill.Location = new System.Drawing.Point(5, 75);
             this.buttonFill.Margin = new System.Windows.Forms.Padding(0);
             this.buttonFill.MaximumSize = new System.Drawing.Size(51, 50);
             this.buttonFill.MinimumSize = new System.Drawing.Size(51, 50);
@@ -590,7 +592,7 @@
             // wpfHost
             // 
             this.wpfHost.BackColor = System.Drawing.Color.White;
-            this.wpfHost.Location = new System.Drawing.Point(203, 39);
+            this.wpfHost.Location = new System.Drawing.Point(205, 86);
             this.wpfHost.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.wpfHost.Name = "wpfHost";
             this.wpfHost.Size = new System.Drawing.Size(643, 388);
@@ -599,27 +601,17 @@
             this.wpfHost.ChildChanged += new System.EventHandler<System.Windows.Forms.Integration.ChildChangedEventArgs>(this.wpfHost_ChildChanged);
             this.wpfHost.Child = null;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(3, 6);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(195, 30);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Open .g6 File";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // listOfG6
             // 
             this.listOfG6.FormattingEnabled = true;
             this.listOfG6.HorizontalScrollbar = true;
             this.listOfG6.ItemHeight = 16;
-            this.listOfG6.Location = new System.Drawing.Point(3, 39);
+            this.listOfG6.Location = new System.Drawing.Point(5, 134);
             this.listOfG6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listOfG6.Name = "listOfG6";
-            this.listOfG6.Size = new System.Drawing.Size(193, 388);
+            this.listOfG6.Size = new System.Drawing.Size(193, 340);
             this.listOfG6.TabIndex = 0;
+            this.listOfG6.Visible = false;
             this.listOfG6.SelectedIndexChanged += new System.EventHandler(this.listOfG6_SelectedIndexChanged);
             // 
             // pictureBox1
@@ -694,7 +686,7 @@
             this.tabControl.Location = new System.Drawing.Point(23, 71);
             this.tabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
+            this.tabControl.SelectedIndex = 1;
             this.tabControl.Size = new System.Drawing.Size(1277, 715);
             this.tabControl.TabIndex = 52;
             this.tabControl.UseSelectable = true;
@@ -833,6 +825,9 @@
             // 
             // metroTabPage2
             // 
+            this.metroTabPage2.Controls.Add(this.openG6BtnViz);
+            this.metroTabPage2.Controls.Add(this.viewG6Btn);
+            this.metroTabPage2.Controls.Add(this.insertG6ToView);
             this.metroTabPage2.Controls.Add(this.showInvariantsCheck);
             this.metroTabPage2.Controls.Add(this.listInvResults);
             this.metroTabPage2.Controls.Add(this.textOpenViz);
@@ -844,7 +839,6 @@
             this.metroTabPage2.Controls.Add(this.buttonPrint);
             this.metroTabPage2.Controls.Add(this.wpfHost);
             this.metroTabPage2.Controls.Add(this.listOfG6);
-            this.metroTabPage2.Controls.Add(this.button1);
             this.metroTabPage2.HorizontalScrollbarBarColor = true;
             this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.HorizontalScrollbarSize = 10;
@@ -857,11 +851,70 @@
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 11;
+            this.metroTabPage2.Click += new System.EventHandler(this.metroTabPage2_Click);
+            // 
+            // openG6BtnViz
+            // 
+            this.openG6BtnViz.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.openG6BtnViz.Location = new System.Drawing.Point(5, 45);
+            this.openG6BtnViz.MaximumSize = new System.Drawing.Size(150, 25);
+            this.openG6BtnViz.MinimumSize = new System.Drawing.Size(150, 25);
+            this.openG6BtnViz.Name = "openG6BtnViz";
+            this.openG6BtnViz.Size = new System.Drawing.Size(150, 25);
+            this.openG6BtnViz.TabIndex = 60;
+            this.openG6BtnViz.Text = "Open .g6 File";
+            this.openG6BtnViz.UseSelectable = true;
+            this.openG6BtnViz.Click += new System.EventHandler(this.openG6BtnViz_Click);
+            // 
+            // viewG6Btn
+            // 
+            this.viewG6Btn.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.viewG6Btn.Location = new System.Drawing.Point(5, 17);
+            this.viewG6Btn.MaximumSize = new System.Drawing.Size(150, 25);
+            this.viewG6Btn.MinimumSize = new System.Drawing.Size(150, 25);
+            this.viewG6Btn.Name = "viewG6Btn";
+            this.viewG6Btn.Size = new System.Drawing.Size(150, 25);
+            this.viewG6Btn.TabIndex = 59;
+            this.viewG6Btn.Text = "View Graph";
+            this.viewG6Btn.UseSelectable = true;
+            this.viewG6Btn.Click += new System.EventHandler(this.viewG6Btn_Click);
+            // 
+            // insertG6ToView
+            // 
+            // 
+            // 
+            // 
+            this.insertG6ToView.CustomButton.Image = null;
+            this.insertG6ToView.CustomButton.Location = new System.Drawing.Point(1081, 1);
+            this.insertG6ToView.CustomButton.Name = "";
+            this.insertG6ToView.CustomButton.Size = new System.Drawing.Size(23, 23);
+            this.insertG6ToView.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.insertG6ToView.CustomButton.TabIndex = 1;
+            this.insertG6ToView.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.insertG6ToView.CustomButton.UseSelectable = true;
+            this.insertG6ToView.CustomButton.Visible = false;
+            this.insertG6ToView.Lines = new string[0];
+            this.insertG6ToView.Location = new System.Drawing.Point(161, 17);
+            this.insertG6ToView.MaxLength = 32767;
+            this.insertG6ToView.Name = "insertG6ToView";
+            this.insertG6ToView.PasswordChar = '\0';
+            this.insertG6ToView.PromptText = "Type a g6 code here!";
+            this.insertG6ToView.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.insertG6ToView.SelectedText = "";
+            this.insertG6ToView.SelectionLength = 0;
+            this.insertG6ToView.SelectionStart = 0;
+            this.insertG6ToView.ShortcutsEnabled = true;
+            this.insertG6ToView.Size = new System.Drawing.Size(1105, 25);
+            this.insertG6ToView.TabIndex = 58;
+            this.insertG6ToView.UseSelectable = true;
+            this.insertG6ToView.WaterMark = "Type a g6 code here!";
+            this.insertG6ToView.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.insertG6ToView.WaterMarkFont = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // showInvariantsCheck
             // 
             this.showInvariantsCheck.AutoSize = true;
-            this.showInvariantsCheck.Location = new System.Drawing.Point(796, 39);
+            this.showInvariantsCheck.Location = new System.Drawing.Point(1112, 75);
             this.showInvariantsCheck.Name = "showInvariantsCheck";
             this.showInvariantsCheck.Size = new System.Drawing.Size(154, 17);
             this.showInvariantsCheck.TabIndex = 57;
@@ -875,10 +928,10 @@
             // 
             // 
             this.textOpenViz.CustomButton.Image = null;
-            this.textOpenViz.CustomButton.Location = new System.Drawing.Point(725, 1);
+            this.textOpenViz.CustomButton.Location = new System.Drawing.Point(1082, 1);
             this.textOpenViz.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.textOpenViz.CustomButton.Name = "";
-            this.textOpenViz.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.textOpenViz.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.textOpenViz.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.textOpenViz.CustomButton.TabIndex = 1;
             this.textOpenViz.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -886,7 +939,7 @@
             this.textOpenViz.CustomButton.Visible = false;
             this.textOpenViz.Enabled = false;
             this.textOpenViz.Lines = new string[0];
-            this.textOpenViz.Location = new System.Drawing.Point(203, 11);
+            this.textOpenViz.Location = new System.Drawing.Point(161, 45);
             this.textOpenViz.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textOpenViz.MaxLength = 32767;
             this.textOpenViz.Name = "textOpenViz";
@@ -896,7 +949,7 @@
             this.textOpenViz.SelectionLength = 0;
             this.textOpenViz.SelectionStart = 0;
             this.textOpenViz.ShortcutsEnabled = true;
-            this.textOpenViz.Size = new System.Drawing.Size(747, 23);
+            this.textOpenViz.Size = new System.Drawing.Size(1106, 25);
             this.textOpenViz.TabIndex = 56;
             this.textOpenViz.UseSelectable = true;
             this.textOpenViz.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -994,9 +1047,9 @@
             this.version.Location = new System.Drawing.Point(1088, 57);
             this.version.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.version.Name = "version";
-            this.version.Size = new System.Drawing.Size(78, 20);
+            this.version.Size = new System.Drawing.Size(89, 20);
             this.version.TabIndex = 53;
-            this.version.Text = "Version: 1.0";
+            this.version.Text = "Version: 1.0.0";
             // 
             // Form1
             // 
@@ -1042,7 +1095,6 @@
         public System.Windows.Forms.CheckBox enableEq3;
         public System.Windows.Forms.CheckBox enableEq2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox listOfG6;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button buttonSavePNG;
@@ -1086,6 +1138,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColunaInvariant;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColunaResultado;
         public System.Windows.Forms.CheckBox enableIsAcyclic;
+        private MetroFramework.Controls.MetroTextBox insertG6ToView;
+        private MetroFramework.Controls.MetroButton viewG6Btn;
+        private MetroFramework.Controls.MetroButton openG6BtnViz;
     }
 }
 
