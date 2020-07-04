@@ -14,14 +14,17 @@ namespace GraphFilter.Invariant.Tests
     public class InvariantBoolTests
     {
         private string _path = System.IO.Path.GetFullPath(@"..\..\") + "\\g6Files\\";
-        bool Execute(string file, InvariantBool invariant, int k)
+        private int Execute(string file, InvariantBool invariant, int k)
         {
             bool condition = false;
+            int total = 0;
+            int contador = 0;
             using (StreamReader stReaderIn = new StreamReader(_path + file + ".g6"))
             {
                 String g6Line = stReaderIn.ReadLine();
                 while (g6Line != null)
                 {
+                    total++;
                     if (invariant == InvariantBool.connected) condition = BuildLogic.ConditionConnected(new Graph(g6Line));
                     if (invariant == InvariantBool.disconnected) condition = !BuildLogic.ConditionConnected(new Graph(g6Line));
                     if (invariant == InvariantBool.planar) condition = BuildLogic.ConditionPlanar(new Graph(g6Line));
@@ -29,10 +32,10 @@ namespace GraphFilter.Invariant.Tests
                     if (invariant == InvariantBool.regular_k) condition = BuildLogic.ConditionRegularK(new Graph(g6Line),k);
                     if (invariant == InvariantBool.hamiltonian) condition = BuildLogic.ConditionHamiltonian(new Graph(g6Line));
                     if (invariant == InvariantBool.acyclic) condition = BuildLogic.ConditionAcyclic(new Graph(g6Line));
-                    if (!condition) return false;
+                    if (condition) contador++;
                     g6Line = stReaderIn.ReadLine();
                 }
-                return true;
+                return (int) 100 * (contador / total);
             }
         }
         enum InvariantBool
@@ -44,7 +47,6 @@ namespace GraphFilter.Invariant.Tests
             regular_k,
             hamiltonian,
             acyclic
-
         }
 
         [TestMethod()]
@@ -57,32 +59,32 @@ namespace GraphFilter.Invariant.Tests
         [TestMethod()]
         public void PlanarTEST()
         {
-            Assert.IsTrue(Execute("planar", InvariantBool.planar, 0));
+            Assert.AreEqual(100, Execute("planar", InvariantBool.planar, 0));
         }
 
         [TestMethod()]
         public void RegularTEST()
         {
-            Assert.IsTrue(Execute("regular", InvariantBool.regular, 0));
+            Assert.AreEqual(100, Execute("regular", InvariantBool.regular, 0));
         }
 
         [TestMethod()]
         public void Regular_kTEST()
         {
-            Assert.IsTrue(Execute("regular6", InvariantBool.regular_k, 6));
-            Assert.IsTrue(Execute("regular10", InvariantBool.regular_k, 10));
+            Assert.AreEqual(100, Execute("regular6", InvariantBool.regular_k, 6));
+            Assert.AreEqual(100, Execute("regular10", InvariantBool.regular_k, 10));
         }
 
         [TestMethod()]
         public void Hamiltonian_TEST()
         {
-            Assert.IsTrue(Execute("hamiltonian", InvariantBool.hamiltonian, 0));
+            Assert.AreEqual(100, Execute("hamiltonian", InvariantBool.hamiltonian, 0));
         }
         
         [TestMethod()]
         public void Acyclic_TEST()
         {
-            Assert.IsTrue(Execute("girthInfinite", InvariantBool.acyclic, 0));
+            Assert.AreEqual(100, Execute("girthInfinite", InvariantBool.acyclic, 0));
         }
         
     }

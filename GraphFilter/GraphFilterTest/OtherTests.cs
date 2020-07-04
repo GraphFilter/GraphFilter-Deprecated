@@ -10,7 +10,7 @@ using System.IO;
 namespace GraphFilter.Tests
 {
     [TestClass()]
-    public class ConversorTests
+    public class OtherTests
     {
         public string ReadG6fromMatFiles(string file)
         {
@@ -44,24 +44,6 @@ namespace GraphFilter.Tests
         }
 
         [TestMethod()]
-        public void Graph6toAdjMatrixTest()
-        {
-            //Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void G6toQuickGraphTest()
-        {
-            //Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void GraphToStringMatrixTest()
-        {
-            //Assert.Fail();
-        }
-
-        [TestMethod()]
         public void matFile2MatrixTest()
         {
             List<string> testFiles = new List<string>() { "n63", "n1", "n20", "n50", "n62", "n62", "n63", "n64", "n171", "n200", "n231" };
@@ -73,5 +55,22 @@ namespace GraphFilter.Tests
             }
             
         }
+
+        [TestMethod()]
+        public void EvaluateTextTest()
+        {
+            List<string> testFiles = new List<string>() { "n63", "n1", "n20", "n50", "n62", "n62", "n63", "n64", "n171", "n200", "n231" };
+            foreach (string file in testFiles)
+            {
+                int[,] matrixFromMatFile = matFile2Matrix(file + ".mat");
+                int[,] matrixFromG6 = new Graph(ReadG6fromMatFiles(file + ".g6")).adjacencyMatrix;
+                CollectionAssert.AreEqual(matrixFromMatFile, matrixFromG6);
+            }
+
+        }
+
+
+
+
     }
 }

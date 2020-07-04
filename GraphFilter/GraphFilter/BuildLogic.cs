@@ -1,11 +1,7 @@
-﻿using GraphFilter.Invariants;
-using GraphX.Logic.Algorithms.LayoutAlgorithms;
-using NCalc;
+﻿using Flee.PublicTypes;
+using GraphFilter.Invariants;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 
 namespace GraphFilter
@@ -43,9 +39,10 @@ namespace GraphFilter
         #endregion
 
         #region Equation and Conditon
-        public static bool Text2BoolNCalc(string text, Graph g)
+        public static bool EvaluateText(string text, Graph g)
         {
-            var ex = new NCalc.Expression(text);
+            //uso do pacote Flee para converter texto em lógica matemática
+            /*var ex = new NCalc.Expression(text);
 
             ex.EvaluateFunction += delegate (string name, FunctionArgs args)
             {
@@ -68,13 +65,25 @@ namespace GraphFilter
                 if (name == InvariantNum.Girth.getCode()) args.Result = InvariantNum.Girth.Calculate(g);
                 if (name == InvariantNum.NumberOfComponents.getCode()) args.Result = InvariantNum.NumberOfComponents.Calculate(g);
             };
+            if (ex.Evaluate().ToString() == "True" || ex.Evaluate().ToString() == "true") return true;
+            if (ex.Evaluate().ToString() == "False" || ex.Evaluate().ToString() == "false") return false;
 
-            if (ex.Evaluate().ToString() == "True") return true;
+            throw new ArgumentException();*/
+            ExpressionContext context = new ExpressionContext();
+            VariableCollection variables = context.Variables;
 
-            else if (ex.Evaluate().ToString() == "False") return false;
-
+            foreach (IInvariant invariant in InvariantNum.List())
+            {
+                if (text.Contains(invariant.getCode())) context.Variables[invariant.getCode()] = invariant.Calculate(g);
+            }
+            IGenericExpression<bool> e = context.CompileGeneric<bool>(text);
+            return e.Evaluate();
+            
+            
             throw new ArgumentException();
+
         }
+
 
         #endregion
     }
