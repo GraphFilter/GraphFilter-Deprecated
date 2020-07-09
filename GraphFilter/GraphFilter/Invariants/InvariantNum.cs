@@ -371,32 +371,5 @@ namespace GraphFilter.Invariants
             public string getCode() { return "g"; }
         }
 
-
-
-
-    /*public static string AllNames()
-    {
-        List<string> names = new List<string>();
-        names.Add(AlgebricConnectivity.getCode() + ": "+AlgebricConnectivity.getName()+"\n");
-        names.Add(SpectralRadius.getCode() + ": " + SpectralRadius.getName() + "\n");
-        names.Add(LaplacianEnergy.getCode() + ": " + LaplacianEnergy.getName() + "\n");
-        names.Add(AdjacencyEnergy.getCode() + ": " + AdjacencyEnergy.getName() + "\n");
-        names.Add(NumberSpanningTree.getCode() + ": " + NumberSpanningTree.getName() + "\n");
-        names.Add(Diameter.getCode() + ": " + Diameter.getName() + "\n");
-        names.Add(MaxDegree.getCode() + ": " + MaxDegree.getName() + "\n");
-        names.Add(MinDegree.getCode() + ": " + MinDegree.getName() + "\n");
-        names.Add(AverageDegree.getCode() + ": " + AverageDegree.getName() + "\n");
-        names.Add(Order.getCode() + ": " + Order.getName() + "\n");
-        names.Add(CliqueNumber.getCode() + ": " + CliqueNumber.getName() + "\n");
-        names.Add(IndependenceNumber.getCode() + ": " + IndependenceNumber.getName() + "\n");
-        names.Add(MatchingNumber.getCode() + ": " + MatchingNumber.getName() + "\n");
-        names.Add(ChromaticNumber.getCode() + ": " + ChromaticNumber.getName() + "\n");
-        names.Add(EdgeConnectivy.getCode() + ": " + EdgeConnectivy.getName() + "\n");
-        names.Add(Girth.getCode() + ": " + Girth.getName() + "\n");
-        names.Add(NumberOfComponents.getCode() + ": " + NumberOfComponents.getName() + "\n");
-        return String.Concat(names);
-    }*/
-    //tentando armazenar em lista
-
 } 
 
