@@ -23,21 +23,25 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using System.Xml;
+using SharpUpdate;
+using System.Reflection;
 
 namespace GraphFilter
 {
-    public partial class Form1 : MetroFramework.Forms.MetroForm
+    public partial class Form1 : MetroFramework.Forms.MetroForm, ISharpUpdatable
     {
         #region Form1 properties
         Stream fileG6In;
         StreamWriter fileG6Out;
+
+        private SharpUpdater updater;
 
         public Form1()
         {
             InitializeComponent();
             Load += Form1_Load;
 
-            CheckForUpdates();
+            this.version.Text = this.ApplicationAssembly.GetName().Version.ToString();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -69,8 +73,6 @@ namespace GraphFilter
             progressBar.Width = groupBoxCondition.Width - 115;
 
             textEquation1.Width = groupBoxCondition.Width - 67;
-            textEquation2.Width = groupBoxCondition.Width - 67;
-            textEquation3.Width = groupBoxCondition.Width - 67;
 
             tabControl.Width = this.Width - 40;
             tabControl.Height = this.Height - 80;
@@ -90,7 +92,8 @@ namespace GraphFilter
 
             version.Left = this.Width - 120;
 
-            showInvariantsCheck.Left = this.Width - 250;
+            showInvariantsCheck.Left = this.Width - 300;
+            showGraphInvariantLbl.Left = this.Width - 260;
 
             listInvResults.Top = this.Height - 430;
         }
@@ -117,14 +120,6 @@ namespace GraphFilter
             }
         }
         #endregion
-
-        private async Task CheckForUpdates()
-        {
-            using (var manager = new UpdateManager(@"C:\Temp\Releases"))
-            {
-                await manager.UpdateApp();
-            }
-        }
 
         #region File Input and Output
         private void ButtonInput_Click(object sender, EventArgs e)
@@ -274,9 +269,42 @@ namespace GraphFilter
 
         #endregion
 
+        #region SharpUpdate
+        public string ApplicationName {
+            get { return "GraphFilter"; }
+        }
+
+        public string ApplicationID
+        {
+            get { return "GraphFilter"; }
+        }
+
+        public Assembly ApplicationAssembly
+        {
+            get { return Assembly.GetExecutingAssembly(); }
+        }
+
+        public Icon ApplicationIcon
+        {
+            get { return this.Icon; }
+        }
+
+        public Uri UpdateXmlLocation
+        {
+            get { return new Uri(""); }
+        }
+        public Form Context
+        {
+            get { return this; }
+        }
+        #endregion
+
         #region Visual properties
         private ZoomControl _zoomctrl;
         private GraphAreaView _gArea;
+
+        
+
         private UIElement GenerateWpfVisuals(string g6)
         {
             _zoomctrl = new ZoomControl();
@@ -361,9 +389,7 @@ namespace GraphFilter
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
             if (textEquation1.Enabled == true) System.Windows.Forms.MessageBox.Show("Please, verify your equation 1!");
-            if (textEquation2.Enabled == true) System.Windows.Forms.MessageBox.Show("Please, verify your equation 2!");
-            if (textEquation3.Enabled == true) System.Windows.Forms.MessageBox.Show("Please, verify your equation 3!");
-            if (textEquation1.Enabled == false && textEquation2.Enabled == false && textEquation3.Enabled == false)
+            if (textEquation1.Enabled == false)
             {
                 FilesFilter filesFilter = new FilesFilter(fileG6In, textOutPath.Text, this);
                 double[] retorno = filesFilter.Run();
@@ -482,20 +508,19 @@ namespace GraphFilter
 
         private void EnableEq2_CheckedChanged(object sender, EventArgs e)
         {
-            textEquation2.Enabled = enableEq2.Checked;
-            verifyEq2.Enabled = enableEq2.Checked;
+            /*textEquation2.Enabled = enableEq2.Checked;
+            verifyEq2.Enabled = enableEq2.Checked;*/
         }
 
         private void enableEq3_CheckedChanged(object sender, EventArgs e)
         {
-            textEquation3.Enabled = enableEq3.Checked;
-            verifyEq3.Enabled = enableEq3.Checked;
+            /*textEquation3.Enabled = enableEq3.Checked;
+            verifyEq3.Enabled = enableEq3.Checked;*/
         }
 
         private void enableRegularWithK_CheckedChanged(object sender, EventArgs e)
         {
-            if (enableRegularWithK.Checked == true) paramRegularWithDegree.Enabled = true;
-            else paramRegularWithDegree.Enabled = false;
+            
         }
 
         private void enableIsConnected_CheckedChanged(object sender, EventArgs e)
@@ -704,8 +729,8 @@ namespace GraphFilter
             try
             {
                 //BuildLogic.Text2BoolNCalc(textEquation2.Text, new Graph(new int[0, 0]));
-                BuildLogic.EvaluateText(textEquation2.Text, new Graph(new int[0, 0]));
-                textEquation2.Enabled = false;
+                /*BuildLogic.EvaluateText(textEquation2.Text, new Graph(new int[0, 0]));
+                textEquation2.Enabled = false;*/
 
             }
             catch
@@ -740,8 +765,8 @@ namespace GraphFilter
             try
             {
                 //BuildLogic.Text2BoolNCalc(textEquation3.Text, new Graph(new int[0, 0]));
-                BuildLogic.EvaluateText(textEquation3.Text, new Graph(new int[0, 0]));
-                textEquation3.Enabled = false;
+                /*BuildLogic.EvaluateText(textEquation3.Text, new Graph(new int[0, 0]));
+                textEquation3.Enabled = false;*/
             }
             catch
             {
@@ -849,11 +874,7 @@ namespace GraphFilter
 
         private void metroCheckBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (showInvariantsCheck.Checked == true) listInvResults.Visible = true;
-            else
-            {
-                listInvResults.Visible = false;
-            }
+           
         }
 
         private void enableIsAcyclic_CheckedChanged(object sender, EventArgs e)
@@ -900,6 +921,41 @@ namespace GraphFilter
                 }
                 listOfG6.Visible = true;
             }
+        }
+
+        private void showInvariantsCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (showInvariantsCheck.Checked == true) listInvResults.Visible = true;
+            else
+            {
+                listInvResults.Visible = false;
+            }
+        }
+
+        private void metroLabel4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroLabel5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void enableRegularWithK_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (enableRegularWithK.Checked == true) paramRegularWithDegree.Enabled = true;
+            else paramRegularWithDegree.Enabled = false;
+        }
+
+        private void paramRegularWithDegree_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkUpdBtn_Click(object sender, EventArgs e)
+        {
+            //updater.DoUpdate();
         }
     }
 
