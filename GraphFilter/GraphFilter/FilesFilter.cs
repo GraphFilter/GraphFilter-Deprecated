@@ -40,10 +40,6 @@ namespace GraphFilter
                         {
                             if (form1.enableEq1.Checked)
                                 condition = BuildLogic.EvaluateText(form1.textEquation1.Text, new Graph(g6Line));
-                            if (form1.enableEq2.Checked)
-                                condition = condition && BuildLogic.EvaluateText(form1.textEquation2.Text, new Graph(g6Line));
-                            if (form1.enableEq3.Checked)
-                                condition = condition && BuildLogic.EvaluateText(form1.textEquation3.Text, new Graph(g6Line));
                             if (form1.enableRegular.Checked)
                                 condition = condition && BuildLogic.ConditionRegular(new Graph(g6Line));
                             if (form1.enableRegularWithK.Checked)

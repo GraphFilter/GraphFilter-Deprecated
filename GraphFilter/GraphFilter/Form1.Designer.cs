@@ -32,25 +32,25 @@
             this.ColunaInvariant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColunaResultado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxCondition = new System.Windows.Forms.GroupBox();
-            this.enableIsAcyclic = new System.Windows.Forms.CheckBox();
-            this.enableIsHamiltonian = new System.Windows.Forms.CheckBox();
-            this.enableIsPlanar = new System.Windows.Forms.CheckBox();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.enableIsAcyclic = new JCS.ToggleSwitch();
+            this.enableIsPlanar = new JCS.ToggleSwitch();
+            this.enableIsHamiltonian = new JCS.ToggleSwitch();
+            this.enableIsConnected = new JCS.ToggleSwitch();
+            this.enableRegularWithK = new JCS.ToggleSwitch();
+            this.enableRegular = new JCS.ToggleSwitch();
             this.paramRegularWithDegree = new MetroFramework.Controls.MetroTextBox();
-            this.enableIsConnected = new System.Windows.Forms.CheckBox();
-            this.enableRegular = new System.Windows.Forms.CheckBox();
-            this.enableRegularWithK = new System.Windows.Forms.CheckBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.groupBoxEq = new System.Windows.Forms.GroupBox();
-            this.verifyEq3 = new System.Windows.Forms.Button();
-            this.verifyEq2 = new System.Windows.Forms.Button();
+            this.enableEq1 = new JCS.ToggleSwitch();
             this.verifyEq1 = new System.Windows.Forms.Button();
-            this.textEquation3 = new MetroFramework.Controls.MetroTextBox();
-            this.textEquation2 = new MetroFramework.Controls.MetroTextBox();
             this.textEquation1 = new MetroFramework.Controls.MetroTextBox();
-            this.enableEq3 = new System.Windows.Forms.CheckBox();
-            this.enableEq2 = new System.Windows.Forms.CheckBox();
-            this.enableEq1 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.buttonPrint = new System.Windows.Forms.Button();
             this.buttonExp2PNG = new System.Windows.Forms.Button();
@@ -74,16 +74,18 @@
             this.textSource = new MetroFramework.Controls.MetroTextBox();
             this.buttonOpen = new System.Windows.Forms.Button();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.showGraphInvariantLbl = new MetroFramework.Controls.MetroLabel();
+            this.showInvariantsCheck = new JCS.ToggleSwitch();
             this.openG6BtnViz = new MetroFramework.Controls.MetroButton();
             this.viewG6Btn = new MetroFramework.Controls.MetroButton();
             this.insertG6ToView = new MetroFramework.Controls.MetroTextBox();
-            this.showInvariantsCheck = new MetroFramework.Controls.MetroCheckBox();
             this.textOpenViz = new MetroFramework.Controls.MetroTextBox();
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
             this.metroProgressSpinner = new MetroFramework.Controls.MetroProgressSpinner();
             this.metroProgress = new MetroFramework.Controls.MetroProgressSpinner();
             this.textOpenExp = new MetroFramework.Controls.MetroTextBox();
             this.version = new MetroFramework.Controls.MetroLabel();
+            this.chkUpdBtn = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.listInvResults)).BeginInit();
             this.groupBoxCondition.SuspendLayout();
             this.groupBoxEq.SuspendLayout();
@@ -105,7 +107,7 @@
             this.listInvResults.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColunaInvariant,
             this.ColunaResultado});
-            this.listInvResults.Location = new System.Drawing.Point(204, 307);
+            this.listInvResults.Location = new System.Drawing.Point(204, 128);
             this.listInvResults.MinimumSize = new System.Drawing.Size(430, 200);
             this.listInvResults.MultiSelect = false;
             this.listInvResults.Name = "listInvResults";
@@ -136,56 +138,162 @@
             // groupBoxCondition
             // 
             this.groupBoxCondition.BackColor = System.Drawing.SystemColors.Window;
+            this.groupBoxCondition.Controls.Add(this.metroLabel4);
+            this.groupBoxCondition.Controls.Add(this.metroLabel5);
+            this.groupBoxCondition.Controls.Add(this.metroLabel6);
+            this.groupBoxCondition.Controls.Add(this.metroLabel3);
+            this.groupBoxCondition.Controls.Add(this.metroLabel1);
+            this.groupBoxCondition.Controls.Add(this.metroLabel2);
             this.groupBoxCondition.Controls.Add(this.enableIsAcyclic);
-            this.groupBoxCondition.Controls.Add(this.enableIsHamiltonian);
             this.groupBoxCondition.Controls.Add(this.enableIsPlanar);
-            this.groupBoxCondition.Controls.Add(this.paramRegularWithDegree);
+            this.groupBoxCondition.Controls.Add(this.enableIsHamiltonian);
             this.groupBoxCondition.Controls.Add(this.enableIsConnected);
-            this.groupBoxCondition.Controls.Add(this.enableRegular);
             this.groupBoxCondition.Controls.Add(this.enableRegularWithK);
+            this.groupBoxCondition.Controls.Add(this.enableRegular);
+            this.groupBoxCondition.Controls.Add(this.paramRegularWithDegree);
             this.groupBoxCondition.Location = new System.Drawing.Point(0, 103);
             this.groupBoxCondition.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxCondition.Name = "groupBoxCondition";
             this.groupBoxCondition.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxCondition.Size = new System.Drawing.Size(585, 158);
+            this.groupBoxCondition.Size = new System.Drawing.Size(585, 170);
             this.groupBoxCondition.TabIndex = 8;
             this.groupBoxCondition.TabStop = false;
             this.groupBoxCondition.Text = "Condition";
             // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel4.Location = new System.Drawing.Point(479, 115);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(55, 20);
+            this.metroLabel4.TabIndex = 65;
+            this.metroLabel4.Text = "Acyclic";
+            this.metroLabel4.Click += new System.EventHandler(this.metroLabel4_Click);
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel5.Location = new System.Drawing.Point(479, 73);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(50, 20);
+            this.metroLabel5.TabIndex = 64;
+            this.metroLabel5.Text = "Planar";
+            this.metroLabel5.Click += new System.EventHandler(this.metroLabel5_Click);
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel6.Location = new System.Drawing.Point(479, 33);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(91, 20);
+            this.metroLabel6.TabIndex = 63;
+            this.metroLabel6.Text = "Hamiltonian";
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel3.Location = new System.Drawing.Point(77, 115);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(80, 20);
+            this.metroLabel3.TabIndex = 62;
+            this.metroLabel3.Text = "Connected";
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel1.Location = new System.Drawing.Point(77, 73);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(137, 20);
+            this.metroLabel1.TabIndex = 61;
+            this.metroLabel1.Text = "Regular with Order:";
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel2.Location = new System.Drawing.Point(77, 33);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(60, 20);
+            this.metroLabel2.TabIndex = 60;
+            this.metroLabel2.Text = "Regular";
+            // 
             // enableIsAcyclic
             // 
-            this.enableIsAcyclic.AutoSize = true;
-            this.enableIsAcyclic.Location = new System.Drawing.Point(356, 85);
-            this.enableIsAcyclic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.enableIsAcyclic.Location = new System.Drawing.Point(410, 116);
+            this.enableIsAcyclic.MaximumSize = new System.Drawing.Size(60, 24);
+            this.enableIsAcyclic.MinimumSize = new System.Drawing.Size(60, 24);
             this.enableIsAcyclic.Name = "enableIsAcyclic";
-            this.enableIsAcyclic.Size = new System.Drawing.Size(73, 21);
-            this.enableIsAcyclic.TabIndex = 53;
-            this.enableIsAcyclic.Text = "Acyclic";
-            this.enableIsAcyclic.UseVisualStyleBackColor = true;
-            this.enableIsAcyclic.CheckedChanged += new System.EventHandler(this.enableIsAcyclic_CheckedChanged);
-            // 
-            // enableIsHamiltonian
-            // 
-            this.enableIsHamiltonian.AutoSize = true;
-            this.enableIsHamiltonian.Location = new System.Drawing.Point(356, 31);
-            this.enableIsHamiltonian.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.enableIsHamiltonian.Name = "enableIsHamiltonian";
-            this.enableIsHamiltonian.Size = new System.Drawing.Size(104, 21);
-            this.enableIsHamiltonian.TabIndex = 52;
-            this.enableIsHamiltonian.Text = "Hamiltonian";
-            this.enableIsHamiltonian.UseVisualStyleBackColor = true;
+            this.enableIsAcyclic.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableIsAcyclic.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableIsAcyclic.Size = new System.Drawing.Size(60, 24);
+            this.enableIsAcyclic.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
+            this.enableIsAcyclic.TabIndex = 58;
             // 
             // enableIsPlanar
             // 
-            this.enableIsPlanar.AutoSize = true;
-            this.enableIsPlanar.Location = new System.Drawing.Point(356, 58);
-            this.enableIsPlanar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.enableIsPlanar.Location = new System.Drawing.Point(410, 74);
+            this.enableIsPlanar.MaximumSize = new System.Drawing.Size(60, 24);
+            this.enableIsPlanar.MinimumSize = new System.Drawing.Size(60, 24);
             this.enableIsPlanar.Name = "enableIsPlanar";
-            this.enableIsPlanar.Size = new System.Drawing.Size(71, 21);
-            this.enableIsPlanar.TabIndex = 51;
-            this.enableIsPlanar.Text = "Planar";
-            this.enableIsPlanar.UseVisualStyleBackColor = true;
-            this.enableIsPlanar.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.enableIsPlanar.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableIsPlanar.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableIsPlanar.Size = new System.Drawing.Size(60, 24);
+            this.enableIsPlanar.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
+            this.enableIsPlanar.TabIndex = 57;
+            // 
+            // enableIsHamiltonian
+            // 
+            this.enableIsHamiltonian.Location = new System.Drawing.Point(410, 34);
+            this.enableIsHamiltonian.MaximumSize = new System.Drawing.Size(60, 24);
+            this.enableIsHamiltonian.MinimumSize = new System.Drawing.Size(60, 24);
+            this.enableIsHamiltonian.Name = "enableIsHamiltonian";
+            this.enableIsHamiltonian.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableIsHamiltonian.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableIsHamiltonian.Size = new System.Drawing.Size(60, 24);
+            this.enableIsHamiltonian.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
+            this.enableIsHamiltonian.TabIndex = 56;
+            // 
+            // enableIsConnected
+            // 
+            this.enableIsConnected.Location = new System.Drawing.Point(11, 116);
+            this.enableIsConnected.MaximumSize = new System.Drawing.Size(60, 24);
+            this.enableIsConnected.MinimumSize = new System.Drawing.Size(60, 24);
+            this.enableIsConnected.Name = "enableIsConnected";
+            this.enableIsConnected.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableIsConnected.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableIsConnected.Size = new System.Drawing.Size(60, 24);
+            this.enableIsConnected.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
+            this.enableIsConnected.TabIndex = 55;
+            // 
+            // enableRegularWithK
+            // 
+            this.enableRegularWithK.Location = new System.Drawing.Point(11, 74);
+            this.enableRegularWithK.MaximumSize = new System.Drawing.Size(60, 24);
+            this.enableRegularWithK.MinimumSize = new System.Drawing.Size(60, 24);
+            this.enableRegularWithK.Name = "enableRegularWithK";
+            this.enableRegularWithK.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableRegularWithK.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableRegularWithK.Size = new System.Drawing.Size(60, 24);
+            this.enableRegularWithK.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
+            this.enableRegularWithK.TabIndex = 54;
+            this.enableRegularWithK.CheckedChanged += new JCS.ToggleSwitch.CheckedChangedDelegate(this.enableRegularWithK_CheckedChanged_1);
+            // 
+            // enableRegular
+            // 
+            this.enableRegular.Location = new System.Drawing.Point(11, 34);
+            this.enableRegular.MaximumSize = new System.Drawing.Size(60, 24);
+            this.enableRegular.MinimumSize = new System.Drawing.Size(60, 24);
+            this.enableRegular.Name = "enableRegular";
+            this.enableRegular.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableRegular.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableRegular.Size = new System.Drawing.Size(60, 24);
+            this.enableRegular.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
+            this.enableRegular.TabIndex = 53;
             // 
             // paramRegularWithDegree
             // 
@@ -204,7 +312,7 @@
             this.paramRegularWithDegree.CustomButton.Visible = false;
             this.paramRegularWithDegree.Enabled = false;
             this.paramRegularWithDegree.Lines = new string[0];
-            this.paramRegularWithDegree.Location = new System.Drawing.Point(205, 58);
+            this.paramRegularWithDegree.Location = new System.Drawing.Point(320, 75);
             this.paramRegularWithDegree.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.paramRegularWithDegree.MaxLength = 32767;
             this.paramRegularWithDegree.Name = "paramRegularWithDegree";
@@ -219,42 +327,7 @@
             this.paramRegularWithDegree.UseSelectable = true;
             this.paramRegularWithDegree.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.paramRegularWithDegree.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // enableIsConnected
-            // 
-            this.enableIsConnected.AutoSize = true;
-            this.enableIsConnected.Location = new System.Drawing.Point(11, 85);
-            this.enableIsConnected.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.enableIsConnected.Name = "enableIsConnected";
-            this.enableIsConnected.Size = new System.Drawing.Size(98, 21);
-            this.enableIsConnected.TabIndex = 49;
-            this.enableIsConnected.Text = "Connected";
-            this.enableIsConnected.UseVisualStyleBackColor = true;
-            this.enableIsConnected.CheckedChanged += new System.EventHandler(this.enableIsConnected_CheckedChanged);
-            // 
-            // enableRegular
-            // 
-            this.enableRegular.AutoSize = true;
-            this.enableRegular.Location = new System.Drawing.Point(11, 31);
-            this.enableRegular.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.enableRegular.Name = "enableRegular";
-            this.enableRegular.Size = new System.Drawing.Size(80, 21);
-            this.enableRegular.TabIndex = 47;
-            this.enableRegular.Text = "Regular";
-            this.enableRegular.UseVisualStyleBackColor = true;
-            this.enableRegular.CheckedChanged += new System.EventHandler(this.enableRegular_CheckedChanged_1);
-            // 
-            // enableRegularWithK
-            // 
-            this.enableRegularWithK.AutoSize = true;
-            this.enableRegularWithK.Location = new System.Drawing.Point(11, 58);
-            this.enableRegularWithK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.enableRegularWithK.Name = "enableRegularWithK";
-            this.enableRegularWithK.Size = new System.Drawing.Size(153, 21);
-            this.enableRegularWithK.TabIndex = 48;
-            this.enableRegularWithK.Text = "Regular with Order:";
-            this.enableRegularWithK.UseVisualStyleBackColor = true;
-            this.enableRegularWithK.CheckedChanged += new System.EventHandler(this.enableRegularWithK_CheckedChanged);
+            this.paramRegularWithDegree.Click += new System.EventHandler(this.paramRegularWithDegree_Click);
             // 
             // buttonSave
             // 
@@ -271,7 +344,7 @@
             // buttonSearch
             // 
             this.buttonSearch.Enabled = false;
-            this.buttonSearch.Location = new System.Drawing.Point(5, 414);
+            this.buttonSearch.Location = new System.Drawing.Point(2, 401);
             this.buttonSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(139, 39);
@@ -284,56 +357,29 @@
             // groupBoxEq
             // 
             this.groupBoxEq.BackColor = System.Drawing.SystemColors.Window;
-            this.groupBoxEq.Controls.Add(this.verifyEq3);
-            this.groupBoxEq.Controls.Add(this.verifyEq2);
-            this.groupBoxEq.Controls.Add(this.verifyEq1);
-            this.groupBoxEq.Controls.Add(this.textEquation3);
-            this.groupBoxEq.Controls.Add(this.textEquation2);
-            this.groupBoxEq.Controls.Add(this.textEquation1);
-            this.groupBoxEq.Controls.Add(this.enableEq3);
-            this.groupBoxEq.Controls.Add(this.enableEq2);
             this.groupBoxEq.Controls.Add(this.enableEq1);
+            this.groupBoxEq.Controls.Add(this.verifyEq1);
+            this.groupBoxEq.Controls.Add(this.textEquation1);
             this.groupBoxEq.Controls.Add(this.label6);
             this.groupBoxEq.Location = new System.Drawing.Point(0, 277);
             this.groupBoxEq.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxEq.Name = "groupBoxEq";
             this.groupBoxEq.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxEq.Size = new System.Drawing.Size(585, 132);
+            this.groupBoxEq.Size = new System.Drawing.Size(585, 118);
             this.groupBoxEq.TabIndex = 7;
             this.groupBoxEq.TabStop = false;
             this.groupBoxEq.Text = "Equations";
             // 
-            // verifyEq3
+            // enableEq1
             // 
-            this.verifyEq3.Enabled = false;
-            this.verifyEq3.FlatAppearance.BorderSize = 0;
-            this.verifyEq3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.verifyEq3.Image = global::GraphFilter.Properties.Resources.icons8_checked_checkbox;
-            this.verifyEq3.Location = new System.Drawing.Point(37, 92);
-            this.verifyEq3.Margin = new System.Windows.Forms.Padding(0);
-            this.verifyEq3.MaximumSize = new System.Drawing.Size(36, 36);
-            this.verifyEq3.MinimumSize = new System.Drawing.Size(36, 36);
-            this.verifyEq3.Name = "verifyEq3";
-            this.verifyEq3.Size = new System.Drawing.Size(36, 36);
-            this.verifyEq3.TabIndex = 57;
-            this.verifyEq3.UseVisualStyleBackColor = true;
-            this.verifyEq3.Click += new System.EventHandler(this.verifyEq3_Click);
-            // 
-            // verifyEq2
-            // 
-            this.verifyEq2.Enabled = false;
-            this.verifyEq2.FlatAppearance.BorderSize = 0;
-            this.verifyEq2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.verifyEq2.Image = global::GraphFilter.Properties.Resources.icons8_checked_checkbox;
-            this.verifyEq2.Location = new System.Drawing.Point(37, 57);
-            this.verifyEq2.Margin = new System.Windows.Forms.Padding(0);
-            this.verifyEq2.MaximumSize = new System.Drawing.Size(36, 36);
-            this.verifyEq2.MinimumSize = new System.Drawing.Size(36, 36);
-            this.verifyEq2.Name = "verifyEq2";
-            this.verifyEq2.Size = new System.Drawing.Size(36, 36);
-            this.verifyEq2.TabIndex = 56;
-            this.verifyEq2.UseVisualStyleBackColor = true;
-            this.verifyEq2.Click += new System.EventHandler(this.verifyEq2_Click);
+            this.enableEq1.Location = new System.Drawing.Point(11, 56);
+            this.enableEq1.Name = "enableEq1";
+            this.enableEq1.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableEq1.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableEq1.Size = new System.Drawing.Size(50, 24);
+            this.enableEq1.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
+            this.enableEq1.TabIndex = 53;
+            this.enableEq1.CheckedChanged += new JCS.ToggleSwitch.CheckedChangedDelegate(this.EnableEq1_CheckedChanged);
             // 
             // verifyEq1
             // 
@@ -341,7 +387,7 @@
             this.verifyEq1.FlatAppearance.BorderSize = 0;
             this.verifyEq1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.verifyEq1.Image = global::GraphFilter.Properties.Resources.icons8_checked_checkbox;
-            this.verifyEq1.Location = new System.Drawing.Point(37, 22);
+            this.verifyEq1.Location = new System.Drawing.Point(65, 49);
             this.verifyEq1.Margin = new System.Windows.Forms.Padding(0);
             this.verifyEq1.MaximumSize = new System.Drawing.Size(36, 36);
             this.verifyEq1.MinimumSize = new System.Drawing.Size(36, 36);
@@ -351,92 +397,28 @@
             this.verifyEq1.UseVisualStyleBackColor = true;
             this.verifyEq1.Click += new System.EventHandler(this.verifyEq1_Click);
             // 
-            // textEquation3
-            // 
-            // 
-            // 
-            // 
-            this.textEquation3.CustomButton.Image = null;
-            this.textEquation3.CustomButton.Location = new System.Drawing.Point(477, 1);
-            this.textEquation3.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.textEquation3.CustomButton.Name = "";
-            this.textEquation3.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.textEquation3.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.textEquation3.CustomButton.TabIndex = 1;
-            this.textEquation3.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.textEquation3.CustomButton.UseSelectable = true;
-            this.textEquation3.CustomButton.Visible = false;
-            this.textEquation3.Enabled = false;
-            this.textEquation3.Lines = new string[0];
-            this.textEquation3.Location = new System.Drawing.Point(79, 97);
-            this.textEquation3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textEquation3.MaxLength = 32767;
-            this.textEquation3.Name = "textEquation3";
-            this.textEquation3.PasswordChar = '\0';
-            this.textEquation3.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.textEquation3.SelectedText = "";
-            this.textEquation3.SelectionLength = 0;
-            this.textEquation3.SelectionStart = 0;
-            this.textEquation3.ShortcutsEnabled = true;
-            this.textEquation3.Size = new System.Drawing.Size(499, 23);
-            this.textEquation3.TabIndex = 59;
-            this.textEquation3.UseSelectable = true;
-            this.textEquation3.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.textEquation3.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // textEquation2
-            // 
-            // 
-            // 
-            // 
-            this.textEquation2.CustomButton.Image = null;
-            this.textEquation2.CustomButton.Location = new System.Drawing.Point(477, 1);
-            this.textEquation2.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.textEquation2.CustomButton.Name = "";
-            this.textEquation2.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.textEquation2.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.textEquation2.CustomButton.TabIndex = 1;
-            this.textEquation2.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.textEquation2.CustomButton.UseSelectable = true;
-            this.textEquation2.CustomButton.Visible = false;
-            this.textEquation2.Enabled = false;
-            this.textEquation2.Lines = new string[0];
-            this.textEquation2.Location = new System.Drawing.Point(79, 66);
-            this.textEquation2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textEquation2.MaxLength = 32767;
-            this.textEquation2.Name = "textEquation2";
-            this.textEquation2.PasswordChar = '\0';
-            this.textEquation2.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.textEquation2.SelectedText = "";
-            this.textEquation2.SelectionLength = 0;
-            this.textEquation2.SelectionStart = 0;
-            this.textEquation2.ShortcutsEnabled = true;
-            this.textEquation2.Size = new System.Drawing.Size(499, 23);
-            this.textEquation2.TabIndex = 58;
-            this.textEquation2.UseSelectable = true;
-            this.textEquation2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.textEquation2.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
             // textEquation1
             // 
             // 
             // 
             // 
             this.textEquation1.CustomButton.Image = null;
-            this.textEquation1.CustomButton.Location = new System.Drawing.Point(477, 1);
+            this.textEquation1.CustomButton.Location = new System.Drawing.Point(400, 1);
             this.textEquation1.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.textEquation1.CustomButton.Name = "";
-            this.textEquation1.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.textEquation1.CustomButton.Size = new System.Drawing.Size(73, 73);
             this.textEquation1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.textEquation1.CustomButton.TabIndex = 1;
             this.textEquation1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.textEquation1.CustomButton.UseSelectable = true;
             this.textEquation1.CustomButton.Visible = false;
             this.textEquation1.Enabled = false;
+            this.textEquation1.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.textEquation1.Lines = new string[0];
-            this.textEquation1.Location = new System.Drawing.Point(79, 31);
+            this.textEquation1.Location = new System.Drawing.Point(104, 30);
             this.textEquation1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textEquation1.MaxLength = 32767;
+            this.textEquation1.Multiline = true;
             this.textEquation1.Name = "textEquation1";
             this.textEquation1.PasswordChar = '\0';
             this.textEquation1.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -444,44 +426,11 @@
             this.textEquation1.SelectionLength = 0;
             this.textEquation1.SelectionStart = 0;
             this.textEquation1.ShortcutsEnabled = true;
-            this.textEquation1.Size = new System.Drawing.Size(499, 23);
+            this.textEquation1.Size = new System.Drawing.Size(474, 75);
             this.textEquation1.TabIndex = 1;
             this.textEquation1.UseSelectable = true;
             this.textEquation1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.textEquation1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // enableEq3
-            // 
-            this.enableEq3.AutoSize = true;
-            this.enableEq3.Location = new System.Drawing.Point(11, 103);
-            this.enableEq3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.enableEq3.Name = "enableEq3";
-            this.enableEq3.Size = new System.Drawing.Size(18, 17);
-            this.enableEq3.TabIndex = 44;
-            this.enableEq3.UseVisualStyleBackColor = true;
-            this.enableEq3.CheckedChanged += new System.EventHandler(this.enableEq3_CheckedChanged);
-            // 
-            // enableEq2
-            // 
-            this.enableEq2.AutoSize = true;
-            this.enableEq2.Location = new System.Drawing.Point(11, 68);
-            this.enableEq2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.enableEq2.Name = "enableEq2";
-            this.enableEq2.Size = new System.Drawing.Size(18, 17);
-            this.enableEq2.TabIndex = 34;
-            this.enableEq2.UseVisualStyleBackColor = true;
-            this.enableEq2.CheckedChanged += new System.EventHandler(this.EnableEq2_CheckedChanged);
-            // 
-            // enableEq1
-            // 
-            this.enableEq1.AutoSize = true;
-            this.enableEq1.Location = new System.Drawing.Point(11, 34);
-            this.enableEq1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.enableEq1.Name = "enableEq1";
-            this.enableEq1.Size = new System.Drawing.Size(18, 17);
-            this.enableEq1.TabIndex = 8;
-            this.enableEq1.UseVisualStyleBackColor = true;
-            this.enableEq1.CheckedChanged += new System.EventHandler(this.EnableEq1_CheckedChanged);
             // 
             // label6
             // 
@@ -724,7 +673,7 @@
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(151, 414);
+            this.progressBar.Location = new System.Drawing.Point(148, 401);
             this.progressBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(435, 39);
@@ -825,11 +774,12 @@
             // 
             // metroTabPage2
             // 
+            this.metroTabPage2.Controls.Add(this.listInvResults);
+            this.metroTabPage2.Controls.Add(this.showGraphInvariantLbl);
+            this.metroTabPage2.Controls.Add(this.showInvariantsCheck);
             this.metroTabPage2.Controls.Add(this.openG6BtnViz);
             this.metroTabPage2.Controls.Add(this.viewG6Btn);
             this.metroTabPage2.Controls.Add(this.insertG6ToView);
-            this.metroTabPage2.Controls.Add(this.showInvariantsCheck);
-            this.metroTabPage2.Controls.Add(this.listInvResults);
             this.metroTabPage2.Controls.Add(this.textOpenViz);
             this.metroTabPage2.Controls.Add(this.buttonFill);
             this.metroTabPage2.Controls.Add(this.buttonZoomOriginal);
@@ -852,6 +802,27 @@
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 11;
             this.metroTabPage2.Click += new System.EventHandler(this.metroTabPage2_Click);
+            // 
+            // showGraphInvariantLbl
+            // 
+            this.showGraphInvariantLbl.AutoSize = true;
+            this.showGraphInvariantLbl.Location = new System.Drawing.Point(1120, 75);
+            this.showGraphInvariantLbl.Name = "showGraphInvariantLbl";
+            this.showGraphInvariantLbl.Size = new System.Drawing.Size(146, 20);
+            this.showGraphInvariantLbl.TabIndex = 62;
+            this.showGraphInvariantLbl.Text = "Show Graph Invariants";
+            this.showGraphInvariantLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // showInvariantsCheck
+            // 
+            this.showInvariantsCheck.Location = new System.Drawing.Point(1064, 80);
+            this.showInvariantsCheck.Name = "showInvariantsCheck";
+            this.showInvariantsCheck.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showInvariantsCheck.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showInvariantsCheck.Size = new System.Drawing.Size(50, 24);
+            this.showInvariantsCheck.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
+            this.showInvariantsCheck.TabIndex = 61;
+            this.showInvariantsCheck.CheckedChanged += new JCS.ToggleSwitch.CheckedChangedDelegate(this.showInvariantsCheck_CheckedChanged);
             // 
             // openG6BtnViz
             // 
@@ -910,17 +881,6 @@
             this.insertG6ToView.WaterMark = "Type a g6 code here!";
             this.insertG6ToView.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.insertG6ToView.WaterMarkFont = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // showInvariantsCheck
-            // 
-            this.showInvariantsCheck.AutoSize = true;
-            this.showInvariantsCheck.Location = new System.Drawing.Point(1112, 75);
-            this.showInvariantsCheck.Name = "showInvariantsCheck";
-            this.showInvariantsCheck.Size = new System.Drawing.Size(154, 17);
-            this.showInvariantsCheck.TabIndex = 57;
-            this.showInvariantsCheck.Text = "Show Graph Invariants";
-            this.showInvariantsCheck.UseSelectable = true;
-            this.showInvariantsCheck.CheckedChanged += new System.EventHandler(this.metroCheckBox1_CheckedChanged);
             // 
             // textOpenViz
             // 
@@ -1044,18 +1004,29 @@
             // 
             this.version.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.version.AutoSize = true;
-            this.version.Location = new System.Drawing.Point(1088, 57);
+            this.version.Location = new System.Drawing.Point(1207, 49);
             this.version.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.version.Name = "version";
             this.version.Size = new System.Drawing.Size(89, 20);
             this.version.TabIndex = 53;
             this.version.Text = "Version: 1.0.0";
             // 
+            // chkUpdBtn
+            // 
+            this.chkUpdBtn.Location = new System.Drawing.Point(732, 22);
+            this.chkUpdBtn.Name = "chkUpdBtn";
+            this.chkUpdBtn.Size = new System.Drawing.Size(143, 23);
+            this.chkUpdBtn.TabIndex = 54;
+            this.chkUpdBtn.Text = "Check For Updates";
+            this.chkUpdBtn.UseSelectable = true;
+            this.chkUpdBtn.Click += new System.EventHandler(this.chkUpdBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1696, 1047);
+            this.Controls.Add(this.chkUpdBtn);
             this.Controls.Add(this.version);
             this.Controls.Add(this.tabControl);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1086,14 +1057,9 @@
 
         #endregion
         private System.Windows.Forms.GroupBox groupBoxCondition;
-        public System.Windows.Forms.CheckBox enableIsConnected;
-        public System.Windows.Forms.CheckBox enableRegular;
-        public System.Windows.Forms.CheckBox enableRegularWithK;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.GroupBox groupBoxEq;
-        public System.Windows.Forms.CheckBox enableEq3;
-        public System.Windows.Forms.CheckBox enableEq2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListBox listOfG6;
         private System.Windows.Forms.Button button2;
@@ -1109,8 +1075,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonPrint;
         private System.Windows.Forms.Button verifyEq1;
-        private System.Windows.Forms.Button verifyEq3;
-        private System.Windows.Forms.Button verifyEq2;
         private MetroFramework.Controls.MetroTabControl tabControl;
         private MetroFramework.Controls.MetroTabPage metroTabPage1;
         private MetroFramework.Controls.MetroTabPage metroTabPage2;
@@ -1120,27 +1084,36 @@
         private MetroFramework.Controls.MetroTextBox textOutPath;
         private System.Windows.Forms.Button buttonOpen;
         public MetroFramework.Controls.MetroTextBox paramRegularWithDegree;
-        public MetroFramework.Controls.MetroTextBox textEquation3;
-        public MetroFramework.Controls.MetroTextBox textEquation2;
         public MetroFramework.Controls.MetroTextBox textEquation1;
-        public System.Windows.Forms.CheckBox enableEq1;
         public MetroFramework.Controls.MetroProgressBar progressBar;
         public MetroFramework.Controls.MetroTextBox textOpenViz;
         private MetroFramework.Controls.MetroTextBox textOpenExp;
         private MetroFramework.Controls.MetroProgressSpinner metroProgress;
         private MetroFramework.Controls.MetroLabel ListOfInvariants;
-        public System.Windows.Forms.CheckBox enableIsPlanar;
         private MetroFramework.Controls.MetroProgressSpinner metroProgressSpinner;
         private MetroFramework.Controls.MetroLabel version;
-        public System.Windows.Forms.CheckBox enableIsHamiltonian;
         private System.Windows.Forms.DataGridView listInvResults;
-        private MetroFramework.Controls.MetroCheckBox showInvariantsCheck;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColunaInvariant;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColunaResultado;
-        public System.Windows.Forms.CheckBox enableIsAcyclic;
         private MetroFramework.Controls.MetroTextBox insertG6ToView;
         private MetroFramework.Controls.MetroButton viewG6Btn;
         private MetroFramework.Controls.MetroButton openG6BtnViz;
+        private MetroFramework.Controls.MetroLabel showGraphInvariantLbl;
+        private JCS.ToggleSwitch showInvariantsCheck;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        public JCS.ToggleSwitch enableRegular;
+        public JCS.ToggleSwitch enableRegularWithK;
+        public JCS.ToggleSwitch enableIsAcyclic;
+        public JCS.ToggleSwitch enableIsPlanar;
+        public JCS.ToggleSwitch enableIsHamiltonian;
+        public JCS.ToggleSwitch enableIsConnected;
+        public JCS.ToggleSwitch enableEq1;
+        private MetroFramework.Controls.MetroButton chkUpdBtn;
     }
 }
 
