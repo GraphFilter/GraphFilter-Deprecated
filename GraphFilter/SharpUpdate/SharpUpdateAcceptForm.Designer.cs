@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblUpdateAvail = new System.Windows.Forms.Label();
             this.lblNewVersion = new System.Windows.Forms.Label();
-            this.btnDetails = new MetroFramework.Controls.MetroButton();
-            this.btnNo = new MetroFramework.Controls.MetroButton();
-            this.btnYes = new MetroFramework.Controls.MetroButton();
+            this.btnDetails = new System.Windows.Forms.Button();
+            this.btnNo = new System.Windows.Forms.Button();
+            this.btnYes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,73 +47,72 @@
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             // 
-            // label1
+            // lblUpdateAvail
             // 
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.label1.Location = new System.Drawing.Point(106, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 60);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "An update is available!\r\nWould you like to update?  ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblUpdateAvail.Font = new System.Drawing.Font("Segoe UI", 13F);
+            this.lblUpdateAvail.Location = new System.Drawing.Point(106, 8);
+            this.lblUpdateAvail.Name = "lblUpdateAvail";
+            this.lblUpdateAvail.Size = new System.Drawing.Size(264, 56);
+            this.lblUpdateAvail.TabIndex = 1;
+            this.lblUpdateAvail.Text = "An update is available!\r\nWould you like to update?";
+            this.lblUpdateAvail.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblNewVersion
             // 
             this.lblNewVersion.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblNewVersion.Location = new System.Drawing.Point(143, 69);
+            this.lblNewVersion.Location = new System.Drawing.Point(122, 64);
             this.lblNewVersion.Name = "lblNewVersion";
-            this.lblNewVersion.Size = new System.Drawing.Size(154, 19);
+            this.lblNewVersion.Size = new System.Drawing.Size(237, 68);
             this.lblNewVersion.TabIndex = 2;
-            this.lblNewVersion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblNewVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnDetails
             // 
-            this.btnDetails.Location = new System.Drawing.Point(259, 108);
+            this.btnDetails.Location = new System.Drawing.Point(284, 157);
             this.btnDetails.Name = "btnDetails";
             this.btnDetails.Size = new System.Drawing.Size(75, 23);
             this.btnDetails.TabIndex = 3;
             this.btnDetails.Text = "Details";
-            this.btnDetails.UseSelectable = true;
+            this.btnDetails.UseVisualStyleBackColor = true;
             this.btnDetails.Click += new System.EventHandler(this.btnDetails_Click);
             // 
             // btnNo
             // 
-            this.btnNo.Location = new System.Drawing.Point(178, 108);
+            this.btnNo.Location = new System.Drawing.Point(203, 157);
             this.btnNo.Name = "btnNo";
             this.btnNo.Size = new System.Drawing.Size(75, 23);
             this.btnNo.TabIndex = 4;
             this.btnNo.Text = "No";
-            this.btnNo.UseSelectable = true;
+            this.btnNo.UseVisualStyleBackColor = true;
             this.btnNo.Click += new System.EventHandler(this.btnNo_Click);
             // 
             // btnYes
             // 
-            this.btnYes.Location = new System.Drawing.Point(97, 108);
+            this.btnYes.Location = new System.Drawing.Point(122, 157);
             this.btnYes.Name = "btnYes";
             this.btnYes.Size = new System.Drawing.Size(75, 23);
             this.btnYes.TabIndex = 5;
             this.btnYes.Text = "Yes";
-            this.btnYes.UseSelectable = true;
+            this.btnYes.UseVisualStyleBackColor = true;
             this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
             // 
             // SharpUpdateAcceptForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 150);
+            this.ClientSize = new System.Drawing.Size(382, 203);
             this.Controls.Add(this.btnYes);
             this.Controls.Add(this.btnNo);
             this.Controls.Add(this.btnDetails);
             this.Controls.Add(this.lblNewVersion);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblUpdateAvail);
             this.Controls.Add(this.pictureBox);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SharpUpdateAcceptForm";
-            this.Padding = new System.Windows.Forms.Padding(21, 72, 21, 23);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Load += new System.EventHandler(this.SharpUpdateAcceptForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
 
@@ -122,10 +121,10 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblUpdateAvail;
         private System.Windows.Forms.Label lblNewVersion;
-        private MetroFramework.Controls.MetroButton btnDetails;
-        private MetroFramework.Controls.MetroButton btnNo;
-        private MetroFramework.Controls.MetroButton btnYes;
+        private System.Windows.Forms.Button btnDetails;
+        private System.Windows.Forms.Button btnNo;
+        private System.Windows.Forms.Button btnYes;
     }
 }

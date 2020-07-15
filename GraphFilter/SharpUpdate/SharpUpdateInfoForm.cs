@@ -3,25 +3,30 @@ using System.Windows.Forms;
 
 namespace SharpUpdate
 {
-    public partial class SharpUpdateInfoForm : MetroFramework.Forms.MetroForm
+    /// <summary>
+    /// Form to show details about the update
+    /// </summary>
+    internal partial class SharpUpdateInfoForm : Form
     {
-        public SharpUpdateInfoForm(ISharpUpdatable applicationInfo, SharpUpdateXml updateInfo)
+        /// <summary>
+        /// Creates a new SharpUpdateInfoForm
+        /// </summary>
+        internal SharpUpdateInfoForm(SharpUpdateLocalAppInfo applicationInfo, SharpUpdateXml updateInfo)
         {
             InitializeComponent();
 
+            // Sets the icon if it's not null
             if (applicationInfo.ApplicationIcon != null)
                 this.Icon = applicationInfo.ApplicationIcon;
 
+            // Fill in the UI
             this.Text = applicationInfo.ApplicationName + " - Update Info";
-            this.lblVersions.Text = String.Format("Current Version: {0}\nUpdate Version: {1}", applicationInfo.ApplicationAssembly.GetName().ToString(),
-                updateInfo.Version.ToString());
+            this.lblVersions.Text = updateInfo.Tag == JobType.UPDATE ? 
+                string.Format("Current Version: {0}\nUpdate version: {1}", applicationInfo.Version.ToString(), updateInfo.Version.ToString()) : 
+                (updateInfo.Tag == JobType.ADD ? string.Format("Version: {0}", updateInfo.Version.ToString()) : 
+                "");
+
             this.txtDescription.Text = updateInfo.Description;
-
-        }
-
-        private void SharpUpdateInfoForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -29,8 +34,9 @@ namespace SharpUpdate
             this.Close();
         }
 
-        private void txtDescription_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        private void txtDescription_KeyDown(object sender, KeyEventArgs e)
         {
+            // Only allow Cntrl - C to copy text
             if (!(e.Control && e.KeyCode == Keys.C))
                 e.SuppressKeyPress = true;
         }

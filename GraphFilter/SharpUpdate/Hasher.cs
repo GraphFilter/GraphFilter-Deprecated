@@ -4,14 +4,27 @@ using System.Text;
 
 namespace SharpUpdate
 {
+    /// <summary>
+    /// The type of hash to create
+    /// </summary>
     internal enum HashType
     {
         MD5,
         SHA1,
         SHA512
     }
+
+    /// <summary>
+    /// Class used to generate hash sums of files
+    /// </summary>
     internal static class Hasher
     {
+        /// <summary>
+        /// Generate a hash sum of a file
+        /// </summary>
+        /// <param name="filePath">The file to hash</param>
+        /// <param name="algo">The Type of hash</param>
+        /// <returns>The computed hash</returns>
         internal static string HashFile(string filePath, HashType algo)
         {
             switch (algo)
@@ -27,12 +40,17 @@ namespace SharpUpdate
             }
         }
 
+        /// <summary>
+        /// Converts byte[] to string
+        /// </summary>
+        /// <param name="hash">The hash to convert</param>
+        /// <returns>Hash as string</returns>
         private static string MakeHashString(byte[] hash)
         {
-            StringBuilder s = new StringBuilder(hash.Length * 2);
+            StringBuilder s = new StringBuilder();
 
             foreach (byte b in hash)
-                s.Append(b.ToString("X2").ToLower());
+                s.Append(b.ToString("x2").ToLower());
 
             return s.ToString();
         }

@@ -25,10 +25,12 @@ using System.Windows.Forms;
 using System.Xml;
 using SharpUpdate;
 using System.Reflection;
+using System.Net;
+using System.IO;
 
 namespace GraphFilter
 {
-    public partial class Form1 : MetroFramework.Forms.MetroForm, ISharpUpdatable
+    public partial class Form1 : MetroFramework.Forms.MetroForm
     {
         #region Form1 properties
         Stream fileG6In;
@@ -41,7 +43,11 @@ namespace GraphFilter
             InitializeComponent();
             Load += Form1_Load;
 
-            this.version.Text = this.ApplicationAssembly.GetName().Version.ToString();
+            //lblVersion = ProductName + "\n" + ProductVersion;
+
+            updater = new SharpUpdater(Assembly.GetExecutingAssembly(), this, new Uri("http://sistemas.jf.ifsudestemg.edu.br/graphfilter/update/update.xml"));
+
+            this.lblVersion.Text = this.ApplicationAssembly.GetName().Version.ToString();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -90,7 +96,8 @@ namespace GraphFilter
             metroProgressSpinner.Top = listOfG6Exp.Height / 2;
             metroProgressSpinner.Left = textOpenExp.Width / 2;
 
-            version.Left = this.Width - 120;
+            lblVersion.Left = this.Width - 230;
+            chkUpdBtn.Left = this.Width - 160;
 
             showInvariantsCheck.Left = this.Width - 300;
             showGraphInvariantLbl.Left = this.Width - 260;
@@ -291,7 +298,7 @@ namespace GraphFilter
 
         public Uri UpdateXmlLocation
         {
-            get { return new Uri(""); }
+            get { return new Uri("http://sistemas.jf.ifsudestemg.edu.br/graphfilter/update/update.xml"); }
         }
         public Form Context
         {
@@ -955,7 +962,24 @@ namespace GraphFilter
 
         private void chkUpdBtn_Click(object sender, EventArgs e)
         {
+            /*CheckForUpdates checkForUpdates = new CheckForUpdates();
+            checkForUpdates.DoUpdate();*/
             //updater.DoUpdate();
+            WebRequest wr =  WebRequest.Create(new Uri("http://sistemas.jf.ifsudestemg.edu.br/graphfilter/update/version.txt"));
+            WebResponse ws = wr.GetResponse();
+            StreamReader sr = new StreamReader(ws.GetResponseStream());
+
+            string currentVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            string newVersion = sr.ReadToEnd();
+
+            if (currentVersion.Contains(newVersion))
+            {
+                System.Windows.Forms.MessageBox.Show("This program is up to date!", "GraphFilter - Updated", MessageBoxButtons.OK);
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("New update is available!" + "\nYou can download it by accessing our website.", "GraphFilter - Update Available",MessageBoxButtons.OK);
+            }
         }
     }
 

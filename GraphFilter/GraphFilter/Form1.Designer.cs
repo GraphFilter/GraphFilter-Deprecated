@@ -84,7 +84,7 @@
             this.metroProgressSpinner = new MetroFramework.Controls.MetroProgressSpinner();
             this.metroProgress = new MetroFramework.Controls.MetroProgressSpinner();
             this.textOpenExp = new MetroFramework.Controls.MetroTextBox();
-            this.version = new MetroFramework.Controls.MetroLabel();
+            this.lblVersion = new MetroFramework.Controls.MetroLabel();
             this.chkUpdBtn = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.listInvResults)).BeginInit();
             this.groupBoxCondition.SuspendLayout();
@@ -635,7 +635,7 @@
             this.tabControl.Location = new System.Drawing.Point(23, 71);
             this.tabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 1;
+            this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1277, 715);
             this.tabControl.TabIndex = 52;
             this.tabControl.UseSelectable = true;
@@ -1000,22 +1000,26 @@
             this.textOpenExp.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.textOpenExp.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // version
+            // lblVersion
             // 
-            this.version.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.version.AutoSize = true;
-            this.version.Location = new System.Drawing.Point(1207, 49);
-            this.version.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.version.Name = "version";
-            this.version.Size = new System.Drawing.Size(89, 20);
-            this.version.TabIndex = 53;
-            this.version.Text = "Version: 1.0.0";
+            this.lblVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.Location = new System.Drawing.Point(1000, 46);
+            this.lblVersion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(89, 20);
+            this.lblVersion.TabIndex = 53;
+            this.lblVersion.Text = "Version: 1.0.0";
             // 
             // chkUpdBtn
             // 
-            this.chkUpdBtn.Location = new System.Drawing.Point(732, 22);
+            this.chkUpdBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkUpdBtn.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.chkUpdBtn.Location = new System.Drawing.Point(1096, 45);
+            this.chkUpdBtn.MaximumSize = new System.Drawing.Size(200, 23);
+            this.chkUpdBtn.MinimumSize = new System.Drawing.Size(200, 23);
             this.chkUpdBtn.Name = "chkUpdBtn";
-            this.chkUpdBtn.Size = new System.Drawing.Size(143, 23);
+            this.chkUpdBtn.Size = new System.Drawing.Size(200, 23);
             this.chkUpdBtn.TabIndex = 54;
             this.chkUpdBtn.Text = "Check For Updates";
             this.chkUpdBtn.UseSelectable = true;
@@ -1026,9 +1030,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1696, 1047);
-            this.Controls.Add(this.chkUpdBtn);
-            this.Controls.Add(this.version);
             this.Controls.Add(this.tabControl);
+            this.Controls.Add(this.chkUpdBtn);
+            this.Controls.Add(this.lblVersion);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimumSize = new System.Drawing.Size(720, 500);
             this.Name = "Form1";
@@ -1091,7 +1095,7 @@
         private MetroFramework.Controls.MetroProgressSpinner metroProgress;
         private MetroFramework.Controls.MetroLabel ListOfInvariants;
         private MetroFramework.Controls.MetroProgressSpinner metroProgressSpinner;
-        private MetroFramework.Controls.MetroLabel version;
+        private MetroFramework.Controls.MetroLabel lblVersion;
         private System.Windows.Forms.DataGridView listInvResults;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColunaInvariant;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColunaResultado;
