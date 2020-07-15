@@ -156,7 +156,7 @@ namespace GraphFilter.Invariant.Tests
             Assert.AreEqual(100, Execute("connected", i.getCode() + "=1"));
             Assert.AreEqual(100, Execute("disconnected", i.getCode() + ">1"));
         }
-
+        /*
         [TestMethod()]
         public void Miscelanea()
         {
@@ -192,11 +192,11 @@ namespace GraphFilter.Invariant.Tests
             //Assert.IsTrue(ExecuteOnlyTrue("BIG_chromatic5", chi.getCode() + "==5"));
             //Assert.IsTrue(ExecuteOnlyTrue("BIG_chromatic5(1)", chi.getCode() + "==5"));
             //Assert.IsTrue(ExecuteOnlyTrue("BIG_chromatic5(1)", n.getCode() + "=23"));
-            Assert.IsTrue(ExecuteOnlyTrue("independenceNumberMaiorIgual5", alpha.getCode() + ">=5"));
+            //Assert.IsTrue(ExecuteOnlyTrue("independenceNumberMaiorIgual5", alpha.getCode() + ">=5"));
             
 
         }
-
+        */
         //FALTA: energias e num de árvores geradoras
 
     }

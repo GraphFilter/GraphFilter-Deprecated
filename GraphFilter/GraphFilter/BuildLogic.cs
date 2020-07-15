@@ -40,7 +40,7 @@ namespace GraphFilter
         #region Equation and Conditon
         public static bool EvaluateText(string text, Graph g)
         {
-        if (text.Count()==0) return true;
+        if (text.Count() == 0) return true;
             
             ExpressionContext context = new ExpressionContext();
             VariableCollection variables = context.Variables;
@@ -54,7 +54,21 @@ namespace GraphFilter
             
             
             //throw new ExpressionCompileException();
+        }
 
+        public static bool ValidadeEquation(string text)
+        {
+            if (text.Count() == 0) return true;
+
+            ExpressionContext context = new ExpressionContext();
+            VariableCollection variables = context.Variables;
+
+            foreach (IInvariant invariant in InvariantNum.List())
+            {
+                if (text.Contains(invariant.getCode())) context.Variables[invariant.getCode()] = invariant.Calculate(new Graph(new int[0,0]));
+            }
+            IGenericExpression<bool> e = context.CompileGeneric<bool>(text);
+            return e.Evaluate();
         }
 
 

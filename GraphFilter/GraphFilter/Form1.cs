@@ -27,6 +27,7 @@ using SharpUpdate;
 using System.Reflection;
 using System.Net;
 using System.IO;
+using Flee.PublicTypes;
 
 namespace GraphFilter
 {
@@ -35,6 +36,7 @@ namespace GraphFilter
         #region Form1 properties
         Stream fileG6In;
         StreamWriter fileG6Out;
+        List<string> listg6In = new List<string>();
 
         private SharpUpdater updater;
 
@@ -135,6 +137,7 @@ namespace GraphFilter
 
             ofd.Filter = "Arquivo g6 | *.g6";
             ofd.ShowDialog();
+            //abre a janela de please wait!
             if (string.IsNullOrEmpty(ofd.FileName) == false)
             {
                 try
@@ -142,15 +145,19 @@ namespace GraphFilter
                     using (StreamReader reader = new StreamReader(ofd.FileName, Encoding.GetEncoding(CultureInfo.GetCultureInfo("pt-br").TextInfo.ANSICodePage)))
                     {
                         fileG6In = ofd.OpenFile();
-                        while (reader.ReadLine() != null)
+                        string g6Actual = reader.ReadLine();
+                        while (g6Actual != null)
                         {
+                            listg6In.Add(g6Actual);
                             progressBar.Maximum++;
+                            g6Actual = reader.ReadLine();
                         }
                         progressBar.Maximum--;
                         textSource.Text = ofd.FileName;
                         buttonSave.Enabled = true;
                     }
                 }
+                //Fecha a janela de please wait
                 catch (Exception ex)
                 {
                     System.Windows.Forms.MessageBox.Show(string.Format("Não foi possível abrir o seu arquivo, Erro: {0}", ex.Message), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -395,10 +402,10 @@ namespace GraphFilter
         #region Button Search
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
-            if (textEquation1.Enabled == true) System.Windows.Forms.MessageBox.Show("Please, verify your equation 1!");
+            if (textEquation1.Enabled == true) System.Windows.Forms.MessageBox.Show("Please, verify your equation!");
             if (textEquation1.Enabled == false)
             {
-                FilesFilter filesFilter = new FilesFilter(fileG6In, textOutPath.Text, this);
+                FilesFilter filesFilter = new FilesFilter(listg6In, textOutPath.Text, this);
                 double[] retorno = filesFilter.Run();
                 System.Windows.Forms.MessageBox.Show("Busca realizada com sucesso! \nO percentual de grafos escolhidos é: " + retorno[2] + " %" + "\nO número de grafos escolhidos foi de: " + retorno[1] + "\nO número total de grafos que foram lidos foi de: " + retorno[0] + ".");
                 System.Windows.Forms.Application.Restart();
@@ -731,34 +738,16 @@ namespace GraphFilter
 
         }
 
-        private void verifyEq2_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //BuildLogic.Text2BoolNCalc(textEquation2.Text, new Graph(new int[0, 0]));
-                /*BuildLogic.EvaluateText(textEquation2.Text, new Graph(new int[0, 0]));
-                textEquation2.Enabled = false;*/
-
-            }
-            catch
-            {
-
-                System.Windows.Forms.MessageBox.Show("Invalid Equation!");
-            }
-        }
-
         private void verifyEq1_Click(object sender, EventArgs e)
         {
             try
             {
-                //BuildLogic.Text2BoolNCalc(textEquation1.Text, new Graph(new int[0, 0]));
-                BuildLogic.EvaluateText(textEquation1.Text, new Graph(new int[0, 0]));
+                BuildLogic.ValidadeEquation(textEquation1.Text);
                 textEquation1.Enabled = false;
             }
-            catch
+            catch(ExpressionCompileException ex)
             {
-
-                System.Windows.Forms.MessageBox.Show("Invalid Equation!");
+                System.Windows.Forms.MessageBox.Show("Invalid Equation!" + "\n\n" + ex.Message);
             }
 
         }
@@ -767,125 +756,9 @@ namespace GraphFilter
         {
         }
 
-        private void verifyEq3_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //BuildLogic.Text2BoolNCalc(textEquation3.Text, new Graph(new int[0, 0]));
-                /*BuildLogic.EvaluateText(textEquation3.Text, new Graph(new int[0, 0]));
-                textEquation3.Enabled = false;*/
-            }
-            catch
-            {
-
-                System.Windows.Forms.MessageBox.Show("Invalid Equation!");
-            }
-        }
-
-        private void listOfInvariants_MouseHover(object sender, EventArgs e)
-        {
-            //listOfInvariants.Items[0].BackColor = Color.Black;
-        }
-
-        private void listOfInvariants_MouseClick(object sender, MouseEventArgs e)
-        {
-            //ListViewVisualItemEventArgs 
-        }
-
-        private void listOfInvariants_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
-            //listOfInvariants.FocusedItem.BackColor = Color.White;
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkUpdatesBtn_Click(object sender, EventArgs e)
-        {
-            UpdateCheckInfo info = null;
-
-            if (ApplicationDeployment.IsNetworkDeployed)
-            {
-                ApplicationDeployment ad = ApplicationDeployment.CurrentDeployment;
-                try
-                {
-                    info = ad.CheckForDetailedUpdate();
-                }
-                catch (DeploymentDownloadException dde)
-                {
-                    System.Windows.Forms.MessageBox.Show("The new version of the application cannot be downloaded at this time. \nPlease check your network connection, or try again later. Error: " + dde.Message);
-                    return;
-                }
-                catch (InvalidDeploymentException ide)
-                {
-                    System.Windows.Forms.MessageBox.Show("Cannot check for a new version of the application. The ClickOnce deployment is corrupt. Please redeploy the application and try again. Error: " + ide.Message);
-                    return;
-                }
-                catch (InvalidOperationException ioe)
-                {
-                    System.Windows.Forms.MessageBox.Show("This application cannot be updated. It is likely not a ClickOnce application. Error: " + ioe.Message);
-                    return;
-                }
-
-                if (info.UpdateAvailable)
-                {
-                    Boolean doUpdate = true;
-
-                    if (!info.IsUpdateRequired)
-                    {
-                        DialogResult dr = System.Windows.Forms.MessageBox.Show("An update is available. Would you like to update the application now?", "Update Available", MessageBoxButtons.OKCancel);
-                        if (!(DialogResult.OK == dr))
-                        {
-                            doUpdate = false;
-                        }
-                    }
-                    else
-                    {
-                        //Display a message that the app must be reboot. Display the minimum required version.
-                        System.Windows.Forms.MessageBox.Show("This application has detected a mandatory update from your current " + ". The application will now install the update and restart.", "Update Available", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-
-                    if (doUpdate)
-                    {
-                        try
-                        {
-                            ad.Update();
-                            System.Windows.Forms.MessageBox.Show("The application has been upgraded, and will now restart.");
-                            System.Windows.Forms.Application.Restart();
-                        }
-                        catch (DeploymentDownloadException dde)
-                        {
-                            System.Windows.Forms.MessageBox.Show("Cannot install the latest version of the application. \nPlease check your network connection, or try again later. Error: " + dde);
-                        }
-                    }
-                }
-            }
-        }
-
-        private void CheckUpdateButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void listInvResults_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-        }
-
-        private void metroCheckBox1_CheckedChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void enableIsAcyclic_CheckedChanged(object sender, EventArgs e)
-        {
         }
 
         private void metroTabPage2_Click(object sender, EventArgs e)
@@ -962,9 +835,6 @@ namespace GraphFilter
 
         private void chkUpdBtn_Click(object sender, EventArgs e)
         {
-            /*CheckForUpdates checkForUpdates = new CheckForUpdates();
-            checkForUpdates.DoUpdate();*/
-            //updater.DoUpdate();
             WebRequest wr =  WebRequest.Create(new Uri("http://sistemas.jf.ifsudestemg.edu.br/graphfilter/update/version.txt"));
             WebResponse ws = wr.GetResponse();
             StreamReader sr = new StreamReader(ws.GetResponseStream());
