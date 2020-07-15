@@ -1,8 +1,7 @@
 ﻿using Flee.PublicTypes;
 using GraphFilter.Invariants;
 using System;
-
-
+using System.Linq;
 
 namespace GraphFilter
 {
@@ -41,7 +40,7 @@ namespace GraphFilter
         #region Equation and Conditon
         public static bool EvaluateText(string text, Graph g)
         {
-            //uso do pacote Flee para converter texto em lógica matemática
+        if (text.Count()==0) return true;
             
             ExpressionContext context = new ExpressionContext();
             VariableCollection variables = context.Variables;
@@ -54,9 +53,11 @@ namespace GraphFilter
             return e.Evaluate();
             
             
-            throw new ArgumentException();
+            //throw new ExpressionCompileException();
 
         }
+
+
         #endregion
     }
 }

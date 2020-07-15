@@ -85,6 +85,8 @@ namespace GraphFilter.Invariant.Tests
         public void Acyclic_TEST()
         {
             Assert.AreEqual(100, Execute("girthInfinite", InvariantBool.acyclic, 0));
+            Assert.AreEqual(100, Execute("onlytrees", InvariantBool.acyclic, 0));
+            
         }
         
     }
