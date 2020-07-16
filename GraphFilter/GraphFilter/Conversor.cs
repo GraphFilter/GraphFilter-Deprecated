@@ -105,10 +105,6 @@ namespace GraphFilter
                 decimalNumber /= 2;
                 result = remainder.ToString() + result;
             }
-            while (result.Length % 6 != 0)
-            {
-                result = "0" + result;
-            }
             return result;
 
         }

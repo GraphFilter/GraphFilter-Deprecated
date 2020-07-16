@@ -169,13 +169,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="g6Files\1a_saida.g6" />
     <None Include="g6Files\3NC.g6" />
     <None Include="g6Files\5NC.g6" />
     <None Include="g6Files\algCon3-4.g6" />
+    <None Include="g6Files\alphaMaior5_IndexMenor3.g6" />
     <None Include="g6Files\averageDegree_5-6.g6" />
+    <None Include="g6Files\BIG_chromatic5%281%29.g6" />
+    <None Include="g6Files\BIG_chromatic5.g6" />
     <None Include="g6Files\chromaticNumber6.g6" />
-    <None Include="g6Files\chromaticNumber6COPIA - Copia.g6" />
-    <None Include="g6Files\chromaticNumber6COPIA.g6" />
     <None Include="g6Files\cliqueNumber4.g6" />
     <None Include="g6Files\cliqueNumber5.g6" />
     <None Include="g6Files\cliqueNumber7.g6" />
@@ -185,19 +187,28 @@
     <None Include="g6Files\diameter7.g6" />
     <None Include="g6Files\disconnected.g6" />
     <None Include="g6Files\edgeConnectivy4.g6" />
+    <None Include="g6Files\edgeConnectivy5.g6" />
+    <None Include="g6Files\edgeConnectivy6.g6" />
     <None Include="g6Files\girth4.g6" />
     <None Include="g6Files\girth5.g6" />
     <None Include="g6Files\girth6.g6" />
     <None Include="g6Files\girthInfinite.g6" />
+    <None Include="g6Files\girthMaiorIgual5.g6" />
     <None Include="g6Files\hamiltonian.g6" />
     <None Include="g6Files\independenceNumber7.g6" />
+    <None Include="g6Files\independenceNumberMaiorIgual5.g6" />
     <None Include="g6Files\matchingNumber5.g6" />
     <None Include="g6Files\matchingNumber6.g6" />
     <None Include="g6Files\numberOfEdges12.g6" />
+    <None Include="g6Files\onlytrees.g6" />
     <None Include="g6Files\planar.g6" />
+    <None Include="g6Files\Planar_Hamilton.g6" />
     <None Include="g6Files\regular.g6" />
     <None Include="g6Files\regular10.g6" />
     <None Include="g6Files\regular6.g6" />
+    <None Include="g6Files\Return10percentual.g6" />
+    <None Include="g6Files\Return50percentual.g6" />
+    <None Include="g6Files\Return90percentual.g6" />
     <None Include="g6Files\spectralRadius5-6.g6" />
     <None Include="g6Files\vertexConnectivy2.g6" />
     <None Include="g6Files\vertexConnectivy5.g6" />
