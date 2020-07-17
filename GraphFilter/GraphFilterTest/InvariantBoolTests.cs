@@ -93,6 +93,8 @@ namespace GraphFilter.Invariant.Tests
         public void PlanarTEST()
         {
             Assert.AreEqual(100, Execute("planar", InvariantBool.planar, 0));
+            Assert.AreEqual(100, Execute("planar(2)", InvariantBool.planar, 0));
+            
         }
 
         [TestMethod()]
@@ -127,6 +129,8 @@ namespace GraphFilter.Invariant.Tests
             Assert.AreEqual(100, Execute("Planar_Hamilton", InvariantBool.planar, InvariantBool.hamiltonian, 0));
 
         }
+
+        
 
     }
 }
