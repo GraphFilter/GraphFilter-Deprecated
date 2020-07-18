@@ -17,36 +17,39 @@ namespace GraphFilter.Invariant.Tests
     public class InvariantNumTests
     {
         private string _path = System.IO.Path.GetFullPath(@"..\..\..\")+"\\g6Files\\";
- 
         public double Execute(string file, string condition)
         {
-            List<string> listg6In = File.ReadAllLines(_path + file + ".g6").ToList();
-            double numberOfGraphsIn = 0;
-            double numberOfGraphsOut = 0;
-            foreach (string g6Line in listg6In)
+            double total = 0;
+            double contador = 0;
+            //retorna a porcentagem (como inteiro) dos grafos que satisfazem
+            using (StreamReader stReaderIn = new StreamReader(_path+file+".g6"))
             {
-                if (g6Line.Length != 0 && g6Line != " ")
+                String g6Line = stReaderIn.ReadLine();
+                while (g6Line != null)
                 {
-                    if (BuildLogic.EvaluateText(condition,new Graph(g6Line))) numberOfGraphsOut++;
-                    numberOfGraphsIn++;
-                }
+                    total++;
+                    if (BuildLogic.EvaluateText(condition, new Graph(g6Line))) contador++;
+                    g6Line = stReaderIn.ReadLine();
+                }              
+                return Math.Round((double) 100*(contador / total),2);
             }
-            return Math.Round((double)100 * (numberOfGraphsOut / numberOfGraphsIn), 2);
         }
 
         public bool ExecuteOnlyTrue(string file, string condition)
         {
-            List<string> listg6In = File.ReadAllLines(_path + file + ".g6").ToList();
-            double numberOfGraphsIn = 0;
-            foreach (string g6Line in listg6In)
+            double line = 0;
+            //retorna a porcentagem (como inteiro) dos grafos que satisfazem
+            using (StreamReader stReaderIn = new StreamReader(_path + file + ".g6"))
             {
-                if (g6Line.Length != 0 && g6Line != " ")
+                String g6Line = stReaderIn.ReadLine();
+                while (g6Line != null)
                 {
+                    line++;
                     if (!BuildLogic.EvaluateText(condition, new Graph(g6Line))) return false;
-                    numberOfGraphsIn++;
+                    g6Line = stReaderIn.ReadLine();
                 }
+                return true;
             }
-            return true;
         }
 
         [TestMethod()]
@@ -54,12 +57,6 @@ namespace GraphFilter.Invariant.Tests
         {
             var i = new AlgebricConnectivity();
             Assert.AreEqual(100,Execute("algCon3-4", "3<="+i.getCode()+ " AND "+ i.getCode() + "<= 4"));
-            Assert.AreEqual(0, Execute("algCon3-4", i.getCode() + ">=5"));
-        }
-
-        public void NullityTEST() //testar
-        {
-            var i = new Nullity();
         }
 
         [TestMethod()]
@@ -69,7 +66,6 @@ namespace GraphFilter.Invariant.Tests
             Assert.AreEqual(100, Execute("cliqueNumber4", i.getCode() + "=4"));
             Assert.AreEqual(100, Execute("cliqueNumber5", i.getCode() + "=5"));
             Assert.AreEqual(100, Execute("cliqueNumber7", i.getCode() + "=7"));
-
         }
         
         [TestMethod()]
@@ -84,7 +80,6 @@ namespace GraphFilter.Invariant.Tests
         {
             var i = new SpectralRadius();
             Assert.AreEqual(100, Execute("spectralRadius5-6", i.getCode()+"<=6"));
-            Assert.AreEqual(10, Execute("Return10percentual", i.getCode() + "=4"));
         }
 
 
@@ -116,7 +111,6 @@ namespace GraphFilter.Invariant.Tests
         {
             var i = new IndependenceNumber();
             Assert.AreEqual(100, Execute("independenceNumber7", i.getCode() + "=7"));
-            Assert.AreEqual(100, Execute("independenceNumber6", i.getCode() + "=6"));
         }
         
         [TestMethod()]
@@ -142,7 +136,7 @@ namespace GraphFilter.Invariant.Tests
             Assert.AreEqual(100, Execute("edgeConnectivy5", i.getCode() + "=5"));
         }
 
-        [TestMethod()]
+        [TestMethod()]//funciona somente no caso do grafo não ser acíclico
         public void GirthTEST()
         {
             var i = new Girth();
@@ -168,16 +162,18 @@ namespace GraphFilter.Invariant.Tests
         {
             var ec = new EdgeConnectivy();
             var ac = new AlgebricConnectivity();
-            var clique = new CliqueNumber();
             var girth = new Girth();
             var radius = new SpectralRadius();
             var diam = new Diameter();
             var index = new SpectralRadius();
             var alpha = new IndependenceNumber();
-            var chi = new ChromaticNumber();
             Assert.AreEqual(90, Execute("Return90percentual", ac.getCode() + "+2*" + diam.getCode() + ">=8"));
+            Assert.AreEqual(0, Execute("girth4", girth.getCode() + "=5"));
+            Assert.AreEqual(10, Execute("Return10percentual", radius.getCode() + "=4"));
+            Assert.AreEqual(0, Execute("algCon3-4",ac.getCode() + ">=5"));
             Assert.AreEqual(100, Execute("girthMaiorIgual5", girth.getCode() + ">=5" + " OR " + alpha.getCode() + "=4"));
-            Assert.IsTrue(ExecuteOnlyTrue("perfectGraphs_n7", clique.getCode() + "=" + chi.getCode()));
+            Assert.AreEqual(100, Execute("alphaMaior5_IndexMenor3", index.getCode() + "<=3"+" AND "+alpha.getCode()+">5"));
+
         }
         
         [TestMethod()]
@@ -192,11 +188,11 @@ namespace GraphFilter.Invariant.Tests
             var alpha = new IndependenceNumber();
             var chi = new ChromaticNumber();
             var n = new Order();
-            var clique = new CliqueNumber();
-            //Assert.IsTrue(ExecuteOnlyTrue("BIG_chromatic5", chi.getCode() + "=5"));
+            Assert.IsTrue(ExecuteOnlyTrue("BIG_chromatic5", chi.getCode() + "=5"));
+            //Assert.IsTrue(ExecuteOnlyTrue("BIG_chromatic5(1)", chi.getCode() + "==5"));
+            //Assert.IsTrue(ExecuteOnlyTrue("BIG_chromatic5(1)", n.getCode() + "=23"));
             //Assert.IsTrue(ExecuteOnlyTrue("independenceNumberMaiorIgual5", alpha.getCode() + ">=5"));
-            Assert.IsTrue(ExecuteOnlyTrue("perfectGraphs_n10", clique.getCode() + "=" + chi.getCode()));
-
+            
 
         }
         
