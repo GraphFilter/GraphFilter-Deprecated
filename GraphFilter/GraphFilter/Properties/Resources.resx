@@ -124,6 +124,9 @@
   <data name="icons8_zoom_in" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_zoom_in.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="pngall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pngall.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-menos-zoom-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-menos-zoom-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -132,6 +135,9 @@
   </data>
   <data name="icons8-mais-zoom-501" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-mais-zoom-501.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="allpng" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\allpng.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-mais-zoom-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-mais-zoom-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,8 +157,14 @@
   <data name="icons8-redimensionar-diagonal-501" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-redimensionar-diagonal-501.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ALLPNGIcon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ALLPNGIcon1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-zoom-para-tamanho-real-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-zoom-para-tamanho-real-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ALLPNGIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ALLPNGIcon.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-png-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-png-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,10 +184,19 @@
   <data name="icons8-redimensionar-diagonal-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-redimensionar-diagonal-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8_checked_checkbox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_checked_checkbox.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-menos-zoom-501" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-menos-zoom-501.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8_checked_checkbox" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8_checked_checkbox.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="allpng1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\allpng1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="print_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\print_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PNGALL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PNGALL1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
