@@ -44,7 +44,7 @@ namespace GraphFilter
         public Form1()
         {
             InitializeComponent();
-            Load += Form1_Load;
+            /////////Load += Form1_Load;
 
             //lblVersion = ProductName + "\n" + ProductVersion;
 
@@ -61,7 +61,7 @@ namespace GraphFilter
 
             foreach (IInvariant invariant in InvariantNum.List())
             {
-                ListOfInvariants.Text += invariant.getCode() + ": " + invariant.getName() + "\n";
+                ListOfInvariants.Text += "\n" + invariant.getCode() + ": " + invariant.getName();
             }          
 
             buttonFill.Enabled = false;
@@ -151,10 +151,18 @@ namespace GraphFilter
                 try
                 {
                     PausaComDelay();
+
+                    listg6In = File.ReadAllLines(ofd.FileName).ToList();
+                    progressBar.Maximum = listg6In.Count;
+                    textSource.Text = ofd.FileName;
+                    buttonSave.Enabled = true;
+                    buttonCounterexample.Enabled = true;
+                    /*
                     using (StreamReader reader = new StreamReader(ofd.FileName, Encoding.GetEncoding(CultureInfo.GetCultureInfo("pt-br").TextInfo.ANSICodePage)))
                     {
                         fileG6In = ofd.OpenFile();
                         string g6Actual = reader.ReadLine();
+
                         while (g6Actual != null)
                         {
                             listg6In.Add(g6Actual);
@@ -164,7 +172,8 @@ namespace GraphFilter
                         progressBar.Maximum--;
                         textSource.Text = ofd.FileName;
                         buttonSave.Enabled = true;
-                    }
+                        buttonCounterexample.Enabled = true;                       
+                    }*/
                 }
                 //Fecha a janela de please wait
                 catch (Exception ex)
@@ -216,7 +225,6 @@ namespace GraphFilter
             buttonZoomOut.Enabled = true;
             buttonExp2PNG.Enabled = true;
             buttonPrint.Enabled = true;
-            buttonExportAll.Enabled = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -250,16 +258,6 @@ namespace GraphFilter
                 catch (Exception ex)
                 {
 
-                    System.Windows.Forms.MessageBox.Show(string.Format("Não foi possível abrir o seu arquivo, Erro: {0}", ex.Message), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                listOfG6.Visible = true;
-            }*/
-        }
-
-        private void AddG6Button_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -413,10 +411,32 @@ namespace GraphFilter
             if (textEquation1.Enabled == true) System.Windows.Forms.MessageBox.Show("Please, verify your equation!");
             if (textEquation1.Enabled == false)
             {
+                buttonCounterexample.Enabled = false;
                 FilesFilter filesFilter = new FilesFilter(listg6In, textOutPath.Text, this);
                 double[] retorno = filesFilter.Run();
                 System.Windows.Forms.MessageBox.Show("Busca realizada com sucesso! \nO percentual de grafos escolhidos é: " + retorno[2] + " %" + "\nO número de grafos escolhidos foi de: " + retorno[1] + "\nO número total de grafos que foram lidos foi de: " + retorno[0] + ".");
                 System.Windows.Forms.Application.Restart();
+            }
+        }
+
+
+        private void buttonCounterexample_Click(object sender, EventArgs e)
+        {
+            if (textEquation1.Enabled == true) System.Windows.Forms.MessageBox.Show("Please, verify your equation!");
+            if (textEquation1.Enabled == false)
+            {
+                buttonSearch.Enabled = false;
+                FilesFilter filesFilter = new FilesFilter(listg6In, this);
+                string retorno = filesFilter.RunCounterexample();
+                if (retorno=="XX") System.Windows.Forms.MessageBox.Show("No counterexamples found.");
+                else
+                {
+                    insertG6ToView.Text = retorno;
+                    System.Windows.Forms.MessageBox.Show("Counterexample found, see the Visualization tab");
+                }
+                buttonSearch.Enabled = true;
+
+
             }
         }
 
@@ -863,6 +883,16 @@ namespace GraphFilter
             metroProgressSpinner.Visible = false;
             metroProgressSpinner.Enabled = false;
             System.Windows.Forms.MessageBox.Show("Export finished!");
+        }
+
+        private void ListOfInvariants_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void insertG6ToView_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

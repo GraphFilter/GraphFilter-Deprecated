@@ -21,12 +21,6 @@ using QuikGraph.Algorithms.VertexColoring;
 
 namespace GraphFilter.Invariants
 {
-    /*public ListOfTypes<InvariantNum> list;
-    public InvariantNum()
-    {
-        list = new ListOfTypes<InvariantNum>();
-        list.Add<ChromaticNumber>();
-    }*/
     interface IInvariant
     {
         double Calculate(Graph g);
@@ -64,7 +58,20 @@ namespace GraphFilter.Invariants
 
         }
 
-        public class SpectralRadius : IInvariant
+    public class Nullity : IInvariant
+    {
+        public double Calculate(Graph g)
+        {
+            if (g.order == 0) return 0;
+            Matrix<double> lMatrix = DenseMatrix.OfArray(Utils.Spectral.LaplacianMatrix(g));
+            return lMatrix.Nullity();
+        }
+        public string getName() { return "Nullity"; }
+
+        public string getCode() { return "nul"; }
+    }
+
+    public class SpectralRadius : IInvariant
         {
             public double Calculate(Graph g)
             {
