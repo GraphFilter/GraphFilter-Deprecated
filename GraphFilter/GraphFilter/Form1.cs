@@ -117,7 +117,7 @@ namespace GraphFilter
         {
             OpenFileDialog ofd = new OpenFileDialog();
 
-            ofd.Filter = "Arquivo g6 | *.g6";
+            ofd.Filter = "g6 File | *.g6" + "|g6 File in txt | *.txt";
             ofd.ShowDialog();
             //abre a janela de please wait!
             if (string.IsNullOrEmpty(ofd.FileName) == false)
@@ -316,6 +316,7 @@ namespace GraphFilter
                 double[] retorno = filesFilter.Run();
                 System.Windows.Forms.MessageBox.Show("Busca realizada com sucesso! \nO percentual de grafos escolhidos é: " + retorno[2] + " %" + "\nO número de grafos escolhidos foi de: " + retorno[1] + "\nO número total de grafos que foram lidos foi de: " + retorno[0] + ".");
                 progressBar.Value = 0;
+                buttonCounterexample.Enabled = true;
             }
         }
 
@@ -669,7 +670,7 @@ namespace GraphFilter
         {
             OpenFileDialog ofd = new OpenFileDialog();
 
-            ofd.Filter = "Arquivo g6 | *.g6";
+            ofd.Filter = "g6 File | *.g6" + "g6 File in txt | *.txt";
             ofd.ShowDialog();
             if (string.IsNullOrEmpty(ofd.FileName) == false)
             {

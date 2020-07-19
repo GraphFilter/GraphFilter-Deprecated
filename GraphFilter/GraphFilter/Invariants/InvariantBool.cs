@@ -95,6 +95,7 @@ namespace GraphFilter.Invariants
             {
                 int?[,] graph = HamiltonianGraph.Utils.GraphUtil.FromMatrixFormat(GraphToStringMatrix(g));
                 int[] cycle = new BranchAndBound(graph).GetShortestHamiltonianCycle();
+                if (cycle == null) return false;
                 return cycle.Length - 1 == g.order;
             }
 
