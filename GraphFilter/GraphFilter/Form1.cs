@@ -43,9 +43,6 @@ namespace GraphFilter
         public Form1()
         {
             InitializeComponent();
-            /////////Load += Form1_Load;
-
-            //lblVersion = ProductName + "\n" + ProductVersion;
 
             updater = new SharpUpdater(Assembly.GetExecutingAssembly(), this, new Uri("http://sistemas.jf.ifsudestemg.edu.br/graphfilter/update/update.xml"));
 
@@ -72,16 +69,16 @@ namespace GraphFilter
 
         private void Form1_Resize(object sender, EventArgs e)
         {
-            groupBoxFiles.Width = this.Width - 320;
+            groupBoxFiles.Width = this.Width - 330;
 
             textSource.Width = groupBoxFiles.Width - 120;
             textOutPath.Width = groupBoxFiles.Width - 120;
 
-            groupBoxEq.Width = this.Width - 320;
-            groupBoxCondition.Width = this.Width - 320;
-            progressBar.Width = groupBoxCondition.Width - 115;
+            groupBoxEq.Width = this.Width - 330;
+            groupBoxCondition.Width = this.Width - 330;
+            progressBar.Width = this.Width - 330;
 
-            textEquation1.Width = groupBoxCondition.Width - 67;
+            textEquation1.Width = groupBoxCondition.Width - 85;
 
             tabControl.Width = this.Width - 40;
             tabControl.Height = this.Height - 80;
@@ -90,22 +87,14 @@ namespace GraphFilter
             wpfHost.Height = this.Height - 107;
             textOpenViz.Width = this.Width - openG6BtnViz.Width - 75;
             listOfG6.Height = this.Height - 230;
-            listOfG6Exp.Height = this.Height - 200;
 
             insertG6ToView.Width = this.Width - viewG6Btn.Width - 75;
-
-            textOpenExp.Width = this.Width - 200;
-
-            metroProgressSpinner.Top = listOfG6Exp.Height / 2;
-            metroProgressSpinner.Left = textOpenExp.Width / 2;
 
             lblVersion.Left = this.Width - 230;
             chkUpdBtn.Left = this.Width - 160;
 
             showInvariantsCheck.Left = this.Width - 300;
             showGraphInvariantLbl.Left = this.Width - 260;
-
-            listInvResults.Top = this.Height - 430;
         }
         private void listOfG6_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -141,23 +130,6 @@ namespace GraphFilter
                     textSource.Text = ofd.FileName;
                     buttonSave.Enabled = true;
                     buttonCounterexample.Enabled = true;
-                    /*
-                    using (StreamReader reader = new StreamReader(ofd.FileName, Encoding.GetEncoding(CultureInfo.GetCultureInfo("pt-br").TextInfo.ANSICodePage)))
-                    {
-                        fileG6In = ofd.OpenFile();
-                        string g6Actual = reader.ReadLine();
-
-                        while (g6Actual != null)
-                        {
-                            listg6In.Add(g6Actual);
-                            progressBar.Maximum++;
-                            g6Actual = reader.ReadLine();
-                        }
-                        progressBar.Maximum--;
-                        textSource.Text = ofd.FileName;
-                        buttonSave.Enabled = true;
-                        buttonCounterexample.Enabled = true;                       
-                    }*/
                 }
                 //Fecha a janela de please wait
                 catch (Exception ex)
@@ -210,42 +182,10 @@ namespace GraphFilter
                 buttonZoomOut.Enabled = true;
                 buttonExp2PNG.Enabled = true;
                 buttonPrint.Enabled = true;
+                buttonExportAll.Enabled = true;
                 listOfG6.Visible = true;
-            }
-            
+            }   
         }
-
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-
-            ofd.Filter = "Arquivo g6 | *.g6";
-            ofd.ShowDialog();
-            if (string.IsNullOrEmpty(ofd.FileName) == false)
-            {
-                try
-                {
-                    using (StreamReader reader = new StreamReader(ofd.FileName, Encoding.GetEncoding(CultureInfo.GetCultureInfo("pt-br").TextInfo.ANSICodePage)))
-                    {
-                        fileG6In = ofd.OpenFile();
-                        string g6Line = reader.ReadLine();
-                        while (g6Line != null)
-                        {
-                            listOfG6Exp.Items.Add(g6Line);
-                            g6Line = reader.ReadLine();
-                        }
-                        textOpenExp.Text = ofd.FileName;
-                    }
-                }
-                catch (Exception ex)
-                {
-
-                    System.Windows.Forms.MessageBox.Show(string.Format("Não foi possível abrir o seu arquivo, Erro: {0}", ex.Message), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
         #endregion
 
         #region SharpUpdate
@@ -375,7 +315,7 @@ namespace GraphFilter
                 FilesFilter filesFilter = new FilesFilter(listg6In, textOutPath.Text, this);
                 double[] retorno = filesFilter.Run();
                 System.Windows.Forms.MessageBox.Show("Busca realizada com sucesso! \nO percentual de grafos escolhidos é: " + retorno[2] + " %" + "\nO número de grafos escolhidos foi de: " + retorno[1] + "\nO número total de grafos que foram lidos foi de: " + retorno[0] + ".");
-                System.Windows.Forms.Application.Restart();
+                progressBar.Value = 0;
             }
         }
 
@@ -395,8 +335,6 @@ namespace GraphFilter
                     System.Windows.Forms.MessageBox.Show("Counterexample found, see the Visualization tab");
                 }
                 buttonSearch.Enabled = true;
-
-
             }
         }
 
@@ -560,33 +498,6 @@ namespace GraphFilter
             }
 
         }
-
-        private void buttonSavePNG_Click(object sender, EventArgs e)
-        {
-            int count = listOfG6Exp.Items.Count;
-
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            fbd.Description = "Select file to export all graphs";
-            fbd.ShowDialog();
-            var path = fbd.SelectedPath;
-            metroProgressSpinner.Value = 0;
-            metroProgressSpinner.Visible = true;
-
-            for (int i = 0; i < count; i++)
-            {
-                if (metroProgressSpinner.Value == 100) metroProgressSpinner.Value = 0;
-                elementHost.Child = GenerateWpfVisual2Export(listOfG6Exp.Items[i].ToString());
-                _gArea.GenerateGraph(true);
-                _gArea.ShowAllEdgesLabels(false);
-                _gArea.SetVerticesDrag(true, true);
-                _gArea.ExportAsImage(fbd.SelectedPath + "\\" + i + ".png", ImageType.PNG, false, 96, 100);
-                metroProgressSpinner.Value++;
-            }
-            metroProgressSpinner.Visible = false;
-            metroProgressSpinner.Enabled = false;
-            System.Windows.Forms.MessageBox.Show("Export finished!");
-        }
-
         private void buttonExp2PNG_Click(object sender, EventArgs e)
         {
             if (listOfG6.SelectedItem != null)
@@ -774,7 +685,8 @@ namespace GraphFilter
                     buttonZoomOut.Enabled = true;
                     buttonExp2PNG.Enabled = true;
                     buttonPrint.Enabled = true;
-                    
+                    buttonExportAll.Enabled = true;
+
                 }
                 catch (Exception ex)
                 {
@@ -789,16 +701,19 @@ namespace GraphFilter
         {
             if (showInvariantsCheck.Checked == true)
             {
-                foreach (IInvariant invariant in InvariantNum.List())
+                if (listOfG6.Visible == true)
                 {
-                    listInvResults.Rows.Add(new string[]
+                    foreach (IInvariant invariant in InvariantNum.List())
                     {
-                        invariant.getName(), invariant.Calculate(new Graph(listOfG6.SelectedItem.ToString())).ToString() 
-                    });
+                        listInvResults.Rows.Add(new string[]
+                        {
+                        invariant.getName(), invariant.Calculate(new Graph(listOfG6.SelectedItem.ToString())).ToString()
+                        });
+                    }
+                    listInvResults.Columns[0].ReadOnly = true;
+                    listInvResults.Columns[1].ReadOnly = true;
+                    listInvResults.Visible = true;
                 }
-                listInvResults.Columns[0].ReadOnly = true;
-                listInvResults.Columns[1].ReadOnly = true;
-                listInvResults.Visible = true;
             }
             else
             {
@@ -854,6 +769,34 @@ namespace GraphFilter
         private void insertG6ToView_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonExportAll_Click(object sender, EventArgs e)
+        {
+            int count = listOfG6.Items.Count;
+
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.Description = "Select file to export all graphs";
+            fbd.ShowDialog();
+            var path = fbd.SelectedPath;
+            if (path.Length != 0)
+            {
+                metroProgressSpinner.Value = 0;
+                metroProgressSpinner.Visible = true;
+                for (int i = 0; i < count; i++)
+                {
+                    if (metroProgressSpinner.Value == 100) metroProgressSpinner.Value = 0;
+                    wpfHost.Child = GenerateWpfVisual2Export(listOfG6.Items[i].ToString());
+                    _gArea.GenerateGraph(true);
+                    _gArea.ShowAllEdgesLabels(false);
+                    _gArea.SetVerticesDrag(true, true);
+                    _gArea.ExportAsImage(fbd.SelectedPath + "\\" + i + ".png", ImageType.PNG, false, 96, 100);
+                    metroProgressSpinner.Value++;
+                }
+                metroProgressSpinner.Visible = false;
+                metroProgressSpinner.Enabled = false;
+                System.Windows.Forms.MessageBox.Show("Export finished!");
+            } 
         }
     }
 
