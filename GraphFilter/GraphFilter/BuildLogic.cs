@@ -47,7 +47,9 @@ namespace GraphFilter
 
             foreach (IInvariant invariant in InvariantNum.List())
             {
-                if (text.Contains(invariant.getCode())) context.Variables[invariant.getCode()] = invariant.Calculate(g);
+                if (text.Contains(invariant.getCode() + "_G")) context.Variables[invariant.getCode() + "_G"] = invariant.Calculate(g);
+                if (text.Contains(invariant.getCode() + "_lG")) context.Variables[invariant.getCode() + "_lG"] = invariant.Calculate(Operation.Line(g));
+                if (text.Contains(invariant.getCode() + "_cG")) context.Variables[invariant.getCode() + "_cG"] = invariant.Calculate(Operation.Complement(g));
             }
             IGenericExpression<bool> e = context.CompileGeneric<bool>(text);
             return e.Evaluate();
@@ -65,7 +67,9 @@ namespace GraphFilter
 
             foreach (IInvariant invariant in InvariantNum.List())
             {
-                if (text.Contains(invariant.getCode())) context.Variables[invariant.getCode()] = invariant.Calculate(new Graph(new int[0,0]));
+                if (text.Contains(invariant.getCode() + "_G")) context.Variables[invariant.getCode() + "_G"] = invariant.Calculate(new Graph(new int[0,0]));
+                if (text.Contains(invariant.getCode() + "_lG")) context.Variables[invariant.getCode() + "_lG"] = invariant.Calculate(new Graph(new int[0, 0]));
+                if (text.Contains(invariant.getCode() + "_cG")) context.Variables[invariant.getCode() + "_cG"] = invariant.Calculate(new Graph(new int[0, 0]));
             }
             IGenericExpression<bool> e = context.CompileGeneric<bool>(text);
             return e.Evaluate();

@@ -16,7 +16,27 @@ namespace GraphFilter.Invariant.Tests
     [TestClass()]
     public class InvariantNumTests
     {
-        private string _path = System.IO.Path.GetFullPath(@"..\..\..\")+"\\g6Files\\";
+        private string _path = System.IO.Path.GetFullPath(@"..\..\")+"\\g6Files\\";
+        EdgeConnectivy ec = new EdgeConnectivy();
+        AlgebricConnectivity ac = new AlgebricConnectivity();
+        Girth girth = new Girth();
+        Diameter diam = new Diameter();
+        Eigen1Adjacency lambda1 = new Eigen1Adjacency();
+        Eigen2Adjacency lambda2 = new Eigen2Adjacency();
+        Eigen1Laplacian mu1 = new Eigen1Laplacian();
+        Eigen2Laplacian mu2 = new Eigen2Laplacian();
+        IndependenceNumber alpha = new IndependenceNumber();
+        CliqueNumber omega = new CliqueNumber();
+        AverageDegree avdeg = new AverageDegree();
+        MinDegree minDeg = new MinDegree();
+        MaxDegree maxDeg = new MaxDegree();
+        NumberOfEdges m = new NumberOfEdges();
+        MatchingNumber Mx = new MatchingNumber();
+        NumberOfComponents nc = new NumberOfComponents();
+        NumberSpanningTree spnt = new NumberSpanningTree();
+        Nullity nul = new Nullity();
+        Order n = new Order();
+
         public double Execute(string file, string condition)
         {
             double total = 0;
@@ -45,7 +65,10 @@ namespace GraphFilter.Invariant.Tests
                 while (g6Line != null)
                 {
                     line++;
-                    if (!BuildLogic.EvaluateText(condition, new Graph(g6Line))) return false;
+                    if (!BuildLogic.EvaluateText(condition, new Graph(g6Line)))
+                    {
+                        return false;
+                    }
                     g6Line = stReaderIn.ReadLine();
                 }
                 return true;
@@ -53,147 +76,128 @@ namespace GraphFilter.Invariant.Tests
         }
 
         [TestMethod()]
-        public void AlgebricConnectivityTEST()
+        public void Spectral()
         {
-            var i = new AlgebricConnectivity();
-            Assert.AreEqual(100,Execute("algCon3-4", "3<="+i.getCode()+ " AND "+ i.getCode() + "<= 4"));
+            Assert.IsTrue(ExecuteOnlyTrue("algCon3-4", "3<="+ac.getCode()+ "_G AND " + ac.getCode() + "_G<= 4"));
+            Assert.IsTrue(ExecuteOnlyTrue("spectralRadius5-6", lambda1.getCode() + "_G<=6"));
+            Assert.IsTrue(ExecuteOnlyTrue("trees_n14", nul.getCode() + "_G = " + n.getCode() + "_G-2*" + Mx.getCode() + "_G"));
+
         }
 
         [TestMethod()]
-        public void CliqueNumberTEST()
+        public void CliqueNumber()
         {
-            var i = new CliqueNumber();
-            Assert.AreEqual(100, Execute("cliqueNumber4", i.getCode() + "=4"));
-            Assert.AreEqual(100, Execute("cliqueNumber5", i.getCode() + "=5"));
-            Assert.AreEqual(100, Execute("cliqueNumber7", i.getCode() + "=7"));
+            Assert.IsTrue(ExecuteOnlyTrue("cliqueNumber4", omega.getCode() + "_G=4"));
+            Assert.IsTrue(ExecuteOnlyTrue("cliqueNumber5", omega.getCode() + "_G=5"));
+            Assert.IsTrue(ExecuteOnlyTrue("cliqueNumber7", omega.getCode() + "_G=" + alpha.getCode() + "_cG"));
         }
         
         [TestMethod()]
-        public void DiameterTEST()
+        public void Diameter()
         {
-            var i = new Diameter();
-            Assert.AreEqual(100, Execute("diameter7", i.getCode() + "=7"));
-        }
-
-        [TestMethod()]
-        public void SpectralRadiusTEST()
-        {
-            var i = new SpectralRadius();
-            Assert.AreEqual(100, Execute("spectralRadius5-6", i.getCode()+"<=6"));
+            Assert.IsTrue(ExecuteOnlyTrue("diameter7", diam.getCode() + "_G=7"));
         }
 
 
         [TestMethod()]
-        public void AverageDegreeTEST()
+        public void AverageDegree()
         {
-            var i = new AverageDegree();
-            Assert.AreEqual(100, Execute("averageDegree_5-6", "5<=" + i.getCode()));
-            Assert.AreEqual(100, Execute("averageDegree_5-6", i.getCode() + "<=6"));
+            Assert.IsTrue(ExecuteOnlyTrue("averageDegree_5-6", "5<=" + avdeg.getCode()+ "_G"));
+            Assert.IsTrue(ExecuteOnlyTrue("averageDegree_5-6", avdeg.getCode() + "_G<=6"));
         }
 
         [TestMethod()]
-        public void MinMaxDegreeTEST()
+        public void MinMaxDegree()
         {
-            var MinDegree = new MinDegree();
-            var MaxDegree = new MaxDegree();
-            Assert.AreEqual(100, Execute("deltaPlusDelta10", MinDegree.getCode() +"+"+ MaxDegree.getCode() + "=10"));
+            Assert.IsTrue(ExecuteOnlyTrue("deltaPlusDelta10", minDeg.getCode() +"_G+"+ maxDeg.getCode() + "_G=10"));
         }
 
         [TestMethod()]
-        public void NumberOfEdgesTEST()
+        public void NumberOfEdges()
         {
-            var i = new NumberOfEdges();
-            Assert.AreEqual(100, Execute("numberOfEdges12", i.getCode() + "=12"));
+            Assert.IsTrue(ExecuteOnlyTrue("numberOfEdges12", m.getCode() + "_G=12"));
         }
 
         [TestMethod()]
-        public void IndependenceNumberTEST()
+        public void IndependenceNumber()
         {
-            var i = new IndependenceNumber();
-            Assert.AreEqual(100, Execute("independenceNumber7", i.getCode() + "=7"));
+            Assert.IsTrue(ExecuteOnlyTrue("independenceNumber7", alpha.getCode() + "_G=7"));
         }
         
         [TestMethod()]
-        public void MatchingNumberTEST()
+        public void MatchingNumber()
         {
-            var i = new MatchingNumber();
-            Assert.AreEqual(100, Execute("matchingNumber5", i.getCode() + "=5"));
+            Assert.IsTrue(ExecuteOnlyTrue("matchingNumber5", Mx.getCode() + "_G=5"));
+            Assert.IsTrue(ExecuteOnlyTrue("all_graph8", Mx.getCode() + "_G="+ alpha.getCode()+"_lG"));
         }
 
-        [TestMethod()]
-        public void ChromaticNumberTEST()
+        /*[TestMethod()]
+        public void ChromaticNumber()
         {
             var i = new ChromaticNumber();
             Assert.AreEqual(100, Execute("chromaticNumber6", i.getCode() + "=6"));
+        }*/
+
+        [TestMethod()]
+        public void EdgeConnectivy()
+        {
+            Assert.IsTrue(ExecuteOnlyTrue("edgeConnectivy4", ec.getCode() + "_G=4"));
+            Assert.IsTrue(ExecuteOnlyTrue("disconnected", ec.getCode() + "_G=0"));
+            Assert.IsTrue(ExecuteOnlyTrue("edgeConnectivy5", ec.getCode() + "_G=5"));
         }
 
         [TestMethod()]
-        public void EdgeConnectivyTEST()
+        public void Girth()
         {
-            var i = new EdgeConnectivy();
-            Assert.AreEqual(100, Execute("edgeConnectivy4", i.getCode() + "=4"));
-            Assert.AreEqual(100, Execute("disconnected", i.getCode() + "=0"));
-            Assert.AreEqual(100, Execute("edgeConnectivy5", i.getCode() + "=5"));
-        }
 
-        [TestMethod()]//funciona somente no caso do grafo não ser acíclico
-        public void GirthTEST()
-        {
-            var i = new Girth();
-            var n = new Order();
-            Assert.AreEqual(100, Execute("girth4", i.getCode() + "=4"));
-            Assert.AreEqual(100, Execute("girth6", i.getCode() + "=6"));
-            Assert.AreEqual(100, Execute("girthInfinite", i.getCode() + ">100000"));
+            Assert.IsTrue(ExecuteOnlyTrue("girth4", girth.getCode() + "_G=4"));
+            Assert.IsTrue(ExecuteOnlyTrue("girth6", girth.getCode() + "_G=6"));
+            Assert.IsTrue(ExecuteOnlyTrue("girthInfinite", girth.getCode() + "_G>100000"));
             
         }
 
         [TestMethod()]
-        public void NumberOfComponentsTEST()
+        public void NumberOfComponents()
         {
-            var i = new NumberOfComponents();
-            Assert.AreEqual(100, Execute("3NC", i.getCode() + "=3"));
-            Assert.AreEqual(100, Execute("5NC", i.getCode() + "=5"));
-            Assert.AreEqual(100, Execute("connected", i.getCode() + "=1"));
-            Assert.AreEqual(100, Execute("disconnected", i.getCode() + ">1"));
+            Assert.IsTrue(ExecuteOnlyTrue("3NC", nc.getCode() + "_G=3"));
+            Assert.IsTrue(ExecuteOnlyTrue("5NC", nc.getCode() + "_G=5"));
+            Assert.IsTrue(ExecuteOnlyTrue("connected", nc.getCode() + "_G=1"));
+            Assert.IsTrue(ExecuteOnlyTrue("disconnected", nc.getCode() + "_G>1"));
         }
-        
+
+        [TestMethod()]
+        public void NumberOfSpnTrees()
+        {
+            var i = new NumberSpanningTree();
+            Assert.IsTrue(ExecuteOnlyTrue("trees_n14", spnt.getCode() + "_G=1"));
+        }
+
+
         [TestMethod()]
         public void Miscelanea()
         {
-            var ec = new EdgeConnectivy();
-            var ac = new AlgebricConnectivity();
-            var girth = new Girth();
-            var radius = new SpectralRadius();
-            var diam = new Diameter();
-            var index = new SpectralRadius();
-            var alpha = new IndependenceNumber();
-            /*Assert.AreEqual(90, Execute("Return90percentual", ac.getCode() + "+2*" + diam.getCode() + ">=8"));
-            Assert.AreEqual(0, Execute("girth4", girth.getCode() + "=5"));
-            Assert.AreEqual(10, Execute("Return10percentual", radius.getCode() + "=4"));
-            Assert.AreEqual(0, Execute("algCon3-4",ac.getCode() + ">=5"));
-            Assert.AreEqual(100, Execute("girthMaiorIgual5", girth.getCode() + ">=5" + " OR " + alpha.getCode() + "=4"));
-            Assert.AreEqual(100, Execute("alphaMaior5_IndexMenor3", index.getCode() + "<=3"+" AND "+alpha.getCode()+">5"));
-            */
+            Assert.IsTrue(ExecuteOnlyTrue("all_graph8", mu2.getCode() + "_G+" + mu2.getCode() + "_cG<=2*" + n.getCode() + "_G-2"));//conjecture GRIJO
+            Assert.AreEqual(90, Execute("Return90percentual", ac.getCode() + "_G+2*" + diam.getCode() + "_G>=8"));
+            Assert.AreEqual(0, Execute("girth4", girth.getCode() + "_G=5"));
+            Assert.AreEqual(10, Execute("Return10percentual", lambda1.getCode() + "_G=4"));
+            Assert.AreEqual(0, Execute("algCon3-4",ac.getCode() + "_G>=5"));
+            Assert.AreEqual(100, Execute("girthMaiorIgual5", girth.getCode() + "_G>=5" + " OR " + alpha.getCode() + "_G=4"));
+            //Assert.AreEqual(100, Execute("alphaMaior5_IndexMenor3", lambda1.getCode() + "_G<=3" + " AND "+alpha.getCode()+ "_G>5"));
+            
         }
         
         [TestMethod()]
         public void BigFiles()
         {
-            var ec = new EdgeConnectivy();
-            var ac = new AlgebricConnectivity();
-            var girth = new Girth();
-            var radius = new SpectralRadius();
-            var diam = new Diameter();
-            var index = new SpectralRadius();
-            var alpha = new IndependenceNumber();
-            var chi = new ChromaticNumber();
-            var n = new Order();
-            //Assert.IsTrue(ExecuteOnlyTrue("BIG_chromatic5", chi.getCode() + "=5")); 
-            //Assert.IsTrue(ExecuteOnlyTrue("independenceNumberMaiorIgual5", alpha.getCode() + ">=5"));
-            
+            //var chi = new ChromaticNumber();
+            //Assert.IsTrue(ExecuteOnlyTrue("BIG_chromatic5", chi.getCode() + "_G=5")); 
+            //Assert.IsTrue(ExecuteOnlyTrue("independenceNumberMaiorIgual5", alpha.getCode() + "_G>=5"));
+
 
         }
-        
+
+
+
         //FALTA: energias e num de árvores geradoras
 
     }

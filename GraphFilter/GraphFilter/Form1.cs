@@ -58,9 +58,10 @@ namespace GraphFilter
 
             foreach (IInvariant invariant in InvariantNum.List())
             {
-                ListOfInvariants.Text += "\n" + invariant.getCode() + ": " + invariant.getName();
+                ListOfInvariants.Text += "\n" + invariant.getCode() + ": " + invariant.getName();   
             }
-
+            ListOfInvariants.Text += "\n" + "\n" + "\n";
+            ListOfInvariants.Text += "--- arguments --- \n Graph G \n Complement of graph: cG \n line graph: lG";
             buttonFill.Enabled = false;
             buttonZoomOriginal.Enabled = false;
             buttonZoomOut.Enabled = false;
@@ -118,14 +119,6 @@ namespace GraphFilter
                 _gArea.ShowAllEdgesLabels(false);
                 _gArea.SetVerticesDrag(true, true);
                 _zoomctrl.ZoomToFill();
-
-                foreach (IInvariant invariant in InvariantNum.List())
-                {
-                    listInvResults.Rows.Add(new string[] { invariant.getName(), invariant.Calculate(new Graph(g6Line)).ToString() });
-                }
-
-                listInvResults.Columns[0].ReadOnly = true;
-                listInvResults.Columns[1].ReadOnly = true;
             }
         }
         #endregion
@@ -204,18 +197,22 @@ namespace GraphFilter
         {
             if (insertG6ToView.Text != null && insertG6ToView.Text.Length != 0 && insertG6ToView.Text != " ")
             {
+                listOfG6.Items.Add((insertG6ToView.Text));
+                listOfG6.SetSelected(0, true);
                 wpfHost.Child = GenerateWpfVisuals(insertG6ToView.Text);
                 _gArea.GenerateGraph(true);
                 _gArea.ShowAllEdgesLabels(false);
                 _gArea.SetVerticesDrag(true, true);
                 _zoomctrl.ZoomToFill();
+                buttonFill.Enabled = true;
+                buttonZoomOriginal.Enabled = true;
+                buttonZoomIn.Enabled = true;
+                buttonZoomOut.Enabled = true;
+                buttonExp2PNG.Enabled = true;
+                buttonPrint.Enabled = true;
+                listOfG6.Visible = true;
             }
-            buttonFill.Enabled = true;
-            buttonZoomOriginal.Enabled = true;
-            buttonZoomIn.Enabled = true;
-            buttonZoomOut.Enabled = true;
-            buttonExp2PNG.Enabled = true;
-            buttonPrint.Enabled = true;
+            
         }
 
 
@@ -767,23 +764,17 @@ namespace GraphFilter
             {
                 try
                 {
-                    using (StreamReader reader = new StreamReader(ofd.FileName, Encoding.GetEncoding(CultureInfo.GetCultureInfo("pt-br").TextInfo.ANSICodePage)))
-                    {
-                        fileG6In = ofd.OpenFile();
-                        string g6Line = reader.ReadLine();
-                        while (g6Line != null)
-                        {
-                            listOfG6.Items.Add(g6Line);
-                            g6Line = reader.ReadLine();
-                        }
-                        textOpenViz.Text = ofd.FileName;
-                        buttonFill.Enabled = true;
-                        buttonZoomOriginal.Enabled = true;
-                        buttonZoomIn.Enabled = true;
-                        buttonZoomOut.Enabled = true;
-                        buttonExp2PNG.Enabled = true;
-                        buttonPrint.Enabled = true;
-                    }
+                    List<string> listg6ToView = File.ReadAllLines(ofd.FileName).ToList();
+                    fileG6In = ofd.OpenFile();
+                    foreach (string item in listg6ToView) listOfG6.Items.Add(item);
+                    textOpenViz.Text = ofd.FileName;
+                    buttonFill.Enabled = true;
+                    buttonZoomOriginal.Enabled = true;
+                    buttonZoomIn.Enabled = true;
+                    buttonZoomOut.Enabled = true;
+                    buttonExp2PNG.Enabled = true;
+                    buttonPrint.Enabled = true;
+                    
                 }
                 catch (Exception ex)
                 {
@@ -796,7 +787,19 @@ namespace GraphFilter
 
         private void showInvariantsCheck_CheckedChanged(object sender, EventArgs e)
         {
-            if (showInvariantsCheck.Checked == true) listInvResults.Visible = true;
+            if (showInvariantsCheck.Checked == true)
+            {
+                foreach (IInvariant invariant in InvariantNum.List())
+                {
+                    listInvResults.Rows.Add(new string[]
+                    {
+                        invariant.getName(), invariant.Calculate(new Graph(listOfG6.SelectedItem.ToString())).ToString() 
+                    });
+                }
+                listInvResults.Columns[0].ReadOnly = true;
+                listInvResults.Columns[1].ReadOnly = true;
+                listInvResults.Visible = true;
+            }
             else
             {
                 listInvResults.Visible = false;

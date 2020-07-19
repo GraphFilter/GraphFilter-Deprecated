@@ -13,7 +13,7 @@ namespace GraphFilter.Invariant.Tests
     [TestClass()]
     public class InvariantBoolTests
     {
-        private string _path = System.IO.Path.GetFullPath(@"..\..\..\") + "\\g6Files\\";
+        private string _path = System.IO.Path.GetFullPath(@"..\..\") + "\\g6Files\\";
 
         private int Execute(string file, InvariantBool invariant, int k)
         {
@@ -83,46 +83,46 @@ namespace GraphFilter.Invariant.Tests
         }
 
         [TestMethod()]
-        public void ConnectedTEST()
+        public void Connected()
         {
             Assert.AreEqual(100,Execute("connected",InvariantBool.connected, 0));
             Assert.AreEqual(100,Execute("disconnected", InvariantBool.disconnected, 0));
         }
 
         [TestMethod()]
-        public void PlanarTEST()
+        public void Planar()
         {
             Assert.AreEqual(100, Execute("planar", InvariantBool.planar, 0));
         }
 
         [TestMethod()]
-        public void RegularTEST()
+        public void Regular()
         {
             Assert.AreEqual(100, Execute("regular", InvariantBool.regular, 0));
         }
 
         [TestMethod()]
-        public void Regular_kTEST()
+        public void Regular_k()
         {
             Assert.AreEqual(100, Execute("regular6", InvariantBool.regular_k, 6));
             Assert.AreEqual(100, Execute("regular10", InvariantBool.regular_k, 10));
         }
 
         [TestMethod()]
-        public void Hamiltonian_TEST()
+        public void Hamiltonian()
         {
             Assert.AreEqual(100, Execute("hamiltonian", InvariantBool.hamiltonian, 0));
         }
         
         [TestMethod()]
-        public void Acyclic_TEST()
+        public void Acyclic()
         {
             Assert.AreEqual(100, Execute("girthInfinite", InvariantBool.acyclic, 0));
             Assert.AreEqual(100, Execute("onlytrees", InvariantBool.acyclic, 0)); 
         }
 
         [TestMethod()]
-        public void HamiltonANDPlanar_TEST()
+        public void HamiltonANDPlanar()
         {
             Assert.AreEqual(100, Execute("Planar_Hamilton", InvariantBool.planar, InvariantBool.hamiltonian, 0));
 

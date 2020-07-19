@@ -14,13 +14,13 @@ namespace GraphFilter.Tests
     {
         public string ReadG6fromMatFiles(string file)
         {
-            string path = System.IO.Path.GetFullPath(@"..\..\..\") + "\\g6Matrix\\";
+            string path = System.IO.Path.GetFullPath(@"..\..\") + "\\g6Matrix\\";
             using (StreamReader stReaderIn = new StreamReader(path + file)) return stReaderIn.ReadLine();
         }
 
         public static int[,] matFile2Matrix(string file)
         {
-            string path = System.IO.Path.GetFullPath(@"..\..\..\") + "\\g6Matrix\\";
+            string path = System.IO.Path.GetFullPath(@"..\..\") + "\\g6Matrix\\";
             using (StreamReader stReaderIn = new StreamReader(path + file))
             {
                 String line = stReaderIn.ReadLine();

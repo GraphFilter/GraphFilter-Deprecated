@@ -64,8 +64,42 @@ namespace GraphFilter.Invariants
 
         }
 
-        public class SpectralRadius : IInvariant
+    public class Eigen1Laplacian : IInvariant
+    {
+        public double Calculate(Graph g)
         {
+            if (g.order == 0) return 0;
+            Matrix<double> lMatrix = DenseMatrix.OfArray(Utils.Spectral.LaplacianMatrix(g));
+            Evd<double> evd = lMatrix.Evd(Symmetricity.Symmetric);
+            Vector<Complex> eigenvalues = evd.EigenValues;
+            double x = eigenvalues.ElementAt(g.order - 1).Real;
+            return Utils.Spectral.ApproxToInt(x);
+        }
+        public string getName() { return "largest Lapla eigen"; }
+
+        public string getCode() { return "mu1"; }
+
+    }
+
+    public class Eigen2Laplacian : IInvariant
+    {
+        public double Calculate(Graph g)
+        {
+            if (g.order <=1) return 0;
+            Matrix<double> lMatrix = DenseMatrix.OfArray(Utils.Spectral.LaplacianMatrix(g));
+            Evd<double> evd = lMatrix.Evd(Symmetricity.Symmetric);
+            Vector<Complex> eigenvalues = evd.EigenValues;
+            double x = eigenvalues.ElementAt(g.order - 2).Real;
+            return Utils.Spectral.ApproxToInt(x);
+        }
+        public string getName() { return "Second largest Lapla eigen"; }
+
+        public string getCode() { return "mu2"; }
+
+    }
+
+    public class Eigen1Adjacency : IInvariant
+    {
             public double Calculate(Graph g)
             {
                 if (g.order == 0) return 0;
@@ -75,11 +109,26 @@ namespace GraphFilter.Invariants
                 double x = eigenvalues.ElementAt(g.order - 1).Real;
                 return Utils.Spectral.ApproxToInt(x);
             }
-            public string getName() { return "Spectral Radius"; }
-            public string getCode() { return "lambda"; }
-        }
+            public string getName() { return "Largest adj eigen (index)"; }
+            public string getCode() { return "lambda1"; }
+    }
 
-        public class LaplacianEnergy : IInvariant
+    public class Eigen2Adjacency : IInvariant
+    {
+        public double Calculate(Graph g)
+        {
+            if (g.order <= 1) return 0;
+            Matrix<double> lMatrix = DenseMatrix.OfArray(Utils.Spectral.AdjacencyMatrix(g));
+            Evd<double> evd = lMatrix.Evd(Symmetricity.Symmetric);
+            Vector<Complex> eigenvalues = evd.EigenValues;
+            double x = eigenvalues.ElementAt(g.order - 2).Real;
+            return Utils.Spectral.ApproxToInt(x);
+        }
+        public string getName() { return "Second largest adj eigen"; }
+        public string getCode() { return "lambda2"; }
+    }
+
+    public class LaplacianEnergy : IInvariant
         {
             public double Calculate(Graph g)
             {
@@ -117,8 +166,8 @@ namespace GraphFilter.Invariants
             {
                 if (g.order == 0) return 0;
                 Matrix<double> lMatrix = DenseMatrix.OfArray(Utils.Spectral.LaplacianMatrix(g));
-                lMatrix = lMatrix.RemoveColumn(g.order - 1).RemoveRow(g.order - 1);
-                return (int)lMatrix.Determinant();
+                lMatrix = lMatrix.RemoveColumn(0).RemoveRow(0);
+                return Math.Round(lMatrix.Determinant());
             }
             public string getName() { return "Number of spanning trees"; }
 
@@ -126,7 +175,19 @@ namespace GraphFilter.Invariants
 
         }
 
-        public class Diameter : IInvariant
+    public class Nullity : IInvariant
+    {
+        public double Calculate(Graph g)
+        {
+            if (g.order == 0) return 0;
+            Matrix<double> lMatrix = DenseMatrix.OfArray(Utils.Spectral.AdjacencyMatrix(g));
+            return (int) lMatrix.Nullity();
+        }
+        public string getName() { return "Nullity"; }
+        public string getCode() { return "nul"; }
+    }
+
+    public class Diameter : IInvariant
         {
             public double Calculate(Graph g)
             {
@@ -279,7 +340,7 @@ namespace GraphFilter.Invariants
             public string getCode() { return "Nc"; }
         }
 
-        public class ChromaticNumber : IInvariant
+        /*public class ChromaticNumber : IInvariant
         {
             //book Teoria Computacional de Grafos, algoritmo 5.3
             public double Calculate(Graph g)
@@ -290,7 +351,7 @@ namespace GraphFilter.Invariants
             public string getName() { return "Chromatic Number"; }
 
             public string getCode() { return "chi"; }
-        }
+        }*/
 
         public class EdgeConnectivy : IInvariant
         {
