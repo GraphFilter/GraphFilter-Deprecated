@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Security;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,10 +22,16 @@ namespace GraphFilter
             XmlTextReader reader = null;
             try
             {
+                /*WebPermission myWebPermission = new WebPermission(PermissionState.None);
+                myWebPermission.AddPermission(NetworkAccess.Connect, "http://sistemas.jf.ifsudestemg.edu.br/graphfilter/update/");
+                PermissionSet myPermissions = new PermissionSet(PermissionState.None);
+                myPermissions.AddPermission(myWebPermission);
+                XmlSecureResolver myResolver = new XmlSecureResolver(new XmlUrlResolver(), myPermissions);*/
                 reader = new XmlTextReader(xmlUrl);
+
                 reader.MoveToContent();
                 string elementName = "";
-                if((reader.NodeType == XmlNodeType.Element) && (reader.Name == "graphfilter"))
+                if ((reader.NodeType == XmlNodeType.Element) && (reader.Name == "graphfilter"))
                 {
                     while (reader.Read())
                     {
@@ -48,7 +57,7 @@ namespace GraphFilter
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
@@ -61,7 +70,7 @@ namespace GraphFilter
             Version applicationVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
             if (applicationVersion.CompareTo(newVersion) < 0)
             {
-                DialogResult confirm = System.Windows.Forms.MessageBox.Show("Version" + newVersion.Major + "." + newVersion.Minor + "." + newVersion.Build + "GraphFilter is now available, would you like to download it?","\n", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                DialogResult confirm = System.Windows.Forms.MessageBox.Show("Version" + newVersion.Major + "." + newVersion.Minor + "." + newVersion.Build + "GraphFilter is now available, would you like to download it?", "\n", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
                 if (confirm == DialogResult.Yes)
                 {
                     System.Diagnostics.Process.Start(downloadUrl);

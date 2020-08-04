@@ -20,10 +20,10 @@
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>ftp://64.31.33.10/Update/</PublishUrl>
+    <PublishUrl>C:\Users\denil\Desktop\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateEnabled>false</UpdateEnabled>
     <UpdateMode>Background</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
@@ -32,7 +32,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>http://64.31.33.10/update/</UpdateUrl>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>7</ApplicationRevision>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>8</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -166,9 +167,6 @@
     </Reference>
     <Reference Include="Mono.Cecil.Rocks, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\packages\Mono.Cecil.0.9.6.1\lib\net45\Mono.Cecil.Rocks.dll</HintPath>
-    </Reference>
-    <Reference Include="MRG.Controls.UI">
-      <HintPath>bin\Debug\external\MRG.Controls.UI.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.dll</HintPath>
@@ -392,6 +390,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="graphfilter.ico" />
+    <None Include="Resources\print_321.png" />
     <None Include="Resources\IconeGraphFilter.png" />
     <None Include="Resources\icons8_export_32.png" />
     <None Include="Resources\PNGALL1.ico" />

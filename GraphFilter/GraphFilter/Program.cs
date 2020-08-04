@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GraphFilter.Invariants;
+using MathNet.Numerics;
 
 namespace GraphFilter
 {
@@ -18,8 +19,8 @@ namespace GraphFilter
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Form1 windown = new Form1();
-            Application.Run(windown);         
-
+            Application.Run(windown);
+            windown.Dispose();
         }
     }
 }

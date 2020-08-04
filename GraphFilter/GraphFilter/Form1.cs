@@ -26,7 +26,6 @@ using System.Xml;
 using SharpUpdate;
 using System.Reflection;
 using System.Net;
-using System.IO;
 using Flee.PublicTypes;
 
 namespace GraphFilter
@@ -55,7 +54,7 @@ namespace GraphFilter
 
             foreach (IInvariant invariant in InvariantNum.List())
             {
-                ListOfInvariants.Text += "\n" + invariant.getCode() + ": " + invariant.getName();   
+                ListOfInvariants.Text += "\n" + invariant.getCode() + ": " + invariant.getName();
             }
             ListOfInvariants.Text += "\n" + "\n" + "\n";
             ListOfInvariants.Text += "--- arguments --- \n Graph G \n Complement of graph: cG \n line graph: lG";
@@ -102,12 +101,19 @@ namespace GraphFilter
             string g6Line = "";
             if (listOfG6.SelectedItem != null && listOfG6.SelectedItem.ToString().Length != 0 && listOfG6.SelectedItem.ToString() != " ")
             {
-                g6Line = listOfG6.SelectedItem.ToString();
-                wpfHost.Child = GenerateWpfVisuals(listOfG6.SelectedItem.ToString());
-                _gArea.GenerateGraph(true);
-                _gArea.ShowAllEdgesLabels(false);
-                _gArea.SetVerticesDrag(true, true);
-                _zoomctrl.ZoomToFill();
+                try
+                {
+                    g6Line = listOfG6.SelectedItem.ToString();
+                    wpfHost.Child = GenerateWpfVisuals(listOfG6.SelectedItem.ToString());
+                    _gArea.GenerateGraph(true);
+                    _gArea.ShowAllEdgesLabels(false);
+                    _gArea.SetVerticesDrag(true, true);
+                    _zoomctrl.ZoomToFill();
+                }
+                catch (Exception)
+                {
+                    System.Windows.Forms.MessageBox.Show("Invalid g6!");
+                }   
             }
         }
         #endregion
@@ -119,6 +125,9 @@ namespace GraphFilter
 
             ofd.Filter = "g6 File | *.g6" + "|g6 File in txt | *.txt";
             ofd.ShowDialog();
+            //
+            ofd.Dispose();
+            //
             //abre a janela de please wait!
             if (string.IsNullOrEmpty(ofd.FileName) == false)
             {
@@ -144,6 +153,7 @@ namespace GraphFilter
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "Arquivo g6 | *.g6";
             sfd.ShowDialog();
+            sfd.Dispose();
 
             if (string.IsNullOrEmpty(sfd.FileName) == false)
             {
@@ -169,22 +179,31 @@ namespace GraphFilter
         {
             if (insertG6ToView.Text != null && insertG6ToView.Text.Length != 0 && insertG6ToView.Text != " ")
             {
-                listOfG6.Items.Add((insertG6ToView.Text));
-                listOfG6.SetSelected(0, true);
-                wpfHost.Child = GenerateWpfVisuals(insertG6ToView.Text);
-                _gArea.GenerateGraph(true);
-                _gArea.ShowAllEdgesLabels(false);
-                _gArea.SetVerticesDrag(true, true);
-                _zoomctrl.ZoomToFill();
-                buttonFill.Enabled = true;
-                buttonZoomOriginal.Enabled = true;
-                buttonZoomIn.Enabled = true;
-                buttonZoomOut.Enabled = true;
-                buttonExp2PNG.Enabled = true;
-                buttonPrint.Enabled = true;
-                buttonExportAll.Enabled = true;
-                listOfG6.Visible = true;
-            }   
+                try
+                {
+                    listOfG6.Items.Add((insertG6ToView.Text));
+                    listOfG6.SetSelected(0, true);
+                    wpfHost.Child = GenerateWpfVisuals(insertG6ToView.Text);
+                    _gArea.GenerateGraph(true);
+                    _gArea.ShowAllEdgesLabels(false);
+                    _gArea.SetVerticesDrag(true, true);
+                    _zoomctrl.ZoomToFill();
+                    buttonFill.Enabled = true;
+                    buttonZoomOriginal.Enabled = true;
+                    buttonZoomIn.Enabled = true;
+                    buttonZoomOut.Enabled = true;
+                    buttonExp2PNG.Enabled = true;
+                    buttonPrint.Enabled = true;
+                    buttonExportAll.Enabled = true;
+                    listOfG6.Visible = true;
+                    buttonExportTikZ.Enabled = true;
+                }
+                catch (Exception)
+                {
+                    listOfG6.Items.Remove((insertG6ToView.Text));
+                    System.Windows.Forms.MessageBox.Show("Invalid g6!");
+                }   
+            }
         }
         #endregion
 
@@ -222,8 +241,6 @@ namespace GraphFilter
         #region Visual properties
         private ZoomControl _zoomctrl;
         private GraphAreaView _gArea;
-
-
 
         private UIElement GenerateWpfVisuals(string g6)
         {
@@ -313,11 +330,19 @@ namespace GraphFilter
             {
                 buttonCounterexample.Enabled = false;
                 FilesFilter filesFilter = new FilesFilter(listg6In, textOutPath.Text, this);
-                double[] retorno = filesFilter.Run();
-                System.Windows.Forms.MessageBox.Show("Busca realizada com sucesso! \nO percentual de grafos escolhidos é: " + retorno[2] + " %" + "\nO número de grafos escolhidos foi de: " + retorno[1] + "\nO número total de grafos que foram lidos foi de: " + retorno[0] + ".");
-                progressBar.Value = 0;
-                buttonCounterexample.Enabled = true;
+                try
+                {
+                    double[] retorno = filesFilter.Run();
+                    System.Windows.Forms.MessageBox.Show("Busca realizada com sucesso! \nO percentual de grafos escolhidos é: " + retorno[2] + " %" + "\nO número de grafos escolhidos foi de: " + retorno[1] + "\nO número total de grafos que foram lidos foi de: " + retorno[0] + ".");
+                    progressBar.Value = 0;
+                    
+                }
+                catch (Exception)
+                {
+                    System.Windows.Forms.MessageBox.Show("Invalid g6");;
+                }        
             }
+            buttonCounterexample.Enabled = true;
         }
 
 
@@ -328,15 +353,24 @@ namespace GraphFilter
             {
                 buttonSearch.Enabled = false;
                 FilesFilter filesFilter = new FilesFilter(listg6In, this);
-                string retorno = filesFilter.RunCounterexample();
-                if (retorno == "XX") System.Windows.Forms.MessageBox.Show("No counterexamples found.");
-                else
+                try
                 {
-                    insertG6ToView.Text = retorno;
-                    System.Windows.Forms.MessageBox.Show("Counterexample found, see the Visualization tab");
+                    string retorno = filesFilter.RunCounterexample();
+                    if (retorno == "XX") System.Windows.Forms.MessageBox.Show("No counterexamples found.");
+                    else
+                    {
+                        insertG6ToView.Text = retorno;
+                        System.Windows.Forms.MessageBox.Show("Counterexample found, see the Visualization tab");
+                    }
+
                 }
-                buttonSearch.Enabled = true;
+                catch (Exception)
+                {
+                    System.Windows.Forms.MessageBox.Show("Invalid g6!");;
+                }
             }
+            buttonSearch.Enabled = true;
+            progressBar.Value = 0;
         }
 
         #endregion
@@ -670,8 +704,12 @@ namespace GraphFilter
         {
             OpenFileDialog ofd = new OpenFileDialog();
 
-            ofd.Filter = "g6 File | *.g6" + "g6 File in txt | *.txt";
+            ofd.Filter = "g6 File | *.g6" + "|g6 File in txt | *.txt";
             ofd.ShowDialog();
+            //
+            ofd.Dispose();
+            //
+
             if (string.IsNullOrEmpty(ofd.FileName) == false)
             {
                 try
@@ -679,6 +717,7 @@ namespace GraphFilter
                     List<string> listg6ToView = File.ReadAllLines(ofd.FileName).ToList();
                     fileG6In = ofd.OpenFile();
                     foreach (string item in listg6ToView) listOfG6.Items.Add(item);
+                    listOfG6.SetSelected(0, true);
                     textOpenViz.Text = ofd.FileName;
                     buttonFill.Enabled = true;
                     buttonZoomOriginal.Enabled = true;
@@ -687,11 +726,10 @@ namespace GraphFilter
                     buttonExp2PNG.Enabled = true;
                     buttonPrint.Enabled = true;
                     buttonExportAll.Enabled = true;
-
+                    buttonExportTikZ.Enabled = true;
                 }
                 catch (Exception ex)
                 {
-
                     System.Windows.Forms.MessageBox.Show(string.Format("Não foi possível abrir o seu arquivo, Erro: {0}", ex.Message), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 listOfG6.Visible = true;
@@ -760,6 +798,9 @@ namespace GraphFilter
             {
                 System.Windows.Forms.MessageBox.Show("New update is available!" + "\nYou can download it by accessing our website.", "GraphFilter - Update Available", MessageBoxButtons.OK);
             }
+            //
+            sr.Dispose();
+            //
         }
 
         private void ListOfInvariants_Click(object sender, EventArgs e)
@@ -775,29 +816,91 @@ namespace GraphFilter
         private void buttonExportAll_Click(object sender, EventArgs e)
         {
             int count = listOfG6.Items.Count;
-
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.Description = "Select file to export all graphs";
             fbd.ShowDialog();
             var path = fbd.SelectedPath;
-            if (path.Length != 0)
+            try
             {
-                metroProgressSpinner.Value = 0;
-                metroProgressSpinner.Visible = true;
-                for (int i = 0; i < count; i++)
+                if (path.Length != 0)
                 {
-                    if (metroProgressSpinner.Value == 100) metroProgressSpinner.Value = 0;
-                    wpfHost.Child = GenerateWpfVisual2Export(listOfG6.Items[i].ToString());
-                    _gArea.GenerateGraph(true);
-                    _gArea.ShowAllEdgesLabels(false);
-                    _gArea.SetVerticesDrag(true, true);
-                    _gArea.ExportAsImage(fbd.SelectedPath + "\\" + i + ".png", ImageType.PNG, false, 96, 100);
-                    metroProgressSpinner.Value++;
+                    metroProgressSpinner.Value = 0;  
+                    for (int i = 0; i < count; i++)
+                    {
+                        if (metroProgressSpinner.Value == 100) metroProgressSpinner.Value = 0;
+                        wpfHost.Child = GenerateWpfVisual2Export(listOfG6.Items[i].ToString());
+                        metroProgressSpinner.Visible = true;
+                        _gArea.GenerateGraph(true);
+                        _gArea.ShowAllEdgesLabels(false);
+                        _gArea.SetVerticesDrag(true, true);
+                        _gArea.ExportAsImage(fbd.SelectedPath + "\\" + i + ".png", ImageType.PNG, false, 96, 100);
+                        metroProgressSpinner.Value++;
+                    }
+                    System.Windows.Forms.MessageBox.Show("Export finished!");
                 }
-                metroProgressSpinner.Visible = false;
-                metroProgressSpinner.Enabled = false;
-                System.Windows.Forms.MessageBox.Show("Export finished!");
-            } 
+                fbd.Dispose();
+            }
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("Invalid g6!");
+
+            }
+            metroProgressSpinner.Visible = false;
+            metroProgressSpinner.Enabled = false;
+        }
+
+        private void buttonExportTikZ_Click(object sender, EventArgs e)
+        {
+            string bar = Convert.ToChar(28).ToString();
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Arquivo de Texto | *.txt";
+            sfd.ShowDialog();
+
+
+            string g6 = listOfG6.SelectedItem.ToString();
+            try
+            {
+                Graph g = new Graph(g6);
+                int n = g.order;
+
+                string tikZ = "\\begin{tikzpicture}[transform shape,line width=0.2pt]\n" + "\\foreach" + " \\x in {1,...," + n
+                    + "}%\n" + "\\pgfmathparse{(x-1)*45+floor(" + "\\x/9)*22.5}\n" + "\\node[draw,circle,inner sep=0.25cm] (N-" + "\\x) at (" +
+                    "\\pgfmathresult:5.4cm) [thick] {};\n}";
+
+                foreach (int[] item in g.Edges())
+                {
+                    tikZ = tikZ + "\n" + "\\path (" + item[0] + ") edge[-] (" + item[1] + ");";
+                }
+
+                tikZ += "\n" + "\\end{ tikzpicture}";
+
+                if (string.IsNullOrEmpty(sfd.FileName) == false)
+                {
+                    try
+                    {
+                        using (StreamWriter writer = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
+                        {
+                            writer.Write(tikZ);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        System.Windows.Forms.MessageBox.Show("Não foi possível salvar o seu arquivo.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("Invalid g6!");
+            }
+            
+            //Modifiquei aqui para corrigir o aviso CA2000
+            sfd.Dispose();
+        }
+
+        private void enableLintegral_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

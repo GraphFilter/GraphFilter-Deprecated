@@ -21,13 +21,13 @@ namespace GraphFilter
         public Graph(string graph6code)
         {
             adjacencyMatrix = Conversor.Graph6toAdjMatrix(graph6code);
-            order = (int) Math.Sqrt(adjacencyMatrix.Length);
+            order = (int)Math.Sqrt(adjacencyMatrix.Length);
             sequenceDegree = SequenceDegree();
             g6code = graph6code;
         }
 
         public Graph(int[,] adjMatrix)
-        {  
+        {
             adjacencyMatrix = adjMatrix;
             order = (int)Math.Sqrt(adjacencyMatrix.Length);
             sequenceDegree = SequenceDegree();
@@ -41,7 +41,7 @@ namespace GraphFilter
 
         public List<int> N(int i) //neighbourhood
         {
-            List<int> neighbourhood = new List<int>(order-1);
+            List<int> neighbourhood = new List<int>(order - 1);
             for (int j = 0; j < order; j++)
             {
                 if (adjacencyMatrix[i, j] == 1) neighbourhood.Add(j);
@@ -73,7 +73,7 @@ namespace GraphFilter
         public int[] Vertices()
         {
             int[] vertices = new int[this.order];
-            for (int i = 0; i < this.order; i++)  vertices[i] = i;
+            for (int i = 0; i < this.order; i++) vertices[i] = i;
             return vertices;
         }
 
@@ -81,7 +81,7 @@ namespace GraphFilter
         {
             List<int[]> edges = new List<int[]>();
             for (int i = 0; i < order; i++)
-                for (int j = i+1; j < order; j++)
+                for (int j = i + 1; j < order; j++)
                     if (this.adjacent(i, j)) edges.Add(new int[2] { i, j });
             return edges;
         }
@@ -89,7 +89,7 @@ namespace GraphFilter
         public int[] NoEdge()
         {
             for (int i = 0; i < order; i++)
-                for (int j = i+1; j < order; j++)
+                for (int j = i + 1; j < order; j++)
                     if (adjacencyMatrix[i, j] == 0) return new int[2] { i, j };
             return null;
         }

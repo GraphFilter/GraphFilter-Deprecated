@@ -20,79 +20,67 @@ namespace SharpUpdate
 
         public static DialogResult Show(string text)
         {
-            Initialize();
             return MessageBox.Show(text);
         }
 
         public static DialogResult Show(string text, string caption)
         {
-            Initialize();
             return MessageBox.Show(text, caption);
         }
 
         public static DialogResult Show(string text, string caption, MessageBoxButtons buttons)
         {
-            Initialize();
             return MessageBox.Show(text, caption, buttons);
         }
 
         public static DialogResult Show(string text, string caption, MessageBoxButtons buttons, MessageBoxIcon icon)
         {
-            Initialize();
             return MessageBox.Show(text, caption, buttons, icon);
         }
 
         public static DialogResult Show(string text, string caption, MessageBoxButtons buttons, MessageBoxIcon icon, MessageBoxDefaultButton defButton)
         {
-            Initialize();
             return MessageBox.Show(text, caption, buttons, icon, defButton);
         }
 
         public static DialogResult Show(string text, string caption, MessageBoxButtons buttons, MessageBoxIcon icon, MessageBoxDefaultButton defButton, MessageBoxOptions options)
         {
-            Initialize();
             return MessageBox.Show(text, caption, buttons, icon, defButton, options);
         }
 
         public static DialogResult Show(IWin32Window owner, string text)
         {
             _owner = owner;
-            Initialize();
             return MessageBox.Show(owner, text);
         }
 
         public static DialogResult Show(IWin32Window owner, string text, string caption)
         {
             _owner = owner;
-            Initialize();
             return MessageBox.Show(owner, text, caption);
         }
 
         public static DialogResult Show(IWin32Window owner, string text, string caption, MessageBoxButtons buttons)
         {
             _owner = owner;
-            Initialize();
             return MessageBox.Show(owner, text, caption, buttons);
         }
 
         public static DialogResult Show(IWin32Window owner, string text, string caption, MessageBoxButtons buttons, MessageBoxIcon icon)
         {
             _owner = owner;
-            Initialize();
             return MessageBox.Show(owner, text, caption, buttons, icon);
         }
 
         public static DialogResult Show(IWin32Window owner, string text, string caption, MessageBoxButtons buttons, MessageBoxIcon icon, MessageBoxDefaultButton defButton)
         {
             _owner = owner;
-            Initialize();
             return MessageBox.Show(owner, text, caption, buttons, icon, defButton);
         }
 
         public static DialogResult Show(IWin32Window owner, string text, string caption, MessageBoxButtons buttons, MessageBoxIcon icon, MessageBoxDefaultButton defButton, MessageBoxOptions options)
         {
             _owner = owner;
-            Initialize();
             return MessageBox.Show(owner, text, caption, buttons, icon,
                                    defButton, options);
         }
@@ -100,7 +88,6 @@ namespace SharpUpdate
         public static DialogResult Show(IWin32Window owner, string text, string caption, int timeout, MessageBoxButtons buttons = MessageBoxButtons.OK, DialogResult timerResult = DialogResult.None)
         {
             _owner = owner;
-            Initialize();
             return new MessageBoxEx(text, caption, timeout, buttons, timerResult)._result;
         }
 
@@ -173,6 +160,7 @@ namespace SharpUpdate
             _hHook = IntPtr.Zero;
         }
 
+        [Obsolete]
         private static void Initialize()
         {
             if (_hHook != IntPtr.Zero)

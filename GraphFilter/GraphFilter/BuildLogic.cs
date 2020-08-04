@@ -40,8 +40,8 @@ namespace GraphFilter
         #region Equation and Conditon
         public static bool EvaluateText(string text, Graph g)
         {
-        if (text.Count() == 0) return true;
-            
+        if (text.Any()) return true;
+            //Alterei de text.count() == 0 para text.any()
             ExpressionContext context = new ExpressionContext();
             VariableCollection variables = context.Variables;
 
@@ -60,8 +60,8 @@ namespace GraphFilter
 
         public static bool ValidadeEquation(string text)
         {
-            if (text.Count() == 0) return true;
-
+            if (text.Any()) return true;
+            //alterei para text.any() também
             ExpressionContext context = new ExpressionContext();
             VariableCollection variables = context.Variables;
 

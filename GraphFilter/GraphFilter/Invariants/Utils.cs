@@ -204,7 +204,6 @@ namespace GraphFilter.Invariants
         public static class Coloring
         {
             private static int chi;
-            private static Graph graph;
 
             private static Graph Alpha(int v, int w, Graph g)
             {

@@ -272,11 +272,10 @@ namespace GraphFilter.Invariants
 
         public class CliqueNumber : IInvariant
         {
-            private static HashSet<int> U;
             public double Calculate(Graph g)
             {
                 if (g.order == 0) return 0;
-                return Utils.Clique.MaxClique(g, 0, 0, U);
+                return Utils.Clique.MaxClique(g, 0, 0, new HashSet<int>());
             }
             public string getName() { return "Clique Number"; }
 
