@@ -9,6 +9,10 @@ using HamiltonianGraph;
 using System.Drawing.Text;
 using GraphPlanarityTesting.Graphs.Algorithms;
 using System.Windows.Navigation;
+using MathNet.Numerics.LinearAlgebra;
+using MathNet.Numerics.LinearAlgebra.Double;
+using MathNet.Numerics.LinearAlgebra.Factorization;
+using System.Numerics;
 
 namespace GraphFilter.Invariants
 {
@@ -118,6 +122,134 @@ namespace GraphFilter.Invariants
             }
 
             public static string getName() { return "Is a Hamiltonian Graph?"; }
+        }
+
+        public class Largest_A_IsInteger
+        {
+            public static bool Calculate(Graph g)
+            {
+                if (g.order == 0) return true;
+                Matrix<double> lMatrix = DenseMatrix.OfArray(Utils.Spectral.AdjacencyMatrix(g));
+                Evd<double> evd = lMatrix.Evd(Symmetricity.Symmetric);
+                Vector<Complex> eigenvalues = evd.EigenValues;
+                double x = eigenvalues.ElementAt(g.order - 1).Real;
+                return Utils.Spectral.ApproxToInt(x) % 1 == 0;
+            }
+            public string getName() { return "Largest adj eigen Integer"; }
+        }
+
+        public class Largest_L_IsInteger
+        {
+            public static bool Calculate(Graph g)
+            {
+                if (g.order == 0) return true;
+                Matrix<double> lMatrix = DenseMatrix.OfArray(Utils.Spectral.LaplacianMatrix(g));
+                Evd<double> evd = lMatrix.Evd(Symmetricity.Symmetric);
+                Vector<Complex> eigenvalues = evd.EigenValues;
+                double x = eigenvalues.ElementAt(g.order - 1).Real;
+                return Utils.Spectral.ApproxToInt(x) % 1 == 0;
+            }
+            public string getName() { return "Largest Laplacian eigen Integer"; }
+        }
+
+        public class Largest_Q_IsInteger
+        {
+            public static bool Calculate(Graph g)
+            {
+                if (g.order == 0) return true;
+                Matrix<double> lMatrix = DenseMatrix.OfArray(Utils.Spectral.LaplacianMatrix(g));
+                Evd<double> evd = lMatrix.Evd(Symmetricity.Symmetric);
+                Vector<Complex> eigenvalues = evd.EigenValues;
+                double x = eigenvalues.ElementAt(g.order - 1).Real;
+                return Utils.Spectral.ApproxToInt(x) % 1 == 0;
+            }
+            public string getName() { return "Largest Laplacian eigen Integer"; }
+        }
+
+        public class A_Integral
+        {
+            public static bool Calculate(Graph g)
+            {
+                if (g.order == 0) return true;
+                Matrix<double> lMatrix = DenseMatrix.OfArray(Utils.Spectral.AdjacencyMatrix(g));
+                Evd<double> evd = lMatrix.Evd(Symmetricity.Symmetric);
+                Vector<Complex> eigenvalues = evd.EigenValues;
+                foreach (Complex eig in eigenvalues)
+                {
+                    if (Utils.Spectral.ApproxToInt(eig.Real) % 1 != 0) return false;
+                }
+                return true;
+            }
+            public string getName() { return "Integral Adjacency Spectrum"; }
+        }
+
+        public class L_integral
+        {
+            public static bool Calculate(Graph g)
+            {
+                if (g.order == 0) return true;
+                Matrix<double> lMatrix = DenseMatrix.OfArray(Utils.Spectral.LaplacianMatrix(g));
+                Evd<double> evd = lMatrix.Evd(Symmetricity.Symmetric);
+                Vector<Complex> eigenvalues = evd.EigenValues;
+                foreach (Complex eig in eigenvalues)
+                {
+                    if (Utils.Spectral.ApproxToInt(eig.Real) % 1 != 0) return false;
+                }
+                return true;
+            }
+            public string getName() { return "Integral Laplacian Spectrum"; }
+        }
+
+        public class Q_integral
+        {
+            public static bool Calculate(Graph g)
+            {
+                return true;
+            }
+            public string getName() { return "Integral Laplacian Spectrum"; }
+        }
+
+        public class SomeEig_A_integer
+        {
+            public static bool Calculate(Graph g)
+            {
+                if (g.order == 0) return true;
+                Matrix<double> lMatrix = DenseMatrix.OfArray(Utils.Spectral.AdjacencyMatrix(g));
+                Evd<double> evd = lMatrix.Evd(Symmetricity.Symmetric);
+                Vector<Complex> eigenvalues = evd.EigenValues;
+                foreach (Complex eig in eigenvalues)
+                {
+                    if (Utils.Spectral.ApproxToInt(eig.Real) % 1 == 0) return true;
+                }
+                return false;
+            }
+            public string getName() { return "Integral Laplacian Spectrum"; }
+        }
+
+        public class SomeEig_L_integer
+        {
+            public static bool Calculate(Graph g)
+            {
+                if (g.order == 0) return true;
+                Matrix<double> lMatrix = DenseMatrix.OfArray(Utils.Spectral.LaplacianMatrix(g));
+                Evd<double> evd = lMatrix.Evd(Symmetricity.Symmetric);
+                Vector<Complex> eigenvalues = evd.EigenValues;
+                foreach (Complex eig in eigenvalues)
+                {
+                    if (Utils.Spectral.ApproxToInt(eig.Real) % 1 == 0) return true;
+                }
+                return false;
+            }
+            public string getName() { return "Integral Laplacian Spectrum"; }
+        }
+
+        public class SomeEig_Q_integer
+        {
+            public static bool Calculate(Graph g)
+            {
+                return false;
+            }
+            public string getName() { return "Integral Laplacian Spectrum"; }
         }
     }
 }

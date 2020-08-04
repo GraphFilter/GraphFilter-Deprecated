@@ -79,7 +79,6 @@ namespace GraphFilter.Invariants
 
         public static class Spectral
         {
-
             public static double[,] AdjacencyMatrix(Graph g)
             {
                 double[,] matrix = new double[g.order, g.order];
@@ -200,66 +199,6 @@ namespace GraphFilter.Invariants
                 if (A.Contains(x)) aIntb.Add(x);
             return aIntb;
         }
-
-        public static class Coloring
-        {
-            private static int chi;
-            private static Graph graph;
-
-            private static Graph Alpha(int v, int w, Graph g)
-            {
-                //baseado no Algoritmo 5.3 do Livro Jayme.
-                int[,] alphaMatrix = g.adjacencyMatrix;
-                alphaMatrix[v, w] = 1;
-                alphaMatrix[w, v] = 1;
-                return new Graph(alphaMatrix);
-            }
-
-            private static Graph Beta(int v, int w, Graph g)
-            {
-                Matrix<double> beta = MathNet.Numerics.LinearAlgebra.Double.DenseMatrix.OfArray(Spectral.AdjacencyMatrix(g));
-                for (int k = 0; k < g.order; k++)
-                {
-                    if (beta[v, k] + beta[w, k] > 0) beta[v, k] = 1;
-                    else beta[v, k] = 0;
-                    if (beta[k, v] + beta[k, w] > 0) beta[k, v] = 1;
-                    else beta[k, v] = 0;
-                }
-                beta = beta.RemoveColumn(w).RemoveRow(w);
-                int[,] betaSub = new int[g.order - 1, g.order - 1];
-                for (int i = 0; i < g.order - 1; i++) for (int j = 0; j < g.order - 1; j++) betaSub[i, j] = (int)beta[i, j];
-                return new Graph(betaSub);
-            }
-
-            private static void Cor(Graph g)
-            {
-                int[] noEdge = g.NoEdge();
-                if (noEdge == null)
-                {
-                    chi = Math.Min(chi, g.order);
-                    if (g.order == 6)
-                    {
-                        int m = g.order;
-                    }
-                }
-                else
-                {
-                    Cor(Beta(noEdge[0], noEdge[1], g));
-                    Cor(Alpha(noEdge[0], noEdge[1], g));
-
-                }
-            }
-
-            public static int Calculate(Graph g)
-            {
-                chi = g.order;
-                Cor(g);
-                return chi;
-            }
-
-            
-        }
-
 
     }
 }

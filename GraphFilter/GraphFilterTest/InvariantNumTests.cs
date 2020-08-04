@@ -36,6 +36,7 @@ namespace GraphFilter.Invariant.Tests
         NumberSpanningTree spnt = new NumberSpanningTree();
         Nullity nul = new Nullity();
         Order n = new Order();
+        ChromaticNumber chi = new ChromaticNumber();
 
         public double Execute(string file, string condition)
         {
@@ -80,7 +81,7 @@ namespace GraphFilter.Invariant.Tests
         {
             Assert.IsTrue(ExecuteOnlyTrue("algCon3-4", "3<="+ac.getCode()+ "_G AND " + ac.getCode() + "_G<= 4"));
             Assert.IsTrue(ExecuteOnlyTrue("spectralRadius5-6", lambda1.getCode() + "_G<=6"));
-            Assert.IsTrue(ExecuteOnlyTrue("trees_n14", nul.getCode() + "_G = " + n.getCode() + "_G-2*" + Mx.getCode() + "_G"));
+            Assert.IsTrue(ExecuteOnlyTrue("trees14", nul.getCode() + "_G = " + n.getCode() + "_G-2*" + Mx.getCode() + "_G"));
 
         }
 
@@ -131,12 +132,12 @@ namespace GraphFilter.Invariant.Tests
             Assert.IsTrue(ExecuteOnlyTrue("all_graph8", Mx.getCode() + "_G="+ alpha.getCode()+"_lG"));
         }
 
-        /*[TestMethod()]
+        [TestMethod()]
         public void ChromaticNumber()
         {
-            var i = new ChromaticNumber();
-            Assert.AreEqual(100, Execute("chromaticNumber6", i.getCode() + "=6"));
-        }*/
+            Assert.IsTrue(ExecuteOnlyTrue("chromaticNumber6", chi.getCode() + "_G=6"));
+            Assert.IsTrue(ExecuteOnlyTrue("trees14", chi.getCode() + "_G=2"));
+        }
 
         [TestMethod()]
         public void EdgeConnectivy()
@@ -169,7 +170,7 @@ namespace GraphFilter.Invariant.Tests
         public void NumberOfSpnTrees()
         {
             var i = new NumberSpanningTree();
-            Assert.IsTrue(ExecuteOnlyTrue("trees_n14", spnt.getCode() + "_G=1"));
+            Assert.IsTrue(ExecuteOnlyTrue("trees14", spnt.getCode() + "_G=1"));
         }
 
 
@@ -189,7 +190,7 @@ namespace GraphFilter.Invariant.Tests
         [TestMethod()]
         public void BigFiles()
         {
-            //var chi = new ChromaticNumber();
+            var chi = new ChromaticNumber();
             //Assert.IsTrue(ExecuteOnlyTrue("BIG_chromatic5", chi.getCode() + "_G=5")); 
             //Assert.IsTrue(ExecuteOnlyTrue("independenceNumberMaiorIgual5", alpha.getCode() + "_G>=5"));
 
