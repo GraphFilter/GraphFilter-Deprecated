@@ -258,11 +258,7 @@ namespace GraphFilter.Invariants
             public double Calculate(Graph g)
             {
                 if (g.order == 0) return 0;
-                int m = 0;
-                for (int i = 0; i < g.order; i++)
-                    for (int j = i + 1; j < g.order; j++)
-                        m = m + g.adjacencyMatrix[i, j];
-                return m;
+                return g.NumberEdges();
             }
 
             public string getName() { return "Number of Edges"; }
@@ -339,18 +335,19 @@ namespace GraphFilter.Invariants
             public string getCode() { return "Nc"; }
         }
 
-        /*public class ChromaticNumber : IInvariant
+        public class ChromaticNumber : IInvariant
         {
             //book Teoria Computacional de Grafos, algoritmo 5.3
             public double Calculate(Graph g)
             {
                 if (g.order == 0) return 0;
-                return Utils.Coloring.Calculate(g);
+                UtilsColoring coloring = new UtilsColoring();
+                return coloring.Calculate(g);
             }
             public string getName() { return "Chromatic Number"; }
 
             public string getCode() { return "chi"; }
-        }*/
+        }
 
         public class EdgeConnectivy : IInvariant
         {

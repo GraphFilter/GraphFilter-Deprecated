@@ -91,29 +91,16 @@ namespace GraphFilter
             for (int i = 0; i < order; i++)
                 for (int j = i + 1; j < order; j++)
                     if (adjacencyMatrix[i, j] == 0) return new int[2] { i, j };
-            return null;
+            return new int[2] { 0, 0 };
         }
 
-
-        public bool InsertEdge(int i, int j)
+        public double NumberEdges()
         {
-            if (i != j)
-            {
-                adjacencyMatrix[i, j] = 1;
-                adjacencyMatrix[j, i] = 1;
-                return true;
-            }
-            else return false;
-        }
-        public bool RemoveEdge(int i, int j)
-        {
-            if (adjacencyMatrix[i, j] == 1)
-            {
-                adjacencyMatrix[i, j] = 0;
-                adjacencyMatrix[j, i] = 0;
-                return true;
-            }
-            else return false;
+            int m = 0;
+            for (int i = 0; i < order; i++)
+                for (int j = i + 1; j < order; j++)
+                    m = m + adjacencyMatrix[i, j];
+            return m;
         }
 
     }
