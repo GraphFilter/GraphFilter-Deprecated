@@ -33,6 +33,25 @@
             this.ColunaInvariant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColunaResultado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxCondition = new System.Windows.Forms.GroupBox();
+            this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
+            this.enableSome_Q_integer = new JCS.ToggleSwitch();
+            this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
+            this.enableSome_L_integer = new JCS.ToggleSwitch();
+            this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
+            this.enable_Q_integral = new JCS.ToggleSwitch();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.enableSome_A_integer = new JCS.ToggleSwitch();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.enableLarg_Q_integer = new JCS.ToggleSwitch();
+            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+            this.enable_L_integral = new JCS.ToggleSwitch();
+            this.enable_A_integral = new JCS.ToggleSwitch();
+            this.enableLarg_L_integer = new JCS.ToggleSwitch();
+            this.enableLarg_A_integer = new JCS.ToggleSwitch();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
@@ -83,25 +102,6 @@
             this.lblVersion = new MetroFramework.Controls.MetroLabel();
             this.chkUpdBtn = new MetroFramework.Controls.MetroButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.enableLargAinteger = new JCS.ToggleSwitch();
-            this.enableLargLinteger = new JCS.ToggleSwitch();
-            this.enableAintegral = new JCS.ToggleSwitch();
-            this.enableLintegral = new JCS.ToggleSwitch();
-            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
-            this.enableLargQinteger = new JCS.ToggleSwitch();
-            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
-            this.enableSomeAinteger = new JCS.ToggleSwitch();
-            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
-            this.enableQintegral = new JCS.ToggleSwitch();
-            this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
-            this.enableSomeLinteger = new JCS.ToggleSwitch();
-            this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
-            this.enableSomeQinteger = new JCS.ToggleSwitch();
             ((System.ComponentModel.ISupportInitialize)(this.listInvResults)).BeginInit();
             this.groupBoxCondition.SuspendLayout();
             this.groupBoxEq.SuspendLayout();
@@ -122,9 +122,9 @@
             this.listInvResults.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColunaInvariant,
             this.ColunaResultado});
-            this.listInvResults.Location = new System.Drawing.Point(204, 128);
-            this.listInvResults.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listInvResults.MinimumSize = new System.Drawing.Size(429, 199);
+            this.listInvResults.Location = new System.Drawing.Point(153, 104);
+            this.listInvResults.Margin = new System.Windows.Forms.Padding(2);
+            this.listInvResults.MinimumSize = new System.Drawing.Size(322, 162);
             this.listInvResults.MultiSelect = false;
             this.listInvResults.Name = "listInvResults";
             this.listInvResults.RowHeadersWidth = 51;
@@ -132,7 +132,7 @@
             this.listInvResults.RowTemplate.Height = 24;
             this.listInvResults.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.listInvResults.ShowRowErrors = false;
-            this.listInvResults.Size = new System.Drawing.Size(429, 340);
+            this.listInvResults.Size = new System.Drawing.Size(322, 276);
             this.listInvResults.TabIndex = 0;
             this.listInvResults.Visible = false;
             this.listInvResults.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listInvResults_CellContentClick);
@@ -155,24 +155,24 @@
             // 
             this.groupBoxCondition.BackColor = System.Drawing.SystemColors.Window;
             this.groupBoxCondition.Controls.Add(this.metroLabel16);
-            this.groupBoxCondition.Controls.Add(this.enableSomeQinteger);
+            this.groupBoxCondition.Controls.Add(this.enableSome_Q_integer);
             this.groupBoxCondition.Controls.Add(this.metroLabel15);
-            this.groupBoxCondition.Controls.Add(this.enableSomeLinteger);
+            this.groupBoxCondition.Controls.Add(this.enableSome_L_integer);
             this.groupBoxCondition.Controls.Add(this.metroLabel14);
-            this.groupBoxCondition.Controls.Add(this.enableQintegral);
+            this.groupBoxCondition.Controls.Add(this.enable_Q_integral);
             this.groupBoxCondition.Controls.Add(this.metroLabel13);
             this.groupBoxCondition.Controls.Add(this.metroLabel12);
-            this.groupBoxCondition.Controls.Add(this.enableSomeAinteger);
+            this.groupBoxCondition.Controls.Add(this.enableSome_A_integer);
             this.groupBoxCondition.Controls.Add(this.metroLabel11);
-            this.groupBoxCondition.Controls.Add(this.enableLargQinteger);
+            this.groupBoxCondition.Controls.Add(this.enableLarg_Q_integer);
             this.groupBoxCondition.Controls.Add(this.metroLabel10);
             this.groupBoxCondition.Controls.Add(this.metroLabel9);
             this.groupBoxCondition.Controls.Add(this.metroLabel8);
             this.groupBoxCondition.Controls.Add(this.metroLabel7);
-            this.groupBoxCondition.Controls.Add(this.enableLintegral);
-            this.groupBoxCondition.Controls.Add(this.enableAintegral);
-            this.groupBoxCondition.Controls.Add(this.enableLargLinteger);
-            this.groupBoxCondition.Controls.Add(this.enableLargAinteger);
+            this.groupBoxCondition.Controls.Add(this.enable_L_integral);
+            this.groupBoxCondition.Controls.Add(this.enable_A_integral);
+            this.groupBoxCondition.Controls.Add(this.enableLarg_L_integer);
+            this.groupBoxCondition.Controls.Add(this.enableLarg_A_integer);
             this.groupBoxCondition.Controls.Add(this.metroLabel4);
             this.groupBoxCondition.Controls.Add(this.metroLabel5);
             this.groupBoxCondition.Controls.Add(this.metroLabel6);
@@ -186,22 +186,251 @@
             this.groupBoxCondition.Controls.Add(this.enableRegularWithK);
             this.groupBoxCondition.Controls.Add(this.enableRegular);
             this.groupBoxCondition.Controls.Add(this.paramRegularWithDegree);
-            this.groupBoxCondition.Location = new System.Drawing.Point(0, 103);
-            this.groupBoxCondition.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxCondition.Location = new System.Drawing.Point(0, 84);
+            this.groupBoxCondition.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxCondition.Name = "groupBoxCondition";
-            this.groupBoxCondition.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxCondition.Size = new System.Drawing.Size(617, 356);
+            this.groupBoxCondition.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBoxCondition.Size = new System.Drawing.Size(463, 289);
             this.groupBoxCondition.TabIndex = 8;
             this.groupBoxCondition.TabStop = false;
             this.groupBoxCondition.Text = "Condition";
+            // 
+            // metroLabel16
+            // 
+            this.metroLabel16.AutoSize = true;
+            this.metroLabel16.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel16.Location = new System.Drawing.Point(58, 258);
+            this.metroLabel16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.metroLabel16.Name = "metroLabel16";
+            this.metroLabel16.Size = new System.Drawing.Size(200, 19);
+            this.metroLabel16.TabIndex = 85;
+            this.metroLabel16.Text = "Some eigen signless lap integer";
+            // 
+            // enableSome_Q_integer
+            // 
+            this.enableSome_Q_integer.Location = new System.Drawing.Point(8, 258);
+            this.enableSome_Q_integer.Margin = new System.Windows.Forms.Padding(2);
+            this.enableSome_Q_integer.MaximumSize = new System.Drawing.Size(45, 20);
+            this.enableSome_Q_integer.MinimumSize = new System.Drawing.Size(45, 20);
+            this.enableSome_Q_integer.Name = "enableSome_Q_integer";
+            this.enableSome_Q_integer.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableSome_Q_integer.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableSome_Q_integer.Size = new System.Drawing.Size(45, 20);
+            this.enableSome_Q_integer.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
+            this.enableSome_Q_integer.TabIndex = 84;
+            // 
+            // metroLabel15
+            // 
+            this.metroLabel15.AutoSize = true;
+            this.metroLabel15.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel15.Location = new System.Drawing.Point(58, 226);
+            this.metroLabel15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.metroLabel15.Name = "metroLabel15";
+            this.metroLabel15.Size = new System.Drawing.Size(183, 19);
+            this.metroLabel15.TabIndex = 83;
+            this.metroLabel15.Text = "Some eigen laplacian integer";
+            // 
+            // enableSome_L_integer
+            // 
+            this.enableSome_L_integer.Location = new System.Drawing.Point(8, 226);
+            this.enableSome_L_integer.Margin = new System.Windows.Forms.Padding(2);
+            this.enableSome_L_integer.MaximumSize = new System.Drawing.Size(45, 20);
+            this.enableSome_L_integer.MinimumSize = new System.Drawing.Size(45, 20);
+            this.enableSome_L_integer.Name = "enableSome_L_integer";
+            this.enableSome_L_integer.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableSome_L_integer.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableSome_L_integer.Size = new System.Drawing.Size(45, 20);
+            this.enableSome_L_integer.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
+            this.enableSome_L_integer.TabIndex = 82;
+            // 
+            // metroLabel14
+            // 
+            this.metroLabel14.AutoSize = true;
+            this.metroLabel14.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel14.Location = new System.Drawing.Point(394, 193);
+            this.metroLabel14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.metroLabel14.Name = "metroLabel14";
+            this.metroLabel14.Size = new System.Drawing.Size(73, 19);
+            this.metroLabel14.TabIndex = 81;
+            this.metroLabel14.Text = "Q-Integral";
+            // 
+            // enable_Q_integral
+            // 
+            this.enable_Q_integral.Location = new System.Drawing.Point(344, 193);
+            this.enable_Q_integral.Margin = new System.Windows.Forms.Padding(2);
+            this.enable_Q_integral.MaximumSize = new System.Drawing.Size(45, 20);
+            this.enable_Q_integral.MinimumSize = new System.Drawing.Size(45, 20);
+            this.enable_Q_integral.Name = "enable_Q_integral";
+            this.enable_Q_integral.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enable_Q_integral.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enable_Q_integral.Size = new System.Drawing.Size(45, 20);
+            this.enable_Q_integral.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
+            this.enable_Q_integral.TabIndex = 79;
+            // 
+            // metroLabel13
+            // 
+            this.metroLabel13.AutoSize = true;
+            this.metroLabel13.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel13.Location = new System.Drawing.Point(58, 193);
+            this.metroLabel13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(190, 19);
+            this.metroLabel13.TabIndex = 78;
+            this.metroLabel13.Text = "Some eigen adjacency integer";
+            // 
+            // metroLabel12
+            // 
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel12.Location = new System.Drawing.Point(58, 161);
+            this.metroLabel12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(211, 19);
+            this.metroLabel12.TabIndex = 77;
+            this.metroLabel12.Text = "Largest eigen signless lap integer";
+            // 
+            // enableSome_A_integer
+            // 
+            this.enableSome_A_integer.Location = new System.Drawing.Point(8, 193);
+            this.enableSome_A_integer.Margin = new System.Windows.Forms.Padding(2);
+            this.enableSome_A_integer.MaximumSize = new System.Drawing.Size(45, 20);
+            this.enableSome_A_integer.MinimumSize = new System.Drawing.Size(45, 20);
+            this.enableSome_A_integer.Name = "enableSome_A_integer";
+            this.enableSome_A_integer.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableSome_A_integer.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableSome_A_integer.Size = new System.Drawing.Size(45, 20);
+            this.enableSome_A_integer.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
+            this.enableSome_A_integer.TabIndex = 76;
+            // 
+            // metroLabel11
+            // 
+            this.metroLabel11.AutoSize = true;
+            this.metroLabel11.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel11.Location = new System.Drawing.Point(58, 194);
+            this.metroLabel11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(0, 0);
+            this.metroLabel11.TabIndex = 75;
+            // 
+            // enableLarg_Q_integer
+            // 
+            this.enableLarg_Q_integer.Location = new System.Drawing.Point(8, 161);
+            this.enableLarg_Q_integer.Margin = new System.Windows.Forms.Padding(2);
+            this.enableLarg_Q_integer.MaximumSize = new System.Drawing.Size(45, 20);
+            this.enableLarg_Q_integer.MinimumSize = new System.Drawing.Size(45, 20);
+            this.enableLarg_Q_integer.Name = "enableLarg_Q_integer";
+            this.enableLarg_Q_integer.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableLarg_Q_integer.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableLarg_Q_integer.Size = new System.Drawing.Size(45, 20);
+            this.enableLarg_Q_integer.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
+            this.enableLarg_Q_integer.TabIndex = 74;
+            // 
+            // metroLabel10
+            // 
+            this.metroLabel10.AutoSize = true;
+            this.metroLabel10.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel10.Location = new System.Drawing.Point(394, 161);
+            this.metroLabel10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.metroLabel10.Name = "metroLabel10";
+            this.metroLabel10.Size = new System.Drawing.Size(69, 19);
+            this.metroLabel10.TabIndex = 73;
+            this.metroLabel10.Text = "L-Integral";
+            // 
+            // metroLabel9
+            // 
+            this.metroLabel9.AutoSize = true;
+            this.metroLabel9.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel9.Location = new System.Drawing.Point(394, 128);
+            this.metroLabel9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.metroLabel9.Name = "metroLabel9";
+            this.metroLabel9.Size = new System.Drawing.Size(71, 19);
+            this.metroLabel9.TabIndex = 72;
+            this.metroLabel9.Text = "A-Integral";
+            // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel8.Location = new System.Drawing.Point(58, 128);
+            this.metroLabel8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(194, 19);
+            this.metroLabel8.TabIndex = 71;
+            this.metroLabel8.Text = "Largest eigen laplacian integer";
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel7.Location = new System.Drawing.Point(58, 93);
+            this.metroLabel7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(201, 19);
+            this.metroLabel7.TabIndex = 70;
+            this.metroLabel7.Text = "Largest eigen adjacency integer";
+            // 
+            // enable_L_integral
+            // 
+            this.enable_L_integral.Location = new System.Drawing.Point(344, 161);
+            this.enable_L_integral.Margin = new System.Windows.Forms.Padding(2);
+            this.enable_L_integral.MaximumSize = new System.Drawing.Size(45, 20);
+            this.enable_L_integral.MinimumSize = new System.Drawing.Size(45, 20);
+            this.enable_L_integral.Name = "enable_L_integral";
+            this.enable_L_integral.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enable_L_integral.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enable_L_integral.Size = new System.Drawing.Size(45, 20);
+            this.enable_L_integral.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
+            this.enable_L_integral.TabIndex = 69;
+            this.enable_L_integral.CheckedChanged += new JCS.ToggleSwitch.CheckedChangedDelegate(this.enableLintegral_CheckedChanged);
+            // 
+            // enable_A_integral
+            // 
+            this.enable_A_integral.Location = new System.Drawing.Point(344, 128);
+            this.enable_A_integral.Margin = new System.Windows.Forms.Padding(2);
+            this.enable_A_integral.MaximumSize = new System.Drawing.Size(45, 20);
+            this.enable_A_integral.MinimumSize = new System.Drawing.Size(45, 20);
+            this.enable_A_integral.Name = "enable_A_integral";
+            this.enable_A_integral.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enable_A_integral.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enable_A_integral.Size = new System.Drawing.Size(45, 20);
+            this.enable_A_integral.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
+            this.enable_A_integral.TabIndex = 68;
+            // 
+            // enableLarg_L_integer
+            // 
+            this.enableLarg_L_integer.Location = new System.Drawing.Point(8, 128);
+            this.enableLarg_L_integer.Margin = new System.Windows.Forms.Padding(2);
+            this.enableLarg_L_integer.MaximumSize = new System.Drawing.Size(45, 20);
+            this.enableLarg_L_integer.MinimumSize = new System.Drawing.Size(45, 20);
+            this.enableLarg_L_integer.Name = "enableLarg_L_integer";
+            this.enableLarg_L_integer.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableLarg_L_integer.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableLarg_L_integer.Size = new System.Drawing.Size(45, 20);
+            this.enableLarg_L_integer.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
+            this.enableLarg_L_integer.TabIndex = 67;
+            // 
+            // enableLarg_A_integer
+            // 
+            this.enableLarg_A_integer.Location = new System.Drawing.Point(8, 94);
+            this.enableLarg_A_integer.Margin = new System.Windows.Forms.Padding(2);
+            this.enableLarg_A_integer.MaximumSize = new System.Drawing.Size(45, 20);
+            this.enableLarg_A_integer.MinimumSize = new System.Drawing.Size(45, 20);
+            this.enableLarg_A_integer.Name = "enableLarg_A_integer";
+            this.enableLarg_A_integer.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableLarg_A_integer.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enableLarg_A_integer.Size = new System.Drawing.Size(45, 20);
+            this.enableLarg_A_integer.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
+            this.enableLarg_A_integer.TabIndex = 66;
+            this.enableLarg_A_integer.CheckedChanged += new JCS.ToggleSwitch.CheckedChangedDelegate(this.enableLargAinteger_CheckedChanged);
             // 
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
             this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel4.Location = new System.Drawing.Point(526, 115);
+            this.metroLabel4.Location = new System.Drawing.Point(394, 93);
+            this.metroLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(55, 20);
+            this.metroLabel4.Size = new System.Drawing.Size(49, 19);
             this.metroLabel4.TabIndex = 65;
             this.metroLabel4.Text = "Acyclic";
             this.metroLabel4.Click += new System.EventHandler(this.metroLabel4_Click);
@@ -210,9 +439,10 @@
             // 
             this.metroLabel5.AutoSize = true;
             this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel5.Location = new System.Drawing.Point(526, 73);
+            this.metroLabel5.Location = new System.Drawing.Point(394, 59);
+            this.metroLabel5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(50, 20);
+            this.metroLabel5.Size = new System.Drawing.Size(47, 19);
             this.metroLabel5.TabIndex = 64;
             this.metroLabel5.Text = "Planar";
             this.metroLabel5.Click += new System.EventHandler(this.metroLabel5_Click);
@@ -221,9 +451,10 @@
             // 
             this.metroLabel6.AutoSize = true;
             this.metroLabel6.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel6.Location = new System.Drawing.Point(526, 33);
+            this.metroLabel6.Location = new System.Drawing.Point(394, 27);
+            this.metroLabel6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(91, 20);
+            this.metroLabel6.Size = new System.Drawing.Size(83, 19);
             this.metroLabel6.TabIndex = 63;
             this.metroLabel6.Text = "Hamiltonian";
             // 
@@ -231,9 +462,10 @@
             // 
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel3.Location = new System.Drawing.Point(526, 278);
+            this.metroLabel3.Location = new System.Drawing.Point(394, 226);
+            this.metroLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(80, 20);
+            this.metroLabel3.Size = new System.Drawing.Size(75, 19);
             this.metroLabel3.TabIndex = 62;
             this.metroLabel3.Text = "Connected";
             // 
@@ -241,9 +473,10 @@
             // 
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(77, 73);
+            this.metroLabel1.Location = new System.Drawing.Point(58, 59);
+            this.metroLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(137, 20);
+            this.metroLabel1.Size = new System.Drawing.Size(128, 19);
             this.metroLabel1.TabIndex = 61;
             this.metroLabel1.Text = "Regular with Order:";
             // 
@@ -251,90 +484,92 @@
             // 
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel2.Location = new System.Drawing.Point(77, 33);
+            this.metroLabel2.Location = new System.Drawing.Point(58, 27);
+            this.metroLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(60, 20);
+            this.metroLabel2.Size = new System.Drawing.Size(55, 19);
             this.metroLabel2.TabIndex = 60;
             this.metroLabel2.Text = "Regular";
             // 
             // enableIsAcyclic
             // 
-            this.enableIsAcyclic.Location = new System.Drawing.Point(458, 116);
-            this.enableIsAcyclic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.enableIsAcyclic.MaximumSize = new System.Drawing.Size(60, 25);
-            this.enableIsAcyclic.MinimumSize = new System.Drawing.Size(60, 25);
+            this.enableIsAcyclic.Location = new System.Drawing.Point(344, 94);
+            this.enableIsAcyclic.Margin = new System.Windows.Forms.Padding(2);
+            this.enableIsAcyclic.MaximumSize = new System.Drawing.Size(45, 20);
+            this.enableIsAcyclic.MinimumSize = new System.Drawing.Size(45, 20);
             this.enableIsAcyclic.Name = "enableIsAcyclic";
             this.enableIsAcyclic.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.enableIsAcyclic.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableIsAcyclic.Size = new System.Drawing.Size(60, 25);
+            this.enableIsAcyclic.Size = new System.Drawing.Size(45, 20);
             this.enableIsAcyclic.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
             this.enableIsAcyclic.TabIndex = 58;
             // 
             // enableIsPlanar
             // 
-            this.enableIsPlanar.Location = new System.Drawing.Point(458, 75);
-            this.enableIsPlanar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.enableIsPlanar.MaximumSize = new System.Drawing.Size(60, 25);
-            this.enableIsPlanar.MinimumSize = new System.Drawing.Size(60, 25);
+            this.enableIsPlanar.Location = new System.Drawing.Point(344, 61);
+            this.enableIsPlanar.Margin = new System.Windows.Forms.Padding(2);
+            this.enableIsPlanar.MaximumSize = new System.Drawing.Size(45, 20);
+            this.enableIsPlanar.MinimumSize = new System.Drawing.Size(45, 20);
             this.enableIsPlanar.Name = "enableIsPlanar";
             this.enableIsPlanar.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.enableIsPlanar.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableIsPlanar.Size = new System.Drawing.Size(60, 25);
+            this.enableIsPlanar.Size = new System.Drawing.Size(45, 20);
             this.enableIsPlanar.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
             this.enableIsPlanar.TabIndex = 57;
             // 
             // enableIsHamiltonian
             // 
-            this.enableIsHamiltonian.Location = new System.Drawing.Point(458, 34);
-            this.enableIsHamiltonian.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.enableIsHamiltonian.MaximumSize = new System.Drawing.Size(60, 25);
-            this.enableIsHamiltonian.MinimumSize = new System.Drawing.Size(60, 25);
+            this.enableIsHamiltonian.Location = new System.Drawing.Point(344, 28);
+            this.enableIsHamiltonian.Margin = new System.Windows.Forms.Padding(2);
+            this.enableIsHamiltonian.MaximumSize = new System.Drawing.Size(45, 20);
+            this.enableIsHamiltonian.MinimumSize = new System.Drawing.Size(45, 20);
             this.enableIsHamiltonian.Name = "enableIsHamiltonian";
             this.enableIsHamiltonian.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.enableIsHamiltonian.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableIsHamiltonian.Size = new System.Drawing.Size(60, 25);
+            this.enableIsHamiltonian.Size = new System.Drawing.Size(45, 20);
             this.enableIsHamiltonian.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
             this.enableIsHamiltonian.TabIndex = 56;
             // 
             // enableIsConnected
             // 
-            this.enableIsConnected.Location = new System.Drawing.Point(458, 278);
-            this.enableIsConnected.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.enableIsConnected.MaximumSize = new System.Drawing.Size(60, 25);
-            this.enableIsConnected.MinimumSize = new System.Drawing.Size(60, 25);
+            this.enableIsConnected.Location = new System.Drawing.Point(344, 226);
+            this.enableIsConnected.Margin = new System.Windows.Forms.Padding(2);
+            this.enableIsConnected.MaximumSize = new System.Drawing.Size(45, 20);
+            this.enableIsConnected.MinimumSize = new System.Drawing.Size(45, 20);
             this.enableIsConnected.Name = "enableIsConnected";
             this.enableIsConnected.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.enableIsConnected.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableIsConnected.Size = new System.Drawing.Size(60, 25);
+            this.enableIsConnected.Size = new System.Drawing.Size(45, 20);
             this.enableIsConnected.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
             this.enableIsConnected.TabIndex = 55;
             // 
             // enableRegularWithK
             // 
-            this.enableRegularWithK.Location = new System.Drawing.Point(11, 74);
-            this.enableRegularWithK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.enableRegularWithK.MaximumSize = new System.Drawing.Size(60, 25);
-            this.enableRegularWithK.MinimumSize = new System.Drawing.Size(60, 25);
+            this.enableRegularWithK.Location = new System.Drawing.Point(8, 60);
+            this.enableRegularWithK.Margin = new System.Windows.Forms.Padding(2);
+            this.enableRegularWithK.MaximumSize = new System.Drawing.Size(45, 20);
+            this.enableRegularWithK.MinimumSize = new System.Drawing.Size(45, 20);
             this.enableRegularWithK.Name = "enableRegularWithK";
             this.enableRegularWithK.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.enableRegularWithK.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableRegularWithK.Size = new System.Drawing.Size(60, 25);
+            this.enableRegularWithK.Size = new System.Drawing.Size(45, 20);
             this.enableRegularWithK.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
             this.enableRegularWithK.TabIndex = 54;
             this.enableRegularWithK.CheckedChanged += new JCS.ToggleSwitch.CheckedChangedDelegate(this.enableRegularWithK_CheckedChanged_1);
             // 
             // enableRegular
             // 
-            this.enableRegular.Location = new System.Drawing.Point(11, 34);
-            this.enableRegular.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.enableRegular.MaximumSize = new System.Drawing.Size(60, 25);
-            this.enableRegular.MinimumSize = new System.Drawing.Size(60, 25);
+            this.enableRegular.Location = new System.Drawing.Point(8, 28);
+            this.enableRegular.Margin = new System.Windows.Forms.Padding(2);
+            this.enableRegular.MaximumSize = new System.Drawing.Size(45, 20);
+            this.enableRegular.MinimumSize = new System.Drawing.Size(45, 20);
             this.enableRegular.Name = "enableRegular";
             this.enableRegular.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.enableRegular.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableRegular.Size = new System.Drawing.Size(60, 25);
+            this.enableRegular.Size = new System.Drawing.Size(45, 20);
             this.enableRegular.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
             this.enableRegular.TabIndex = 53;
+            this.enableRegular.CheckedChanged += new JCS.ToggleSwitch.CheckedChangedDelegate(this.enableRegular_CheckedChanged_2);
             // 
             // paramRegularWithDegree
             // 
@@ -342,10 +577,10 @@
             // 
             // 
             this.paramRegularWithDegree.CustomButton.Image = null;
-            this.paramRegularWithDegree.CustomButton.Location = new System.Drawing.Point(15, 1);
-            this.paramRegularWithDegree.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.paramRegularWithDegree.CustomButton.Location = new System.Drawing.Point(10, 1);
+            this.paramRegularWithDegree.CustomButton.Margin = new System.Windows.Forms.Padding(2);
             this.paramRegularWithDegree.CustomButton.Name = "";
-            this.paramRegularWithDegree.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.paramRegularWithDegree.CustomButton.Size = new System.Drawing.Size(17, 17);
             this.paramRegularWithDegree.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.paramRegularWithDegree.CustomButton.TabIndex = 1;
             this.paramRegularWithDegree.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -353,8 +588,8 @@
             this.paramRegularWithDegree.CustomButton.Visible = false;
             this.paramRegularWithDegree.Enabled = false;
             this.paramRegularWithDegree.Lines = new string[0];
-            this.paramRegularWithDegree.Location = new System.Drawing.Point(320, 75);
-            this.paramRegularWithDegree.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.paramRegularWithDegree.Location = new System.Drawing.Point(240, 61);
+            this.paramRegularWithDegree.Margin = new System.Windows.Forms.Padding(2);
             this.paramRegularWithDegree.MaxLength = 32767;
             this.paramRegularWithDegree.Name = "paramRegularWithDegree";
             this.paramRegularWithDegree.PasswordChar = '\0';
@@ -363,7 +598,7 @@
             this.paramRegularWithDegree.SelectionLength = 0;
             this.paramRegularWithDegree.SelectionStart = 0;
             this.paramRegularWithDegree.ShortcutsEnabled = true;
-            this.paramRegularWithDegree.Size = new System.Drawing.Size(37, 23);
+            this.paramRegularWithDegree.Size = new System.Drawing.Size(28, 19);
             this.paramRegularWithDegree.TabIndex = 50;
             this.paramRegularWithDegree.UseSelectable = true;
             this.paramRegularWithDegree.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -373,10 +608,10 @@
             // buttonSave
             // 
             this.buttonSave.Enabled = false;
-            this.buttonSave.Location = new System.Drawing.Point(5, 58);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonSave.Location = new System.Drawing.Point(4, 47);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(139, 30);
+            this.buttonSave.Size = new System.Drawing.Size(104, 24);
             this.buttonSave.TabIndex = 1;
             this.buttonSave.Text = "Output .g6 File";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -385,10 +620,10 @@
             // buttonSearch
             // 
             this.buttonSearch.Enabled = false;
-            this.buttonSearch.Location = new System.Drawing.Point(0, 588);
-            this.buttonSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonSearch.Location = new System.Drawing.Point(0, 478);
+            this.buttonSearch.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(204, 39);
+            this.buttonSearch.Size = new System.Drawing.Size(153, 32);
             this.buttonSearch.TabIndex = 4;
             this.buttonSearch.Text = "Filter the list";
             this.buttonSearch.UseVisualStyleBackColor = true;
@@ -402,23 +637,23 @@
             this.groupBoxEq.Controls.Add(this.verifyEq1);
             this.groupBoxEq.Controls.Add(this.textEquation1);
             this.groupBoxEq.Controls.Add(this.label6);
-            this.groupBoxEq.Location = new System.Drawing.Point(0, 463);
-            this.groupBoxEq.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxEq.Location = new System.Drawing.Point(0, 376);
+            this.groupBoxEq.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxEq.Name = "groupBoxEq";
-            this.groupBoxEq.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxEq.Size = new System.Drawing.Size(585, 118);
+            this.groupBoxEq.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBoxEq.Size = new System.Drawing.Size(439, 96);
             this.groupBoxEq.TabIndex = 7;
             this.groupBoxEq.TabStop = false;
             this.groupBoxEq.Text = "Equations";
             // 
             // enableEq1
             // 
-            this.enableEq1.Location = new System.Drawing.Point(11, 57);
-            this.enableEq1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.enableEq1.Location = new System.Drawing.Point(8, 46);
+            this.enableEq1.Margin = new System.Windows.Forms.Padding(2);
             this.enableEq1.Name = "enableEq1";
             this.enableEq1.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.enableEq1.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableEq1.Size = new System.Drawing.Size(51, 25);
+            this.enableEq1.Size = new System.Drawing.Size(38, 20);
             this.enableEq1.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
             this.enableEq1.TabIndex = 53;
             this.enableEq1.CheckedChanged += new JCS.ToggleSwitch.CheckedChangedDelegate(this.EnableEq1_CheckedChanged);
@@ -429,12 +664,12 @@
             this.verifyEq1.FlatAppearance.BorderSize = 0;
             this.verifyEq1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.verifyEq1.Image = global::GraphFilter.Properties.Resources.icons8_checked_checkbox;
-            this.verifyEq1.Location = new System.Drawing.Point(65, 49);
+            this.verifyEq1.Location = new System.Drawing.Point(49, 40);
             this.verifyEq1.Margin = new System.Windows.Forms.Padding(0);
-            this.verifyEq1.MaximumSize = new System.Drawing.Size(36, 36);
-            this.verifyEq1.MinimumSize = new System.Drawing.Size(36, 36);
+            this.verifyEq1.MaximumSize = new System.Drawing.Size(27, 29);
+            this.verifyEq1.MinimumSize = new System.Drawing.Size(27, 29);
             this.verifyEq1.Name = "verifyEq1";
-            this.verifyEq1.Size = new System.Drawing.Size(36, 36);
+            this.verifyEq1.Size = new System.Drawing.Size(27, 29);
             this.verifyEq1.TabIndex = 0;
             this.verifyEq1.UseVisualStyleBackColor = true;
             this.verifyEq1.Click += new System.EventHandler(this.verifyEq1_Click);
@@ -445,10 +680,10 @@
             // 
             // 
             this.textEquation1.CustomButton.Image = null;
-            this.textEquation1.CustomButton.Location = new System.Drawing.Point(401, 1);
-            this.textEquation1.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.textEquation1.CustomButton.Location = new System.Drawing.Point(296, 1);
+            this.textEquation1.CustomButton.Margin = new System.Windows.Forms.Padding(2);
             this.textEquation1.CustomButton.Name = "";
-            this.textEquation1.CustomButton.Size = new System.Drawing.Size(73, 73);
+            this.textEquation1.CustomButton.Size = new System.Drawing.Size(59, 59);
             this.textEquation1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.textEquation1.CustomButton.TabIndex = 1;
             this.textEquation1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -457,8 +692,8 @@
             this.textEquation1.Enabled = false;
             this.textEquation1.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.textEquation1.Lines = new string[0];
-            this.textEquation1.Location = new System.Drawing.Point(104, 30);
-            this.textEquation1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textEquation1.Location = new System.Drawing.Point(78, 24);
+            this.textEquation1.Margin = new System.Windows.Forms.Padding(2);
             this.textEquation1.MaxLength = 32767;
             this.textEquation1.Multiline = true;
             this.textEquation1.Name = "textEquation1";
@@ -468,7 +703,7 @@
             this.textEquation1.SelectionLength = 0;
             this.textEquation1.SelectionStart = 0;
             this.textEquation1.ShortcutsEnabled = true;
-            this.textEquation1.Size = new System.Drawing.Size(475, 75);
+            this.textEquation1.Size = new System.Drawing.Size(356, 61);
             this.textEquation1.TabIndex = 1;
             this.textEquation1.UseSelectable = true;
             this.textEquation1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -478,19 +713,20 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(563, 30);
+            this.label6.Location = new System.Drawing.Point(422, 24);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 24);
+            this.label6.Size = new System.Drawing.Size(0, 18);
             this.label6.TabIndex = 10;
             this.label6.Click += new System.EventHandler(this.Label6_Click);
             // 
             // wpfHost
             // 
             this.wpfHost.BackColor = System.Drawing.Color.White;
-            this.wpfHost.Location = new System.Drawing.Point(205, 86);
-            this.wpfHost.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.wpfHost.Location = new System.Drawing.Point(154, 70);
+            this.wpfHost.Margin = new System.Windows.Forms.Padding(2);
             this.wpfHost.Name = "wpfHost";
-            this.wpfHost.Size = new System.Drawing.Size(643, 388);
+            this.wpfHost.Size = new System.Drawing.Size(482, 315);
             this.wpfHost.TabIndex = 52;
             this.wpfHost.Text = "elementHost1";
             this.wpfHost.ChildChanged += new System.EventHandler<System.Windows.Forms.Integration.ChildChangedEventArgs>(this.wpfHost_ChildChanged);
@@ -500,11 +736,10 @@
             // 
             this.listOfG6.FormattingEnabled = true;
             this.listOfG6.HorizontalScrollbar = true;
-            this.listOfG6.ItemHeight = 16;
-            this.listOfG6.Location = new System.Drawing.Point(5, 134);
-            this.listOfG6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listOfG6.Location = new System.Drawing.Point(4, 109);
+            this.listOfG6.Margin = new System.Windows.Forms.Padding(2);
             this.listOfG6.Name = "listOfG6";
-            this.listOfG6.Size = new System.Drawing.Size(193, 340);
+            this.listOfG6.Size = new System.Drawing.Size(146, 277);
             this.listOfG6.TabIndex = 0;
             this.listOfG6.Visible = false;
             this.listOfG6.SelectedIndexChanged += new System.EventHandler(this.listOfG6_SelectedIndexChanged);
@@ -515,11 +750,11 @@
             this.tabControl.Controls.Add(this.metroTabPage1);
             this.tabControl.Controls.Add(this.metroTabPage2);
             this.tabControl.FontSize = MetroFramework.MetroTabControlSize.Small;
-            this.tabControl.Location = new System.Drawing.Point(23, 71);
-            this.tabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabControl.Location = new System.Drawing.Point(17, 58);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1277, 715);
+            this.tabControl.Size = new System.Drawing.Size(958, 581);
             this.tabControl.TabIndex = 52;
             this.tabControl.UseSelectable = true;
             // 
@@ -534,24 +769,23 @@
             this.metroTabPage1.Controls.Add(this.groupBoxEq);
             this.metroTabPage1.HorizontalScrollbarBarColor = true;
             this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.HorizontalScrollbarSize = 10;
+            this.metroTabPage1.HorizontalScrollbarSize = 8;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 37);
-            this.metroTabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.metroTabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(1269, 674);
+            this.metroTabPage1.Size = new System.Drawing.Size(950, 540);
             this.metroTabPage1.TabIndex = 0;
             this.metroTabPage1.Text = "Filter Graphs";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.VerticalScrollbarSize = 11;
+            this.metroTabPage1.VerticalScrollbarSize = 8;
             // 
             // buttonCounterexample
             // 
             this.buttonCounterexample.Enabled = false;
-            this.buttonCounterexample.Location = new System.Drawing.Point(347, 588);
-            this.buttonCounterexample.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonCounterexample.Location = new System.Drawing.Point(260, 478);
             this.buttonCounterexample.Name = "buttonCounterexample";
-            this.buttonCounterexample.Size = new System.Drawing.Size(270, 39);
+            this.buttonCounterexample.Size = new System.Drawing.Size(202, 32);
             this.buttonCounterexample.TabIndex = 53;
             this.buttonCounterexample.Text = "Is there a counterexample?";
             this.buttonCounterexample.UseVisualStyleBackColor = true;
@@ -561,19 +795,20 @@
             // 
             this.ListOfInvariants.AutoSize = true;
             this.ListOfInvariants.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ListOfInvariants.Location = new System.Drawing.Point(1119, 0);
+            this.ListOfInvariants.Location = new System.Drawing.Point(808, 0);
+            this.ListOfInvariants.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ListOfInvariants.Name = "ListOfInvariants";
-            this.ListOfInvariants.Size = new System.Drawing.Size(150, 20);
+            this.ListOfInvariants.Size = new System.Drawing.Size(142, 19);
             this.ListOfInvariants.TabIndex = 2;
             this.ListOfInvariants.Text = "Dictionary of invariants";
             this.ListOfInvariants.Click += new System.EventHandler(this.ListOfInvariants_Click);
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(0, 633);
-            this.progressBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.progressBar.Location = new System.Drawing.Point(0, 514);
+            this.progressBar.Margin = new System.Windows.Forms.Padding(2);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(587, 39);
+            this.progressBar.Size = new System.Drawing.Size(440, 32);
             this.progressBar.TabIndex = 52;
             // 
             // groupBoxFiles
@@ -584,10 +819,10 @@
             this.groupBoxFiles.Controls.Add(this.buttonOpen);
             this.groupBoxFiles.Controls.Add(this.buttonSave);
             this.groupBoxFiles.Location = new System.Drawing.Point(0, 2);
-            this.groupBoxFiles.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxFiles.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxFiles.Name = "groupBoxFiles";
-            this.groupBoxFiles.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxFiles.Size = new System.Drawing.Size(585, 100);
+            this.groupBoxFiles.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBoxFiles.Size = new System.Drawing.Size(439, 81);
             this.groupBoxFiles.TabIndex = 1;
             this.groupBoxFiles.TabStop = false;
             this.groupBoxFiles.Text = "Files";
@@ -598,10 +833,10 @@
             // 
             // 
             this.textOutPath.CustomButton.Image = null;
-            this.textOutPath.CustomButton.Location = new System.Drawing.Point(405, 1);
-            this.textOutPath.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.textOutPath.CustomButton.Location = new System.Drawing.Point(302, 1);
+            this.textOutPath.CustomButton.Margin = new System.Windows.Forms.Padding(2);
             this.textOutPath.CustomButton.Name = "";
-            this.textOutPath.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.textOutPath.CustomButton.Size = new System.Drawing.Size(17, 17);
             this.textOutPath.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.textOutPath.CustomButton.TabIndex = 1;
             this.textOutPath.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -609,8 +844,8 @@
             this.textOutPath.CustomButton.Visible = false;
             this.textOutPath.Enabled = false;
             this.textOutPath.Lines = new string[0];
-            this.textOutPath.Location = new System.Drawing.Point(151, 62);
-            this.textOutPath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textOutPath.Location = new System.Drawing.Point(113, 50);
+            this.textOutPath.Margin = new System.Windows.Forms.Padding(2);
             this.textOutPath.MaxLength = 32767;
             this.textOutPath.Name = "textOutPath";
             this.textOutPath.PasswordChar = '\0';
@@ -619,7 +854,7 @@
             this.textOutPath.SelectionLength = 0;
             this.textOutPath.SelectionStart = 0;
             this.textOutPath.ShortcutsEnabled = true;
-            this.textOutPath.Size = new System.Drawing.Size(427, 23);
+            this.textOutPath.Size = new System.Drawing.Size(320, 19);
             this.textOutPath.TabIndex = 53;
             this.textOutPath.UseSelectable = true;
             this.textOutPath.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -631,10 +866,10 @@
             // 
             // 
             this.textSource.CustomButton.Image = null;
-            this.textSource.CustomButton.Location = new System.Drawing.Point(405, 1);
-            this.textSource.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.textSource.CustomButton.Location = new System.Drawing.Point(302, 1);
+            this.textSource.CustomButton.Margin = new System.Windows.Forms.Padding(2);
             this.textSource.CustomButton.Name = "";
-            this.textSource.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.textSource.CustomButton.Size = new System.Drawing.Size(17, 17);
             this.textSource.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.textSource.CustomButton.TabIndex = 1;
             this.textSource.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -642,8 +877,8 @@
             this.textSource.CustomButton.Visible = false;
             this.textSource.Enabled = false;
             this.textSource.Lines = new string[0];
-            this.textSource.Location = new System.Drawing.Point(151, 27);
-            this.textSource.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textSource.Location = new System.Drawing.Point(113, 22);
+            this.textSource.Margin = new System.Windows.Forms.Padding(2);
             this.textSource.MaxLength = 32767;
             this.textSource.Name = "textSource";
             this.textSource.PasswordChar = '\0';
@@ -652,7 +887,7 @@
             this.textSource.SelectionLength = 0;
             this.textSource.SelectionStart = 0;
             this.textSource.ShortcutsEnabled = true;
-            this.textSource.Size = new System.Drawing.Size(427, 23);
+            this.textSource.Size = new System.Drawing.Size(320, 19);
             this.textSource.TabIndex = 52;
             this.textSource.UseSelectable = true;
             this.textSource.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -660,10 +895,10 @@
             // 
             // buttonOpen
             // 
-            this.buttonOpen.Location = new System.Drawing.Point(5, 20);
-            this.buttonOpen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonOpen.Location = new System.Drawing.Point(4, 16);
+            this.buttonOpen.Margin = new System.Windows.Forms.Padding(2);
             this.buttonOpen.Name = "buttonOpen";
-            this.buttonOpen.Size = new System.Drawing.Size(139, 30);
+            this.buttonOpen.Size = new System.Drawing.Size(104, 24);
             this.buttonOpen.TabIndex = 0;
             this.buttonOpen.Text = "Open .g6 File";
             this.buttonOpen.UseVisualStyleBackColor = true;
@@ -691,16 +926,16 @@
             this.metroTabPage2.Controls.Add(this.listOfG6);
             this.metroTabPage2.HorizontalScrollbarBarColor = true;
             this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.HorizontalScrollbarSize = 10;
+            this.metroTabPage2.HorizontalScrollbarSize = 8;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 37);
-            this.metroTabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.metroTabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(1269, 674);
+            this.metroTabPage2.Size = new System.Drawing.Size(950, 540);
             this.metroTabPage2.TabIndex = 1;
             this.metroTabPage2.Text = "Visualization";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.VerticalScrollbarSize = 11;
+            this.metroTabPage2.VerticalScrollbarSize = 8;
             this.metroTabPage2.Click += new System.EventHandler(this.metroTabPage2_Click);
             // 
             // buttonExportTikZ
@@ -710,12 +945,12 @@
             this.buttonExportTikZ.FlatAppearance.BorderSize = 0;
             this.buttonExportTikZ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExportTikZ.Image = global::GraphFilter.Properties.Resources.icons8_export_32;
-            this.buttonExportTikZ.Location = new System.Drawing.Point(307, 75);
+            this.buttonExportTikZ.Location = new System.Drawing.Point(230, 61);
             this.buttonExportTikZ.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonExportTikZ.MaximumSize = new System.Drawing.Size(51, 50);
-            this.buttonExportTikZ.MinimumSize = new System.Drawing.Size(51, 50);
+            this.buttonExportTikZ.MaximumSize = new System.Drawing.Size(38, 41);
+            this.buttonExportTikZ.MinimumSize = new System.Drawing.Size(38, 41);
             this.buttonExportTikZ.Name = "buttonExportTikZ";
-            this.buttonExportTikZ.Size = new System.Drawing.Size(51, 50);
+            this.buttonExportTikZ.Size = new System.Drawing.Size(38, 41);
             this.buttonExportTikZ.TabIndex = 65;
             this.buttonExportTikZ.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.buttonExportTikZ.UseVisualStyleBackColor = false;
@@ -726,13 +961,13 @@
             this.metroProgressSpinner.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroProgressSpinner.Location = new System.Drawing.Point(520, 203);
+            this.metroProgressSpinner.Location = new System.Drawing.Point(390, 165);
             this.metroProgressSpinner.Margin = new System.Windows.Forms.Padding(0);
             this.metroProgressSpinner.Maximum = 100;
-            this.metroProgressSpinner.MaximumSize = new System.Drawing.Size(293, 271);
-            this.metroProgressSpinner.MinimumSize = new System.Drawing.Size(293, 271);
+            this.metroProgressSpinner.MaximumSize = new System.Drawing.Size(220, 220);
+            this.metroProgressSpinner.MinimumSize = new System.Drawing.Size(220, 220);
             this.metroProgressSpinner.Name = "metroProgressSpinner";
-            this.metroProgressSpinner.Size = new System.Drawing.Size(293, 271);
+            this.metroProgressSpinner.Size = new System.Drawing.Size(220, 220);
             this.metroProgressSpinner.Speed = 3F;
             this.metroProgressSpinner.TabIndex = 64;
             this.metroProgressSpinner.UseSelectable = true;
@@ -745,12 +980,12 @@
             this.buttonExportAll.FlatAppearance.BorderSize = 0;
             this.buttonExportAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExportAll.Image = global::GraphFilter.Properties.Resources.icons8_export_32;
-            this.buttonExportAll.Location = new System.Drawing.Point(256, 75);
+            this.buttonExportAll.Location = new System.Drawing.Point(192, 61);
             this.buttonExportAll.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonExportAll.MaximumSize = new System.Drawing.Size(51, 50);
-            this.buttonExportAll.MinimumSize = new System.Drawing.Size(51, 50);
+            this.buttonExportAll.MaximumSize = new System.Drawing.Size(38, 41);
+            this.buttonExportAll.MinimumSize = new System.Drawing.Size(38, 41);
             this.buttonExportAll.Name = "buttonExportAll";
-            this.buttonExportAll.Size = new System.Drawing.Size(51, 50);
+            this.buttonExportAll.Size = new System.Drawing.Size(38, 41);
             this.buttonExportAll.TabIndex = 63;
             this.buttonExportAll.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.buttonExportAll.UseVisualStyleBackColor = false;
@@ -759,21 +994,22 @@
             // showGraphInvariantLbl
             // 
             this.showGraphInvariantLbl.AutoSize = true;
-            this.showGraphInvariantLbl.Location = new System.Drawing.Point(1120, 75);
+            this.showGraphInvariantLbl.Location = new System.Drawing.Point(840, 61);
+            this.showGraphInvariantLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.showGraphInvariantLbl.Name = "showGraphInvariantLbl";
-            this.showGraphInvariantLbl.Size = new System.Drawing.Size(146, 20);
+            this.showGraphInvariantLbl.Size = new System.Drawing.Size(138, 19);
             this.showGraphInvariantLbl.TabIndex = 62;
             this.showGraphInvariantLbl.Text = "Show Graph Invariants";
             this.showGraphInvariantLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // showInvariantsCheck
             // 
-            this.showInvariantsCheck.Location = new System.Drawing.Point(1064, 80);
-            this.showInvariantsCheck.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.showInvariantsCheck.Location = new System.Drawing.Point(798, 65);
+            this.showInvariantsCheck.Margin = new System.Windows.Forms.Padding(2);
             this.showInvariantsCheck.Name = "showInvariantsCheck";
             this.showInvariantsCheck.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showInvariantsCheck.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showInvariantsCheck.Size = new System.Drawing.Size(51, 25);
+            this.showInvariantsCheck.Size = new System.Drawing.Size(38, 20);
             this.showInvariantsCheck.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
             this.showInvariantsCheck.TabIndex = 61;
             this.showInvariantsCheck.CheckedChanged += new JCS.ToggleSwitch.CheckedChangedDelegate(this.showInvariantsCheck_CheckedChanged);
@@ -781,12 +1017,12 @@
             // openG6BtnViz
             // 
             this.openG6BtnViz.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.openG6BtnViz.Location = new System.Drawing.Point(5, 46);
-            this.openG6BtnViz.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.openG6BtnViz.MaximumSize = new System.Drawing.Size(149, 25);
-            this.openG6BtnViz.MinimumSize = new System.Drawing.Size(149, 25);
+            this.openG6BtnViz.Location = new System.Drawing.Point(4, 37);
+            this.openG6BtnViz.Margin = new System.Windows.Forms.Padding(2);
+            this.openG6BtnViz.MaximumSize = new System.Drawing.Size(112, 20);
+            this.openG6BtnViz.MinimumSize = new System.Drawing.Size(112, 20);
             this.openG6BtnViz.Name = "openG6BtnViz";
-            this.openG6BtnViz.Size = new System.Drawing.Size(149, 25);
+            this.openG6BtnViz.Size = new System.Drawing.Size(112, 20);
             this.openG6BtnViz.TabIndex = 60;
             this.openG6BtnViz.Text = "Open .g6 File";
             this.openG6BtnViz.UseSelectable = true;
@@ -795,12 +1031,12 @@
             // viewG6Btn
             // 
             this.viewG6Btn.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.viewG6Btn.Location = new System.Drawing.Point(5, 17);
-            this.viewG6Btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.viewG6Btn.MaximumSize = new System.Drawing.Size(149, 25);
-            this.viewG6Btn.MinimumSize = new System.Drawing.Size(149, 25);
+            this.viewG6Btn.Location = new System.Drawing.Point(4, 14);
+            this.viewG6Btn.Margin = new System.Windows.Forms.Padding(2);
+            this.viewG6Btn.MaximumSize = new System.Drawing.Size(112, 20);
+            this.viewG6Btn.MinimumSize = new System.Drawing.Size(112, 20);
             this.viewG6Btn.Name = "viewG6Btn";
-            this.viewG6Btn.Size = new System.Drawing.Size(149, 25);
+            this.viewG6Btn.Size = new System.Drawing.Size(112, 20);
             this.viewG6Btn.TabIndex = 59;
             this.viewG6Btn.Text = "View Graph";
             this.viewG6Btn.UseSelectable = true;
@@ -812,18 +1048,18 @@
             // 
             // 
             this.insertG6ToView.CustomButton.Image = null;
-            this.insertG6ToView.CustomButton.Location = new System.Drawing.Point(1081, 1);
-            this.insertG6ToView.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.insertG6ToView.CustomButton.Location = new System.Drawing.Point(811, 2);
+            this.insertG6ToView.CustomButton.Margin = new System.Windows.Forms.Padding(2);
             this.insertG6ToView.CustomButton.Name = "";
-            this.insertG6ToView.CustomButton.Size = new System.Drawing.Size(23, 23);
+            this.insertG6ToView.CustomButton.Size = new System.Drawing.Size(15, 15);
             this.insertG6ToView.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.insertG6ToView.CustomButton.TabIndex = 1;
             this.insertG6ToView.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.insertG6ToView.CustomButton.UseSelectable = true;
             this.insertG6ToView.CustomButton.Visible = false;
             this.insertG6ToView.Lines = new string[0];
-            this.insertG6ToView.Location = new System.Drawing.Point(161, 17);
-            this.insertG6ToView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.insertG6ToView.Location = new System.Drawing.Point(121, 14);
+            this.insertG6ToView.Margin = new System.Windows.Forms.Padding(2);
             this.insertG6ToView.MaxLength = 32767;
             this.insertG6ToView.Name = "insertG6ToView";
             this.insertG6ToView.PasswordChar = '\0';
@@ -833,7 +1069,7 @@
             this.insertG6ToView.SelectionLength = 0;
             this.insertG6ToView.SelectionStart = 0;
             this.insertG6ToView.ShortcutsEnabled = true;
-            this.insertG6ToView.Size = new System.Drawing.Size(1105, 25);
+            this.insertG6ToView.Size = new System.Drawing.Size(829, 20);
             this.insertG6ToView.TabIndex = 58;
             this.insertG6ToView.UseSelectable = true;
             this.insertG6ToView.WaterMark = "Type a g6 code here!";
@@ -847,10 +1083,10 @@
             // 
             // 
             this.textOpenViz.CustomButton.Image = null;
-            this.textOpenViz.CustomButton.Location = new System.Drawing.Point(1083, 1);
-            this.textOpenViz.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.textOpenViz.CustomButton.Location = new System.Drawing.Point(812, 2);
+            this.textOpenViz.CustomButton.Margin = new System.Windows.Forms.Padding(2);
             this.textOpenViz.CustomButton.Name = "";
-            this.textOpenViz.CustomButton.Size = new System.Drawing.Size(23, 23);
+            this.textOpenViz.CustomButton.Size = new System.Drawing.Size(15, 15);
             this.textOpenViz.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.textOpenViz.CustomButton.TabIndex = 1;
             this.textOpenViz.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -858,8 +1094,8 @@
             this.textOpenViz.CustomButton.Visible = false;
             this.textOpenViz.Enabled = false;
             this.textOpenViz.Lines = new string[0];
-            this.textOpenViz.Location = new System.Drawing.Point(161, 46);
-            this.textOpenViz.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textOpenViz.Location = new System.Drawing.Point(121, 37);
+            this.textOpenViz.Margin = new System.Windows.Forms.Padding(2);
             this.textOpenViz.MaxLength = 32767;
             this.textOpenViz.Name = "textOpenViz";
             this.textOpenViz.PasswordChar = '\0';
@@ -868,7 +1104,7 @@
             this.textOpenViz.SelectionLength = 0;
             this.textOpenViz.SelectionStart = 0;
             this.textOpenViz.ShortcutsEnabled = true;
-            this.textOpenViz.Size = new System.Drawing.Size(1107, 25);
+            this.textOpenViz.Size = new System.Drawing.Size(830, 20);
             this.textOpenViz.TabIndex = 56;
             this.textOpenViz.UseSelectable = true;
             this.textOpenViz.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -880,12 +1116,12 @@
             this.buttonFill.FlatAppearance.BorderSize = 0;
             this.buttonFill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonFill.Image = global::GraphFilter.Properties.Resources.icons8_zoom_to_extents_2;
-            this.buttonFill.Location = new System.Drawing.Point(5, 75);
+            this.buttonFill.Location = new System.Drawing.Point(4, 61);
             this.buttonFill.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonFill.MaximumSize = new System.Drawing.Size(51, 50);
-            this.buttonFill.MinimumSize = new System.Drawing.Size(51, 50);
+            this.buttonFill.MaximumSize = new System.Drawing.Size(38, 41);
+            this.buttonFill.MinimumSize = new System.Drawing.Size(38, 41);
             this.buttonFill.Name = "buttonFill";
-            this.buttonFill.Size = new System.Drawing.Size(51, 50);
+            this.buttonFill.Size = new System.Drawing.Size(38, 41);
             this.buttonFill.TabIndex = 53;
             this.buttonFill.UseVisualStyleBackColor = false;
             this.buttonFill.Click += new System.EventHandler(this.buttonFill_Click);
@@ -896,12 +1132,12 @@
             this.buttonZoomOriginal.FlatAppearance.BorderSize = 0;
             this.buttonZoomOriginal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonZoomOriginal.Image = global::GraphFilter.Properties.Resources.icons8_zoom_to_actual_size;
-            this.buttonZoomOriginal.Location = new System.Drawing.Point(55, 75);
+            this.buttonZoomOriginal.Location = new System.Drawing.Point(41, 61);
             this.buttonZoomOriginal.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonZoomOriginal.MaximumSize = new System.Drawing.Size(51, 50);
-            this.buttonZoomOriginal.MinimumSize = new System.Drawing.Size(51, 50);
+            this.buttonZoomOriginal.MaximumSize = new System.Drawing.Size(38, 41);
+            this.buttonZoomOriginal.MinimumSize = new System.Drawing.Size(38, 41);
             this.buttonZoomOriginal.Name = "buttonZoomOriginal";
-            this.buttonZoomOriginal.Size = new System.Drawing.Size(51, 50);
+            this.buttonZoomOriginal.Size = new System.Drawing.Size(38, 41);
             this.buttonZoomOriginal.TabIndex = 55;
             this.buttonZoomOriginal.UseVisualStyleBackColor = false;
             this.buttonZoomOriginal.Click += new System.EventHandler(this.buttonZoomOut_Click);
@@ -912,12 +1148,12 @@
             this.buttonZoomOut.FlatAppearance.BorderSize = 0;
             this.buttonZoomOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonZoomOut.Image = global::GraphFilter.Properties.Resources.icons8_zoom_out;
-            this.buttonZoomOut.Location = new System.Drawing.Point(105, 75);
+            this.buttonZoomOut.Location = new System.Drawing.Point(79, 61);
             this.buttonZoomOut.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonZoomOut.MaximumSize = new System.Drawing.Size(51, 50);
-            this.buttonZoomOut.MinimumSize = new System.Drawing.Size(51, 50);
+            this.buttonZoomOut.MaximumSize = new System.Drawing.Size(38, 41);
+            this.buttonZoomOut.MinimumSize = new System.Drawing.Size(38, 41);
             this.buttonZoomOut.Name = "buttonZoomOut";
-            this.buttonZoomOut.Size = new System.Drawing.Size(51, 50);
+            this.buttonZoomOut.Size = new System.Drawing.Size(38, 41);
             this.buttonZoomOut.TabIndex = 54;
             this.buttonZoomOut.UseVisualStyleBackColor = false;
             this.buttonZoomOut.Click += new System.EventHandler(this.buttonZoomOut_Click_1);
@@ -928,12 +1164,12 @@
             this.buttonZoomIn.FlatAppearance.BorderSize = 0;
             this.buttonZoomIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonZoomIn.Image = global::GraphFilter.Properties.Resources.icons8_zoom_in;
-            this.buttonZoomIn.Location = new System.Drawing.Point(155, 75);
+            this.buttonZoomIn.Location = new System.Drawing.Point(116, 61);
             this.buttonZoomIn.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonZoomIn.MaximumSize = new System.Drawing.Size(51, 50);
-            this.buttonZoomIn.MinimumSize = new System.Drawing.Size(51, 50);
+            this.buttonZoomIn.MaximumSize = new System.Drawing.Size(38, 41);
+            this.buttonZoomIn.MinimumSize = new System.Drawing.Size(38, 41);
             this.buttonZoomIn.Name = "buttonZoomIn";
-            this.buttonZoomIn.Size = new System.Drawing.Size(51, 50);
+            this.buttonZoomIn.Size = new System.Drawing.Size(38, 41);
             this.buttonZoomIn.TabIndex = 45;
             this.buttonZoomIn.UseVisualStyleBackColor = false;
             this.buttonZoomIn.Click += new System.EventHandler(this.buttonZoomIn_Click);
@@ -944,12 +1180,12 @@
             this.buttonExp2PNG.FlatAppearance.BorderSize = 0;
             this.buttonExp2PNG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExp2PNG.Image = global::GraphFilter.Properties.Resources.icons8_png;
-            this.buttonExp2PNG.Location = new System.Drawing.Point(205, 75);
+            this.buttonExp2PNG.Location = new System.Drawing.Point(154, 61);
             this.buttonExp2PNG.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonExp2PNG.MaximumSize = new System.Drawing.Size(51, 50);
-            this.buttonExp2PNG.MinimumSize = new System.Drawing.Size(51, 50);
+            this.buttonExp2PNG.MaximumSize = new System.Drawing.Size(38, 41);
+            this.buttonExp2PNG.MinimumSize = new System.Drawing.Size(38, 41);
             this.buttonExp2PNG.Name = "buttonExp2PNG";
-            this.buttonExp2PNG.Size = new System.Drawing.Size(51, 50);
+            this.buttonExp2PNG.Size = new System.Drawing.Size(38, 41);
             this.buttonExp2PNG.TabIndex = 45;
             this.buttonExp2PNG.UseVisualStyleBackColor = false;
             this.buttonExp2PNG.Click += new System.EventHandler(this.buttonExp2PNG_Click);
@@ -960,12 +1196,12 @@
             this.buttonPrint.FlatAppearance.BorderSize = 0;
             this.buttonPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPrint.Image = global::GraphFilter.Properties.Resources.print_32;
-            this.buttonPrint.Location = new System.Drawing.Point(358, 75);
+            this.buttonPrint.Location = new System.Drawing.Point(268, 61);
             this.buttonPrint.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonPrint.MaximumSize = new System.Drawing.Size(51, 50);
-            this.buttonPrint.MinimumSize = new System.Drawing.Size(51, 50);
+            this.buttonPrint.MaximumSize = new System.Drawing.Size(38, 41);
+            this.buttonPrint.MinimumSize = new System.Drawing.Size(38, 41);
             this.buttonPrint.Name = "buttonPrint";
-            this.buttonPrint.Size = new System.Drawing.Size(51, 50);
+            this.buttonPrint.Size = new System.Drawing.Size(38, 41);
             this.buttonPrint.TabIndex = 45;
             this.buttonPrint.UseVisualStyleBackColor = false;
             this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
@@ -974,10 +1210,9 @@
             // 
             this.lblVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblVersion.AutoSize = true;
-            this.lblVersion.Location = new System.Drawing.Point(1000, 46);
-            this.lblVersion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblVersion.Location = new System.Drawing.Point(750, 37);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(89, 20);
+            this.lblVersion.Size = new System.Drawing.Size(83, 19);
             this.lblVersion.TabIndex = 53;
             this.lblVersion.Text = "Version: 1.0.0";
             // 
@@ -985,12 +1220,12 @@
             // 
             this.chkUpdBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkUpdBtn.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.chkUpdBtn.Location = new System.Drawing.Point(1096, 46);
-            this.chkUpdBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.chkUpdBtn.MaximumSize = new System.Drawing.Size(200, 23);
-            this.chkUpdBtn.MinimumSize = new System.Drawing.Size(200, 23);
+            this.chkUpdBtn.Location = new System.Drawing.Point(822, 37);
+            this.chkUpdBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.chkUpdBtn.MaximumSize = new System.Drawing.Size(150, 19);
+            this.chkUpdBtn.MinimumSize = new System.Drawing.Size(150, 19);
             this.chkUpdBtn.Name = "chkUpdBtn";
-            this.chkUpdBtn.Size = new System.Drawing.Size(200, 23);
+            this.chkUpdBtn.Size = new System.Drawing.Size(150, 19);
             this.chkUpdBtn.TabIndex = 54;
             this.chkUpdBtn.Text = "Check For Updates";
             this.chkUpdBtn.UseSelectable = true;
@@ -999,244 +1234,27 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GraphFilter.Properties.Resources.IconeGraphFilter;
-            this.pictureBox1.Location = new System.Drawing.Point(236, 17);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(177, 14);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(77, 66);
+            this.pictureBox1.Size = new System.Drawing.Size(58, 54);
             this.pictureBox1.TabIndex = 55;
             this.pictureBox1.TabStop = false;
             // 
-            // enableLargAinteger
-            // 
-            this.enableLargAinteger.Location = new System.Drawing.Point(11, 116);
-            this.enableLargAinteger.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.enableLargAinteger.MaximumSize = new System.Drawing.Size(60, 25);
-            this.enableLargAinteger.MinimumSize = new System.Drawing.Size(60, 25);
-            this.enableLargAinteger.Name = "enableLargAinteger";
-            this.enableLargAinteger.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableLargAinteger.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableLargAinteger.Size = new System.Drawing.Size(60, 25);
-            this.enableLargAinteger.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
-            this.enableLargAinteger.TabIndex = 66;
-            // 
-            // enableLargLinteger
-            // 
-            this.enableLargLinteger.Location = new System.Drawing.Point(11, 157);
-            this.enableLargLinteger.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.enableLargLinteger.MaximumSize = new System.Drawing.Size(60, 25);
-            this.enableLargLinteger.MinimumSize = new System.Drawing.Size(60, 25);
-            this.enableLargLinteger.Name = "enableLargLinteger";
-            this.enableLargLinteger.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableLargLinteger.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableLargLinteger.Size = new System.Drawing.Size(60, 25);
-            this.enableLargLinteger.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
-            this.enableLargLinteger.TabIndex = 67;
-            // 
-            // enableAintegral
-            // 
-            this.enableAintegral.Location = new System.Drawing.Point(458, 157);
-            this.enableAintegral.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.enableAintegral.MaximumSize = new System.Drawing.Size(60, 25);
-            this.enableAintegral.MinimumSize = new System.Drawing.Size(60, 25);
-            this.enableAintegral.Name = "enableAintegral";
-            this.enableAintegral.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableAintegral.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableAintegral.Size = new System.Drawing.Size(60, 25);
-            this.enableAintegral.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
-            this.enableAintegral.TabIndex = 68;
-            // 
-            // enableLintegral
-            // 
-            this.enableLintegral.Location = new System.Drawing.Point(458, 198);
-            this.enableLintegral.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.enableLintegral.MaximumSize = new System.Drawing.Size(60, 25);
-            this.enableLintegral.MinimumSize = new System.Drawing.Size(60, 25);
-            this.enableLintegral.Name = "enableLintegral";
-            this.enableLintegral.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableLintegral.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableLintegral.Size = new System.Drawing.Size(60, 25);
-            this.enableLintegral.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
-            this.enableLintegral.TabIndex = 69;
-            this.enableLintegral.CheckedChanged += new JCS.ToggleSwitch.CheckedChangedDelegate(this.enableLintegral_CheckedChanged);
-            // 
-            // metroLabel7
-            // 
-            this.metroLabel7.AutoSize = true;
-            this.metroLabel7.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel7.Location = new System.Drawing.Point(77, 115);
-            this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(219, 20);
-            this.metroLabel7.TabIndex = 70;
-            this.metroLabel7.Text = "Largest eigen adjacency integer";
-            // 
-            // metroLabel8
-            // 
-            this.metroLabel8.AutoSize = true;
-            this.metroLabel8.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel8.Location = new System.Drawing.Point(77, 157);
-            this.metroLabel8.Name = "metroLabel8";
-            this.metroLabel8.Size = new System.Drawing.Size(213, 20);
-            this.metroLabel8.TabIndex = 71;
-            this.metroLabel8.Text = "Largest eigen laplacian integer";
-            // 
-            // metroLabel9
-            // 
-            this.metroLabel9.AutoSize = true;
-            this.metroLabel9.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel9.Location = new System.Drawing.Point(526, 157);
-            this.metroLabel9.Name = "metroLabel9";
-            this.metroLabel9.Size = new System.Drawing.Size(76, 20);
-            this.metroLabel9.TabIndex = 72;
-            this.metroLabel9.Text = "A-Integral";
-            // 
-            // metroLabel10
-            // 
-            this.metroLabel10.AutoSize = true;
-            this.metroLabel10.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel10.Location = new System.Drawing.Point(526, 198);
-            this.metroLabel10.Name = "metroLabel10";
-            this.metroLabel10.Size = new System.Drawing.Size(73, 20);
-            this.metroLabel10.TabIndex = 73;
-            this.metroLabel10.Text = "L-Integral";
-            // 
-            // enableLargQinteger
-            // 
-            this.enableLargQinteger.Location = new System.Drawing.Point(11, 198);
-            this.enableLargQinteger.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.enableLargQinteger.MaximumSize = new System.Drawing.Size(60, 25);
-            this.enableLargQinteger.MinimumSize = new System.Drawing.Size(60, 25);
-            this.enableLargQinteger.Name = "enableLargQinteger";
-            this.enableLargQinteger.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableLargQinteger.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableLargQinteger.Size = new System.Drawing.Size(60, 25);
-            this.enableLargQinteger.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
-            this.enableLargQinteger.TabIndex = 74;
-            // 
-            // metroLabel11
-            // 
-            this.metroLabel11.AutoSize = true;
-            this.metroLabel11.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel11.Location = new System.Drawing.Point(77, 239);
-            this.metroLabel11.Name = "metroLabel11";
-            this.metroLabel11.Size = new System.Drawing.Size(0, 0);
-            this.metroLabel11.TabIndex = 75;
-            // 
-            // enableSomeAinteger
-            // 
-            this.enableSomeAinteger.Location = new System.Drawing.Point(11, 237);
-            this.enableSomeAinteger.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.enableSomeAinteger.MaximumSize = new System.Drawing.Size(60, 25);
-            this.enableSomeAinteger.MinimumSize = new System.Drawing.Size(60, 25);
-            this.enableSomeAinteger.Name = "enableSomeAinteger";
-            this.enableSomeAinteger.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableSomeAinteger.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableSomeAinteger.Size = new System.Drawing.Size(60, 25);
-            this.enableSomeAinteger.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
-            this.enableSomeAinteger.TabIndex = 76;
-            // 
-            // metroLabel12
-            // 
-            this.metroLabel12.AutoSize = true;
-            this.metroLabel12.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel12.Location = new System.Drawing.Point(77, 198);
-            this.metroLabel12.Name = "metroLabel12";
-            this.metroLabel12.Size = new System.Drawing.Size(229, 20);
-            this.metroLabel12.TabIndex = 77;
-            this.metroLabel12.Text = "Largest eigen signless lap integer";
-            // 
-            // metroLabel13
-            // 
-            this.metroLabel13.AutoSize = true;
-            this.metroLabel13.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel13.Location = new System.Drawing.Point(77, 237);
-            this.metroLabel13.Name = "metroLabel13";
-            this.metroLabel13.Size = new System.Drawing.Size(209, 20);
-            this.metroLabel13.TabIndex = 78;
-            this.metroLabel13.Text = "Some eigen adjacency integer";
-            // 
-            // enableQintegral
-            // 
-            this.enableQintegral.Location = new System.Drawing.Point(458, 237);
-            this.enableQintegral.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.enableQintegral.MaximumSize = new System.Drawing.Size(60, 25);
-            this.enableQintegral.MinimumSize = new System.Drawing.Size(60, 25);
-            this.enableQintegral.Name = "enableQintegral";
-            this.enableQintegral.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableQintegral.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableQintegral.Size = new System.Drawing.Size(60, 25);
-            this.enableQintegral.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
-            this.enableQintegral.TabIndex = 79;
-            // 
-            // metroLabel14
-            // 
-            this.metroLabel14.AutoSize = true;
-            this.metroLabel14.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel14.Location = new System.Drawing.Point(526, 237);
-            this.metroLabel14.Name = "metroLabel14";
-            this.metroLabel14.Size = new System.Drawing.Size(77, 20);
-            this.metroLabel14.TabIndex = 81;
-            this.metroLabel14.Text = "Q-Integral";
-            // 
-            // metroLabel15
-            // 
-            this.metroLabel15.AutoSize = true;
-            this.metroLabel15.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel15.Location = new System.Drawing.Point(77, 278);
-            this.metroLabel15.Name = "metroLabel15";
-            this.metroLabel15.Size = new System.Drawing.Size(203, 20);
-            this.metroLabel15.TabIndex = 83;
-            this.metroLabel15.Text = "Some eigen laplacian integer";
-            // 
-            // enableSomeLinteger
-            // 
-            this.enableSomeLinteger.Location = new System.Drawing.Point(11, 278);
-            this.enableSomeLinteger.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.enableSomeLinteger.MaximumSize = new System.Drawing.Size(60, 25);
-            this.enableSomeLinteger.MinimumSize = new System.Drawing.Size(60, 25);
-            this.enableSomeLinteger.Name = "enableSomeLinteger";
-            this.enableSomeLinteger.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableSomeLinteger.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableSomeLinteger.Size = new System.Drawing.Size(60, 25);
-            this.enableSomeLinteger.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
-            this.enableSomeLinteger.TabIndex = 82;
-            // 
-            // metroLabel16
-            // 
-            this.metroLabel16.AutoSize = true;
-            this.metroLabel16.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel16.Location = new System.Drawing.Point(77, 317);
-            this.metroLabel16.Name = "metroLabel16";
-            this.metroLabel16.Size = new System.Drawing.Size(219, 20);
-            this.metroLabel16.TabIndex = 85;
-            this.metroLabel16.Text = "Some eigen signless lap integer";
-            // 
-            // enableSomeQinteger
-            // 
-            this.enableSomeQinteger.Location = new System.Drawing.Point(11, 317);
-            this.enableSomeQinteger.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.enableSomeQinteger.MaximumSize = new System.Drawing.Size(60, 25);
-            this.enableSomeQinteger.MinimumSize = new System.Drawing.Size(60, 25);
-            this.enableSomeQinteger.Name = "enableSomeQinteger";
-            this.enableSomeQinteger.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableSomeQinteger.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enableSomeQinteger.Size = new System.Drawing.Size(60, 25);
-            this.enableSomeQinteger.Style = JCS.ToggleSwitch.ToggleSwitchStyle.IOS5;
-            this.enableSomeQinteger.TabIndex = 84;
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1696, 1047);
+            this.ClientSize = new System.Drawing.Size(1272, 851);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.chkUpdBtn);
             this.Controls.Add(this.lblVersion);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MinimumSize = new System.Drawing.Size(720, 500);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(540, 406);
             this.Name = "Form1";
-            this.Padding = new System.Windows.Forms.Padding(20, 74, 20, 20);
+            this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
             this.Text = "Graph Filter";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -1314,24 +1332,24 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonExportTikZ;
         private MetroFramework.Controls.MetroLabel metroLabel16;
-        public JCS.ToggleSwitch enableSomeQinteger;
+        public JCS.ToggleSwitch enableSome_Q_integer;
         private MetroFramework.Controls.MetroLabel metroLabel15;
-        public JCS.ToggleSwitch enableSomeLinteger;
+        public JCS.ToggleSwitch enableSome_L_integer;
         private MetroFramework.Controls.MetroLabel metroLabel14;
-        public JCS.ToggleSwitch enableQintegral;
+        public JCS.ToggleSwitch enable_Q_integral;
         private MetroFramework.Controls.MetroLabel metroLabel13;
         private MetroFramework.Controls.MetroLabel metroLabel12;
-        public JCS.ToggleSwitch enableSomeAinteger;
+        public JCS.ToggleSwitch enableSome_A_integer;
         private MetroFramework.Controls.MetroLabel metroLabel11;
-        public JCS.ToggleSwitch enableLargQinteger;
+        public JCS.ToggleSwitch enableLarg_Q_integer;
         private MetroFramework.Controls.MetroLabel metroLabel10;
         private MetroFramework.Controls.MetroLabel metroLabel9;
         private MetroFramework.Controls.MetroLabel metroLabel8;
         private MetroFramework.Controls.MetroLabel metroLabel7;
-        public JCS.ToggleSwitch enableLintegral;
-        public JCS.ToggleSwitch enableAintegral;
-        public JCS.ToggleSwitch enableLargLinteger;
-        public JCS.ToggleSwitch enableLargAinteger;
+        public JCS.ToggleSwitch enable_L_integral;
+        public JCS.ToggleSwitch enable_A_integral;
+        public JCS.ToggleSwitch enableLarg_L_integer;
+        public JCS.ToggleSwitch enableLarg_A_integer;
     }
 }
 

@@ -45,17 +45,35 @@ namespace GraphFilter
                     if (form1.enableEq1.Checked)
                         condition = BuildLogic.EvaluateText(form1.textEquation1.Text, new Graph(g6Line));
                     if (form1.enableRegular.Checked)
-                        condition = condition && BuildLogic.ConditionRegular(new Graph(g6Line));
+                        condition = condition && InvariantBool.IsRegular.Calculate(new Graph(g6Line));
                     if (form1.enableRegularWithK.Checked)
-                        condition = condition && BuildLogic.ConditionRegularK(new Graph(g6Line), Convert.ToInt32(form1.paramRegularWithDegree.Text));
+                        condition = condition && InvariantBool.IsRegularWithDegree.Calculate(new Graph(g6Line), Convert.ToInt32(form1.paramRegularWithDegree.Text));
                     if (form1.enableIsConnected.Checked)
-                        condition = condition && BuildLogic.ConditionConnected(new Graph(g6Line));
+                        condition = condition && InvariantBool.IsConnected.Calculate(new Graph(g6Line));
                     if (form1.enableIsPlanar.Checked)
-                        condition = condition && BuildLogic.ConditionPlanar(new Graph(g6Line));
+                        condition = condition && InvariantBool.IsPlanar.Calculate(new Graph(g6Line));
                     if (form1.enableIsHamiltonian.Checked)
-                        condition = condition && BuildLogic.ConditionHamiltonian(new Graph(g6Line));
+                        condition = condition && InvariantBool.IsHamiltonian.Calculate(new Graph(g6Line));
                     if (form1.enableIsAcyclic.Checked)
-                        condition = condition && BuildLogic.ConditionAcyclic(new Graph(g6Line));
+                        condition = condition && InvariantBool.IsAcyclic.Calculate(new Graph(g6Line));
+                    if (form1.enableLarg_A_integer.Checked)
+                        condition = condition && InvariantBool.Largest_A_IsInteger.Calculate(new Graph(g6Line));
+                    if (form1.enableLarg_L_integer.Checked)
+                        condition = condition && InvariantBool.Largest_L_IsInteger.Calculate(new Graph(g6Line));
+                    if (form1.enableLarg_Q_integer.Checked)
+                        condition = condition && InvariantBool.Largest_Q_IsInteger.Calculate(new Graph(g6Line));
+                    if (form1.enable_A_integral.Checked)
+                        condition = condition && InvariantBool.A_integral.Calculate(new Graph(g6Line));
+                    if (form1.enable_L_integral.Checked)
+                        condition = condition && InvariantBool.L_integral.Calculate(new Graph(g6Line));
+                    if (form1.enable_Q_integral.Checked)
+                        condition = condition && InvariantBool.Q_integral.Calculate(new Graph(g6Line));
+                    if (form1.enableSome_A_integer.Checked)
+                        condition = condition && InvariantBool.SomeEig_A_integer.Calculate(new Graph(g6Line));
+                    if (form1.enableSome_L_integer.Checked)
+                        condition = condition && InvariantBool.SomeEig_L_integer.Calculate(new Graph(g6Line));
+                    if (form1.enableSome_Q_integer.Checked)
+                        condition = condition && InvariantBool.SomeEig_Q_integer.Calculate(new Graph(g6Line));
                     if (condition)
                     {
                         numberOfGraphsOut++;
@@ -85,17 +103,35 @@ namespace GraphFilter
                     if (form1.enableEq1.Checked)
                         condition = BuildLogic.EvaluateText(form1.textEquation1.Text, new Graph(g6Line));
                     if (form1.enableRegular.Checked)
-                        condition = condition && BuildLogic.ConditionRegular(new Graph(g6Line));
+                        condition = condition && InvariantBool.IsRegular.Calculate(new Graph(g6Line));
                     if (form1.enableRegularWithK.Checked)
-                        condition = condition && BuildLogic.ConditionRegularK(new Graph(g6Line), Convert.ToInt32(form1.paramRegularWithDegree.Text));
+                        condition = condition && InvariantBool.IsRegularWithDegree.Calculate(new Graph(g6Line), Convert.ToInt32(form1.paramRegularWithDegree.Text));
                     if (form1.enableIsConnected.Checked)
-                        condition = condition && BuildLogic.ConditionConnected(new Graph(g6Line));
+                        condition = condition && InvariantBool.IsConnected.Calculate(new Graph(g6Line));
                     if (form1.enableIsPlanar.Checked)
-                        condition = condition && BuildLogic.ConditionPlanar(new Graph(g6Line));
+                        condition = condition && InvariantBool.IsPlanar.Calculate(new Graph(g6Line));
                     if (form1.enableIsHamiltonian.Checked)
-                        condition = condition && BuildLogic.ConditionHamiltonian(new Graph(g6Line));
+                        condition = condition && InvariantBool.IsHamiltonian.Calculate(new Graph(g6Line));
                     if (form1.enableIsAcyclic.Checked)
-                        condition = condition && BuildLogic.ConditionAcyclic(new Graph(g6Line));
+                        condition = condition && InvariantBool.IsAcyclic.Calculate(new Graph(g6Line));
+                    if (form1.enableLarg_A_integer.Checked)
+                        condition = condition && InvariantBool.Largest_A_IsInteger.Calculate(new Graph(g6Line));
+                    if (form1.enableLarg_L_integer.Checked)
+                        condition = condition && InvariantBool.Largest_L_IsInteger.Calculate(new Graph(g6Line));
+                    if (form1.enableLarg_Q_integer.Checked)
+                        condition = condition && InvariantBool.Largest_Q_IsInteger.Calculate(new Graph(g6Line));
+                    if (form1.enable_A_integral.Checked)
+                        condition = condition && InvariantBool.A_integral.Calculate(new Graph(g6Line));
+                    if (form1.enable_L_integral.Checked)
+                        condition = condition && InvariantBool.L_integral.Calculate(new Graph(g6Line));
+                    if (form1.enable_Q_integral.Checked)
+                        condition = condition && InvariantBool.Q_integral.Calculate(new Graph(g6Line));
+                    if (form1.enableSome_A_integer.Checked)
+                        condition = condition && InvariantBool.SomeEig_A_integer.Calculate(new Graph(g6Line));
+                    if (form1.enableSome_L_integer.Checked)
+                        condition = condition && InvariantBool.SomeEig_L_integer.Calculate(new Graph(g6Line));
+                    if (form1.enableSome_Q_integer.Checked)
+                        condition = condition && InvariantBool.SomeEig_Q_integer.Calculate(new Graph(g6Line));
                     if (!condition) return g6Line;
                 }
                 form1.progressBar.Value++;

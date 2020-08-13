@@ -157,16 +157,16 @@ namespace GraphFilter.Invariants
             public static bool Calculate(Graph g)
             {
                 if (g.order == 0) return true;
-                Matrix<double> lMatrix = DenseMatrix.OfArray(Utils.Spectral.LaplacianMatrix(g));
+                Matrix<double> lMatrix = DenseMatrix.OfArray(Utils.Spectral.SignlessLaplacianMatrix(g));
                 Evd<double> evd = lMatrix.Evd(Symmetricity.Symmetric);
                 Vector<Complex> eigenvalues = evd.EigenValues;
                 double x = eigenvalues.ElementAt(g.order - 1).Real;
                 return Utils.Spectral.ApproxToInt(x) % 1 == 0;
             }
-            public string getName() { return "Largest Laplacian eigen Integer"; }
+            public string getName() { return "Largest Signless Laplacian eigen Integer"; }
         }
 
-        public class A_Integral
+        public class A_integral
         {
             public static bool Calculate(Graph g)
             {
@@ -204,9 +204,17 @@ namespace GraphFilter.Invariants
         {
             public static bool Calculate(Graph g)
             {
+                if (g.order == 0) return true;
+                Matrix<double> lMatrix = DenseMatrix.OfArray(Utils.Spectral.SignlessLaplacianMatrix(g));
+                Evd<double> evd = lMatrix.Evd(Symmetricity.Symmetric);
+                Vector<Complex> eigenvalues = evd.EigenValues;
+                foreach (Complex eig in eigenvalues)
+                {
+                    if (Utils.Spectral.ApproxToInt(eig.Real) % 1 != 0) return false;
+                }
                 return true;
             }
-            public string getName() { return "Integral Laplacian Spectrum"; }
+            public string getName() { return "Integral Signless Laplacian Spectrum"; }
         }
 
         public class SomeEig_A_integer
@@ -247,9 +255,17 @@ namespace GraphFilter.Invariants
         {
             public static bool Calculate(Graph g)
             {
+                if(g.order == 0) return true;
+                Matrix<double> lMatrix = DenseMatrix.OfArray(Utils.Spectral.SignlessLaplacianMatrix(g));
+                Evd<double> evd = lMatrix.Evd(Symmetricity.Symmetric);
+                Vector<Complex> eigenvalues = evd.EigenValues;
+                foreach (Complex eig in eigenvalues)
+                {
+                    if (Utils.Spectral.ApproxToInt(eig.Real) % 1 == 0) return true;
+                }
                 return false;
             }
-            public string getName() { return "Integral Laplacian Spectrum"; }
+            public string getName() { return "Integral Signless Laplacian Spectrum"; }
         }
     }
 }

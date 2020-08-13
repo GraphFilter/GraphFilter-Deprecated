@@ -862,18 +862,12 @@ namespace GraphFilter
             {
                 Graph g = new Graph(g6);
                 int n = g.order;
+                string tikZ = "\\begin{figure} \n\\begin{tikzpicture} \n\\graph[nodes ={draw, circle}, clockwise, radius = 2in, nodes, n = " + n + "]{";
+                for (int i = 0; i < n; i++) tikZ += i + ";";
 
-                string tikZ = "\\begin{tikzpicture}[transform shape,line width=0.2pt]\n" + "\\foreach" + " \\x in {1,...," + n
-                    + "}%\n" + "\\pgfmathparse{(x-1)*45+floor(" + "\\x/9)*22.5}\n" + "\\node[draw,circle,inner sep=0.25cm] (N-" + "\\x) at (" +
-                    "\\pgfmathresult:5.4cm) [thick] {};\n}";
+                foreach (int[] item in g.Edges()) tikZ += "\n" + "" + item[0] + "--" + item[1] + ";";
 
-                foreach (int[] item in g.Edges())
-                {
-                    tikZ = tikZ + "\n" + "\\path (" + item[0] + ") edge[-] (" + item[1] + ");";
-                }
-
-                tikZ += "\n" + "\\end{ tikzpicture}";
-
+                tikZ += "\n" + "}; \n" + "\\end{tikzpicture} \n\\caption{Graph} \n\\end{figure}";
                 if (string.IsNullOrEmpty(sfd.FileName) == false)
                 {
                     try
@@ -881,6 +875,7 @@ namespace GraphFilter
                         using (StreamWriter writer = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
                         {
                             writer.Write(tikZ);
+                            System.Windows.Forms.MessageBox.Show("Export in .tikz completed. \n Use the following header in the latex file: \n \n \\usepackage{tikz} \n \\usetikzlibrary{graphs,graphs.standard}");
                         }
                     }
                     catch (Exception)
@@ -893,12 +888,21 @@ namespace GraphFilter
             {
                 System.Windows.Forms.MessageBox.Show("Invalid g6!");
             }
-            
             //Modifiquei aqui para corrigir o aviso CA2000
             sfd.Dispose();
         }
 
         private void enableLintegral_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void enableLargAinteger_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void enableRegular_CheckedChanged_2(object sender, EventArgs e)
         {
 
         }

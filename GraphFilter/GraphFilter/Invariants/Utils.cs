@@ -15,7 +15,6 @@ namespace GraphFilter.Invariants
 {
     public class Utils
   {
-        
 
         public static void DFS(int v, bool[] visited, Graph g)
         {
@@ -109,7 +108,7 @@ namespace GraphFilter.Invariants
                 return laplacian;
             }
 
-            public static int[,] SignlessLaplacianMatrix(Graph g)
+            public static double[,] SignlessLaplacianMatrix(Graph g)
             {
                 int[,] laplacian = new int[g.order, g.order];
                 for (int i = 0; i < g.order; i++)
