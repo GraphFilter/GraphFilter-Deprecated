@@ -63,6 +63,56 @@ namespace GraphFilter.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ExportAllPNG {
+            get {
+                object obj = ResourceManager.GetObject("ExportAllPNG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ExportAllPNG1 {
+            get {
+                object obj = ResourceManager.GetObject("ExportAllPNG1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ExportAllPNG2 {
+            get {
+                object obj = ResourceManager.GetObject("ExportAllPNG2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ExportAllPNG3 {
+            get {
+                object obj = ResourceManager.GetObject("ExportAllPNG3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ExportAllPNG32 {
+            get {
+                object obj = ResourceManager.GetObject("ExportAllPNG32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IconeGraphFilter {
             get {
                 object obj = ResourceManager.GetObject("IconeGraphFilter", resourceCulture);
@@ -286,6 +336,16 @@ namespace GraphFilter.Properties {
         internal static System.Drawing.Bitmap print_32 {
             get {
                 object obj = ResourceManager.GetObject("print_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tikz32 {
+            get {
+                object obj = ResourceManager.GetObject("Tikz32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

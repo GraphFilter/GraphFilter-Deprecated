@@ -309,6 +309,7 @@
     <Analyzer Include="..\packages\Microsoft.NetCore.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetCore.CSharp.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetFramework.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.8\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\packages\ToggleSwitch.dll" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="GraphX_Utils\template.xaml">
@@ -390,6 +391,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="graphfilter.ico" />
+    <None Include="Resources\Tikz32.png" />
+    <None Include="Resources\ExportAllPNG32.png" />
+    <None Include="Resources\ExportAllPNG2.ico" />
+    <None Include="Resources\ExportAllPNG.png" />
+    <None Include="Resources\ExportAllPNG1.ico" />
+    <None Include="Resources\ExportAllPNG.ico" />
     <None Include="Resources\print_321.png" />
     <None Include="Resources\IconeGraphFilter.png" />
     <None Include="Resources\icons8_export_32.png" />

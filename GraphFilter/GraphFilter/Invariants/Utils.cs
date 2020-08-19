@@ -110,7 +110,7 @@ namespace GraphFilter.Invariants
 
             public static double[,] SignlessLaplacianMatrix(Graph g)
             {
-                int[,] laplacian = new int[g.order, g.order];
+                double[,] laplacian = new double[g.order, g.order];
                 for (int i = 0; i < g.order; i++)
                 {
                     for (int j = i; j < g.order; j++)
