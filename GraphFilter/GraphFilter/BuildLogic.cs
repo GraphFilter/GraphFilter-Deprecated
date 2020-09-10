@@ -40,13 +40,13 @@ namespace GraphFilter
         #region Equation and Conditon
         public static bool EvaluateText(string text, Graph g)
         {
-        if (text.Any()) return true;
+        if (!text.Any()) return true;
             //Alterei de text.count() == 0 para text.any()
-            ExpressionContext context = new ExpressionContext();
+         ExpressionContext context = new ExpressionContext();
             VariableCollection variables = context.Variables;
 
-            foreach (IInvariant invariant in InvariantNum.List())
-            {
+        foreach (IInvariant invariant in InvariantNum.List())
+        {
                 if (text.Contains(invariant.getCode() + "_G")) context.Variables[invariant.getCode() + "_G"] = invariant.Calculate(g);
                 if (text.Contains(invariant.getCode() + "_lG")) context.Variables[invariant.getCode() + "_lG"] = invariant.Calculate(Operation.Line(g));
                 if (text.Contains(invariant.getCode() + "_cG")) context.Variables[invariant.getCode() + "_cG"] = invariant.Calculate(Operation.Complement(g));
@@ -60,7 +60,7 @@ namespace GraphFilter
 
         public static bool ValidadeEquation(string text)
         {
-            if (text.Any()) return true;
+            if (!text.Any()) return true;
             //alterei para text.any() também
             ExpressionContext context = new ExpressionContext();
             VariableCollection variables = context.Variables;
