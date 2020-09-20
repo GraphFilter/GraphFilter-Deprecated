@@ -192,6 +192,11 @@ PublishScripts/
 *.nuget.props
 *.nuget.targets
 
+#external libs
+!**/[Pp]ackages/MaximumFlowProblem.dll
+!**/[Pp]ackages/Newtonsoft.Json.dll
+!**/[Pp]ackages/ToggleSwitch.dll
+
 # Microsoft Azure Build Output
 csx/
 *.build.csdef
