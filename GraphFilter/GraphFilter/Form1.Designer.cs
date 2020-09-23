@@ -123,7 +123,7 @@
             this.ColunaInvariant,
             this.ColunaResultado});
             this.listInvResults.Location = new System.Drawing.Point(153, 104);
-            this.listInvResults.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listInvResults.Margin = new System.Windows.Forms.Padding(2);
             this.listInvResults.MinimumSize = new System.Drawing.Size(322, 162);
             this.listInvResults.MultiSelect = false;
             this.listInvResults.Name = "listInvResults";
@@ -187,9 +187,9 @@
             this.groupBoxCondition.Controls.Add(this.enableRegular);
             this.groupBoxCondition.Controls.Add(this.paramRegularWithDegree);
             this.groupBoxCondition.Location = new System.Drawing.Point(0, 84);
-            this.groupBoxCondition.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxCondition.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxCondition.Name = "groupBoxCondition";
-            this.groupBoxCondition.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxCondition.Padding = new System.Windows.Forms.Padding(2);
             this.groupBoxCondition.Size = new System.Drawing.Size(463, 289);
             this.groupBoxCondition.TabIndex = 8;
             this.groupBoxCondition.TabStop = false;
@@ -209,7 +209,7 @@
             // enableSome_Q_integer
             // 
             this.enableSome_Q_integer.Location = new System.Drawing.Point(8, 258);
-            this.enableSome_Q_integer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.enableSome_Q_integer.Margin = new System.Windows.Forms.Padding(2);
             this.enableSome_Q_integer.MaximumSize = new System.Drawing.Size(45, 20);
             this.enableSome_Q_integer.MinimumSize = new System.Drawing.Size(45, 20);
             this.enableSome_Q_integer.Name = "enableSome_Q_integer";
@@ -233,7 +233,7 @@
             // enableSome_L_integer
             // 
             this.enableSome_L_integer.Location = new System.Drawing.Point(8, 226);
-            this.enableSome_L_integer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.enableSome_L_integer.Margin = new System.Windows.Forms.Padding(2);
             this.enableSome_L_integer.MaximumSize = new System.Drawing.Size(45, 20);
             this.enableSome_L_integer.MinimumSize = new System.Drawing.Size(45, 20);
             this.enableSome_L_integer.Name = "enableSome_L_integer";
@@ -257,7 +257,7 @@
             // enable_Q_integral
             // 
             this.enable_Q_integral.Location = new System.Drawing.Point(344, 193);
-            this.enable_Q_integral.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.enable_Q_integral.Margin = new System.Windows.Forms.Padding(2);
             this.enable_Q_integral.MaximumSize = new System.Drawing.Size(45, 20);
             this.enable_Q_integral.MinimumSize = new System.Drawing.Size(45, 20);
             this.enable_Q_integral.Name = "enable_Q_integral";
@@ -292,7 +292,7 @@
             // enableSome_A_integer
             // 
             this.enableSome_A_integer.Location = new System.Drawing.Point(8, 193);
-            this.enableSome_A_integer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.enableSome_A_integer.Margin = new System.Windows.Forms.Padding(2);
             this.enableSome_A_integer.MaximumSize = new System.Drawing.Size(45, 20);
             this.enableSome_A_integer.MinimumSize = new System.Drawing.Size(45, 20);
             this.enableSome_A_integer.Name = "enableSome_A_integer";
@@ -315,7 +315,7 @@
             // enableLarg_Q_integer
             // 
             this.enableLarg_Q_integer.Location = new System.Drawing.Point(8, 161);
-            this.enableLarg_Q_integer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.enableLarg_Q_integer.Margin = new System.Windows.Forms.Padding(2);
             this.enableLarg_Q_integer.MaximumSize = new System.Drawing.Size(45, 20);
             this.enableLarg_Q_integer.MinimumSize = new System.Drawing.Size(45, 20);
             this.enableLarg_Q_integer.Name = "enableLarg_Q_integer";
@@ -372,7 +372,7 @@
             // enable_L_integral
             // 
             this.enable_L_integral.Location = new System.Drawing.Point(344, 161);
-            this.enable_L_integral.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.enable_L_integral.Margin = new System.Windows.Forms.Padding(2);
             this.enable_L_integral.MaximumSize = new System.Drawing.Size(45, 20);
             this.enable_L_integral.MinimumSize = new System.Drawing.Size(45, 20);
             this.enable_L_integral.Name = "enable_L_integral";
@@ -386,7 +386,7 @@
             // enable_A_integral
             // 
             this.enable_A_integral.Location = new System.Drawing.Point(344, 128);
-            this.enable_A_integral.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.enable_A_integral.Margin = new System.Windows.Forms.Padding(2);
             this.enable_A_integral.MaximumSize = new System.Drawing.Size(45, 20);
             this.enable_A_integral.MinimumSize = new System.Drawing.Size(45, 20);
             this.enable_A_integral.Name = "enable_A_integral";
@@ -399,7 +399,7 @@
             // enableLarg_L_integer
             // 
             this.enableLarg_L_integer.Location = new System.Drawing.Point(8, 128);
-            this.enableLarg_L_integer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.enableLarg_L_integer.Margin = new System.Windows.Forms.Padding(2);
             this.enableLarg_L_integer.MaximumSize = new System.Drawing.Size(45, 20);
             this.enableLarg_L_integer.MinimumSize = new System.Drawing.Size(45, 20);
             this.enableLarg_L_integer.Name = "enableLarg_L_integer";
@@ -412,7 +412,7 @@
             // enableLarg_A_integer
             // 
             this.enableLarg_A_integer.Location = new System.Drawing.Point(8, 94);
-            this.enableLarg_A_integer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.enableLarg_A_integer.Margin = new System.Windows.Forms.Padding(2);
             this.enableLarg_A_integer.MaximumSize = new System.Drawing.Size(45, 20);
             this.enableLarg_A_integer.MinimumSize = new System.Drawing.Size(45, 20);
             this.enableLarg_A_integer.Name = "enableLarg_A_integer";
@@ -476,9 +476,9 @@
             this.metroLabel1.Location = new System.Drawing.Point(58, 59);
             this.metroLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(128, 19);
+            this.metroLabel1.Size = new System.Drawing.Size(119, 19);
             this.metroLabel1.TabIndex = 61;
-            this.metroLabel1.Text = "Regular with Order:";
+            this.metroLabel1.Text = "k-regular, with k=";
             // 
             // metroLabel2
             // 
@@ -494,7 +494,7 @@
             // enableIsAcyclic
             // 
             this.enableIsAcyclic.Location = new System.Drawing.Point(344, 94);
-            this.enableIsAcyclic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.enableIsAcyclic.Margin = new System.Windows.Forms.Padding(2);
             this.enableIsAcyclic.MaximumSize = new System.Drawing.Size(45, 20);
             this.enableIsAcyclic.MinimumSize = new System.Drawing.Size(45, 20);
             this.enableIsAcyclic.Name = "enableIsAcyclic";
@@ -507,7 +507,7 @@
             // enableIsPlanar
             // 
             this.enableIsPlanar.Location = new System.Drawing.Point(344, 61);
-            this.enableIsPlanar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.enableIsPlanar.Margin = new System.Windows.Forms.Padding(2);
             this.enableIsPlanar.MaximumSize = new System.Drawing.Size(45, 20);
             this.enableIsPlanar.MinimumSize = new System.Drawing.Size(45, 20);
             this.enableIsPlanar.Name = "enableIsPlanar";
@@ -520,7 +520,7 @@
             // enableIsHamiltonian
             // 
             this.enableIsHamiltonian.Location = new System.Drawing.Point(344, 28);
-            this.enableIsHamiltonian.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.enableIsHamiltonian.Margin = new System.Windows.Forms.Padding(2);
             this.enableIsHamiltonian.MaximumSize = new System.Drawing.Size(45, 20);
             this.enableIsHamiltonian.MinimumSize = new System.Drawing.Size(45, 20);
             this.enableIsHamiltonian.Name = "enableIsHamiltonian";
@@ -533,7 +533,7 @@
             // enableIsConnected
             // 
             this.enableIsConnected.Location = new System.Drawing.Point(344, 226);
-            this.enableIsConnected.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.enableIsConnected.Margin = new System.Windows.Forms.Padding(2);
             this.enableIsConnected.MaximumSize = new System.Drawing.Size(45, 20);
             this.enableIsConnected.MinimumSize = new System.Drawing.Size(45, 20);
             this.enableIsConnected.Name = "enableIsConnected";
@@ -546,7 +546,7 @@
             // enableRegularWithK
             // 
             this.enableRegularWithK.Location = new System.Drawing.Point(8, 60);
-            this.enableRegularWithK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.enableRegularWithK.Margin = new System.Windows.Forms.Padding(2);
             this.enableRegularWithK.MaximumSize = new System.Drawing.Size(45, 20);
             this.enableRegularWithK.MinimumSize = new System.Drawing.Size(45, 20);
             this.enableRegularWithK.Name = "enableRegularWithK";
@@ -560,7 +560,7 @@
             // enableRegular
             // 
             this.enableRegular.Location = new System.Drawing.Point(8, 28);
-            this.enableRegular.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.enableRegular.Margin = new System.Windows.Forms.Padding(2);
             this.enableRegular.MaximumSize = new System.Drawing.Size(45, 20);
             this.enableRegular.MinimumSize = new System.Drawing.Size(45, 20);
             this.enableRegular.Name = "enableRegular";
@@ -577,10 +577,10 @@
             // 
             // 
             this.paramRegularWithDegree.CustomButton.Image = null;
-            this.paramRegularWithDegree.CustomButton.Location = new System.Drawing.Point(8, 1);
-            this.paramRegularWithDegree.CustomButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.paramRegularWithDegree.CustomButton.Location = new System.Drawing.Point(10, 1);
+            this.paramRegularWithDegree.CustomButton.Margin = new System.Windows.Forms.Padding(2);
             this.paramRegularWithDegree.CustomButton.Name = "";
-            this.paramRegularWithDegree.CustomButton.Size = new System.Drawing.Size(13, 14);
+            this.paramRegularWithDegree.CustomButton.Size = new System.Drawing.Size(17, 17);
             this.paramRegularWithDegree.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.paramRegularWithDegree.CustomButton.TabIndex = 1;
             this.paramRegularWithDegree.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -588,8 +588,8 @@
             this.paramRegularWithDegree.CustomButton.Visible = false;
             this.paramRegularWithDegree.Enabled = false;
             this.paramRegularWithDegree.Lines = new string[0];
-            this.paramRegularWithDegree.Location = new System.Drawing.Point(240, 61);
-            this.paramRegularWithDegree.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.paramRegularWithDegree.Location = new System.Drawing.Point(181, 59);
+            this.paramRegularWithDegree.Margin = new System.Windows.Forms.Padding(2);
             this.paramRegularWithDegree.MaxLength = 32767;
             this.paramRegularWithDegree.Name = "paramRegularWithDegree";
             this.paramRegularWithDegree.PasswordChar = '\0';
@@ -609,7 +609,7 @@
             // 
             this.buttonSave.Enabled = false;
             this.buttonSave.Location = new System.Drawing.Point(4, 47);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(104, 24);
             this.buttonSave.TabIndex = 1;
@@ -621,7 +621,7 @@
             // 
             this.buttonSearch.Enabled = false;
             this.buttonSearch.Location = new System.Drawing.Point(0, 478);
-            this.buttonSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSearch.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(153, 32);
             this.buttonSearch.TabIndex = 4;
@@ -638,9 +638,9 @@
             this.groupBoxEq.Controls.Add(this.textEquation1);
             this.groupBoxEq.Controls.Add(this.label6);
             this.groupBoxEq.Location = new System.Drawing.Point(0, 376);
-            this.groupBoxEq.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxEq.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxEq.Name = "groupBoxEq";
-            this.groupBoxEq.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxEq.Padding = new System.Windows.Forms.Padding(2);
             this.groupBoxEq.Size = new System.Drawing.Size(439, 96);
             this.groupBoxEq.TabIndex = 7;
             this.groupBoxEq.TabStop = false;
@@ -649,7 +649,7 @@
             // enableEq1
             // 
             this.enableEq1.Location = new System.Drawing.Point(8, 46);
-            this.enableEq1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.enableEq1.Margin = new System.Windows.Forms.Padding(2);
             this.enableEq1.Name = "enableEq1";
             this.enableEq1.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.enableEq1.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -680,10 +680,10 @@
             // 
             // 
             this.textEquation1.CustomButton.Image = null;
-            this.textEquation1.CustomButton.Location = new System.Drawing.Point(222, 1);
-            this.textEquation1.CustomButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textEquation1.CustomButton.Location = new System.Drawing.Point(296, 1);
+            this.textEquation1.CustomButton.Margin = new System.Windows.Forms.Padding(2);
             this.textEquation1.CustomButton.Name = "";
-            this.textEquation1.CustomButton.Size = new System.Drawing.Size(44, 48);
+            this.textEquation1.CustomButton.Size = new System.Drawing.Size(59, 59);
             this.textEquation1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.textEquation1.CustomButton.TabIndex = 1;
             this.textEquation1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -693,7 +693,7 @@
             this.textEquation1.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.textEquation1.Lines = new string[0];
             this.textEquation1.Location = new System.Drawing.Point(78, 24);
-            this.textEquation1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textEquation1.Margin = new System.Windows.Forms.Padding(2);
             this.textEquation1.MaxLength = 32767;
             this.textEquation1.Multiline = true;
             this.textEquation1.Name = "textEquation1";
@@ -724,7 +724,7 @@
             // 
             this.wpfHost.BackColor = System.Drawing.Color.White;
             this.wpfHost.Location = new System.Drawing.Point(154, 70);
-            this.wpfHost.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.wpfHost.Margin = new System.Windows.Forms.Padding(2);
             this.wpfHost.Name = "wpfHost";
             this.wpfHost.Size = new System.Drawing.Size(482, 315);
             this.wpfHost.TabIndex = 52;
@@ -737,7 +737,7 @@
             this.listOfG6.FormattingEnabled = true;
             this.listOfG6.HorizontalScrollbar = true;
             this.listOfG6.Location = new System.Drawing.Point(4, 109);
-            this.listOfG6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listOfG6.Margin = new System.Windows.Forms.Padding(2);
             this.listOfG6.Name = "listOfG6";
             this.listOfG6.Size = new System.Drawing.Size(146, 277);
             this.listOfG6.TabIndex = 0;
@@ -751,7 +751,7 @@
             this.tabControl.Controls.Add(this.metroTabPage2);
             this.tabControl.FontSize = MetroFramework.MetroTabControlSize.Small;
             this.tabControl.Location = new System.Drawing.Point(17, 58);
-            this.tabControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(958, 581);
@@ -771,7 +771,7 @@
             this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.HorizontalScrollbarSize = 8;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 37);
-            this.metroTabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroTabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.metroTabPage1.Name = "metroTabPage1";
             this.metroTabPage1.Size = new System.Drawing.Size(950, 540);
             this.metroTabPage1.TabIndex = 0;
@@ -806,7 +806,7 @@
             // progressBar
             // 
             this.progressBar.Location = new System.Drawing.Point(0, 514);
-            this.progressBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.progressBar.Margin = new System.Windows.Forms.Padding(2);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(440, 32);
             this.progressBar.TabIndex = 52;
@@ -819,9 +819,9 @@
             this.groupBoxFiles.Controls.Add(this.buttonOpen);
             this.groupBoxFiles.Controls.Add(this.buttonSave);
             this.groupBoxFiles.Location = new System.Drawing.Point(0, 2);
-            this.groupBoxFiles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxFiles.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxFiles.Name = "groupBoxFiles";
-            this.groupBoxFiles.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxFiles.Padding = new System.Windows.Forms.Padding(2);
             this.groupBoxFiles.Size = new System.Drawing.Size(439, 81);
             this.groupBoxFiles.TabIndex = 1;
             this.groupBoxFiles.TabStop = false;
@@ -833,10 +833,10 @@
             // 
             // 
             this.textOutPath.CustomButton.Image = null;
-            this.textOutPath.CustomButton.Location = new System.Drawing.Point(226, 1);
-            this.textOutPath.CustomButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textOutPath.CustomButton.Location = new System.Drawing.Point(302, 1);
+            this.textOutPath.CustomButton.Margin = new System.Windows.Forms.Padding(2);
             this.textOutPath.CustomButton.Name = "";
-            this.textOutPath.CustomButton.Size = new System.Drawing.Size(13, 14);
+            this.textOutPath.CustomButton.Size = new System.Drawing.Size(17, 17);
             this.textOutPath.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.textOutPath.CustomButton.TabIndex = 1;
             this.textOutPath.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -845,7 +845,7 @@
             this.textOutPath.Enabled = false;
             this.textOutPath.Lines = new string[0];
             this.textOutPath.Location = new System.Drawing.Point(113, 50);
-            this.textOutPath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textOutPath.Margin = new System.Windows.Forms.Padding(2);
             this.textOutPath.MaxLength = 32767;
             this.textOutPath.Name = "textOutPath";
             this.textOutPath.PasswordChar = '\0';
@@ -866,10 +866,10 @@
             // 
             // 
             this.textSource.CustomButton.Image = null;
-            this.textSource.CustomButton.Location = new System.Drawing.Point(226, 1);
-            this.textSource.CustomButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textSource.CustomButton.Location = new System.Drawing.Point(302, 1);
+            this.textSource.CustomButton.Margin = new System.Windows.Forms.Padding(2);
             this.textSource.CustomButton.Name = "";
-            this.textSource.CustomButton.Size = new System.Drawing.Size(13, 14);
+            this.textSource.CustomButton.Size = new System.Drawing.Size(17, 17);
             this.textSource.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.textSource.CustomButton.TabIndex = 1;
             this.textSource.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -878,7 +878,7 @@
             this.textSource.Enabled = false;
             this.textSource.Lines = new string[0];
             this.textSource.Location = new System.Drawing.Point(113, 22);
-            this.textSource.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textSource.Margin = new System.Windows.Forms.Padding(2);
             this.textSource.MaxLength = 32767;
             this.textSource.Name = "textSource";
             this.textSource.PasswordChar = '\0';
@@ -896,7 +896,7 @@
             // buttonOpen
             // 
             this.buttonOpen.Location = new System.Drawing.Point(4, 16);
-            this.buttonOpen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonOpen.Margin = new System.Windows.Forms.Padding(2);
             this.buttonOpen.Name = "buttonOpen";
             this.buttonOpen.Size = new System.Drawing.Size(104, 24);
             this.buttonOpen.TabIndex = 0;
@@ -928,7 +928,7 @@
             this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.HorizontalScrollbarSize = 8;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 37);
-            this.metroTabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroTabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.metroTabPage2.Name = "metroTabPage2";
             this.metroTabPage2.Size = new System.Drawing.Size(950, 540);
             this.metroTabPage2.TabIndex = 1;
@@ -1005,7 +1005,7 @@
             // showInvariantsCheck
             // 
             this.showInvariantsCheck.Location = new System.Drawing.Point(798, 65);
-            this.showInvariantsCheck.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.showInvariantsCheck.Margin = new System.Windows.Forms.Padding(2);
             this.showInvariantsCheck.Name = "showInvariantsCheck";
             this.showInvariantsCheck.OffFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showInvariantsCheck.OnFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1018,7 +1018,7 @@
             // 
             this.openG6BtnViz.FontWeight = MetroFramework.MetroButtonWeight.Regular;
             this.openG6BtnViz.Location = new System.Drawing.Point(4, 37);
-            this.openG6BtnViz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.openG6BtnViz.Margin = new System.Windows.Forms.Padding(2);
             this.openG6BtnViz.MaximumSize = new System.Drawing.Size(112, 20);
             this.openG6BtnViz.MinimumSize = new System.Drawing.Size(112, 20);
             this.openG6BtnViz.Name = "openG6BtnViz";
@@ -1032,7 +1032,7 @@
             // 
             this.viewG6Btn.FontWeight = MetroFramework.MetroButtonWeight.Regular;
             this.viewG6Btn.Location = new System.Drawing.Point(4, 14);
-            this.viewG6Btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.viewG6Btn.Margin = new System.Windows.Forms.Padding(2);
             this.viewG6Btn.MaximumSize = new System.Drawing.Size(112, 20);
             this.viewG6Btn.MinimumSize = new System.Drawing.Size(112, 20);
             this.viewG6Btn.Name = "viewG6Btn";
@@ -1048,10 +1048,10 @@
             // 
             // 
             this.insertG6ToView.CustomButton.Image = null;
-            this.insertG6ToView.CustomButton.Location = new System.Drawing.Point(608, 2);
-            this.insertG6ToView.CustomButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.insertG6ToView.CustomButton.Location = new System.Drawing.Point(811, 2);
+            this.insertG6ToView.CustomButton.Margin = new System.Windows.Forms.Padding(2);
             this.insertG6ToView.CustomButton.Name = "";
-            this.insertG6ToView.CustomButton.Size = new System.Drawing.Size(11, 12);
+            this.insertG6ToView.CustomButton.Size = new System.Drawing.Size(15, 15);
             this.insertG6ToView.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.insertG6ToView.CustomButton.TabIndex = 1;
             this.insertG6ToView.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -1059,7 +1059,7 @@
             this.insertG6ToView.CustomButton.Visible = false;
             this.insertG6ToView.Lines = new string[0];
             this.insertG6ToView.Location = new System.Drawing.Point(121, 14);
-            this.insertG6ToView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.insertG6ToView.Margin = new System.Windows.Forms.Padding(2);
             this.insertG6ToView.MaxLength = 32767;
             this.insertG6ToView.Name = "insertG6ToView";
             this.insertG6ToView.PasswordChar = '\0';
@@ -1083,10 +1083,10 @@
             // 
             // 
             this.textOpenViz.CustomButton.Image = null;
-            this.textOpenViz.CustomButton.Location = new System.Drawing.Point(609, 2);
-            this.textOpenViz.CustomButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textOpenViz.CustomButton.Location = new System.Drawing.Point(812, 2);
+            this.textOpenViz.CustomButton.Margin = new System.Windows.Forms.Padding(2);
             this.textOpenViz.CustomButton.Name = "";
-            this.textOpenViz.CustomButton.Size = new System.Drawing.Size(11, 12);
+            this.textOpenViz.CustomButton.Size = new System.Drawing.Size(15, 15);
             this.textOpenViz.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.textOpenViz.CustomButton.TabIndex = 1;
             this.textOpenViz.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -1095,7 +1095,7 @@
             this.textOpenViz.Enabled = false;
             this.textOpenViz.Lines = new string[0];
             this.textOpenViz.Location = new System.Drawing.Point(121, 37);
-            this.textOpenViz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textOpenViz.Margin = new System.Windows.Forms.Padding(2);
             this.textOpenViz.MaxLength = 32767;
             this.textOpenViz.Name = "textOpenViz";
             this.textOpenViz.PasswordChar = '\0';
@@ -1221,7 +1221,7 @@
             this.chkUpdBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkUpdBtn.FontWeight = MetroFramework.MetroButtonWeight.Regular;
             this.chkUpdBtn.Location = new System.Drawing.Point(822, 37);
-            this.chkUpdBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkUpdBtn.Margin = new System.Windows.Forms.Padding(2);
             this.chkUpdBtn.MaximumSize = new System.Drawing.Size(150, 19);
             this.chkUpdBtn.MinimumSize = new System.Drawing.Size(150, 19);
             this.chkUpdBtn.Name = "chkUpdBtn";
@@ -1235,7 +1235,7 @@
             // 
             this.pictureBox1.Image = global::GraphFilter.Properties.Resources.IconeGraphFilter;
             this.pictureBox1.Location = new System.Drawing.Point(177, 14);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(58, 54);
             this.pictureBox1.TabIndex = 55;
@@ -1251,7 +1251,7 @@
             this.Controls.Add(this.chkUpdBtn);
             this.Controls.Add(this.lblVersion);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(540, 406);
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
