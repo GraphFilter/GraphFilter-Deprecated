@@ -1,7 +1,8 @@
 # GraphFilter
+<a href="https://doi.org/10.5281/zenodo.4047104"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.4047104.svg" alt="DOI"></a>
 
 ## Description
-The software proposes to filter a list of graphs (from Graph Theory) according to properties established by the user, allowing the visualization of the filtered graphs. It then provides assistance to graph theory researchers (and spectral graph theory) to establish or refute conjectures quickly and simply. The web page of the software is sistemas.jf.ifsudestemg.edu.br/graphfilter
+The software proposes to filter a list of graphs (from Graph Theory) according to properties established by the user, allowing the visualization of the filtered graphs. It then provides assistance to graph theory researchers (and spectral graph theory) to establish or refute conjectures quickly and simply. The web page of the software is [sistemas.jf.ifsudestemg.edu.br/graphfilter](sistemas.jf.ifsudestemg.edu.br/graphfilter).
 
 ## Installation
 It's done by executing the GraphFilter.msi file, the program is supported by any Windows (64bit)
@@ -56,5 +57,3 @@ more details about using the software can be found in the [user guide](http://si
 **[Denilson Paula de Oliveira Ribeiro](lattes.cnpq.br/3015094474391866)**, Graduating from Instituto Federal Sudeste de Minas Gerais – Juiz de Fora, denilsonrib9@gmail.com
 
 **[Lavínia Beghini de Castro](lattes.cnpq.br/4628343748028263)**, Graduating from Instituto Federal Sudeste de Minas Gerais – Juiz de Fora, lavinia.beghini@gmail.com
-
-## License <a href="https://doi.org/10.5281/zenodo.4047104"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.4047104.svg" alt="DOI"></a>
