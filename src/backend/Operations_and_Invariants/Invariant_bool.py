@@ -2,6 +2,7 @@ import networkx as nx
 import grinpy as gp
 import numpy.linalg as la
 import numpy as np
+import scipy.sparse as ss
 
 
 class Invariant_bool:
@@ -34,7 +35,7 @@ class Planar(Invariant_bool):
 
     @staticmethod
     def calculate(graph):
-        return nx.check_planarity(graph)
+        return nx.check_planarity(graph)[0]
 
 
 class Connected(Invariant_bool):
@@ -93,6 +94,20 @@ class Regular(Invariant_bool):
         return gp.is_regular(graph)
 
 
+class Clawfree(Invariant_bool):
+    name = 'Claw-free'
+
+    @staticmethod
+    def calculate(graph):
+        return gp.is_claw_free(graph)
+
+class Tree(Invariant_bool):
+    name = 'Tree'
+
+    @staticmethod
+    def calculate(graph):
+        return nx.is_tree(graph)
+
 class k_Regular(Invariant_bool):
     name = 'k-regular'
 
@@ -106,7 +121,8 @@ class Some_Aeigen_integer(Invariant_bool):
 
     @staticmethod
     def calculate(graph):
-        return Utils.Is_there_a_integer(la.eigvalsh(nx.adj_matrix(graph)))
+        matrix = ss.csc_matrix.toarray(nx.adj_matrix(graph))
+        return Utils.Is_there_a_integer(la.eigvalsh(matrix))
 
 
 class Some_Leigen_integer(Invariant_bool):
@@ -114,7 +130,8 @@ class Some_Leigen_integer(Invariant_bool):
 
     @staticmethod
     def calculate(graph):
-        return Utils.Is_there_a_integer(la.eigvalsh(nx.laplacian_matrix(graph)))
+        matrix = ss.csc_matrix.toarray(nx.laplacian_matrix(graph))
+        return Utils.Is_there_a_integer(la.eigvalsh(matrix))
 
 
 class Some_Qeigen_integer(Invariant_bool):
@@ -122,7 +139,8 @@ class Some_Qeigen_integer(Invariant_bool):
 
     @staticmethod
     def calculate(graph):
-        return Utils.Is_there_a_integer(la.eigvalsh(np.abs(nx.laplacian_matrix(graph))))
+        matrix = ss.csc_matrix.toarray(np.abs(nx.laplacian_matrix(graph)))
+        return Utils.Is_there_a_integer(la.eigvalsh(matrix))
 
 
 class Some_Deigen_integer(Invariant_bool):
@@ -138,7 +156,8 @@ class A_integral(Invariant_bool):
 
     @staticmethod
     def calculate(graph):
-        return Utils.Integral(la.eigvalsh(la.eigvalsh(nx.adj_matrix(graph))))
+        matrix = ss.csc_matrix.toarray(nx.adj_matrix(graph))
+        return Utils.Integral(la.eigvalsh(matrix))
 
 
 class L_integral(Invariant_bool):
@@ -146,7 +165,8 @@ class L_integral(Invariant_bool):
 
     @staticmethod
     def calculate(graph):
-        return Utils.Integral(la.eigvalsh(nx.laplacian_matrix(graph)))
+        matrix = ss.csc_matrix.toarray(nx.laplacian_matrix(graph))
+        return Utils.Integral(la.eigvalsh(matrix))
 
 
 class Q_integral(Invariant_bool):
@@ -154,7 +174,8 @@ class Q_integral(Invariant_bool):
 
     @staticmethod
     def calculate(graph):
-        return Utils.Integral(la.eigvalsh(np.abs(nx.laplacian_matrix(graph))))
+        matrix = ss.csc_matrix.toarray(np.abs(nx.laplacian_matrix(graph)))
+        return Utils.Integral(la.eigvalsh(matrix))
 
 
 class D_integral(Invariant_bool):
@@ -170,7 +191,8 @@ class Largest_Aeigen_integer(Invariant_bool):
 
     @staticmethod
     def calculate(graph):
-        return Utils.Is_a_integer(la.eigvalsh(nx.adj_matrix(graph))[nx.number_of_nodes(graph) - 1])
+        matrix = ss.csc_matrix.toarray(nx.adj_matrix(graph))
+        return Utils.Is_a_integer(la.eigvalsh(matrix)[nx.number_of_nodes(graph) - 1])
 
 
 class Largest_Leigen_integer(Invariant_bool):
@@ -178,7 +200,8 @@ class Largest_Leigen_integer(Invariant_bool):
 
     @staticmethod
     def calculate(graph):
-        return Utils.Is_a_integer(la.eigvalsh(nx.laplacian_matrix(graph))[nx.number_of_nodes(graph) - 1])
+        matrix = ss.csc_matrix.toarray(nx.laplacian_matrix(graph))
+        return Utils.Is_a_integer(la.eigvalsh(matrix)[nx.number_of_nodes(graph) - 1])
 
 
 class Largest_Qeigen_integer(Invariant_bool):
@@ -186,7 +209,8 @@ class Largest_Qeigen_integer(Invariant_bool):
 
     @staticmethod
     def calculate(graph):
-        return Utils.Is_a_integer(la.eigvalsh(np.abs(nx.laplacian_matrix(graph)))[nx.number_of_nodes(graph) - 1])
+        matrix = ss.csc_matrix.toarray(np.abs(nx.laplacian_matrix(graph)))
+        return Utils.Is_a_integer(la.eigvalsh(matrix)[nx.number_of_nodes(graph) - 1])
 
 
 class Largest_Deigen_integer(Invariant_bool):
@@ -201,8 +225,8 @@ class Utils:
 
     @staticmethod
     def Approx_to_int(number, error=0.00001):
-        if abs(int(number) - number) <= error:
-            return int(number)
+        if abs(round(number) - number) <= error:
+            return float(round(number))
         else:
             return number
 

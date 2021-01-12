@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import networkx as nx
 import numpy as np
 import numpy.linalg as la
+import scipy.sparse as ss
+from Operations_and_Invariants.Invariant_bool import Utils
 
 
 class Invariant_num:
@@ -16,23 +18,8 @@ class Invariant_num:
         for inv in self.all:
             for j in range(0, len(inv.code)):
                 self.dic_function[inv.code[j]] = inv.calculate
-        '''
-        data = pd.read_excel(os.path.abspath('invariants_data.xlsx'), sheet_name='Invariant_num')
-        
-        line = 0
-        for inv in self.all:
-            inv.defi = data.loc[line].at['Definition']
-            inv.link = data.loc[line].at['Link']
-            inv.implement = data.loc[line].at['Implementation']
-            line = line + 1
-            for j in range(0, len(inv.code)):
-                self.dic_function[inv.code[j]] = inv.calculate
-        '''
 
     name = None
-    defi = None
-    link = None
-    implement = None
 
     @staticmethod
     def Calculate(graph):
@@ -51,7 +38,6 @@ class Chromatic_number(Invariant_num):
 class Number_of_vertices(Invariant_num):
     name = "Number of vertices"
     code = ['n']
-    line = 2
 
     @staticmethod
     def calculate(graph):
@@ -178,12 +164,12 @@ class Vertex_Connectivity(Invariant_num):
 
 
 class Edge_Connectivity(Invariant_num):
-    name = "Vertex Connectivity"
-    code = ['lambda']
+    name = "Edge Connectivity"
+    code = ['econ']
 
     @staticmethod
     def calculate(graph):
-        return gp.edge_connectivity(graph)
+        return nx.edge_connectivity(graph)
 
 
 class Number_Componnents(Invariant_num):
@@ -251,7 +237,10 @@ class Diameter(Invariant_num):
 
     @staticmethod
     def calculate(graph):
-        return nx.diameter(graph)
+        if nx.is_connected(graph):
+            return nx.diameter(graph)
+        else:
+            return 10^10
 
 
 class Radius(Invariant_num):
@@ -269,8 +258,8 @@ class Largest_1_Eigen_A(Invariant_num):
 
     @staticmethod
     def calculate(graph):
-        return la.eigvalsh(nx.adj_matrix(graph))[nx.number_of_nodes(graph) - 1]
-
+        matrix = ss.csc_matrix.toarray(nx.adj_matrix(graph))
+        return Utils.Approx_to_int(la.eigvalsh(matrix)[nx.number_of_nodes(graph) - 1])
 
 class Largest_1_Eigen_L(Invariant_num):
     name = "Largest L-eigenvalue"
@@ -278,7 +267,8 @@ class Largest_1_Eigen_L(Invariant_num):
 
     @staticmethod
     def calculate(graph):
-        return la.eigvalsh(nx.laplacian_matrix(graph))[nx.number_of_nodes(graph) - 1]
+        matrix = ss.csc_matrix.toarray(nx.laplacian_matrix(graph))
+        return Utils.Approx_to_int(la.eigvalsh(matrix)[nx.number_of_nodes(graph) - 1])
 
 
 class Largest_1_Eigen_Q(Invariant_num):
@@ -287,7 +277,8 @@ class Largest_1_Eigen_Q(Invariant_num):
 
     @staticmethod
     def calculate(graph):
-        return la.eigvalsh(np.abs(nx.laplacian_matrix(graph)))[nx.number_of_nodes(graph) - 1]
+        matrix = ss.csc_matrix.toarray(np.abs(nx.laplacian_matrix(graph)))
+        return Utils.Approx_to_int(la.eigvalsh(np.abs(matrix))[nx.number_of_nodes(graph) - 1])
 
 
 class Largest_1_Eigen_D(Invariant_num):
@@ -296,7 +287,7 @@ class Largest_1_Eigen_D(Invariant_num):
 
     @staticmethod
     def calculate(graph):
-        return la.eigvalsh(nx.floyd_warshall_numpy(graph))[nx.number_of_nodes(graph) - 1]
+        return Utils.Approx_to_int(la.eigvalsh(nx.floyd_warshall_numpy(graph))[nx.number_of_nodes(graph) - 1])
 
 
 class AlgebraicConnectivity(Invariant_num):
@@ -305,7 +296,8 @@ class AlgebraicConnectivity(Invariant_num):
 
     @staticmethod
     def calculate(graph):
-        return nx.algebraic_connectivity(graph)
+        matrix = ss.csc_matrix.toarray(nx.laplacian_matrix(graph))
+        return Utils.Approx_to_int(la.eigvalsh(matrix)[1])
 
 
 class WienerIndex(Invariant_num):
@@ -314,7 +306,7 @@ class WienerIndex(Invariant_num):
 
     @staticmethod
     def calculate(graph):
-        return nx.wiener_index(graph)
+        return Utils.Approx_to_int(nx.wiener_index(graph))
 
 
 class EstradaIndex(Invariant_num):
@@ -323,7 +315,7 @@ class EstradaIndex(Invariant_num):
 
     @staticmethod
     def calculate(graph):
-        return nx.estrada_index(graph)
+        return Utils.Approx_to_int(nx.estrada_index(graph))
 
 
 class Nullity(Invariant_num):
@@ -340,13 +332,30 @@ class NumberOfSpanningTree(Invariant_num):
     code = ['t']
 
     @staticmethod
+    def submatrix(matrix):
+        n = matrix.shape[0]
+        new = np.zeros((n-1, n-1))
+        for i in range(0, n - 1):
+            for j in range(0, n - 1):
+                new[i, j] = matrix[i + 1, j + 1]
+        return new
+
+    @staticmethod
     def calculate(graph):
-        return la.det(np.delete(np.delete(nx.laplacian_matrix(graph), 0, 0), 0, 1))
+        return la.det(NumberOfSpanningTree.submatrix(nx.laplacian_matrix(graph)))
+
+
+class Density(Invariant_num):
+    name = 'Density'
+    code = ['den']
+
+    @staticmethod
+    def calculate(graph):
+        return nx.density(graph)
 
 
 if __name__ == '__main__':
-    I_bool = Invariant_num()
-    print(Nullity.defi)
-    print(Nullity.link)
-    print(Nullity.implement)
-    print(plt.title(r'$ \alpha $'))
+    a = np.arange(16).reshape(4, 4)
+    a = np.delete(a, 0, 0)
+    matrix = np.delete(a, 0, 1)
+    print(a)

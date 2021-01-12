@@ -6,20 +6,20 @@ from Operations_and_Invariants import Invariant_bool as ibool
 
 
 def Split_The_Expression(expression):
-    if "AND" in expression:
-        return expression.split("AND"), 'AND'
+    if "AND" in expression and "OR" in expression:
+        return 'error'
+    elif "AND" in expression:
+        return expression.replace(" ", "").split("AND"), 'AND'
+    elif "OR" in expression:
+        return expression.replace(" ", "").split("OR"), 'OR'
     else:
-        if "OR" in expression:
-            return expression.split("OR"), 'OR'
-        else:
-            return expression, 'SINGLE'
+        return expression.replace(" ", ""), 'SINGLE'
 
 
 class Filter:
 
     @staticmethod
     def Run(listG6_in, expression, list_inv_bool):
-        total = len(listG6_in)
         listG6_out = []
         functions = {}
         functions.update(inum.Invariant_num().dic_function)
@@ -27,8 +27,12 @@ class Filter:
         functions.update(op.Graph_operations().dic_function)
         expressions, AND_OR = Split_The_Expression(expression)
         count = 0
-        graph_satisfies = True
+        total = 0
         for g6code in listG6_in:
+            if g6code=='' or g6code==' ':
+                continue
+            total=total+1
+            graph_satisfies = True
             g = nx.from_graph6_bytes(g6code.encode('utf-8'))
             names = {"G": g, "g": g}
             # Check the expressions
@@ -48,16 +52,18 @@ class Filter:
             # Check the boolean invariants
             if graph_satisfies:
                 for bool_inv in list_inv_bool:
-                    if bool_inv==ibool.k_Regular:
+                    if bool_inv == ibool.k_Regular:
                         graph_satisfies = bool_inv.calculate(g, k=1)
                     else:
                         graph_satisfies = bool_inv.calculate(g)
                     if not graph_satisfies:
                         break
-                if graph_satisfies:
-                    listG6_out.append(g6code)
-                    count = count + 1
-        return listG6_out, count / total
+            if graph_satisfies:
+                listG6_out.append(g6code)
+                count = count + 1
+            else:
+                continue
+        return listG6_out, float(count / total)
 
     @staticmethod
     def FindCounterExample(listG6_in, expression, list_inv_bool):
