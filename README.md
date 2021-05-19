@@ -2,7 +2,7 @@
 <a href="https://doi.org/10.5281/zenodo.4047104"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.4047104.svg" alt="DOI"></a>
 
 ## New version
-This repository has been deprecated. The new version is in [GraphFilter](https://github.com/GraphFilter/GraphFilter)
+This repository has been deprecated. The new version in [GraphFilter](https://github.com/GraphFilter/GraphFilter)
 
 ## Description
 The software proposes to filter a list of graphs (from Graph Theory) according to properties established by the user, allowing the visualization of the filtered graphs. It then provides assistance to graph theory researchers (and spectral graph theory) to establish or refute conjectures quickly and simply. The web page of the software is [sistemas.jf.ifsudestemg.edu.br/graphfilter](http://sistemas.jf.ifsudestemg.edu.br/graphfilter/).
